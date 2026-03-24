@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Channel-Ready AE — B2B Channel Sales Training</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #181410;
+  --paper: #f9f6f0;
+  --warm: #f2ede3;
+  --white: #ffffff;
+  --gold: #9a6f0a;
+  --gold-mid: #c49020;
+  --gold-light: #e8c96a;
+  --gold-pale: #f5eacc;
+  --rule: #ddd5c0;
+  --muted: #7a6e5f;
+  --accent: #1e3a2f;
+  --blue: #1a2e4a;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--ink); color: #f0e8d8; font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.7; }
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(24,20,16,0.95); backdrop-filter: blur(8px);
+  border-bottom: 1px solid #2a2520;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 64px;
+}
+.nav-logo {
+  font-family: 'Libre Baskerville', serif; font-size: 17px; font-weight: 700;
+  color: #f0e8d8; text-decoration: none; letter-spacing: -0.3px;
+}
+.nav-logo span { color: var(--gold-mid); font-style: italic; }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1.5px;
+  color: #8a7d6b; text-decoration: none; text-transform: uppercase;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--gold-mid); }
+.nav-cta {
+  background: var(--gold-mid); color: var(--ink); padding: 9px 22px;
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; text-decoration: none; border-radius: 2px;
+  font-weight: 500; transition: background 0.15s;
+}
+.nav-cta:hover { background: var(--gold-light); }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 120px 48px 80px;
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(196,144,32,0.06) 0%, transparent 60%),
+    repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(196,144,32,0.02) 40px, rgba(196,144,32,0.02) 41px),
+    var(--ink);
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+  opacity: 0.3;
+}
+.hero-inner { max-width: 820px; }
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 4px;
+  color: var(--gold-mid); text-transform: uppercase; margin-bottom: 24px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-eyebrow::before {
+  content: ''; display: inline-block; width: 32px; height: 1px;
+  background: var(--gold-mid);
+}
+.hero h1 {
+  font-family: 'Libre Baskerville', serif; font-size: 64px; font-weight: 700;
+  line-height: 1.05; letter-spacing: -2px; margin-bottom: 24px;
+  color: #f0e8d8;
+}
+.hero h1 em { color: var(--gold-mid); font-style: italic; }
+.hero-sub {
+  font-size: 20px; color: #b0a090; font-weight: 300; line-height: 1.6;
+  max-width: 600px; margin-bottom: 48px;
+}
+.hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--gold-mid); color: var(--ink);
+  padding: 16px 36px; font-family: 'DM Mono', monospace;
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; font-weight: 500; border-radius: 2px;
+  transition: background 0.15s; display: inline-block;
+}
+.btn-primary:hover { background: var(--gold-light); }
+.btn-ghost {
+  color: #8a7d6b; padding: 16px 0;
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; text-decoration: none; border-bottom: 1px solid #3a322a;
+  transition: all 0.15s;
+}
+.btn-ghost:hover { color: var(--gold-mid); border-bottom-color: var(--gold-mid); }
+.hero-stats {
+  margin-top: 80px; display: flex; gap: 56px; flex-wrap: wrap;
+  padding-top: 40px; border-top: 1px solid #2a2520;
+}
+.hero-stat-val {
+  font-family: 'Libre Baskerville', serif; font-size: 36px; font-weight: 700;
+  color: var(--gold-mid); letter-spacing: -1px; line-height: 1;
+}
+.hero-stat-label {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px;
+  color: #4a4035; text-transform: uppercase; margin-top: 6px;
+}
+
+/* SECTIONS */
+section { padding: 100px 48px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 4px;
+  color: var(--gold-mid); text-transform: uppercase; margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Libre Baskerville', serif; font-size: 40px; font-weight: 700;
+  color: #f0e8d8; letter-spacing: -1px; line-height: 1.1; margin-bottom: 16px;
+}
+.section-title em { color: var(--gold-mid); font-style: italic; }
+.section-intro {
+  font-size: 18px; color: #8a7d6b; max-width: 560px; line-height: 1.7;
+  margin-bottom: 56px;
+}
+
+/* WHO IT'S FOR */
+.who { background: #0e0c09; }
+.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 56px; }
+.who-card {
+  background: #141210; padding: 36px 40px;
+}
+.who-card-label {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px;
+  color: #3a322a; text-transform: uppercase; margin-bottom: 16px;
+}
+.who-card h3 {
+  font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700;
+  color: #f0e8d8; margin-bottom: 12px; line-height: 1.2;
+}
+.who-card p { font-size: 15px; color: #7a6e5f; line-height: 1.7; }
+.who-card.highlight { background: #1e1a14; }
+.who-card.highlight h3 { color: var(--gold-mid); }
+
+/* PROGRAM */
+.program { background: var(--ink); }
+.phases { display: flex; flex-direction: column; gap: 0; margin-top: 56px; }
+.phase {
+  display: grid; grid-template-columns: 200px 1fr; gap: 48px;
+  padding: 48px 0; border-top: 1px solid #1e1a14;
+  align-items: start;
+}
+.phase:last-child { border-bottom: 1px solid #1e1a14; }
+.phase-number {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px;
+  color: var(--gold-mid); text-transform: uppercase;
+}
+.phase-duration {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  color: #3a322a; margin-top: 6px;
+}
+.phase h3 {
+  font-family: 'Libre Baskerville', serif; font-size: 26px; font-weight: 700;
+  color: #f0e8d8; letter-spacing: -0.5px; margin-bottom: 12px; line-height: 1.2;
+}
+.phase p { font-size: 15px; color: #7a6e5f; line-height: 1.8; margin-bottom: 20px; }
+.phase-modules {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;
+}
+.phase-module {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.5px;
+  color: #5a4e3f; background: #1a1510; padding: 5px 12px;
+  border: 1px solid #2a2520; border-radius: 2px;
+}
+
+/* AGENT ADD-ON */
+.agents { background: #0a0908; }
+.agents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 56px; }
+.agent-card {
+  background: #141210; padding: 32px;
+}
+.agent-icon {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px;
+  color: var(--gold-mid); text-transform: uppercase; margin-bottom: 16px;
+}
+.agent-card h4 {
+  font-family: 'Libre Baskerville', serif; font-size: 17px; font-weight: 700;
+  color: #f0e8d8; margin-bottom: 10px; line-height: 1.3;
+}
+.agent-card p { font-size: 13px; color: #5a4e3f; line-height: 1.7; }
+.agents-cta {
+  margin-top: 48px; padding: 40px; background: #141210;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 24px;
+}
+.agents-cta-copy h3 {
+  font-family: 'Libre Baskerville', serif; font-size: 22px; font-weight: 700;
+  color: #f0e8d8; margin-bottom: 6px;
+}
+.agents-cta-copy p { font-size: 14px; color: #6a5e4f; }
+.agents-price {
+  font-family: 'Libre Baskerville', serif; font-size: 32px; font-weight: 700;
+  color: var(--gold-mid);
+}
+.agents-price span {
+  font-family: 'DM Mono', monospace; font-size: 11px; color: #4a4035;
+  letter-spacing: 1px; display: block; margin-top: 2px;
+}
+
+/* PRICING */
+.pricing { background: var(--ink); }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 56px; }
+.pricing-card {
+  background: #141210; padding: 40px 36px; position: relative;
+  display: flex; flex-direction: column;
+}
+.pricing-card.featured {
+  background: #1e1a14; outline: 1px solid var(--gold-mid);
+}
+.pricing-badge {
+  position: absolute; top: -1px; right: 28px;
+  background: var(--gold-mid); color: var(--ink);
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; padding: 5px 12px; font-weight: 500;
+}
+.pricing-tier {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px;
+  color: #4a4035; text-transform: uppercase; margin-bottom: 20px;
+}
+.pricing-price {
+  font-family: 'Libre Baskerville', serif; font-size: 44px; font-weight: 700;
+  color: #f0e8d8; letter-spacing: -2px; line-height: 1; margin-bottom: 4px;
+}
+.pricing-price .cents { font-size: 24px; }
+.pricing-desc {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  color: #4a4035; margin-bottom: 28px; letter-spacing: 0.5px;
+}
+.pricing-divider {
+  height: 1px; background: #2a2520; margin: 24px 0;
+}
+.pricing-features { list-style: none; flex: 1; }
+.pricing-features li {
+  font-size: 14px; color: #7a6e5f; padding: 8px 0;
+  border-bottom: 1px solid #1a1510;
+  display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+}
+.pricing-features li::before {
+  content: '→'; color: var(--gold-mid);
+  font-family: 'DM Mono', monospace; font-size: 12px;
+  flex-shrink: 0; margin-top: 2px;
+}
+.pricing-features li:last-child { border-bottom: none; }
+.pricing-action { margin-top: 36px; }
+.pricing-action a {
+  display: block; text-align: center;
+  background: transparent; border: 1px solid #3a322a;
+  color: #7a6e5f; padding: 13px 20px;
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; text-decoration: none;
+  transition: all 0.15s; border-radius: 2px;
+}
+.pricing-action a:hover {
+  border-color: var(--gold-mid); color: var(--gold-mid);
+}
+.pricing-card.featured .pricing-action a {
+  background: var(--gold-mid); border-color: var(--gold-mid);
+  color: var(--ink);
+}
+.pricing-card.featured .pricing-action a:hover {
+  background: var(--gold-light); border-color: var(--gold-light);
+}
+.pricing-card.featured .pricing-price { color: var(--gold-mid); }
+
+/* FOUNDERS */
+.founders { background: #0a0908; }
+.founders-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 56px;
+}
+.founder-card {
+  padding: 40px; background: #141210;
+}
+.founder-name {
+  font-family: 'Libre Baskerville', serif; font-size: 28px; font-weight: 700;
+  color: #f0e8d8; letter-spacing: -0.5px; margin-bottom: 6px;
+}
+.founder-title {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px;
+  color: var(--gold-mid); text-transform: uppercase; margin-bottom: 20px;
+}
+.founder-bio { font-size: 15px; color: #7a6e5f; line-height: 1.8; margin-bottom: 24px; }
+.founder-credentials { list-style: none; }
+.founder-credentials li {
+  font-family: 'DM Mono', monospace; font-size: 11px; color: #4a4035;
+  padding: 6px 0; border-bottom: 1px solid #1a1510;
+  letter-spacing: 0.3px;
+}
+.founder-credentials li:last-child { border-bottom: none; }
+
+/* FINAL CTA */
+.final-cta {
+  background: linear-gradient(135deg, #1e1a14 0%, #141210 100%);
+  text-align: center; padding: 100px 48px;
+  border-top: 1px solid #2a2520;
+}
+.final-cta-eyebrow {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 4px;
+  color: var(--gold-mid); text-transform: uppercase; margin-bottom: 20px;
+}
+.final-cta h2 {
+  font-family: 'Libre Baskerville', serif; font-size: 48px; font-weight: 700;
+  color: #f0e8d8; letter-spacing: -1.5px; margin-bottom: 20px; line-height: 1.1;
+}
+.final-cta h2 em { color: var(--gold-mid); font-style: italic; }
+.final-cta p {
+  font-size: 18px; color: #7a6e5f; max-width: 480px;
+  margin: 0 auto 40px; line-height: 1.7;
+}
+.cohort-notice {
+  display: inline-block; margin-top: 24px;
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px;
+  color: #3a322a; text-transform: uppercase;
+}
+
+/* MODAL */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(10,9,8,0.92); z-index: 200;
+  align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: #141210; max-width: 520px; width: 90%;
+  padding: 48px; position: relative;
+  border: 1px solid #2a2520;
+}
+.modal-close {
+  position: absolute; top: 20px; right: 20px;
+  background: none; border: none; color: #4a4035; cursor: pointer;
+  font-family: 'DM Mono', monospace; font-size: 18px;
+  transition: color 0.15s;
+}
+.modal-close:hover { color: #f0e8d8; }
+.modal-eyebrow {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 4px;
+  color: var(--gold-mid); text-transform: uppercase; margin-bottom: 12px;
+}
+.modal h3 {
+  font-family: 'Libre Baskerville', serif; font-size: 28px; font-weight: 700;
+  color: #f0e8d8; letter-spacing: -0.5px; margin-bottom: 8px;
+}
+.modal p { font-size: 14px; color: #5a4e3f; margin-bottom: 28px; line-height: 1.7; }
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block; font-family: 'DM Mono', monospace; font-size: 9px;
+  letter-spacing: 2px; color: #4a4035; text-transform: uppercase; margin-bottom: 8px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; background: #0e0c09; border: 1px solid #2a2520;
+  color: #f0e8d8; padding: 12px 16px;
+  font-family: 'Lato', sans-serif; font-size: 14px; border-radius: 2px;
+  outline: none; transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold-mid); }
+.form-group select option { background: #141210; }
+.form-group textarea { height: 80px; resize: vertical; }
+.form-submit {
+  width: 100%; background: var(--gold-mid); color: var(--ink);
+  padding: 14px; font-family: 'DM Mono', monospace; font-size: 12px;
+  letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer;
+  font-weight: 500; border-radius: 2px; transition: background 0.15s; margin-top: 8px;
+}
+.form-submit:hover { background: var(--gold-light); }
+.form-note {
+  font-family: 'DM Mono', monospace; font-size: 9px;
+  color: #2a2520; text-align: center; margin-top: 14px; letter-spacing: 0.5px;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink); border-top: 1px solid #1a1510;
+  padding: 40px 48px; display: flex;
+  align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+}
+.footer-logo {
+  font-family: 'Libre Baskerville', serif; font-size: 15px; color: #3a322a;
+}
+.footer-logo span { color: var(--gold); font-style: italic; }
+.footer-copy {
+  font-family: 'DM Mono', monospace; font-size: 9px;
+  color: #2a2520; letter-spacing: 1.5px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 24px 60px; }
+  .hero h1 { font-size: 42px; }
+  section { padding: 72px 24px; }
+  .who-grid { grid-template-columns: 1fr; }
+  .phase { grid-template-columns: 1fr; gap: 16px; }
+  .agents-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .founders-grid { grid-template-columns: 1fr; }
+  .final-cta h2 { font-size: 32px; }
+  .agents-cta { flex-direction: column; align-items: flex-start; }
+  footer { padding: 32px 24px; flex-direction: column; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="#">Channel-<span>Ready</span> AE</a>
+  <ul class="nav-links">
+    <li><a href="#program">Program</a></li>
+    <li><a href="#agents">AI Agents</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#founders">Founders</a></li>
+  </ul>
+  <a class="nav-cta" href="#apply" onclick="openModal()">Apply Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Channel Sales Enablement</div>
+    <h1>Your AEs don't know<br>how to <em>work the channel.</em></h1>
+    <p class="hero-sub">
+      A 6-month cohort program that turns quota-carrying AEs into channel operators —
+      taught by two practitioners currently running partner ecosystems at scale.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#apply" onclick="openModal()">Apply for the Next Cohort</a>
+      <a class="btn-ghost" href="#program">See the curriculum →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-val">6</div>
+        <div class="hero-stat-label">Month Program</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">3</div>
+        <div class="hero-stat-label">Learning Phases</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">6</div>
+        <div class="hero-stat-label">AI Agents Included</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">$7.5K</div>
+        <div class="hero-stat-label">Team License</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="who" id="who">
+  <div class="section-inner">
+    <div class="section-eyebrow">Who This Is For</div>
+    <h2 class="section-title">Built for the gap<br>no one talks about.</h2>
+    <p class="section-intro">
+      Since 2023, channel teams have been cut at nearly every mid-market B2B tech company.
+      AEs inherited the partner motion with zero training. This is the program that closes that gap.
+    </p>
+    <div class="who-grid">
+      <div class="who-card highlight">
+        <div class="who-card-label">The Problem</div>
+        <h3>AEs who inherited the channel motion with no playbook</h3>
+        <p>Your AEs are managing CDW, SHI, Insight, and WWT relationships with instinct — not process. Deal registrations are falling through. QBRs have no structure. Partners are going to competitors who have a program.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-label">The Company Profile</div>
+        <h3>$10M–$75M ARR B2B tech companies</h3>
+        <p>You're growing fast enough that channel matters, but not big enough to have a dedicated CAM for every AE. Your team is closing deals through partners but leaving significant revenue on the table by not enabling them properly.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-label">The AE Profile</div>
+        <h3>Quota-carrying reps managing 5–15 partner relationships</h3>
+        <p>They know how to close direct. They don't know how deal registration actually works, how to structure a partner QBR, how to resolve partner conflict without blowing the relationship, or how to leverage a distributor's resources.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-label">The Outcome</div>
+        <h3>AEs who run the channel motion as a force multiplier</h3>
+        <p>After 6 months, your AEs treat their top 3 partners as an extension of their pipeline — not an administrative burden. Partner-sourced revenue increases. Deal reg quality improves. QBRs become pipeline generators instead of status reports.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="program" id="program">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Curriculum</div>
+    <h2 class="section-title">Three phases.<br>One <em>complete motion.</em></h2>
+    <p class="section-intro">
+      Each phase builds on the last. By Month 6, your AEs have a repeatable partner operating model
+      they can run independently — without a channel manager holding their hand.
+    </p>
+    <div class="phases">
+      <div class="phase">
+        <div>
+          <div class="phase-number">Phase 01</div>
+          <div class="phase-duration">Months 1–2</div>
+        </div>
+        <div>
+          <h3>Channel Foundations</h3>
+          <p>How the indirect channel actually works — distributor economics, partner tier structures, deal registration mechanics, and why partners choose one vendor over another. AEs learn how to think like a partner before they can influence one.</p>
+          <div class="phase-modules">
+            <span class="phase-module">Partner Ecosystem Maps</span>
+            <span class="phase-module">Deal Reg Mechanics</span>
+            <span class="phase-module">Distributor Economics</span>
+            <span class="phase-module">Partner Tier Psychology</span>
+            <span class="phase-module">VAR vs. MSP vs. SI Distinctions</span>
+            <span class="phase-module">First 90-Day Partner Plan</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase">
+        <div>
+          <div class="phase-number">Phase 02</div>
+          <div class="phase-duration">Months 3–4</div>
+        </div>
+        <div>
+          <h3>Operating the Channel Motion</h3>
+          <p>Live scenario practice: partner conflict resolution, competitive deal reg disputes, QBR facilitation, and co-selling mechanics. AEs work through real situations using our scenario library — 20+ cases built from actual field situations.</p>
+          <div class="phase-modules">
+            <span class="phase-module">QBR Structure &amp; Facilitation</span>
+            <span class="phase-module">Partner Conflict Playbooks</span>
+            <span class="phase-module">Co-Sell Motion</span>
+            <span class="phase-module">Competitive Deal Reg Defense</span>
+            <span class="phase-module">MDF Utilization</span>
+            <span class="phase-module">Escalation Framework</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase">
+        <div>
+          <div class="phase-number">Phase 03</div>
+          <div class="phase-duration">Months 5–6</div>
+        </div>
+        <div>
+          <h3>Scale and Self-Sufficiency</h3>
+          <p>Building a repeatable partner operating model your AEs own. Pipeline planning with partners, annual partner planning, distributor relationship management, and how to tier and prioritize a 10+ partner book without a dedicated channel manager.</p>
+          <div class="phase-modules">
+            <span class="phase-module">Annual Partner Planning</span>
+            <span class="phase-module">Partner Pipeline Reviews</span>
+            <span class="phase-module">Book Tiering &amp; Focus</span>
+            <span class="phase-module">Distributor Leverage</span>
+            <span class="phase-module">Partner Enablement Ownership</span>
+            <span class="phase-module">Channel-Ready Certification</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section class="agents" id="agents">
+  <div class="section-inner">
+    <div class="section-eyebrow">AI Agent Add-On</div>
+    <h2 class="section-title">Six agents that do<br>the <em>operational work</em> for them.</h2>
+    <p class="section-intro">
+      Available to graduates in Month 3+. Six Claude-powered agents connect to your AEs' existing
+      email and CRM — and handle the channel operations work that eats their time.
+    </p>
+    <div class="agents-grid">
+      <div class="agent-card">
+        <div class="agent-icon">Agent 01</div>
+        <h4>Email Triage</h4>
+        <p>Classifies and drafts responses to partner emails — deal reg inquiries, enablement requests, pricing questions — so AEs stay responsive without losing their day.</p>
+      </div>
+      <div class="agent-card">
+        <div class="agent-icon">Agent 02</div>
+        <h4>Deal Reg Processor</h4>
+        <p>Validates inbound deal registrations against CRM data, flags conflicts, routes to the right AE, and drafts the approval or escalation response.</p>
+      </div>
+      <div class="agent-card">
+        <div class="agent-icon">Agent 03</div>
+        <h4>Pipeline Tracker</h4>
+        <p>Weekly partner pipeline snapshots pulled from CRM. Flags deals that haven't moved in 21+ days and drafts the follow-up sequence for each.</p>
+      </div>
+      <div class="agent-card">
+        <div class="agent-icon">Agent 04</div>
+        <h4>QBR Prep</h4>
+        <p>Auto-assembles 90-day partner review packages from CRM data — prior quarter performance, open pipeline, next quarter targets — so QBRs run on facts, not memory.</p>
+      </div>
+      <div class="agent-card">
+        <div class="agent-icon">Agent 05</div>
+        <h4>Enablement Distributor</h4>
+        <p>Routes product collateral, competitive battlecards, and training materials to the right partner contacts by tier — automatically, when new content drops.</p>
+      </div>
+      <div class="agent-card">
+        <div class="agent-icon">Agent 06</div>
+        <h4>Conflict Detector</h4>
+        <p>Scans for duplicate deal registrations and territory overlaps before they become partner conflicts. Flags early so AEs can resolve before relationships break.</p>
+      </div>
+    </div>
+    <div class="agents-cta">
+      <div class="agents-cta-copy">
+        <h3>Built on your existing tools.</h3>
+        <p>Connects to Gmail or Outlook + Salesforce or HubSpot. Managed dashboard included. No IT overhaul required.</p>
+      </div>
+      <div>
+        <div class="agents-price">$400<span>per seat / per month</span></div>
+      </div>
+      <a class="btn-primary" href="#apply" onclick="openModal()">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-inner">
+    <div class="section-eyebrow">Investment</div>
+    <h2 class="section-title">Straightforward pricing.<br>No hidden <em>add-ons.</em></h2>
+    <p class="section-intro">
+      One-time program fee. Bi-weekly live cohort sessions included.
+      AI agents are an optional add-on after Month 3 of the program.
+    </p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier">Individual Seat</div>
+        <div class="pricing-price">$1,200</div>
+        <div class="pricing-desc">one AE / full 6-month program</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Full 3-phase curriculum access</li>
+          <li>20+ live scenario library</li>
+          <li>Group cohort sessions (bi-weekly)</li>
+          <li>Channel-Ready AE certificate</li>
+          <li>6-month program access</li>
+          <li>Slack community access</li>
+        </ul>
+        <div class="pricing-action">
+          <a href="#apply" onclick="openModal()">Apply for Individual Seat</a>
+        </div>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-tier">Team License</div>
+        <div class="pricing-price">$7,500</div>
+        <div class="pricing-desc">5–10 AEs / dedicated cohort</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Everything in Individual, plus:</li>
+          <li>Dedicated private cohort (your team only)</li>
+          <li>Custom scenario library for your partner ecosystem</li>
+          <li>Bi-weekly live sessions scheduled around your team</li>
+          <li>VP Sales quarterly check-in call</li>
+          <li>Agent add-on eligible at Month 3</li>
+        </ul>
+        <div class="pricing-action">
+          <a href="#apply" onclick="openModal()">Apply for Team License</a>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Enterprise</div>
+        <div class="pricing-price">$15K<span class="cents">+</span></div>
+        <div class="pricing-desc">15+ AEs / custom program</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Everything in Team, plus:</li>
+          <li>Custom curriculum built around your partner ecosystem</li>
+          <li>Carl or Natalie co-facilitates key sessions</li>
+          <li>Agent add-on for all seats at Month 3</li>
+          <li>QBR support: live partner QBR co-facilitation</li>
+          <li>Ongoing monthly advisory post-program</li>
+        </ul>
+        <div class="pricing-action">
+          <a href="#apply" onclick="openModal()">Contact for Enterprise</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section class="founders" id="founders">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Instructors</div>
+    <h2 class="section-title">Taught by practitioners.<br><em>Not consultants.</em></h2>
+    <p class="section-intro">
+      Both founders are actively running partner ecosystems right now.
+      Everything in this program comes from what's working in the field today.
+    </p>
+    <div class="founders-grid">
+      <div class="founder-card">
+        <div class="founder-name">Carl Clendenin</div>
+        <div class="founder-title">Sr. Channel Sales Executive, Toshiba</div>
+        <p class="founder-bio">
+          Carl manages the enterprise reseller ecosystem at Toshiba — including CDW, SHI, Insight,
+          Connection, Softchoice, Zones, ePlus, Presidio, and WWT. He's built the deal registration
+          process, QBR frameworks, and partner tiering model from scratch. He built this program
+          because he wished it existed 10 years ago.
+        </p>
+        <ul class="founder-credentials">
+          <li>Manages 9 of the top 10 national VARs directly</li>
+          <li>10+ years channel sales, distribution, and indirect motion</li>
+          <li>Built partner programs from zero at multiple companies</li>
+          <li>Grayslake, IL — Lake County</li>
+        </ul>
+      </div>
+      <div class="founder-card">
+        <div class="founder-name">Natalie Clendenin</div>
+        <div class="founder-title">Channel AE, Expel</div>
+        <p class="founder-bio">
+          Natalie runs the channel motion at Expel, a managed detection and response company
+          navigating a high-growth partner ecosystem. She brings the AE's-eye-view: what it
+          actually looks like to carry quota and manage partner relationships simultaneously
+          without a dedicated channel manager.
+        </p>
+        <ul class="founder-credentials">
+          <li>CRN Women of the Channel 2025</li>
+          <li>Channel AE at Expel (MDR / cybersecurity)</li>
+          <li>Specialist in MSSP and SI partner motions</li>
+          <li>Grayslake, IL — Lake County</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="apply">
+  <div class="final-cta-eyebrow">Next Cohort — Limited Seats</div>
+  <h2>Ready to run<br>a <em>real channel motion?</em></h2>
+  <p>Applications take 5 minutes. We'll follow up within 24 hours to schedule a 20-minute intro call.</p>
+  <a class="btn-primary" href="#" onclick="openModal(); return false;">Apply for the Next Cohort</a>
+  <div class="cohort-note" style="margin-top: 24px; font-family: 'DM Mono', monospace; font-size: 10px; color: #2a2520; letter-spacing: 1.5px;">
+    Team license cohorts capped at 2 active simultaneously — apply early.
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Channel-<span>Ready</span> AE</div>
+  <div class="footer-copy">© 2026 Partna Company LLC · Grayslake, IL · carlpartna@gmail.com</div>
+</footer>
+
+<!-- APPLICATION MODAL -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-eyebrow">Application</div>
+    <h3>Apply for the Next Cohort</h3>
+    <p>Tell us a bit about your team. We'll follow up within 24 hours to schedule a quick intro call.</p>
+    <form name="channel-ready-apply" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+      <input type="hidden" name="form-name" value="channel-ready-apply">
+      <input type="hidden" name="bot-field" style="display:none">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" name="name" placeholder="First and last name" required>
+      </div>
+      <div class="form-group">
+        <label>Work Email</label>
+        <input type="email" name="email" placeholder="you@company.com" required>
+      </div>
+      <div class="form-group">
+        <label>Company</label>
+        <input type="text" name="company" placeholder="Company name" required>
+      </div>
+      <div class="form-group">
+        <label>Program Interest</label>
+        <select name="program">
+          <option value="">Select one...</option>
+          <option value="individual">Individual Seat — $1,200</option>
+          <option value="team">Team License — $7,500 (5–10 AEs)</option>
+          <option value="enterprise">Enterprise — $15K+ (15+ AEs)</option>
+          <option value="agents">Just the AI Agent Add-On</option>
+          <option value="info">Just want more info</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>How many AEs would go through the program?</label>
+        <input type="text" name="ae_count" placeholder="e.g. 8">
+      </div>
+      <button type="submit" class="form-submit">Submit Application</button>
+      <div class="form-note">No commitment required. We'll reach out within 24 hours.</div>
+    </form>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  var modal = document.getElementById('applyModal');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  var modal = document.getElementById('applyModal');
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('applyModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+function handleSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var data = new FormData(form);
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(data).toString()
+  }).then(function() {
+    closeModal();
+    var confirmed = document.createElement('div');
+    confirmed.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#1e1a14;border:1px solid #c49020;color:#f0e8d8;padding:16px 32px;font-family:\'DM Mono\',monospace;font-size:11px;letter-spacing:1.5px;z-index:300;text-align:center;';
+    confirmed.textContent = 'APPLICATION RECEIVED — WE\'LL BE IN TOUCH WITHIN 24 HOURS';
+    document.body.appendChild(confirmed);
+    setTimeout(function() { confirmed.remove(); }, 5000);
+  }).catch(function() {
+    closeModal();
+    var msg = document.createElement('div');
+    msg.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#1e1a14;border:1px solid #c49020;color:#f0e8d8;padding:16px 32px;font-family:\'DM Mono\',monospace;font-size:11px;letter-spacing:1.5px;z-index:300;text-align:center;';
+    msg.textContent = 'APPLICATION RECEIVED — THANK YOU';
+    document.body.appendChild(msg);
+    setTimeout(function() { msg.remove(); }, 5000);
+  });
+}
+</script>
+
+</body>
+</html>
