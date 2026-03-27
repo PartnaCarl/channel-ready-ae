@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 01 — VAR Economics & Partner Structure — Channel-Ready AE</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;
+  --gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;
+  --rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;
+  --green:#1e3a2f;--green-light:#e8f4ee;
+  --red:#7a1e1e;--blue-pale:#e8f0f8;
+  --nat:#5a3a7a;--nat-bg:#f5f0fa;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
+
+.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
+.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
+.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
+.hero h1 em{color:var(--gold-light);font-style:italic;}
+.hero-sub{font-size:17px;color:#6a7a8a;max-width:580px;position:relative;margin-bottom:32px;}
+.hero-stats{display:flex;gap:40px;position:relative;flex-wrap:wrap;}
+.hero-stat{font-family:'DM Mono',monospace;}
+.hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
+.hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
+
+.ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.ref-bar.green-bar{background:#1a2a1a;}
+.ref-bar.blue-bar{background:#1a1a2a;}
+.ref-bar.purple-bar{background:#1a1a2a;}
+.ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
+.ref-text{font-size:13px;}
+
+.breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.breadcrumb a{text-decoration:none;}
+
+.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:0;z-index:20;overflow-x:auto;}
+.nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
+.nav-tab:hover{color:var(--accent);}
+.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
+
+.content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
+.panel{display:none;}
+.panel.active{display:block;}
+
+.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
+h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
+h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
+p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
+
+.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
+.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
+.callout strong{color:var(--gold-light);}
+.explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
+
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.pillar{border:1px solid var(--rule);background:var(--white);border-radius:4px;overflow:hidden;}
+.pillar-head{padding:14px 20px;display:flex;align-items:center;gap:10px;}
+.pillar-head.blue{background:var(--accent);color:white;}
+.pillar-head.green{background:var(--green);color:white;}
+.pillar-head.gold{background:var(--gold);color:var(--ink);}
+.pillar-head.dark{background:#2a2020;color:#f0e8d8;}
+.pillar-head.purple{background:var(--nat);color:white;}
+.pillar-icon{font-size:20px;}
+.pillar-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;font-weight:500;}
+.pillar-body{padding:16px 20px;}
+.pillar-body ul{list-style:none;margin:0;}
+.pillar-body li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:14px;color:#2e2820;display:flex;justify-content:space-between;align-items:start;gap:12px;}
+.pillar-body li:last-child{border-bottom:none;}
+.pillar-body li .tag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
+.tag-gold{background:var(--gold-pale);color:var(--gold);}
+.tag-blue{background:var(--blue-pale);color:var(--accent);}
+.tag-green{background:var(--green-light);color:var(--green);}
+
+.checklist{margin:20px 0;}
+.check-group{margin-bottom:20px;}
+.check-group-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--rule);}
+.check-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0ebe0;cursor:pointer;}
+.check-item:last-child{border-bottom:none;}
+.check-box{width:20px;height:20px;border:2px solid var(--rule);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;margin-top:2px;}
+.check-item.done .check-box{background:var(--green);border-color:var(--green);}
+.check-item.done .check-box::after{content:'✓';color:white;font-size:12px;font-weight:700;}
+.check-item.done .check-text{text-decoration:line-through;color:var(--muted);}
+.check-text{font-size:14px;color:#2e2820;line-height:1.5;}
+.check-note{font-size:12px;color:var(--muted);margin-top:3px;font-style:italic;}
+
+.timeline{position:relative;margin:24px 0;}
+.timeline::before{content:'';position:absolute;left:36px;top:0;bottom:0;width:2px;background:var(--rule);}
+.t-item{display:flex;gap:20px;margin-bottom:24px;position:relative;}
+.t-badge{width:72px;height:72px;border-radius:6px;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-family:'DM Mono',monospace;z-index:1;}
+.t-badge strong{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold-light);line-height:1;}
+.t-badge span{font-size:9px;color:#4a5060;letter-spacing:2px;margin-top:2px;}
+.t-body{background:var(--white);border:1px solid var(--rule);border-radius:4px;padding:14px 20px;flex:1;}
+.t-body h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:6px;}
+.t-body p{font-size:14px;margin:0;color:var(--muted);}
+
+.plays{margin:20px 0;}
+.play-card{border:1px solid var(--rule);border-radius:4px;margin-bottom:12px;overflow:hidden;}
+.play-head{display:grid;grid-template-columns:120px 1fr 100px 100px;gap:0;background:var(--ink);padding:12px 16px;align-items:center;}
+.play-tier{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;border-radius:20px;text-align:center;font-weight:500;}
+.tier-1{background:#1a2a3a;color:#6a9aba;}
+.tier-2{background:#1a2a1a;color:#6aba8a;}
+.tier-3{background:#2a1a2a;color:#ba8aba;}
+.play-name{font-family:'Libre Baskerville',serif;font-size:16px;color:#f0e8d8;padding-left:12px;}
+.play-signal{font-size:12px;color:#4a5060;text-align:right;}
+.play-value{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold-light);text-align:right;}
+.play-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
+.play-col{padding:14px 16px;border-right:1px solid var(--rule);}
+.play-col:last-child{border-right:none;}
+.play-col-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
+.play-col ul{list-style:none;}
+.play-col li{font-size:13px;color:#2e2820;padding:3px 0;padding-left:14px;position:relative;}
+.play-col li::before{content:'›';position:absolute;left:0;color:var(--gold);}
+
+.incentive-ladder{margin:20px 0;}
+.incentive-row{display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule);}
+.incentive-row:last-child{border-bottom:none;}
+.incentive-action{flex:1;font-size:14px;color:#2e2820;}
+.incentive-action strong{display:block;font-size:15px;margin-bottom:2px;}
+.incentive-action span{font-size:12px;color:var(--muted);}
+.incentive-amount{font-family:'DM Mono',monospace;font-size:18px;color:var(--green);font-weight:500;min-width:80px;text-align:right;}
+.incentive-bar-wrap{width:120px;height:6px;background:#e8e0d0;border-radius:3px;overflow:hidden;}
+.incentive-bar{height:100%;background:var(--green);border-radius:3px;transition:width 0.5s;}
+
+.email-box{background:var(--white);border:1px solid var(--rule);border-radius:4px;margin:20px 0;overflow:hidden;}
+.email-header{background:#f5f5f5;padding:12px 20px;border-bottom:1px solid var(--rule);}
+.email-header .field{display:flex;gap:12px;font-size:13px;color:var(--muted);margin-bottom:4px;}
+.email-header .field strong{color:var(--ink);min-width:40px;}
+.email-body{padding:20px;font-size:14px;color:#2e2820;line-height:1.8;white-space:pre-wrap;}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
+.card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
+.card.gold-top{border-top:3px solid var(--gold);}
+.card.blue-top{border-top:3px solid var(--accent);}
+.card.green-top{border-top:3px solid var(--green);}
+.card.red-top{border-top:3px solid var(--red);}
+.card.purple-top{border-top:3px solid var(--nat);}
+.card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
+.card p{font-size:13px;margin:0;color:var(--muted);}
+.card .big{font-family:'Libre Baskerville',serif;font-size:32px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px;}
+
+.progress-ring{display:flex;align-items:center;gap:24px;padding:20px 0;}
+.ring-wrap{position:relative;width:100px;height:100px;flex-shrink:0;}
+.ring-wrap svg{transform:rotate(-90deg);}
+.ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.ring-pct{font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700;color:var(--accent);}
+.ring-sub{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--muted);}
+.ring-details{flex:1;}
+.ring-details h4{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.ring-details p{font-size:14px;color:var(--muted);margin:0;}
+
+.milestone-track{display:flex;gap:0;margin:20px 0;overflow:hidden;border-radius:6px;border:1px solid var(--rule);}
+.ms{flex:1;padding:16px 12px;text-align:center;border-right:1px solid var(--rule);background:var(--white);transition:background 0.2s;}
+.ms:last-child{border-right:none;}
+.ms.done{background:#eaf4ee;}
+.ms.active{background:var(--blue-pale);}
+.ms-icon{font-size:18px;margin-bottom:6px;}
+.ms-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
+.ms.done .ms-label{color:var(--green);}
+.ms.active .ms-label{color:var(--accent);}
+.ms-status{font-size:11px;color:var(--muted);}
+.ms.done .ms-status{color:var(--green);}
+
+.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 0;}
+.contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
+.cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
+.cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
+.cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
+
+.bot-row{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 0;}
+.bot-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:3px;background:var(--blue-pale);color:var(--accent);}
+
+.footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
+.footer-brand em{color:var(--gold-light);}
+.footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
+
+@media(max-width:700px){
+  .hero{padding:40px 24px 36px;}
+  .hero h1{font-size:30px;}
+  .content{padding:32px 20px 60px;}
+  .pillars,.grid-2,.grid-3,.play-body,.play-head{grid-template-columns:1fr;}
+  .milestone-track{flex-wrap:wrap;}
+  .breadcrumb{padding:10px 24px;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Channel-Ready AE · Phase 1 · Module 01</div>
+  <h1>How Partners<br>Actually <em>Make Money</em>.</h1>
+  <div class="hero-sub">Before your first partner call, you need to understand the economics that drive every decision a VAR rep makes — margin, deal registration, services attach, and why your product is one of 200 competing for their attention.</div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>4</strong><span>Revenue Streams</span></div>
+    <div class="hero-stat"><strong>200+</strong><span>Vendor Relationships</span></div>
+    <div class="hero-stat"><strong>8–15%</strong><span>Typical HW Margin</span></div>
+    <div class="hero-stat"><strong>30–50%</strong><span>Services Margin</span></div>
+  </div>
+</div>
+
+<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Universal Framework</span><span class="ref-text" style="color:#6a7a9a;">Applies to CDW, SHI, Insight, Optiv, WWT, Presidio, and any national or regional VAR</span></div>
+
+<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
+  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
+  <span style="color:#2a3a2a;">›</span>
+  <span style="color:#6a9a6a;">Module 01 — VAR Economics & Partner Structure</span>
+  <span style="margin-left:auto;color:#2a3a2a;">← <a href="curriculum.html" style="color:#3a5a3a;">Back to Binder</a></span>
+</div>
+
+<div class="nav-tabs">
+  <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
+  <button class="nav-tab" onclick="showPanel('economics')">VAR Economics</button>
+  <button class="nav-tab" onclick="showPanel('orgchart')">Partner Org Chart</button>
+  <button class="nav-tab" onclick="showPanel('language')">Language Shift</button>
+  <button class="nav-tab" onclick="showPanel('checklist')">Pre-Meeting Checklist</button>
+  <button class="nav-tab" onclick="showPanel('templates')">Email Templates</button>
+</div>
+
+<div class="content">
+
+<div class="panel active" id="panel-overview">
+<div class="section-label">Why This Module Exists</div>
+<h2>Partners are not customers. Stop treating them like one.</h2>
+<div class="explain">If you walk into your first partner call sounding like a direct sales pitch, you won't get a second call. This module prevents that.</div>
+<p>Most AEs treat partners like customers — pitching product, pushing urgency, closing. Partners are independent businesses with their own P&L, their own priorities, and their own judgment about which vendors are worth their time. This module teaches you how they think, how they make money, and what that means for how you talk to them.</p>
+<p>You're about to learn the economics that explain every partner behavior you'll encounter: why some reps push your product and others ignore it, why deal registration matters more than your pitch deck, and why the partner's services business is more important to them than your product will ever be.</p>
+
+<div class="callout">
+  <div class="callout-tag">THE UNCOMFORTABLE TRUTH</div>
+  <strong>Your partner's rep does not care about your product.</strong> They care about making money, serving their customers, and not wasting time. Your job is to make selling your product the easiest, most profitable thing they do this week. If you can't do that, they'll sell the vendor who can.
+</div>
+
+<div class="grid-3">
+  <div class="card gold-top"><h4>What You'll Learn</h4><p>How VARs generate revenue — margin stacks, deal registration economics, services attach rates, and MDF. The financial model that explains every partner decision.</p></div>
+  <div class="card gold-top"><h4>What You'll Practice</h4><p>Mapping a partner's revenue model for your specific product. Identifying your services pull-through story. Writing a partner-first introduction email.</p></div>
+  <div class="card gold-top"><h4>What Changes After</h4><p>You stop pitching and start enabling. You lead with the partner's economics, not your features. Your first partner meeting goes from awkward to productive.</p></div>
+</div>
+</div>
+
+<div class="panel" id="panel-economics">
+<div class="section-label">The Money</div>
+<h2>Four ways a VAR rep earns on a deal.</h2>
+<p>Understanding these four revenue streams is the foundation of every conversation you'll have with a partner. When you know how they make money, you know how to position your product as a revenue opportunity — not a favor to you.</p>
+
+<div class="grid-2">
+  <div class="card blue-top">
+    <h4>1. Product Margin (8–15% hardware, 15–30% software)</h4>
+    <p>The base margin on selling your product. This is the least exciting revenue for a VAR rep — it's thin, competitive, and shrinking in most categories. Hardware margins have compressed for a decade. Software margins are better but require the rep to understand your licensing model. If your product margin is your only value proposition to the partner, you're losing to the vendor with better services attach.</p>
+  </div>
+  <div class="card blue-top">
+    <h4>2. Deal Registration Uplift (+5–15 points)</h4>
+    <p>When a partner registers a deal with you, they get additional margin protection — typically 5–15 percentage points above standard discount. This is the single most powerful financial incentive you control. A rep who registers a $100K deal at 25% margin (with deal reg) vs. 12% margin (without) is making $13,000 more on the same sale. That's why deal reg matters — and why you need to make the process fast and easy.</p>
+  </div>
+  <div class="card blue-top">
+    <h4>3. Services Attach (30–50% margin)</h4>
+    <p>This is where the real money is. A CDW rep selling a $50K hardware deal with $30K in attached services earns more on the services than the hardware. Services include: deployment, imaging, staging, managed services, monitoring, custom development, security architecture, and ongoing support. Your job as a vendor: make the services story obvious. Map your product to the partner's services portfolio before your first meeting.</p>
+  </div>
+  <div class="card blue-top">
+    <h4>4. SPIFs & Incentives (Variable)</h4>
+    <p>Vendor-funded bonuses for specific actions: $25 for attending training, $100 for scheduling a demo, $200 for a customer meeting, $300–$500 for a deal registration. These are cash payments on top of margin. They're small individually but they determine which vendor a rep thinks about first when a customer asks "what do you recommend?" SPIFs are the attention economy of channel sales.</p>
+  </div>
+</div>
+
+<h3>The Math That Matters</h3>
+<div class="callout">
+  <div class="callout-tag">EXAMPLE</div>
+  <strong>A $75K deal through a VAR with full services and deal reg:</strong><br><br>
+  Product margin (15% on $75K): <strong>$11,250</strong><br>
+  Deal reg uplift (additional 10%): <strong>$7,500</strong><br>
+  Services attach ($40K at 40% margin): <strong>$16,000</strong><br>
+  SPIF payment: <strong>$500</strong><br><br>
+  Total partner rep earnings: <strong>$35,250</strong> — and $16,000 of it came from services. That's why the partner's services story is more important to them than your product features.
+</div>
+</div>
+
+<div class="panel" id="panel-orgchart">
+<div class="section-label">Who Does What</div>
+<h2>The partner org chart — and what each level cares about.</h2>
+<p>You need relationships at three levels inside your partner. Each level has different priorities and different decision-making authority. Talk to the wrong level about the wrong topic and you waste both your time and theirs.</p>
+
+<div class="pillars">
+  <div class="pillar">
+    <div class="pillar-head blue"><div class="pillar-icon">👔</div><div class="pillar-title">VP of Partner Sales / GM</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>Sets vendor priorities for the entire division <span class="tag tag-blue">Strategic</span></li>
+        <li>Decides which vendors get incremental investment <span class="tag tag-blue">Budget</span></li>
+        <li>Cares about: total revenue, growth rate, strategic alignment <span class="tag tag-blue">KPIs</span></li>
+        <li>Your access: QBRs, annual planning, escalation path <span class="tag tag-blue">Cadence</span></li>
+        <li>Natalie's insight: "The VP evaluates you on whether you produce revenue AND whether you're easy to work with. Both matter equally." <span class="tag tag-blue">Reality</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-head green"><div class="pillar-icon">📋</div><div class="pillar-title">District Manager / Director</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>Controls where AMs spend their time — the bottleneck <span class="tag tag-green">Operational</span></li>
+        <li>Approves SPIF programs and co-sell campaign participation <span class="tag tag-green">Budget</span></li>
+        <li>Cares about: team utilization, pipeline per rep, deal velocity <span class="tag tag-green">KPIs</span></li>
+        <li>Your access: monthly syncs, Win Wire recipient, QBR attendee <span class="tag tag-green">Cadence</span></li>
+        <li>This is the person who tells their AMs "pay attention to [your company]" or doesn't <span class="tag tag-green">Reality</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-head gold"><div class="pillar-icon">🤝</div><div class="pillar-title">Account Manager / Inside Rep</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>Your day-to-day co-sell partner — where pipeline actually happens <span class="tag tag-gold">Operational</span></li>
+        <li>Carries 200+ vendor relationships — you are not top of mind <span class="tag tag-gold">Reality</span></li>
+        <li>Cares about: commission, ease of selling, customer satisfaction <span class="tag tag-gold">KPIs</span></li>
+        <li>Your access: weekly co-sell sessions, ad hoc deal support <span class="tag tag-gold">Cadence</span></li>
+        <li>The rep responds to: vendors who bring accounts, answer fast, and pay SPIFs on time <span class="tag tag-gold">Motivation</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-head dark"><div class="pillar-icon">🔧</div><div class="pillar-title">Solution Engineer / Architect</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>Technical validation — the SE gives the AM confidence to sell <span class="tag tag-gold">Technical</span></li>
+        <li>Participates in deep-dive trainings and demo support calls <span class="tag tag-gold">Enablement</span></li>
+        <li>Cares about: technical credibility, integration complexity, support quality <span class="tag tag-gold">KPIs</span></li>
+        <li>Your access: technical deep-dive sessions (Month 2+), deal-specific support <span class="tag tag-gold">Cadence</span></li>
+        <li>If the SE doesn't trust your product technically, the AM won't sell it <span class="tag tag-gold">Reality</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="explain">Start at the AM level. Build pipeline. Use pipeline data to earn the DM meeting. Use the DM relationship to get your Win Wire read. Use the Win Wire to stay on the VP's radar. This is the ascent — you don't start at the top.</div>
+</div>
+
+<div class="panel" id="panel-language">
+<div class="section-label">How You Talk</div>
+<h2>Stop selling to your partner. Start enabling them to sell for you.</h2>
+
+<div class="callout">
+  <div class="callout-tag">CORE INSIGHT</div>
+  <strong>Direct sales language: "I have a great opportunity for you."<br>
+  Partner language: "I have a customer in your territory who needs help — here's how we can work this together."</strong><br><br>
+  The shift is from pitching to serving. Partners respond to vendors who make their job easier, not vendors who add to their workload.
+</div>
+
+<h3>What to Say vs. What Not to Say</h3>
+<div class="grid-2">
+  <div class="card red-top">
+    <h4>❌ Don't Say This</h4>
+    <p>"Let me tell you about our amazing product."<br>
+    "We need to get some pipeline going."<br>
+    "Can you introduce me to your customers?"<br>
+    "We're the best in our category."<br>
+    "I want to schedule a deep-dive for your whole team."<br>
+    "Any pipeline updates?"</p>
+  </div>
+  <div class="card green-top">
+    <h4>✓ Say This Instead</h4>
+    <p>"I've got 3 accounts in your territory — can we look at them together?"<br>
+    "Here's how my product maps to the services your team already sells."<br>
+    "I'll submit the deal reg in your name — you get full margin protection."<br>
+    "What's your team's biggest focus this quarter? I want to see if we fit."<br>
+    "I'll keep this to 30 minutes and give your reps a reason to call me."<br>
+    "Here's what happened since last week — [specific account updates]."</p>
+  </div>
+</div>
+
+<h3>The Three Rules of Partner Communication</h3>
+<div class="grid-3">
+  <div class="card gold-top"><h4>Rule 1 — Lead with Their Economics</h4><p>Every conversation starts with what the partner gains — margin, services attach, SPIF payments. Your product features are supporting evidence, not the headline.</p></div>
+  <div class="card gold-top"><h4>Rule 2 — Bring Accounts, Not Pitches</h4><p>Never show up to a partner meeting without at least 3 named accounts to discuss. Accounts are currency. Pitches are noise. A partner rep who sees you bringing pipeline will take your calls.</p></div>
+  <div class="card gold-top"><h4>Rule 3 — Be the Easiest Vendor</h4><p>Fast email responses. Clean deal reg submissions. Accurate quotes. Simple battle cards. The partner rep chooses the vendor who makes their day easier — not the vendor with the best technology.</p></div>
+</div>
+</div>
+
+<div class="panel" id="panel-checklist">
+<div class="section-label">Preparation</div>
+<h2>Before your first partner meeting — the complete checklist.</h2>
+<div class="explain">Do not attend your first partner meeting without completing these items. An unprepared first meeting is worse than no meeting — it brands you as another time-wasting vendor in a rep's crowded inbox.</div>
+
+<div class="checklist" id="checklist">
+  <div class="check-group">
+    <div class="check-group-title">Research the Partner</div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Identify the partner's tier status with at least 3 competing vendors<div class="check-note">Tells you where you rank in their priority stack before you walk in.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Map the partner org chart: VP, DM, SM, and your assigned AM contacts — names, titles, LinkedIn<div class="check-note">You need names at every level. Start with the AM, but know who's above them.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Understand the partner's services portfolio — what do they sell alongside hardware/software?<div class="check-note">This is the key to everything. Their services attach is your lever for relevance.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Know the partner's current quarterly focus (earnings calls, press releases, partner portal)<div class="check-note">The Cord Principle (Module 03) starts here — map your product to their focus.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Review the partner's recent wins and press coverage — what are they bragging about?<div class="check-note">Reference their wins in conversation. It shows you did your homework and respect their business.</div></div></div>
+  </div>
+
+  <div class="check-group">
+    <div class="check-group-title">Prepare Your Materials</div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Build a 1-page battle card with qualification signals (not a product brochure)<div class="check-note">"SELL THIS IF: [3 customer signals]." One page. That's all a rep will read.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Map your product to the partner's services portfolio — where's the pull-through?<div class="check-note">Write one sentence: "When you sell [our product], you can attach [these services] worth $[X]."</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Pull 3–5 accounts in the partner's territory from your pipeline or ICP<div class="check-note">Never show up empty-handed. Accounts are currency. Bring them to every meeting.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Prepare your deal registration process overview (how fast, how simple, what margin)<div class="check-note">The partner's first question will be "what's the deal reg process?" Have the answer ready.</div></div></div>
+  </div>
+
+  <div class="check-group">
+    <div class="check-group-title">Set the Meeting Up for Success</div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Schedule 30 minutes max — not 60. Respect their time.<div class="check-note">A 60-minute first meeting signals you don't understand how busy partner reps are.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Write an agenda in 3 bullets: (1) intro, (2) 3 accounts to discuss, (3) how deal reg / SPIFs work<div class="check-note">Send the agenda in advance. Let them see you're bringing value, not a product pitch.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Prepare your "ask" — what do you specifically want from this meeting?<div class="check-note">"Can we review these 3 accounts and see if a joint call makes sense?" Not "can you sell my product?"</div></div></div>
+  </div>
+</div>
+
+<div style="margin-top:20px;padding:14px 20px;background:var(--warm);border:1px solid var(--rule);border-radius:4px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">
+  <span id="check-progress">0 of 13 items complete</span>
+</div>
+</div>
+
+<div class="panel" id="panel-templates">
+<div class="section-label">Communication Templates</div>
+<h2>The emails that open the door.</h2>
+<div class="explain">These templates are structured for a first-time vendor-partner interaction. Adapt the specifics — the structure and tone are what matter.</div>
+
+<h3>Template 1 — First Introduction to a New Partner AM</h3>
+<div class="email-box">
+  <div class="email-header">
+    <div class="field"><strong>To:</strong> [Partner AM Name]</div>
+    <div class="field"><strong>Subject:</strong> [Your Company] — intro + a few accounts in your territory</div>
+  </div>
+  <div class="email-body">Hi [Name],
+
+I'm [Your Name] at [Company] — I'll be your vendor contact going forward. Quick intro and a reason to connect:
+
+I've pulled 3 accounts in your territory that are either in my pipeline or match our ideal profile. I'd love 20 minutes to walk through them together.
+
+The accounts:
+→ [Account 1] — [1-sentence context]
+→ [Account 2] — [1-sentence context]
+→ [Account 3] — [1-sentence context]
+
+I'm not here to give you a product pitch — I'm here to help you close business. If any of these land, I'll submit the deal reg in your name and you'll get full margin protection plus our $[X] SPIF on registration.
+
+Does [day/time] work for a quick call?
+
+[Your Name]</div>
+</div>
+
+<h3>Template 2 — Introduction to Partner District Manager</h3>
+<div class="email-box">
+  <div class="email-header">
+    <div class="field"><strong>To:</strong> [Partner DM Name]</div>
+    <div class="field"><strong>Subject:</strong> [Your Company] × [Partner] — quick intro from your new vendor contact</div>
+  </div>
+  <div class="email-body">Hi [Name],
+
+I'm [Your Name], the [Your Title] at [Company] covering [territory/segment]. I'll be working with your AM team on [product category] opportunities.
+
+Quick context on what I bring to your team:
+→ [Your product] maps to [partner's services] — creating $[X] in services opportunity per deal
+→ I have [X] active accounts in your territory ready for joint pursuit
+→ Our deal reg process takes under 48 hours with [X]% margin protection
+
+I'd welcome 15 minutes to introduce myself, share what I'm seeing in the territory, and ask how your team prefers to work with vendor contacts. I want to be useful — not another inbox sender.
+
+Would any time this week or next work?
+
+[Your Name]</div>
+</div>
+
+<h3>Template 3 — Post-First-Meeting Follow-Up</h3>
+<div class="email-box">
+  <div class="email-header">
+    <div class="field"><strong>To:</strong> [Partner AM]</div>
+    <div class="field"><strong>Subject:</strong> Re: [Your Company] — next steps from our call</div>
+  </div>
+  <div class="email-body">Hi [Name],
+
+Thanks for the time today. Quick recap:
+
+ACCOUNTS WE DISCUSSED
+→ [Account 1]: You'll make the intro to [contact] — I'll send a draft email you can forward
+→ [Account 2]: I'm sending you the battle card and proposal template by EOD
+→ [Account 3]: We agreed this is a Tier 1 opportunity — I'll submit the deal reg today
+
+NEXT STEPS
+→ I'll set up our weekly 30-min co-sell slot — what day/time works best?
+→ Battle card and one-pager incoming today
+→ First deal reg submitted by EOB
+
+Talk soon,
+[Your Name]</div>
+</div>
+</div>
+
+
+
+<div class="contrib-row">
+  <span class="contrib-pill cp-carl">● CARL — Vendor-side economics (HPE, Toshiba)</span>
+  <span class="contrib-pill cp-nat">● NATALIE — Reseller-side economics (CDW alumni)</span>
+</div>
+
+<div class="bot-row">
+  <span class="bot-pill">Email Agent</span>
+  <span class="bot-pill">Deal Reg Agent</span>
+</div>
+
+<div class="footer">
+  <div>
+    <div class="footer-brand">Channel-<em>Ready</em> AE</div>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 01 · VAR ECONOMICS & PARTNER STRUCTURE · MARCH 2026</div>
+  </div>
+  <div class="footer-meta">
+    <div>CONFIDENTIAL</div>
+    <div>CARL & NATALIE CLENDENIN</div>
+  </div>
+</div>
+
+</div>
+
+<script>
+function showPanel(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+function toggleCheck(item) {
+  item.classList.toggle('done');
+  var total = document.querySelectorAll('.check-item').length;
+  var done = document.querySelectorAll('.check-item.done').length;
+  var el = document.getElementById('check-progress');
+  if (el) el.textContent = done + ' of ' + total + ' items complete' + (done === total ? ' — Complete! 🎯' : '');
+}
+</script>
+</body>
+</html>

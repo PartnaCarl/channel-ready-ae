@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Channel-Ready AE — Business Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;
+  --gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;
+  --rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;
+  --green:#1e3a2f;--green-bg:#eaf4ee;
+  --red:#7a1e1e;--red-bg:#fdf0f0;
+  --amber:#7a4a00;--amber-bg:#fff8ec;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
+
+/* COVER */
+.cover{
+  min-height:100vh;background:var(--ink);display:flex;flex-direction:column;
+  justify-content:space-between;padding:64px 80px;position:relative;overflow:hidden;
+}
+.cover::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(-45deg,transparent,transparent 70px,
+    rgba(184,134,11,0.03) 70px,rgba(184,134,11,0.03) 71px);
+}
+.cover-top{position:relative;display:flex;justify-content:space-between;align-items:start;}
+.cover-logo{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:#f0e8d8;}
+.cover-logo em{color:var(--gold-light);font-style:italic;}
+.cover-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;
+  color:#3a4050;text-transform:uppercase;}
+.cover-mid{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;
+  padding:80px 0 60px;}
+.cover-eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:5px;
+  color:var(--gold-light);text-transform:uppercase;margin-bottom:20px;}
+.cover h1{font-family:'Libre Baskerville',serif;font-size:68px;font-weight:700;
+  color:#f0e8d8;line-height:0.95;letter-spacing:-2px;margin-bottom:14px;}
+.cover h1 em{color:var(--gold-light);font-style:italic;}
+.cover-sub{font-size:19px;color:#5a6878;max-width:600px;line-height:1.6;margin-bottom:48px;}
+.cover-stats{display:flex;gap:0;border:1px solid #1e2230;border-radius:6px;overflow:hidden;
+  max-width:680px;}
+.cover-stat{flex:1;padding:20px 24px;border-right:1px solid #1e2230;}
+.cover-stat:last-child{border-right:none;}
+.cover-stat strong{display:block;font-family:'Libre Baskerville',serif;font-size:32px;
+  color:var(--gold-light);letter-spacing:-1px;line-height:1;}
+.cover-stat span{font-family:'DM Mono',monospace;font-size:9px;color:#2a3040;
+  letter-spacing:2px;text-transform:uppercase;margin-top:4px;display:block;}
+.cover-cta{display:inline-flex;align-items:center;gap:12px;padding:16px 32px;
+  background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:2px;text-decoration:none;font-weight:500;
+  border-radius:4px;transition:all 0.2s;margin-top:48px;width:fit-content;}
+.cover-cta:hover{background:#e8c050;}
+.cover-bottom{position:relative;display:flex;justify-content:space-between;align-items:end;
+  padding-top:24px;border-top:1px solid #1a1e2a;}
+.cover-founders{font-family:'DM Mono',monospace;font-size:10px;color:#2a3040;letter-spacing:1px;line-height:2;}
+.cover-founders strong{color:#4a6080;}
+.cover-date{font-family:'DM Mono',monospace;font-size:10px;color:#1e2230;letter-spacing:2px;text-align:right;}
+
+/* CONTENT */
+.page{max-width:1020px;margin:0 auto;padding:72px 64px 100px;}
+
+/* SECTION */
+.sec{margin-bottom:72px;}
+.sec-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;
+  color:var(--gold);text-transform:uppercase;margin-bottom:12px;
+  display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
+.sec h2{font-family:'Libre Baskerville',serif;font-size:34px;font-weight:700;
+  line-height:1.15;margin-bottom:20px;color:var(--ink);}
+.sec h3{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;
+  color:var(--accent);margin:32px 0 12px;}
+p{color:#2e2820;font-size:15px;margin-bottom:14px;line-height:1.75;}
+.pull{font-family:'Libre Baskerville',serif;font-size:22px;font-style:italic;
+  color:var(--ink);border-left:4px solid var(--gold-light);padding:16px 28px;
+  margin:24px 0;line-height:1.5;background:var(--white);}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:20px 0;}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin:20px 0;}
+.card{border:1px solid var(--rule);padding:22px;background:var(--white);border-radius:4px;}
+.card.gt{border-top:3px solid var(--gold);}
+.card.at{border-top:3px solid var(--accent);}
+.card.gnt{border-top:3px solid var(--green);}
+.card.rt{border-top:3px solid var(--red);}
+.card h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;
+  color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
+.card p{font-size:13px;margin:0;color:var(--muted);line-height:1.6;}
+.card .big{font-family:'Libre Baskerville',serif;font-size:36px;font-weight:700;
+  color:var(--gold);line-height:1;margin-bottom:6px;}
+.card .green{color:var(--green);font-weight:700;}
+.card .red{color:var(--red);}
+
+/* PROJECTION TABLE */
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;}
+thead tr{background:var(--ink);}
+thead th{padding:11px 16px;text-align:left;color:#c8b88a;font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:2px;font-weight:400;}
+tbody tr{border-bottom:1px solid var(--rule);}
+tbody tr:nth-child(even){background:var(--warm);}
+tbody td{padding:11px 16px;color:#2e2820;}
+tbody td.mono{font-family:'DM Mono',monospace;font-size:13px;}
+tbody td.pos{color:var(--green);font-weight:700;}
+tbody td.neg{color:var(--red);}
+tbody td.gold{color:var(--gold);font-weight:700;}
+tfoot tr{background:var(--gold-pale);border-top:2px solid var(--gold-light);}
+tfoot td{padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);}
+.tnote{font-size:12px;color:var(--muted);margin-top:6px;font-style:italic;}
+
+/* RISK TABLE */
+.risk-badge{display:inline-block;padding:2px 10px;border-radius:20px;
+  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;font-weight:500;}
+.risk-h{background:var(--red-bg);color:var(--red);}
+.risk-m{background:var(--amber-bg);color:var(--amber);}
+.risk-l{background:var(--green-bg);color:var(--green);}
+
+/* ROADMAP */
+.rm-item{display:grid;grid-template-columns:90px 1fr;margin-bottom:3px;}
+.rm-badge{background:var(--ink);display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:16px 10px;font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:2px;color:#3a4050;text-align:center;gap:3px;}
+.rm-badge strong{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold-light);
+  display:block;font-weight:700;letter-spacing:0;line-height:1;}
+.rm-body{background:var(--white);border:1px solid var(--rule);border-left:3px solid var(--accent);
+  padding:14px 20px;}
+.rm-body h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;
+  color:var(--accent);text-transform:uppercase;margin-bottom:5px;}
+.rm-body p{font-size:13px;color:var(--muted);margin:0;line-height:1.6;}
+
+/* EXEC CALLOUT */
+.exec-box{background:var(--gold-pale);border:1px solid var(--gold-light);
+  border-left:4px solid var(--gold-light);padding:28px 32px;margin:28px 0;}
+.exec-box p{color:#3a2810;margin-bottom:10px;font-size:15px;}
+.exec-box p:last-child{margin:0;}
+
+/* FOUNDERS */
+.founder-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.founder-card{border:1px solid var(--rule);padding:24px;background:var(--white);
+  border-top:3px solid var(--accent);}
+.founder-name{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;margin-bottom:4px;}
+.founder-role{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;
+  color:var(--muted);text-transform:uppercase;margin-bottom:14px;}
+
+/* ENTER CTA */
+.enter-block{background:var(--ink);padding:56px 64px;margin:72px -64px -100px;
+  display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.enter-block h2{font-family:'Libre Baskerville',serif;font-size:32px;color:#f0e8d8;
+  font-weight:700;max-width:480px;line-height:1.2;}
+.enter-block h2 em{color:var(--gold-light);font-style:italic;}
+.enter-cta-group{display:flex;flex-direction:column;gap:12px;flex-shrink:0;}
+.enter-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;
+  font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;
+  text-decoration:none;border-radius:4px;transition:all 0.2s;font-weight:500;}
+.enter-primary{background:var(--gold-light);color:var(--ink);}
+.enter-primary:hover{background:#e8c050;}
+.enter-secondary{background:transparent;border:1px solid #2a3040;color:#5a6878;}
+.enter-secondary:hover{border-color:#4a6080;color:#8aaac8;}
+
+@media(max-width:800px){
+  .cover{padding:40px 32px;}
+  .cover h1{font-size:42px;}
+  .cover-stats{flex-direction:column;}
+  .cover-stat{border-right:none;border-bottom:1px solid #1e2230;}
+  .page{padding:48px 28px 72px;}
+  .g2,.g3,.g4,.founder-grid{grid-template-columns:1fr;}
+  .enter-block{padding:40px 28px;margin:48px -28px -72px;flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">Channel-<em>Ready</em> AE</div>
+    <div class="cover-tag">Confidential Business Plan · March 2026</div>
+  </div>
+
+  <div class="cover-mid">
+    <div class="cover-eyebrow">Built by practitioners. For startup AEs.</div>
+    <h1>The channel<br><em>playbook</em><br>startups need.</h1>
+    <div class="cover-sub">A 6-month enablement program that teaches startup founders and AEs how to build and run a partner channel motion — without hiring for it first.</div>
+
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <strong>$108K</strong>
+        <span>Year 1 Target</span>
+      </div>
+      <div class="cover-stat">
+        <strong>$319K</strong>
+        <span>Year 2 Target</span>
+      </div>
+      <div class="cover-stat">
+        <strong>12</strong>
+        <span>Modules Built</span>
+      </div>
+      <div class="cover-stat">
+        <strong>8</strong>
+        <span>AI Agents</span>
+      </div>
+      <div class="cover-stat">
+        <strong>Mo. 8</strong>
+        <span>Break-Even</span>
+      </div>
+    </div>
+
+    <a class="cover-cta" href="index.html">Enter Curriculum Binder →</a>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-founders">
+      <strong>Carl Clendenin</strong> Sr. Channel Sales Executive · Toshiba GCS<br>
+      <strong>Natalie Visconti-Clendenin</strong> Director, Channel Partners · Expel · CRN Women of the Channel 2025
+    </div>
+    <div class="cover-date">
+      <div>VERSION 1.0</div>
+      <div>MARCH 2026</div>
+      <div>CONFIDENTIAL</div>
+    </div>
+  </div>
+</div>
+
+<!-- BUSINESS PLAN CONTENT -->
+<div class="page">
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="sec">
+  <div class="sec-label">Executive Summary</div>
+  <h2>The one-page version.</h2>
+  <div class="exec-box">
+    <p><strong>Channel-Ready AE</strong> is a B2B enablement company that licenses a 6-month training program to technology startups that want to build their first channel partner motion — without hiring a dedicated channel manager first. The program teaches founders, VPs of Sales, and account executives how to identify their first VAR partner, structure the relationship, manage deal registrations, run co-sell motions, and sustain a partner ecosystem with the bandwidth of a lean sales team.</p>
+    <p>The curriculum is built from 20+ years of real practitioner IP: actual QBRs, live joint business plans, co-sell campaign frameworks, deal registration data, incentive structures, and sales plays from Carl and Natalie's combined careers at Toshiba, Expel, HPE, CDW, LastPass, Okta, Varonis, and Juniper. All 12 modules are built and live. The AI agent add-on — 8 named agents, 24 underlying task agents, 3 unlock tiers — is in development as a separate product.</p>
+    <p>Revenue is generated through seat-based licensing ($1,200/individual, $5,000–$10,000/team) with a recurring AI agent add-on ($300–$500/seat/month) available after Month 3. Year 1 target: <strong>$108,000</strong>. Year 2 with recurring agent subscriptions: <strong>$319,000</strong>. Break-even at Month 8 from first sale.</p>
+  </div>
+
+  <div class="g4">
+    <div class="card gt"><div class="big">$108K</div><h4>Year 1 Revenue</h4><p>Licensing only. Base case: 2–3 team licenses/month by Month 6.</p></div>
+    <div class="card gt"><div class="big">$319K</div><h4>Year 2 Revenue</h4><p>Licensing + recurring agent subscriptions scaling through H2.</p></div>
+    <div class="card gt"><div class="big">Mo. 8</div><h4>Full Break-Even</h4><p>All startup costs recovered. Monthly burn: $342/mo.</p></div>
+    <div class="card gt"><div class="big">88%</div><h4>Gross Margin</h4><p>Team license tier. Agent tier ~65% after Claude API costs.</p></div>
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<div class="sec">
+  <div class="sec-label">The Problem</div>
+  <h2>Startups get approached by CDW. They have no idea what to do.</h2>
+  <p>Technology companies at the seed-to-Series B stage routinely get inbound from national VARs — CDW, SHI, Insight, Softchoice. These relationships can generate meaningful revenue. But the team has no framework for responding. They don't know what a deal registration is, how VAR economics work, what a co-sell motion looks like, or how to run a QBR when they have two pipeline items and no historical data.</p>
+  <div class="pull">"The typical startup moment: a CDW rep emails your founder. Your team freezes because nobody knows what to do next. We built this program to fix that moment."</div>
+  <div class="g2">
+    <div class="card rt"><h4>The Training Gap</h4><p>Sandler, MEDDIC, Challenger, and SPIN Selling all teach direct sales. None address the co-sell and indirect channel motion now expected of AEs at lean startups. Zero programs exist that teach this specifically.</p></div>
+    <div class="card rt"><h4>The Cost of Inaction</h4><p>Partner relationships deteriorate within 90 days without intentional activation. CDW reps deprioritize vendors who can't support them. Revenue that should flow through the channel goes to a better-supported competitor.</p></div>
+    <div class="card rt"><h4>The Market Tailwind</h4><p>Post-2022 VC pressure has pushed lean GTM structures across the industry. AEs are being told to "handle channel" with no training and no playbook. The gap is live and growing.</p></div>
+    <div class="card rt"><h4>No Incumbent in the Niche</h4><p>Channel consulting firms (Spur Reply, JS Group) target large enterprises at $50K+ minimums. PRM platforms assume a channel team already exists. The startup channel training niche is genuinely unoccupied.</p></div>
+  </div>
+</div>
+
+<!-- PRODUCT -->
+<div class="sec">
+  <div class="sec-label">The Product</div>
+  <h2>12 modules. 6 months. One channel-capable team.</h2>
+  <p>The curriculum is practitioner-built from real source material — not case studies or theory. Every module carries contributor tags: Carl's vendor-side IP (Toshiba, HPE, Juniper) and Natalie's reseller + startup-side IP (CDW rep experience, Expel, LastPass, Okta, Varonis). All 12 modules are fully built and live.</p>
+
+  <div class="g3">
+    <div class="card at">
+      <h4>Phase 1 — Months 1–2</h4>
+      <p><strong>Channel 101.</strong> VAR economics, partner structure, the Six Things framework, the Cord Principle, deal registration mechanics. Product-agnostic. Applies identically to retail, cybersecurity, SaaS, and infrastructure.</p>
+    </div>
+    <div class="card at">
+      <h4>Phase 2 — Months 3–4</h4>
+      <p><strong>Operating the Motion.</strong> 4-Step Activation Model, co-sell campaign design (Using vs. Leveraging), incentive architecture, 3-tier sales play model, QBR execution, partnership kickoff. Every module includes a Build Your Own section.</p>
+    </div>
+    <div class="card at">
+      <h4>Phase 3 — Months 5–6</h4>
+      <p><strong>Scale & Agents.</strong> KPI frameworks, pipeline reporting, Win Wire cadence, building the internal case for a channel hire. Module 12 introduces the AI agent stack — what each agent does, how to supervise it, and when to trust it.</p>
+    </div>
+  </div>
+
+  <h3>The AI Agent Add-On — Separate Product, In Development</h3>
+  <p>8 named agents, 24 underlying task agents, 3 unlock tiers. Agents are trained on the same knowledge base as the curriculum. The Co-Sell Agent — the flagship — automates the motion Natalie built manually at LastPass that produced 4× CDW revenue growth in 12 months. Available to program graduates after Month 3. Does not gate the training launch.</p>
+
+  <div class="g3">
+    <div class="card gnt"><h4>Core Tier — Month 3</h4><p>Compliance Agent (onboarding, contracts, tiering) · Enablement Agent (training, collateral, certification) · Marketing Agent (MDF, SPIFs, competitive intel)</p></div>
+    <div class="card gnt"><h4>Growth Tier — Month 6</h4><p>Co-Sell Agent ★ · Deal Agent (deal reg lifecycle) · Communication Agent (email, Win Wire) · Reporting Agent (QBR prep, dashboards)</p></div>
+    <div class="card gnt"><h4>Scale Tier — Year 2+</h4><p>Events Agent (executive dinners, joint customer hospitality). Relevant once budget and multiple active partners exist.</p></div>
+  </div>
+</div>
+
+<!-- MARKET -->
+<div class="sec">
+  <div class="sec-label">Market</div>
+  <h2>Large market. Unoccupied niche.</h2>
+  <div class="g3">
+    <div class="card"><div class="big">$4.2B</div><h4>TAM</h4><p>Global B2B sales training and enablement. 14% CAGR. Sandler, MEDDIC, Miller Heiman, RAIN Group.</p></div>
+    <div class="card"><div class="big">$380M</div><h4>SAM</h4><p>Channel partner enablement for technology companies. 15,000+ US startups with active or emerging VAR relationships.</p></div>
+    <div class="card"><div class="big">$8.5M</div><h4>Year 3 SOM</h4><p>~850 team licenses at $10K average. Achievable via LinkedIn outbound, accelerator partnerships, and referral loops.</p></div>
+  </div>
+
+  <h3>Primary Buyers</h3>
+  <div class="g2">
+    <div class="card at"><h4>Series B Founder / CRO</h4><p>$8M–$40M ARR. No channel manager. 2–3 VARs going cold. Board asking about partner revenue. Decision criteria: speed to first result, practitioner credibility, fixed scope. <em>ROI frame: less than one month of a channel manager hire for the entire team for 6 months.</em></p></div>
+    <div class="card at"><h4>VP Sales / Senior AE</h4><p>Told to "manage the partners" with zero training. Wants a portable credential and practical scripts usable this week. Motivated by career differentiation. <em>ROI frame: the channel manager job posting you can't apply for yet — this is how you qualify.</em></p></div>
+  </div>
+</div>
+
+<!-- REVENUE MODEL -->
+<div class="sec">
+  <div class="sec-label">Revenue Model</div>
+  <h2>Seat licensing plus a recurring agent layer.</h2>
+  <table>
+    <thead><tr><th>TIER</th><th>INCLUDED</th><th>PRICE</th><th>TERM</th><th>MARGIN</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Individual Seat</strong></td><td>Full curriculum, cohort sessions, scenario simulator, certificate</td><td class="mono gold">$1,200</td><td>6 months</td><td class="mono pos">~88%</td></tr>
+      <tr><td><strong>Startup Team (3–5 AEs)</strong></td><td>All above + dedicated cohort customized to their product and partner set</td><td class="mono gold">$5,000</td><td>6 months</td><td class="mono pos">~90%</td></tr>
+      <tr><td><strong>Growth Team (6–10 AEs)</strong></td><td>All above + custom scenario examples using their actual product/VARs</td><td class="mono gold">$8,500</td><td>6 months</td><td class="mono pos">~91%</td></tr>
+      <tr><td><strong>Enterprise (10+ / Custom)</strong></td><td>Custom curriculum, embedded coaching, QBR support, leadership briefings</td><td class="mono gold">$15,000+</td><td>6–12 months</td><td class="mono pos">~82%</td></tr>
+      <tr><td><strong>Agent Add-On</strong></td><td>8-agent stack, hosted dashboard, monthly support call — graduates only</td><td class="mono gold">$400/seat/mo</td><td>Monthly recurring</td><td class="mono pos">~65%</td></tr>
+      <tr><td><strong>Certificate Renewal</strong></td><td>1-day refresher module, updated credential</td><td class="mono gold">$299/person</td><td>Every 2 years</td><td class="mono pos">~95%</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="5">Pilot pricing for first 3 cohorts: Startup Team at $5,000 (vs. $7,500 at full build). Written curriculum completion SLA provided to all pilot customers.</td></tr></tfoot>
+  </table>
+</div>
+
+<!-- PROJECTIONS -->
+<div class="sec">
+  <div class="sec-label">Financial Projections</div>
+  <h2>24-month forecast. Three scenarios.</h2>
+
+  <h3>Year 1 — Monthly (Base Case)</h3>
+  <table>
+    <thead><tr><th>PERIOD</th><th>NEW CLIENTS</th><th>LICENSING</th><th>AGENT REV</th><th>TOTAL</th><th>EXPENSES</th><th>NET</th></tr></thead>
+    <tbody>
+      <tr><td>Months 1–2 (Build)</td><td>0</td><td class="mono">$0</td><td class="mono">$0</td><td class="mono">$0</td><td class="mono neg">–$6,500</td><td class="mono neg">–$6,500</td></tr>
+      <tr><td>Month 3</td><td>1 pilot team</td><td class="mono">$5,000</td><td class="mono">$0</td><td class="mono">$5,000</td><td class="mono neg">–$1,100</td><td class="mono pos">$3,900</td></tr>
+      <tr><td>Month 4</td><td>1 team + 2 ind.</td><td class="mono">$9,900</td><td class="mono">$800</td><td class="mono">$10,700</td><td class="mono neg">–$1,200</td><td class="mono pos">$9,500</td></tr>
+      <tr><td>Month 5</td><td>2 teams</td><td class="mono">$15,000</td><td class="mono">$2,400</td><td class="mono">$17,400</td><td class="mono neg">–$1,400</td><td class="mono pos">$16,000</td></tr>
+      <tr><td>Month 6</td><td>2 teams + 2 ind.</td><td class="mono">$17,400</td><td class="mono">$4,000</td><td class="mono">$21,400</td><td class="mono neg">–$1,500</td><td class="mono pos">$19,900</td></tr>
+      <tr><td>Months 7–9</td><td>2–3 teams/mo avg</td><td class="mono">$20,000/mo</td><td class="mono">$6,500/mo</td><td class="mono">$26,500/mo</td><td class="mono neg">–$2,100</td><td class="mono pos">$24,400/mo</td></tr>
+      <tr><td>Months 10–12</td><td>3 teams/mo avg</td><td class="mono">$22,500/mo</td><td class="mono">$10,400/mo</td><td class="mono">$32,900/mo</td><td class="mono neg">–$2,800</td><td class="mono pos">$30,100/mo</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="4"><strong>YEAR 1 TOTAL REVENUE</strong></td><td class="mono"><strong>~$108,000</strong></td><td></td><td class="mono pos"><strong>NET ~$88,000</strong></td></tr></tfoot>
+  </table>
+
+  <h3>Year 2 — Quarterly</h3>
+  <table>
+    <thead><tr><th>QUARTER</th><th>ACTIVE CLIENTS</th><th>LICENSING</th><th>AGENT RECURRING</th><th>TOTAL</th></tr></thead>
+    <tbody>
+      <tr><td>Q1 Y2</td><td>12 active</td><td class="mono">$45,000</td><td class="mono">$19,200</td><td class="mono gold">$64,200</td></tr>
+      <tr><td>Q2 Y2</td><td>16 active</td><td class="mono">$52,500</td><td class="mono">$25,600</td><td class="mono gold">$78,100</td></tr>
+      <tr><td>Q3 Y2</td><td>20 active</td><td class="mono">$52,500</td><td class="mono">$32,000</td><td class="mono gold">$84,500</td></tr>
+      <tr><td>Q4 Y2</td><td>25 active</td><td class="mono">$52,500</td><td class="mono">$40,000</td><td class="mono gold">$92,500</td></tr>
+    </tbody>
+    <tfoot><tr><td><strong>YEAR 2 TOTAL</strong></td><td></td><td class="mono"><strong>$202,500</strong></td><td class="mono"><strong>$116,800</strong></td><td class="mono gold"><strong>$319,300</strong></td></tr></tfoot>
+  </table>
+  <p class="tnote">Year 2 expenses ~$55,000 (CS contractor, ad spend, upgraded tools). Year 2 net: ~$264,000 between two founders before tax.</p>
+
+  <div class="g3" style="margin-top:24px;">
+    <div class="card rt"><h4>Conservative</h4><div class="big" style="font-size:28px;">$62K</div><p>Year 1. 1–2 team licenses/month, minimal agent uptake. Cash-flow positive Month 5.</p></div>
+    <div class="card gt"><h4>Base Case</h4><div class="big" style="font-size:28px;">$108K</div><p>Year 1. 2–3 teams/month by Month 6, moderate agent activation. Primary planning scenario.</p></div>
+    <div class="card gnt"><h4>Stretch</h4><div class="big" style="font-size:28px;">$165K</div><p>Year 1. Accelerator partnership, one enterprise deal, strong referral loop from pilots.</p></div>
+  </div>
+</div>
+
+<!-- STARTUP COSTS -->
+<div class="sec">
+  <div class="sec-label">Startup Costs</div>
+  <h2>What it costs to reach first revenue.</h2>
+  <div class="g4">
+    <div class="card"><h4>Total One-Time</h4><div class="big" style="font-size:28px;">$7,200</div><p>LLC, trademark, legal review, domain, branding, video setup.</p></div>
+    <div class="card"><h4>Monthly Burn</h4><div class="big" style="font-size:28px;">$342</div><p>Kajabi, LinkedIn Navigator, Zoom, QuickBooks, hosting.</p></div>
+    <div class="card"><h4>One License Covers</h4><div class="big" style="font-size:28px;">22 mo.</div><p>One team license pays 22 months of monthly platform burn.</p></div>
+    <div class="card"><h4>Break-Even Month</h4><div class="big" style="font-size:28px;">Month 8</div><p>Full startup cost recovery from first sale date.</p></div>
+  </div>
+</div>
+
+<!-- RISK ANALYSIS -->
+<div class="sec">
+  <div class="sec-label">Risk Analysis</div>
+  <h2>What could go wrong — and how we respond.</h2>
+  <table>
+    <thead><tr><th>RISK</th><th>LIKELIHOOD</th><th>IMPACT</th><th>MITIGATION</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Non-compete violation</strong></td>
+        <td><span class="risk-badge risk-m">MEDIUM</span></td>
+        <td><span class="risk-badge risk-h">HIGH</span></td>
+        <td>Attorney reviews both employment agreements before any customer contact. Operate under separate LLC. No pilot customer contacted until legal clears. Budget: $1,500–$2,500.</td>
+      </tr>
+      <tr>
+        <td><strong>Market awareness — nobody searches for this</strong></td>
+        <td><span class="risk-badge risk-h">HIGH</span></td>
+        <td><span class="risk-badge risk-m">MEDIUM</span></td>
+        <td>Outbound-first GTM. LinkedIn content engine (3×/week each founder) creates demand pull. Channel Readiness Audit tool generates SEO inbound. Category creation is the explicit goal.</td>
+      </tr>
+      <tr>
+        <td><strong>Sales cycle longer than projected</strong></td>
+        <td><span class="risk-badge risk-m">MEDIUM</span></td>
+        <td><span class="risk-badge risk-m">MEDIUM</span></td>
+        <td>Warm network first 3 months — no cold outbound until curriculum is live. Pilot pricing ($5K vs $7.5K) removes friction. 2-month runway before first sale expected.</td>
+      </tr>
+      <tr>
+        <td><strong>Founder time pressure from W-2 jobs</strong></td>
+        <td><span class="risk-badge risk-m">MEDIUM</span></td>
+        <td><span class="risk-badge risk-m">MEDIUM</span></td>
+        <td>Async-first design: recorded modules, Kajabi automation. 10–14 hrs/week per founder is the ceiling — tracked monthly. Cohort size is the primary lever if time pressure increases.</td>
+      </tr>
+      <tr>
+        <td><strong>"This looks like a retail playbook" objection</strong></td>
+        <td><span class="risk-badge risk-h">HIGH</span></td>
+        <td><span class="risk-badge risk-m">MEDIUM</span></td>
+        <td>Every module carries transferability callouts. Module 08 has Build Your Own worksheet. Examples span retail, cybersecurity, identity, and infrastructure. Natalie's Expel/Okta/LastPass IP is co-equal throughout.</td>
+      </tr>
+      <tr>
+        <td><strong>Agent quality risk — bad outputs damage partner trust</strong></td>
+        <td><span class="risk-badge risk-l">LOW</span></td>
+        <td><span class="risk-badge risk-h">HIGH</span></td>
+        <td>Human-approval-first for all outputs in first 90 days. Agents unlock after Month 3 only. Liability disclaimer in MSA. The training program is the prerequisite — not a gate, a genuine quality requirement.</td>
+      </tr>
+      <tr>
+        <td><strong>Large competitor enters the niche</strong></td>
+        <td><span class="risk-badge risk-l">LOW</span></td>
+        <td><span class="risk-badge risk-h">HIGH</span></td>
+        <td>Build case study library and alumni network fast. Practitioner credibility cannot be replicated. Sandler franchises move on 18–24 month product cycles. First-mover advantage in a narrow niche is meaningful.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- FOUNDERS -->
+<div class="sec">
+  <div class="sec-label">Founders</div>
+  <h2>Practitioners, not consultants.</h2>
+  <div class="founder-grid">
+    <div class="founder-card">
+      <div class="founder-name">Carl Clendenin</div>
+      <div class="founder-role">Sr. Channel Sales Executive · Toshiba GCS</div>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Currently manages nine national VAR relationships: CDW, Insight, SHI, Connection, Softchoice, Zones, ePlus, Presidio, and WWT. Prior: Binary Defense, HPE, Juniper Networks. Deep expertise in co-sell strategy, deal registration mechanics, partner conflict resolution, and the 90-day partner activation model.</p>
+      <p style="font-size:13px;color:var(--muted);font-style:italic;">Program role: vendor-side curriculum (Modules 01, 03, 04, 07, 08, 10), outbound sales, live cohort facilitation for field-mechanics sessions.</p>
+    </div>
+    <div class="founder-card">
+      <div class="founder-name">Natalie Visconti-Clendenin</div>
+      <div class="founder-role">Director, Channel Partners · Expel · CRN Women of the Channel 2025</div>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:10px;">Started as a CDW rep (reseller side). Moved to vendor channel roles at Okta, Varonis, LastPass (4× CDW revenue growth, 15,000 net-new logos in 12 months), and Expel. Built partner programs from zero twice. Has sat on both sides of the vendor/reseller relationship.</p>
+      <p style="font-size:13px;color:var(--muted);font-style:italic;">Program role: reseller/startup-side curriculum (Modules 02, 05, 06, 09, 11), program design, customer success, accelerator and VC relationship development.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<div class="sec">
+  <div class="sec-label">Milestones</div>
+  <h2>What happens, and when.</h2>
+  <div class="rm-item"><div class="rm-badge"><strong>Apr</strong><span>2026</span></div><div class="rm-body"><h4>FOUNDATION</h4><p>LLC formed. Employment agreements reviewed by attorney. Trademark filed. Domain + site live. All 12 modules complete and linked. Operating agreement signed.</p></div></div>
+  <div class="rm-item"><div class="rm-badge"><strong>May</strong><span>2026</span></div><div class="rm-body"><h4>PILOT LAUNCH</h4><p>First startup team license signed (pilot pricing). Cohort 1 begins. LinkedIn content cadence active. Channel Readiness Audit tool embedded on site. First accelerator intro conversation.</p></div></div>
+  <div class="rm-item"><div class="rm-badge"><strong>Jul</strong><span>2026</span></div><div class="rm-body"><h4>PROOF OF CONCEPT</h4><p>Cohort 1 completes Phase 1. First testimonial and case study collected. Second client onboarded at standard pricing. Agent contractor scoped.</p></div></div>
+  <div class="rm-item"><div class="rm-badge"><strong>Sep</strong><span>2026</span></div><div class="rm-body"><h4>AGENT PILOT</h4><p>First agent (Co-Sell) available in supervised pilot for eligible graduates. 4–6 active clients. Agent subscription revenue begins. First CRN or CompTIA content submission.</p></div></div>
+  <div class="rm-item"><div class="rm-badge"><strong>Dec</strong><span>2026</span></div><div class="rm-body"><h4>YEAR 1 CLOSE</h4><p>$100K+ revenue. 10–15 active clients. $8K+/month recurring agent MRR. Decision point: maintain as side business or begin full-time transition.</p></div></div>
+  <div class="rm-item"><div class="rm-badge"><strong>Mar</strong><span>2027</span></div><div class="rm-body"><h4>YEAR 2 SCALE</h4><p>Part-time CS contractor. LinkedIn ad spend. Enterprise tier launched. Certificate renewal program active. Accelerator partnership signed or in final negotiation. $200K+ ARR in view.</p></div></div>
+</div>
+
+<!-- ENTER CTA -->
+<div class="enter-block">
+  <h2>The curriculum is <em>built</em>.<br>All 12 modules are live.</h2>
+  <div class="enter-cta-group">
+    <a class="enter-btn enter-primary" href="index.html">Open Curriculum Binder →</a>
+    <a class="enter-btn enter-secondary" href="module_10.html">Jump to Module 10 — Live Example →</a>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Module 04 — Deal Registration as a Business Tool — Channel-Ready AE</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>:root{
+  --ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;
+  --gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;
+  --rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;
+  --green:#1e3a2f;--green-light:#e8f4ee;
+  --red:#7a1e1e;--blue-pale:#e8f0f8;
+  --nat:#5a3a7a;--nat-bg:#f5f0fa;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
+
+.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
+.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
+.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
+.hero h1 em{color:var(--gold-light);font-style:italic;}
+.hero-sub{font-size:17px;color:#6a7a8a;max-width:580px;position:relative;margin-bottom:32px;}
+.hero-stats{display:flex;gap:40px;position:relative;flex-wrap:wrap;}
+.hero-stat{font-family:'DM Mono',monospace;}
+.hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
+.hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
+
+.ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.ref-bar.green-bar{background:#1a2a1a;}
+.ref-bar.blue-bar{background:#1a1a2a;}
+.ref-bar.purple-bar{background:#1a1a2a;}
+.ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
+.ref-text{font-size:13px;}
+
+.breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.breadcrumb a{text-decoration:none;}
+
+.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:0;z-index:20;overflow-x:auto;}
+.nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
+.nav-tab:hover{color:var(--accent);}
+.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
+
+.content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
+.panel{display:none;}
+.panel.active{display:block;}
+
+.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
+h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
+h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
+p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
+
+.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
+.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
+.callout strong{color:var(--gold-light);}
+.explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
+
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.pillar{border:1px solid var(--rule);background:var(--white);border-radius:4px;overflow:hidden;}
+.pillar-head{padding:14px 20px;display:flex;align-items:center;gap:10px;}
+.pillar-head.blue{background:var(--accent);color:white;}
+.pillar-head.green{background:var(--green);color:white;}
+.pillar-head.gold{background:var(--gold);color:var(--ink);}
+.pillar-head.dark{background:#2a2020;color:#f0e8d8;}
+.pillar-head.purple{background:var(--nat);color:white;}
+.pillar-icon{font-size:20px;}
+.pillar-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;font-weight:500;}
+.pillar-body{padding:16px 20px;}
+.pillar-body ul{list-style:none;margin:0;}
+.pillar-body li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:14px;color:#2e2820;display:flex;justify-content:space-between;align-items:start;gap:12px;}
+.pillar-body li:last-child{border-bottom:none;}
+.pillar-body li .tag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
+.tag-gold{background:var(--gold-pale);color:var(--gold);}
+.tag-blue{background:var(--blue-pale);color:var(--accent);}
+.tag-green{background:var(--green-light);color:var(--green);}
+
+.checklist{margin:20px 0;}
+.check-group{margin-bottom:20px;}
+.check-group-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--rule);}
+.check-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0ebe0;cursor:pointer;}
+.check-item:last-child{border-bottom:none;}
+.check-box{width:20px;height:20px;border:2px solid var(--rule);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;margin-top:2px;}
+.check-item.done .check-box{background:var(--green);border-color:var(--green);}
+.check-item.done .check-box::after{content:'✓';color:white;font-size:12px;font-weight:700;}
+.check-item.done .check-text{text-decoration:line-through;color:var(--muted);}
+.check-text{font-size:14px;color:#2e2820;line-height:1.5;}
+.check-note{font-size:12px;color:var(--muted);margin-top:3px;font-style:italic;}
+
+.timeline{position:relative;margin:24px 0;}
+.timeline::before{content:'';position:absolute;left:36px;top:0;bottom:0;width:2px;background:var(--rule);}
+.t-item{display:flex;gap:20px;margin-bottom:24px;position:relative;}
+.t-badge{width:72px;height:72px;border-radius:6px;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-family:'DM Mono',monospace;z-index:1;}
+.t-badge strong{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold-light);line-height:1;}
+.t-badge span{font-size:9px;color:#4a5060;letter-spacing:2px;margin-top:2px;}
+.t-body{background:var(--white);border:1px solid var(--rule);border-radius:4px;padding:14px 20px;flex:1;}
+.t-body h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:6px;}
+.t-body p{font-size:14px;margin:0;color:var(--muted);}
+
+.plays{margin:20px 0;}
+.play-card{border:1px solid var(--rule);border-radius:4px;margin-bottom:12px;overflow:hidden;}
+.play-head{display:grid;grid-template-columns:120px 1fr 100px 100px;gap:0;background:var(--ink);padding:12px 16px;align-items:center;}
+.play-tier{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;border-radius:20px;text-align:center;font-weight:500;}
+.tier-1{background:#1a2a3a;color:#6a9aba;}
+.tier-2{background:#1a2a1a;color:#6aba8a;}
+.tier-3{background:#2a1a2a;color:#ba8aba;}
+.play-name{font-family:'Libre Baskerville',serif;font-size:16px;color:#f0e8d8;padding-left:12px;}
+.play-signal{font-size:12px;color:#4a5060;text-align:right;}
+.play-value{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold-light);text-align:right;}
+.play-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
+.play-col{padding:14px 16px;border-right:1px solid var(--rule);}
+.play-col:last-child{border-right:none;}
+.play-col-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
+.play-col ul{list-style:none;}
+.play-col li{font-size:13px;color:#2e2820;padding:3px 0;padding-left:14px;position:relative;}
+.play-col li::before{content:'›';position:absolute;left:0;color:var(--gold);}
+
+.incentive-ladder{margin:20px 0;}
+.incentive-row{display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule);}
+.incentive-row:last-child{border-bottom:none;}
+.incentive-action{flex:1;font-size:14px;color:#2e2820;}
+.incentive-action strong{display:block;font-size:15px;margin-bottom:2px;}
+.incentive-action span{font-size:12px;color:var(--muted);}
+.incentive-amount{font-family:'DM Mono',monospace;font-size:18px;color:var(--green);font-weight:500;min-width:80px;text-align:right;}
+.incentive-bar-wrap{width:120px;height:6px;background:#e8e0d0;border-radius:3px;overflow:hidden;}
+.incentive-bar{height:100%;background:var(--green);border-radius:3px;transition:width 0.5s;}
+
+.email-box{background:var(--white);border:1px solid var(--rule);border-radius:4px;margin:20px 0;overflow:hidden;}
+.email-header{background:#f5f5f5;padding:12px 20px;border-bottom:1px solid var(--rule);}
+.email-header .field{display:flex;gap:12px;font-size:13px;color:var(--muted);margin-bottom:4px;}
+.email-header .field strong{color:var(--ink);min-width:40px;}
+.email-body{padding:20px;font-size:14px;color:#2e2820;line-height:1.8;white-space:pre-wrap;}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
+.card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
+.card.gold-top{border-top:3px solid var(--gold);}
+.card.blue-top{border-top:3px solid var(--accent);}
+.card.green-top{border-top:3px solid var(--green);}
+.card.red-top{border-top:3px solid var(--red);}
+.card.purple-top{border-top:3px solid var(--nat);}
+.card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
+.card p{font-size:13px;margin:0;color:var(--muted);}
+.card .big{font-family:'Libre Baskerville',serif;font-size:32px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px;}
+
+.progress-ring{display:flex;align-items:center;gap:24px;padding:20px 0;}
+.ring-wrap{position:relative;width:100px;height:100px;flex-shrink:0;}
+.ring-wrap svg{transform:rotate(-90deg);}
+.ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.ring-pct{font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700;color:var(--accent);}
+.ring-sub{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--muted);}
+.ring-details{flex:1;}
+.ring-details h4{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.ring-details p{font-size:14px;color:var(--muted);margin:0;}
+
+.milestone-track{display:flex;gap:0;margin:20px 0;overflow:hidden;border-radius:6px;border:1px solid var(--rule);}
+.ms{flex:1;padding:16px 12px;text-align:center;border-right:1px solid var(--rule);background:var(--white);transition:background 0.2s;}
+.ms:last-child{border-right:none;}
+.ms.done{background:#eaf4ee;}
+.ms.active{background:var(--blue-pale);}
+.ms-icon{font-size:18px;margin-bottom:6px;}
+.ms-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
+.ms.done .ms-label{color:var(--green);}
+.ms.active .ms-label{color:var(--accent);}
+.ms-status{font-size:11px;color:var(--muted);}
+.ms.done .ms-status{color:var(--green);}
+
+.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 0;}
+.contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
+.cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
+.cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
+.cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
+
+.bot-row{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 0;}
+.bot-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:3px;background:var(--blue-pale);color:var(--accent);}
+
+.footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
+.footer-brand em{color:var(--gold-light);}
+.footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
+
+@media(max-width:700px){
+  .hero{padding:40px 24px 36px;}
+  .hero h1{font-size:30px;}
+  .content{padding:32px 20px 60px;}
+  .pillars,.grid-2,.grid-3,.play-body,.play-head{grid-template-columns:1fr;}
+  .milestone-track{flex-wrap:wrap;}
+  .breadcrumb{padding:10px 24px;}
+}
+</style></head><body>
+<div class="hero"><div class="hero-tag">Channel-Ready AE · Phase 1 · Module 04</div>
+<h1>Deal Reg Is Not Paperwork.<br>It's Your <em>Pipeline Engine</em>.</h1><div class="hero-sub">Deal registration protects margin, prevents conflict, creates accountability, and generates measurable pipeline data. An AE who doesn't understand deal reg is operationally useless to a partner.</div>
+<div class="hero-stats"><div class="hero-stat"><strong>5–15%</strong><span>Margin Uplift</span></div><div class="hero-stat"><strong>48hr</strong><span>Approval Target</span></div><div class="hero-stat"><strong>4</strong><span>Functions of Deal Reg</span></div><div class="hero-stat"><strong>Leading</strong><span>Indicator of Health</span></div></div></div>
+<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Universal + Data-Backed</span><span class="ref-text" style="color:#6a7a9a;">HPE deal reg performance data · LastPass 4× CDW growth methodology · Per-rep tracking benchmarks</span></div>
+<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
+<a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a><span style="color:#2a3a2a;">›</span>
+<span style="color:#6a9a6a;">Module 04 — Deal Registration as a Business Tool</span>
+<span style="margin-left:auto;"><a href="curriculum.html" style="color:#3a5a3a;">← Back to Binder</a></span></div>
+<div class="nav-tabs"><button class="nav-tab active" onclick="showPanel('overview')">Overview</button><button class="nav-tab" onclick="showPanel('clean-vs-flag')">Clean vs. Conflict</button><button class="nav-tab" onclick="showPanel('tracking')">Per-Rep Tracking</button><button class="nav-tab" onclick="showPanel('checklist')">Checklist</button><button class="nav-tab" onclick="showPanel('templates')">Email Templates</button></div>
+<div class="content"><div class="panel active" id="panel-overview"><div class="section-label">Why This Module Exists</div>
+<h2>Deal reg is the single most important mechanism in channel sales.</h2>
+<p>It protects margin, prevents conflict, creates accountability, and generates measurable pipeline. Every function is critical. An AE who treats deal reg as paperwork will lose partner trust, lose deals to conflict, and have no way to forecast partner revenue.</p>
+<div class="callout"><div class="callout-tag">NATALIE'S INSIGHT</div><strong>"Programmatic deal registration structure that is repeatable and measurable combats high churn rates."</strong> At LastPass, Natalie drove systematic deal reg adoption across CDW that contributed to 4× revenue growth in 12 months. The mechanism was not a better product pitch — it was a better deal reg process.</div>
+<div class="grid-2">
+<div class="card gold-top"><h4>Margin Protection</h4><p>A registered deal gives the partner 5–15% additional margin. This is the partner's primary financial incentive to register — and your primary lever to surface their pipeline. No deal reg = no margin protection = no reason for the partner to tell you about opportunities.</p></div>
+<div class="card gold-top"><h4>Conflict Prevention</h4><p>When two partners claim the same customer, deal reg creates a paper trail. First to register with a qualified opportunity gets priority. Without it, you have two angry partners and no resolution framework.</p></div>
+<div class="card gold-top"><h4>Pipeline Accountability</h4><p>Deal regs create a pipeline both sides can see. You know what they're working. They know you're tracking. Bilateral visibility turns a casual relationship into an accountable motion.</p></div>
+<div class="card gold-top"><h4>Churn Prevention</h4><p>When partners register consistently, they're invested. When they stop, they're leaving. Track deal reg velocity per partner rep as your leading indicator of relationship health.</p></div>
+</div></div><div class="panel" id="panel-clean-vs-flag"><div class="section-label">Processing</div>
+<h2>What a clean submission looks like vs. a conflict flag.</h2>
+<div class="grid-2">
+<div class="card green-top"><h4>✓ Clean Submission — Auto-Approve</h4><p>Named customer with specific contact. Named partner rep who submitted. Specific product or solution identified. Estimated deal value within reasonable range ($5K–$500K, not $1M on a first deal). Expected close date within 6 months. No existing registration on the account from another partner. Process: approve within 24 hours, notify partner, track in CRM, count toward SPIF.</p></div>
+<div class="card red-top"><h4>⚠ Conflict Flag — Hold & Investigate</h4><p>Existing active registration on the same account from another partner. Same account name with slight variation (subsidiary, division, holding company). Same customer, different product line (may not conflict depending on rules). Same partner, same customer, new submission within 30 days of previous expiry (re-registration attempt). Process: hold, investigate, route to you for resolution with full context. Never auto-approve a flagged deal reg — one wrong call destroys partner trust on both sides.</p></div>
+</div>
+<div class="callout"><div class="callout-tag">CONFLICT RESOLUTION FRAMEWORK</div>
+<strong>Step 1:</strong> Identify the registering parties and timestamps.<br>
+<strong>Step 2:</strong> Review the opportunity context — who has a deeper customer relationship?<br>
+<strong>Step 3:</strong> Check for prior activity — has either partner had meetings, demos, or proposals with this customer?<br>
+<strong>Step 4:</strong> Default to first-to-register unless the later registrant has demonstrably stronger customer engagement.<br>
+<strong>Step 5:</strong> Communicate the decision to both partners within 72 hours with reasoning — never ghost the losing party.<br>
+<strong>Step 6:</strong> Document the decision for future reference — conflicts on the same account tend to recur.</div></div><div class="panel" id="panel-tracking"><div class="section-label">Measurement</div>
+<h2>Track deal reg submissions per partner rep, per month.</h2>
+<p>Deal reg velocity by rep is the leading indicator of partner engagement. It tells you which reps are active, which are disengaging, and where your co-sell sessions are producing results.</p>
+<div class="grid-3">
+<div class="card blue-top"><h4>Healthy Benchmark</h4><p>A partner relationship with 3–5 active reps should produce 8–15 deal registrations per quarter. This assumes weekly co-sell sessions and an active SPIF program. Below this signals disengagement.</p></div>
+<div class="card green-top"><h4>High Performer Signal</h4><p>Above 20 regs/quarter from a single rep signals either a highly active partnership or a rep gaming the SPIF — investigate. If real, this is your champion. Protect them.</p></div>
+<div class="card red-top"><h4>Warning Signal</h4><p>Below 5 regs/quarter across all reps means the partnership is functionally dormant. The co-sell sessions aren't producing. Diagnose: is it your product fit, your engagement, or the rep's territory?</p></div>
+</div>
+<div class="explain">Carl's HPE data: Chrysanna — 210 deal regs over the relationship. Justin — 553. The per-rep variance tells you exactly which reps are engaged and which carry your logo in name only. Track it monthly and share it in your QBR.</div></div><div class="panel" id="panel-checklist"><div class="section-label">Operations</div>
+<h2>Deal registration operations checklist.</h2>
+<div class="checklist" id="checklist">
+<div class="check-group"><div class="check-group-title">Process Setup (One-Time)</div>
+<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Confirm your deal reg portal is accessible to all partner reps<div class="check-note">BLOCKING. Reps can't submit what they can't access. Provision credentials before the first training.</div></div></div>
+<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Define your approval SLA: target 24 hours for clean, 72 hours for flagged<div class="check-note">Write it down. Tell your partners. Hold yourself to it.</div></div></div>
+<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Set up conflict detection rules in your CRM or deal reg system<div class="check-note">At minimum: same account name match, same domain match, same contact match.</div></div></div>
+<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Create a per-rep tracking spreadsheet or CRM dashboard<div class="check-note">Columns: Rep name, # submitted this month, # approved, # in conflict, avg deal size.</div></div></div>
+</div>
+<div class="check-group"><div class="check-group-title">Weekly Operations</div>
+<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Review all pending deal registrations — none older than 48 hours<div class="check-note">A stale deal reg queue is a trust-destroying signal to your partner.</div></div></div>
+<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Resolve or escalate any conflict-flagged submissions<div class="check-note">72-hour max. Communicate the decision to both parties with reasoning.</div></div></div>
+<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Cross-reference new deal regs against co-sell session action items<div class="check-note">Are the accounts discussed in co-sell actually getting registered? If not, why not?</div></div></div>
+</div>
+<div class="check-group"><div class="check-group-title">Monthly Review</div>
+<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Update per-rep tracking dashboard<div class="check-note">Which reps submitted this month? Which didn't? What changed?</div></div></div>
+<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Review deal reg conversion rate: submitted → approved → closed<div class="check-note">If approved-to-closed is below 20%, the quality of submissions needs attention.</div></div></div>
+<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Include deal reg metrics in your monthly Win Wire and QBR prep<div class="check-note">Deal reg count is the single most reportable metric in channel sales.</div></div></div>
+</div></div>
+<div style="margin-top:20px;padding:14px 20px;background:var(--warm);border:1px solid var(--rule);border-radius:4px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);"><span id="check-progress">0 of 10 items complete</span></div></div><div class="panel" id="panel-templates"><div class="section-label">Templates</div>
+<h2>Deal registration communication templates.</h2>
+<h3>Template — Deal Reg Confirmation to Partner Rep</h3>
+<div class="email-box"><div class="email-header">
+<div class="field"><strong>To:</strong> [Partner AM]</div>
+<div class="field"><strong>Subject:</strong> Deal reg approved — [Account Name] — margin protected</div></div>
+<div class="email-body">Hi [Name],
+
+Your deal registration for [Account Name] has been approved. Here's your confirmation:
+
+→ Account: [Account Name]
+→ Registration #: [Reg ID]
+→ Margin protection: [X]% through [expiry date]
+→ SPIF payment: $[X] — processing this week
+→ Estimated deal value: $[X]
+
+Next steps: Let's discuss the pursuit plan in our co-sell session on [date]. I'll bring a proposal template and competitive positioning for this account.
+
+Thanks for submitting — this is exactly how we build pipeline together.
+
+[Your Name]</div></div>
+
+<h3>Template — Deal Reg Conflict Notification</h3>
+<div class="email-box"><div class="email-header">
+<div class="field"><strong>To:</strong> [Partner AM who submitted]</div>
+<div class="field"><strong>Subject:</strong> Deal reg hold — [Account Name] — existing registration</div></div>
+<div class="email-body">Hi [Name],
+
+Your deal registration for [Account Name] is on hold — there's an existing registration from another partner on this account.
+
+Here's what I'm doing:
+→ Reviewing both registrations for timeline and customer engagement evidence
+→ Target resolution: within 72 hours
+→ I'll communicate the outcome to both parties with full reasoning
+
+If you have documentation of recent customer meetings, proposals, or emails with [Account Name], please send them to me — it will help the review.
+
+I know this is frustrating. I'll resolve it quickly and fairly.
+
+[Your Name]</div></div></div>
+<div class="contrib-row"><span class="contrib-pill cp-carl">● CARL — HPE deal reg data, per-rep benchmarks</span><span class="contrib-pill cp-nat">● NATALIE — LastPass 4× growth deal reg methodology</span></div>
+<div class="bot-row"><span class="bot-pill">Deal Reg Agent</span><span class="bot-pill">Conflict Detector</span></div>
+<div class="footer"><div><div class="footer-brand">Channel-<em>Ready</em> AE</div>
+<div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 04 · DEAL REGISTRATION AS A BUSINESS TOOL</div></div>
+<div class="footer-meta"><div>CONFIDENTIAL</div><div>CARL & NATALIE CLENDENIN</div></div></div></div>
+<script>
+function showPanel(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active');event.target.classList.add('active');}
+function toggleCheck(item){item.classList.toggle('done');var t=document.querySelectorAll('.check-item').length;var d=document.querySelectorAll('.check-item.done').length;var el=document.getElementById('check-progress');if(el)el.textContent=d+' of '+t+' complete'+(d===t?' — Done! 🎯':'');}
+</script></body></html>
