@@ -3,80 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Channel-Ready AE — Business Plan</title>
+<title>Business Plan — Channel-Ready AE</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;
   --gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;
   --rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;
-  --green:#1e3a2f;--green-bg:#eaf4ee;
+  --green:#1e3a2f;--green-light:#e8f4ee;
   --red:#7a1e1e;--red-bg:#fdf0f0;
   --amber:#7a4a00;--amber-bg:#fff8ec;
+  --nat:#5a3a7a;--nat-bg:#f5f0fa;--nat-bdr:#c8a8e8;
+  --carl:#1a3d5c;--carl-bg:#edf3f8;--carl-bdr:#a0c0d8;
+  --blue-pale:#e8f0f8;--green-bg:#eaf4ee;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
 
-/* COVER */
-.cover{
-  min-height:100vh;background:var(--ink);display:flex;flex-direction:column;
-  justify-content:space-between;padding:64px 80px;position:relative;overflow:hidden;
-}
-.cover::before{
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(-45deg,transparent,transparent 70px,
-    rgba(184,134,11,0.03) 70px,rgba(184,134,11,0.03) 71px);
-}
-.cover-top{position:relative;display:flex;justify-content:space-between;align-items:start;}
-.cover-logo{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:#f0e8d8;}
-.cover-logo em{color:var(--gold-light);font-style:italic;}
-.cover-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;
-  color:#3a4050;text-transform:uppercase;}
-.cover-mid{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;
-  padding:80px 0 60px;}
-.cover-eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:5px;
-  color:var(--gold-light);text-transform:uppercase;margin-bottom:20px;}
-.cover h1{font-family:'Libre Baskerville',serif;font-size:68px;font-weight:700;
-  color:#f0e8d8;line-height:0.95;letter-spacing:-2px;margin-bottom:14px;}
-.cover h1 em{color:var(--gold-light);font-style:italic;}
-.cover-sub{font-size:19px;color:#5a6878;max-width:600px;line-height:1.6;margin-bottom:48px;}
-.cover-stats{display:flex;gap:0;border:1px solid #1e2230;border-radius:6px;overflow:hidden;
-  max-width:680px;}
-.cover-stat{flex:1;padding:20px 24px;border-right:1px solid #1e2230;}
-.cover-stat:last-child{border-right:none;}
-.cover-stat strong{display:block;font-family:'Libre Baskerville',serif;font-size:32px;
-  color:var(--gold-light);letter-spacing:-1px;line-height:1;}
-.cover-stat span{font-family:'DM Mono',monospace;font-size:9px;color:#2a3040;
-  letter-spacing:2px;text-transform:uppercase;margin-top:4px;display:block;}
-.cover-cta{display:inline-flex;align-items:center;gap:12px;padding:16px 32px;
-  background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;
-  font-size:11px;letter-spacing:2px;text-decoration:none;font-weight:500;
-  border-radius:4px;transition:all 0.2s;margin-top:48px;width:fit-content;}
-.cover-cta:hover{background:#e8c050;}
-.cover-bottom{position:relative;display:flex;justify-content:space-between;align-items:end;
-  padding-top:24px;border-top:1px solid #1a1e2a;}
-.cover-founders{font-family:'DM Mono',monospace;font-size:10px;color:#2a3040;letter-spacing:1px;line-height:2;}
-.cover-founders strong{color:#4a6080;}
-.cover-date{font-family:'DM Mono',monospace;font-size:10px;color:#1e2230;letter-spacing:2px;text-align:right;}
+/* HERO */
+.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
+.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
+.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
+.hero h1 em{color:var(--gold-light);font-style:italic;}
+.hero-sub{font-size:17px;color:#6a7a8a;max-width:580px;position:relative;margin-bottom:32px;}
+.hero-stats{display:flex;gap:40px;position:relative;flex-wrap:wrap;}
+.hero-stat{font-family:'DM Mono',monospace;}
+.hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
+.hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
+
+/* REF BAR */
+.ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.ref-bar.gold-bar{background:#1a1800;}
+.ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
+.ref-text{font-size:13px;}
+
+/* BREADCRUMB */
+.breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.breadcrumb a{text-decoration:none;}
+
+/* TABS */
+.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:0;z-index:20;overflow-x:auto;}
+.nav-tab{padding:14px 22px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
+.nav-tab:hover{color:var(--accent);}
+.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
 
 /* CONTENT */
-.page{max-width:1020px;margin:0 auto;padding:72px 64px 100px;}
+.content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
+.panel{display:none;}
+.panel.active{display:block;}
 
-/* SECTION */
-.sec{margin-bottom:72px;}
-.sec-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;
-  color:var(--gold);text-transform:uppercase;margin-bottom:12px;
-  display:flex;align-items:center;gap:12px;}
-.sec-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
-.sec h2{font-family:'Libre Baskerville',serif;font-size:34px;font-weight:700;
-  line-height:1.15;margin-bottom:20px;color:var(--ink);}
-.sec h3{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;
-  color:var(--accent);margin:32px 0 12px;}
-p{color:#2e2820;font-size:15px;margin-bottom:14px;line-height:1.75;}
-.pull{font-family:'Libre Baskerville',serif;font-size:22px;font-style:italic;
-  color:var(--ink);border-left:4px solid var(--gold-light);padding:16px 28px;
-  margin:24px 0;line-height:1.5;background:var(--white);}
+/* TYPOGRAPHY */
+.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
+h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
+h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
+p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
+.pull{font-family:'Libre Baskerville',serif;font-size:19px;font-style:italic;color:var(--ink);border-left:4px solid var(--gold-light);padding:16px 28px;margin:24px 0;line-height:1.5;background:var(--white);}
+
+/* CALLOUT */
+.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
+.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
+.callout strong{color:var(--gold-light);}
+.exec-box{background:var(--gold-pale);border:1px solid var(--gold-light);border-left:4px solid var(--gold-light);padding:28px 32px;margin:24px 0;}
+.exec-box p{color:#3a2810;margin-bottom:10px;font-size:15px;}
+.exec-box p:last-child{margin:0;}
 
 /* GRIDS */
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
@@ -87,19 +79,16 @@ p{color:#2e2820;font-size:15px;margin-bottom:14px;line-height:1.75;}
 .card.at{border-top:3px solid var(--accent);}
 .card.gnt{border-top:3px solid var(--green);}
 .card.rt{border-top:3px solid var(--red);}
-.card h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;
-  color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
+.card h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
 .card p{font-size:13px;margin:0;color:var(--muted);line-height:1.6;}
-.card .big{font-family:'Libre Baskerville',serif;font-size:36px;font-weight:700;
-  color:var(--gold);line-height:1;margin-bottom:6px;}
+.card .big{font-family:'Libre Baskerville',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:6px;}
 .card .green{color:var(--green);font-weight:700;}
 .card .red{color:var(--red);}
 
-/* PROJECTION TABLE */
+/* TABLES */
 table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;}
 thead tr{background:var(--ink);}
-thead th{padding:11px 16px;text-align:left;color:#c8b88a;font-family:'DM Mono',monospace;
-  font-size:9px;letter-spacing:2px;font-weight:400;}
+thead th{padding:11px 16px;text-align:left;color:#c8b88a;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;font-weight:400;}
 tbody tr{border-bottom:1px solid var(--rule);}
 tbody tr:nth-child(even){background:var(--warm);}
 tbody td{padding:11px 16px;color:#2e2820;}
@@ -111,143 +100,114 @@ tfoot tr{background:var(--gold-pale);border-top:2px solid var(--gold-light);}
 tfoot td{padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);}
 .tnote{font-size:12px;color:var(--muted);margin-top:6px;font-style:italic;}
 
-/* RISK TABLE */
-.risk-badge{display:inline-block;padding:2px 10px;border-radius:20px;
-  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;font-weight:500;}
+/* RISK BADGES */
+.risk-badge{display:inline-block;padding:2px 10px;border-radius:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;font-weight:500;}
 .risk-h{background:var(--red-bg);color:var(--red);}
 .risk-m{background:var(--amber-bg);color:var(--amber);}
 .risk-l{background:var(--green-bg);color:var(--green);}
 
 /* ROADMAP */
 .rm-item{display:grid;grid-template-columns:90px 1fr;margin-bottom:3px;}
-.rm-badge{background:var(--ink);display:flex;flex-direction:column;align-items:center;
-  justify-content:center;padding:16px 10px;font-family:'DM Mono',monospace;
-  font-size:9px;letter-spacing:2px;color:#3a4050;text-align:center;gap:3px;}
-.rm-badge strong{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold-light);
-  display:block;font-weight:700;letter-spacing:0;line-height:1;}
-.rm-body{background:var(--white);border:1px solid var(--rule);border-left:3px solid var(--accent);
-  padding:14px 20px;}
-.rm-body h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;
-  color:var(--accent);text-transform:uppercase;margin-bottom:5px;}
+.rm-badge{background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 10px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:#3a4050;text-align:center;gap:3px;}
+.rm-badge strong{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold-light);display:block;font-weight:700;letter-spacing:0;line-height:1;}
+.rm-body{background:var(--white);border:1px solid var(--rule);border-left:3px solid var(--accent);padding:14px 20px;}
+.rm-body h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:5px;}
 .rm-body p{font-size:13px;color:var(--muted);margin:0;line-height:1.6;}
-
-/* EXEC CALLOUT */
-.exec-box{background:var(--gold-pale);border:1px solid var(--gold-light);
-  border-left:4px solid var(--gold-light);padding:28px 32px;margin:28px 0;}
-.exec-box p{color:#3a2810;margin-bottom:10px;font-size:15px;}
-.exec-box p:last-child{margin:0;}
 
 /* FOUNDERS */
 .founder-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
-.founder-card{border:1px solid var(--rule);padding:24px;background:var(--white);
-  border-top:3px solid var(--accent);}
+.founder-card{border:1px solid var(--rule);padding:24px;background:var(--white);border-top:3px solid var(--accent);}
 .founder-name{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;margin-bottom:4px;}
-.founder-role{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;
-  color:var(--muted);text-transform:uppercase;margin-bottom:14px;}
+.founder-role{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:14px;}
 
-/* ENTER CTA */
-.enter-block{background:var(--ink);padding:56px 64px;margin:72px -64px -100px;
-  display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
-.enter-block h2{font-family:'Libre Baskerville',serif;font-size:32px;color:#f0e8d8;
-  font-weight:700;max-width:480px;line-height:1.2;}
-.enter-block h2 em{color:var(--gold-light);font-style:italic;}
+/* BOTTOM CTA */
+.enter-block{background:var(--ink);padding:48px 40px;margin:40px -40px -80px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.enter-block h3{font-family:'Libre Baskerville',serif;font-size:26px;color:#f0e8d8;font-weight:700;max-width:480px;line-height:1.2;}
+.enter-block h3 em{color:var(--gold-light);font-style:italic;}
 .enter-cta-group{display:flex;flex-direction:column;gap:12px;flex-shrink:0;}
-.enter-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;
-  font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;
-  text-decoration:none;border-radius:4px;transition:all 0.2s;font-weight:500;}
+.enter-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-decoration:none;border-radius:4px;transition:all 0.2s;font-weight:500;}
 .enter-primary{background:var(--gold-light);color:var(--ink);}
 .enter-primary:hover{background:#e8c050;}
 .enter-secondary{background:transparent;border:1px solid #2a3040;color:#5a6878;}
 .enter-secondary:hover{border-color:#4a6080;color:#8aaac8;}
 
 @media(max-width:800px){
-  .cover{padding:40px 32px;}
-  .cover h1{font-size:42px;}
-  .cover-stats{flex-direction:column;}
-  .cover-stat{border-right:none;border-bottom:1px solid #1e2230;}
-  .page{padding:48px 28px 72px;}
+  .hero{padding:40px 24px 36px;}
+  .hero h1{font-size:30px;}
+  .breadcrumb{padding:10px 24px;}
+  .content{padding:32px 20px 60px;}
   .g2,.g3,.g4,.founder-grid{grid-template-columns:1fr;}
-  .enter-block{padding:40px 28px;margin:48px -28px -72px;flex-direction:column;}
+  .enter-block{padding:32px 20px;margin:32px -20px -60px;flex-direction:column;}
 }
 </style>
 </head>
 <body>
 
-<!-- COVER PAGE -->
-<div class="cover">
-  <div class="cover-top">
-    <div class="cover-logo">Channel-<em>Ready</em> AE</div>
-    <div class="cover-tag">Confidential Business Plan · March 2026</div>
-  </div>
-
-  <div class="cover-mid">
-    <div class="cover-eyebrow">Built by practitioners. For startup AEs.</div>
-    <h1>The channel<br><em>playbook</em><br>startups need.</h1>
-    <div class="cover-sub">A 6-month enablement program that teaches startup founders and AEs how to build and run a partner channel motion — without hiring for it first.</div>
-
-    <div class="cover-stats">
-      <div class="cover-stat">
-        <strong>$108K</strong>
-        <span>Year 1 Target</span>
-      </div>
-      <div class="cover-stat">
-        <strong>$319K</strong>
-        <span>Year 2 Target</span>
-      </div>
-      <div class="cover-stat">
-        <strong>12</strong>
-        <span>Modules Built</span>
-      </div>
-      <div class="cover-stat">
-        <strong>8</strong>
-        <span>AI Agents</span>
-      </div>
-      <div class="cover-stat">
-        <strong>Mo. 8</strong>
-        <span>Break-Even</span>
-      </div>
-    </div>
-
-    <a class="cover-cta" href="index.html">Enter Curriculum Binder →</a>
-  </div>
-
-  <div class="cover-bottom">
-    <div class="cover-founders">
-      <strong>Carl Clendenin</strong> Sr. Channel Sales Executive · Toshiba GCS<br>
-      <strong>Natalie Visconti-Clendenin</strong> Director, Channel Partners · Expel · CRN Women of the Channel 2025
-    </div>
-    <div class="cover-date">
-      <div>VERSION 1.0</div>
-      <div>MARCH 2026</div>
-      <div>CONFIDENTIAL</div>
-    </div>
+<div class="hero">
+  <div class="hero-tag">Business Plan · Version 1.0 · March 2026 · Confidential</div>
+  <h1>The channel <em>playbook</em><br>startups need.</h1>
+  <div class="hero-sub">A 6-month practitioner-built enablement program for technology companies building their first partner motion — without hiring for it first.</div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>$108K</strong><span>Year 1 Target</span></div>
+    <div class="hero-stat"><strong>$319K</strong><span>Year 2 Target</span></div>
+    <div class="hero-stat"><strong>12</strong><span>Modules Built</span></div>
+    <div class="hero-stat"><strong>8</strong><span>AI Agents</span></div>
+    <div class="hero-stat"><strong>88%</strong><span>Gross Margin</span></div>
+    <div class="hero-stat"><strong>Mo. 8</strong><span>Break-Even</span></div>
   </div>
 </div>
 
-<!-- BUSINESS PLAN CONTENT -->
-<div class="page">
+<div class="ref-bar gold-bar">
+  <span class="ref-tag" style="color:#5a4a20;">Founders</span>
+  <span class="ref-text" style="color:#3a3020;">Carl Clendenin (Toshiba GCS) &amp; Natalie Visconti-Clendenin (Expel · CRN Women of the Channel 2025)</span>
+</div>
 
-<!-- EXECUTIVE SUMMARY -->
-<div class="sec">
-  <div class="sec-label">Executive Summary</div>
+<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
+  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
+  <span style="color:#2a3a2a;">›</span>
+  <span style="color:#6a9a6a;">Business Plan</span>
+  <span style="margin-left:auto;color:#2a3a2a;">← <a href="curriculum.html" style="color:#3a5a3a;">Back to Binder</a></span>
+</div>
+
+<div class="nav-tabs">
+  <button class="nav-tab active" onclick="showPanel('summary')">Overview</button>
+  <button class="nav-tab" onclick="showPanel('problem')">The Problem</button>
+  <button class="nav-tab" onclick="showPanel('product')">Product</button>
+  <button class="nav-tab" onclick="showPanel('market')">Market</button>
+  <button class="nav-tab" onclick="showPanel('revenue')">Revenue Model</button>
+  <button class="nav-tab" onclick="showPanel('projections')">Projections</button>
+  <button class="nav-tab" onclick="showPanel('risks')">Risks</button>
+  <button class="nav-tab" onclick="showPanel('founders')">Founders</button>
+  <button class="nav-tab" onclick="showPanel('roadmap')">Roadmap</button>
+</div>
+
+<div class="content">
+
+<!-- OVERVIEW -->
+<div class="panel active" id="panel-summary">
+  <div class="section-label">Executive Summary</div>
   <h2>The one-page version.</h2>
   <div class="exec-box">
     <p><strong>Channel-Ready AE</strong> is a B2B enablement company that licenses a 6-month training program to technology startups that want to build their first channel partner motion — without hiring a dedicated channel manager first. The program teaches founders, VPs of Sales, and account executives how to identify their first VAR partner, structure the relationship, manage deal registrations, run co-sell motions, and sustain a partner ecosystem with the bandwidth of a lean sales team.</p>
     <p>The curriculum is built from 20+ years of real practitioner IP: actual QBRs, live joint business plans, co-sell campaign frameworks, deal registration data, incentive structures, and sales plays from Carl and Natalie's combined careers at Toshiba, Expel, HPE, CDW, LastPass, Okta, Varonis, and Juniper. All 12 modules are built and live. The AI agent add-on — 8 named agents, 24 underlying task agents, 3 unlock tiers — is in development as a separate product.</p>
     <p>Revenue is generated through seat-based licensing ($1,200/individual, $5,000–$10,000/team) with a recurring AI agent add-on ($300–$500/seat/month) available after Month 3. Year 1 target: <strong>$108,000</strong>. Year 2 with recurring agent subscriptions: <strong>$319,000</strong>. Break-even at Month 8 from first sale.</p>
   </div>
-
   <div class="g4">
     <div class="card gt"><div class="big">$108K</div><h4>Year 1 Revenue</h4><p>Licensing only. Base case: 2–3 team licenses/month by Month 6.</p></div>
     <div class="card gt"><div class="big">$319K</div><h4>Year 2 Revenue</h4><p>Licensing + recurring agent subscriptions scaling through H2.</p></div>
     <div class="card gt"><div class="big">Mo. 8</div><h4>Full Break-Even</h4><p>All startup costs recovered. Monthly burn: $342/mo.</p></div>
     <div class="card gt"><div class="big">88%</div><h4>Gross Margin</h4><p>Team license tier. Agent tier ~65% after Claude API costs.</p></div>
   </div>
+
+  <div class="callout">
+    <div class="callout-tag">WHY NOW</div>
+    Post-2022 VC pressure pushed lean GTM structures across the industry. Channel teams were cut at nearly every mid-market B2B tech company. AEs inherited the partner motion with no training and no playbook. <strong>This program is the fix.</strong> No incumbent exists in this niche — Sandler and Challenger teach direct sales. Channel consulting firms like Spur Reply target $50K+ enterprise contracts. The startup channel training niche is unoccupied.
+  </div>
 </div>
 
-<!-- THE PROBLEM -->
-<div class="sec">
-  <div class="sec-label">The Problem</div>
+<!-- PROBLEM -->
+<div class="panel" id="panel-problem">
+  <div class="section-label">The Problem</div>
   <h2>Startups get approached by CDW. They have no idea what to do.</h2>
   <p>Technology companies at the seed-to-Series B stage routinely get inbound from national VARs — CDW, SHI, Insight, Softchoice. These relationships can generate meaningful revenue. But the team has no framework for responding. They don't know what a deal registration is, how VAR economics work, what a co-sell motion looks like, or how to run a QBR when they have two pipeline items and no historical data.</p>
   <div class="pull">"The typical startup moment: a CDW rep emails your founder. Your team freezes because nobody knows what to do next. We built this program to fix that moment."</div>
@@ -260,11 +220,10 @@ tfoot td{padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;color:
 </div>
 
 <!-- PRODUCT -->
-<div class="sec">
-  <div class="sec-label">The Product</div>
+<div class="panel" id="panel-product">
+  <div class="section-label">The Product</div>
   <h2>12 modules. 6 months. One channel-capable team.</h2>
   <p>The curriculum is practitioner-built from real source material — not case studies or theory. Every module carries contributor tags: Carl's vendor-side IP (Toshiba, HPE, Juniper) and Natalie's reseller + startup-side IP (CDW rep experience, Expel, LastPass, Okta, Varonis). All 12 modules are fully built and live.</p>
-
   <div class="g3">
     <div class="card at">
       <h4>Phase 1 — Months 1–2</h4>
@@ -276,13 +235,12 @@ tfoot td{padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;color:
     </div>
     <div class="card at">
       <h4>Phase 3 — Months 5–6</h4>
-      <p><strong>Scale & Agents.</strong> KPI frameworks, pipeline reporting, Win Wire cadence, building the internal case for a channel hire. Module 12 introduces the AI agent stack — what each agent does, how to supervise it, and when to trust it.</p>
+      <p><strong>Scale &amp; Agents.</strong> KPI frameworks, pipeline reporting, Win Wire cadence, building the internal case for a channel hire. Module 12 introduces the AI agent stack — what each agent does, how to supervise it, and when to trust it.</p>
     </div>
   </div>
 
   <h3>The AI Agent Add-On — Separate Product, In Development</h3>
   <p>8 named agents, 24 underlying task agents, 3 unlock tiers. Agents are trained on the same knowledge base as the curriculum. The Co-Sell Agent — the flagship — automates the motion Natalie built manually at LastPass that produced 4× CDW revenue growth in 12 months. Available to program graduates after Month 3. Does not gate the training launch.</p>
-
   <div class="g3">
     <div class="card gnt"><h4>Core Tier — Month 3</h4><p>Compliance Agent (onboarding, contracts, tiering) · Enablement Agent (training, collateral, certification) · Marketing Agent (MDF, SPIFs, competitive intel)</p></div>
     <div class="card gnt"><h4>Growth Tier — Month 6</h4><p>Co-Sell Agent ★ · Deal Agent (deal reg lifecycle) · Communication Agent (email, Win Wire) · Reporting Agent (QBR prep, dashboards)</p></div>
@@ -291,8 +249,8 @@ tfoot td{padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;color:
 </div>
 
 <!-- MARKET -->
-<div class="sec">
-  <div class="sec-label">Market</div>
+<div class="panel" id="panel-market">
+  <div class="section-label">Market</div>
   <h2>Large market. Unoccupied niche.</h2>
   <div class="g3">
     <div class="card"><div class="big">$4.2B</div><h4>TAM</h4><p>Global B2B sales training and enablement. 14% CAGR. Sandler, MEDDIC, Miller Heiman, RAIN Group.</p></div>
@@ -308,8 +266,8 @@ tfoot td{padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;color:
 </div>
 
 <!-- REVENUE MODEL -->
-<div class="sec">
-  <div class="sec-label">Revenue Model</div>
+<div class="panel" id="panel-revenue">
+  <div class="section-label">Revenue Model</div>
   <h2>Seat licensing plus a recurring agent layer.</h2>
   <table>
     <thead><tr><th>TIER</th><th>INCLUDED</th><th>PRICE</th><th>TERM</th><th>MARGIN</th></tr></thead>
@@ -323,11 +281,18 @@ tfoot td{padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;color:
     </tbody>
     <tfoot><tr><td colspan="5">Pilot pricing for first 3 cohorts: Startup Team at $5,000 (vs. $7,500 at full build). Written curriculum completion SLA provided to all pilot customers.</td></tr></tfoot>
   </table>
+
+  <div class="g4" style="margin-top:28px;">
+    <div class="card"><h4>One-Time Startup Cost</h4><div class="big" style="font-size:28px;">$7,200</div><p>LLC, trademark, legal review, domain, branding, video setup.</p></div>
+    <div class="card"><h4>Monthly Burn</h4><div class="big" style="font-size:28px;">$342</div><p>Kajabi, LinkedIn Navigator, Zoom, QuickBooks, hosting.</p></div>
+    <div class="card"><h4>One License Covers</h4><div class="big" style="font-size:28px;">22 mo.</div><p>One team license pays 22 months of monthly platform burn.</p></div>
+    <div class="card"><h4>Break-Even Month</h4><div class="big" style="font-size:28px;">Month 8</div><p>Full startup cost recovery from first sale date.</p></div>
+  </div>
 </div>
 
 <!-- PROJECTIONS -->
-<div class="sec">
-  <div class="sec-label">Financial Projections</div>
+<div class="panel" id="panel-projections">
+  <div class="section-label">Financial Projections</div>
   <h2>24-month forecast. Three scenarios.</h2>
 
   <h3>Year 1 — Monthly (Base Case)</h3>
@@ -365,21 +330,9 @@ tfoot td{padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;color:
   </div>
 </div>
 
-<!-- STARTUP COSTS -->
-<div class="sec">
-  <div class="sec-label">Startup Costs</div>
-  <h2>What it costs to reach first revenue.</h2>
-  <div class="g4">
-    <div class="card"><h4>Total One-Time</h4><div class="big" style="font-size:28px;">$7,200</div><p>LLC, trademark, legal review, domain, branding, video setup.</p></div>
-    <div class="card"><h4>Monthly Burn</h4><div class="big" style="font-size:28px;">$342</div><p>Kajabi, LinkedIn Navigator, Zoom, QuickBooks, hosting.</p></div>
-    <div class="card"><h4>One License Covers</h4><div class="big" style="font-size:28px;">22 mo.</div><p>One team license pays 22 months of monthly platform burn.</p></div>
-    <div class="card"><h4>Break-Even Month</h4><div class="big" style="font-size:28px;">Month 8</div><p>Full startup cost recovery from first sale date.</p></div>
-  </div>
-</div>
-
-<!-- RISK ANALYSIS -->
-<div class="sec">
-  <div class="sec-label">Risk Analysis</div>
+<!-- RISKS -->
+<div class="panel" id="panel-risks">
+  <div class="section-label">Risk Analysis</div>
   <h2>What could go wrong — and how we respond.</h2>
   <table>
     <thead><tr><th>RISK</th><th>LIKELIHOOD</th><th>IMPACT</th><th>MITIGATION</th></tr></thead>
@@ -431,8 +384,8 @@ tfoot td{padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;color:
 </div>
 
 <!-- FOUNDERS -->
-<div class="sec">
-  <div class="sec-label">Founders</div>
+<div class="panel" id="panel-founders">
+  <div class="section-label">Founders</div>
   <h2>Practitioners, not consultants.</h2>
   <div class="founder-grid">
     <div class="founder-card">
@@ -451,8 +404,8 @@ tfoot td{padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;color:
 </div>
 
 <!-- ROADMAP -->
-<div class="sec">
-  <div class="sec-label">Milestones</div>
+<div class="panel" id="panel-roadmap">
+  <div class="section-label">Milestones</div>
   <h2>What happens, and when.</h2>
   <div class="rm-item"><div class="rm-badge"><strong>Apr</strong><span>2026</span></div><div class="rm-body"><h4>FOUNDATION</h4><p>LLC formed. Employment agreements reviewed by attorney. Trademark filed. Domain + site live. All 12 modules complete and linked. Operating agreement signed.</p></div></div>
   <div class="rm-item"><div class="rm-badge"><strong>May</strong><span>2026</span></div><div class="rm-body"><h4>PILOT LAUNCH</h4><p>First startup team license signed (pilot pricing). Cohort 1 begins. LinkedIn content cadence active. Channel Readiness Audit tool embedded on site. First accelerator intro conversation.</p></div></div>
@@ -460,17 +413,26 @@ tfoot td{padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;color:
   <div class="rm-item"><div class="rm-badge"><strong>Sep</strong><span>2026</span></div><div class="rm-body"><h4>AGENT PILOT</h4><p>First agent (Co-Sell) available in supervised pilot for eligible graduates. 4–6 active clients. Agent subscription revenue begins. First CRN or CompTIA content submission.</p></div></div>
   <div class="rm-item"><div class="rm-badge"><strong>Dec</strong><span>2026</span></div><div class="rm-body"><h4>YEAR 1 CLOSE</h4><p>$100K+ revenue. 10–15 active clients. $8K+/month recurring agent MRR. Decision point: maintain as side business or begin full-time transition.</p></div></div>
   <div class="rm-item"><div class="rm-badge"><strong>Mar</strong><span>2027</span></div><div class="rm-body"><h4>YEAR 2 SCALE</h4><p>Part-time CS contractor. LinkedIn ad spend. Enterprise tier launched. Certificate renewal program active. Accelerator partnership signed or in final negotiation. $200K+ ARR in view.</p></div></div>
-</div>
 
-<!-- ENTER CTA -->
-<div class="enter-block">
-  <h2>The curriculum is <em>built</em>.<br>All 12 modules are live.</h2>
-  <div class="enter-cta-group">
-    <a class="enter-btn enter-primary" href="index.html">Open Curriculum Binder →</a>
-    <a class="enter-btn enter-secondary" href="module_10.html">Jump to Module 10 — Live Example →</a>
+  <div class="enter-block">
+    <h3>The curriculum is <em>built</em>.<br>All 12 modules are live.</h3>
+    <div class="enter-cta-group">
+      <a class="enter-btn enter-primary" href="curriculum.html">Open Curriculum Binder →</a>
+      <a class="enter-btn enter-secondary" href="module_10.html">Jump to Module 10 — Live Example →</a>
+    </div>
   </div>
 </div>
 
-</div>
+</div><!-- end .content -->
+
+<script>
+function showPanel(id) {
+  document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.nav-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.getElementById('panel-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>
