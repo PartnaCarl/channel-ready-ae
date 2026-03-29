@@ -1,21 +1,14 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Module 11 — KPI Frameworks & Pipeline Reporting — Channel-Ready AE</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 11 — Competitive Intelligence in Channel — Channel-Ready AE</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>:root{
-  --ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;
-  --gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;
-  --rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;
-  --green:#1e3a2f;--green-light:#e8f4ee;
-  --red:#7a1e1e;--blue-pale:#e8f0f8;
-  --nat:#5a3a7a;--nat-bg:#f5f0fa;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
+<style>
+:root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-light:#e8f4ee;--red:#7a1e1e;--blue-pale:#e8f0f8;--nat:#5a3a7a;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
+.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
 .hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
 .hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
 .hero h1 em{color:var(--gold-light);font-style:italic;}
@@ -24,112 +17,38 @@ body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font
 .hero-stat{font-family:'DM Mono',monospace;}
 .hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
 .hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
-
 .ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ref-bar.green-bar{background:#1a2a1a;}
 .ref-bar.blue-bar{background:#1a1a2a;}
-.ref-bar.purple-bar{background:#1a1a2a;}
 .ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
 .ref-text{font-size:13px;}
-
 .breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
 .breadcrumb a{text-decoration:none;}
-
 .nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:56px;z-index:20;overflow-x:auto;}
 .nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
-.nav-tab:hover{color:var(--accent);}
-.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
-
+.nav-tab:hover{color:var(--accent);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
 .content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}
-.panel.active{display:block;}
-
+.panel{display:none;}.panel.active{display:block;}
 .section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
 h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
 h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
 p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-
 .callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
 .callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
 .callout strong{color:var(--gold-light);}
 .explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
-
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:20px 0;}
 .pillar{border:1px solid var(--rule);background:var(--white);border-radius:4px;overflow:hidden;}
 .pillar-head{padding:14px 20px;display:flex;align-items:center;gap:10px;}
 .pillar-head.blue{background:var(--accent);color:white;}
 .pillar-head.green{background:var(--green);color:white;}
-.pillar-head.gold{background:var(--gold);color:var(--ink);}
 .pillar-head.dark{background:#2a2020;color:#f0e8d8;}
-.pillar-head.purple{background:var(--nat);color:white;}
 .pillar-icon{font-size:20px;}
 .pillar-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;font-weight:500;}
 .pillar-body{padding:16px 20px;}
 .pillar-body ul{list-style:none;margin:0;}
-.pillar-body li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:14px;color:#2e2820;display:flex;justify-content:space-between;align-items:start;gap:12px;}
+.pillar-body li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:14px;color:#2e2820;}
 .pillar-body li:last-child{border-bottom:none;}
-.pillar-body li .tag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
-.tag-gold{background:var(--gold-pale);color:var(--gold);}
-.tag-blue{background:var(--blue-pale);color:var(--accent);}
-.tag-green{background:var(--green-light);color:var(--green);}
-
-.checklist{margin:20px 0;}
-.check-group{margin-bottom:20px;}
-.check-group-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--rule);}
-.check-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0ebe0;cursor:pointer;}
-.check-item:last-child{border-bottom:none;}
-.check-box{width:20px;height:20px;border:2px solid var(--rule);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;margin-top:2px;}
-.check-item.done .check-box{background:var(--green);border-color:var(--green);}
-.check-item.done .check-box::after{content:'✓';color:white;font-size:12px;font-weight:700;}
-.check-item.done .check-text{text-decoration:line-through;color:var(--muted);}
-.check-text{font-size:14px;color:#2e2820;line-height:1.5;}
-.check-note{font-size:12px;color:var(--muted);margin-top:3px;font-style:italic;}
-
-.timeline{position:relative;margin:24px 0;}
-.timeline::before{content:'';position:absolute;left:36px;top:0;bottom:0;width:2px;background:var(--rule);}
-.t-item{display:flex;gap:20px;margin-bottom:24px;position:relative;}
-.t-badge{width:72px;height:72px;border-radius:6px;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-family:'DM Mono',monospace;z-index:1;}
-.t-badge strong{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold-light);line-height:1;}
-.t-badge span{font-size:9px;color:#4a5060;letter-spacing:2px;margin-top:2px;}
-.t-body{background:var(--white);border:1px solid var(--rule);border-radius:4px;padding:14px 20px;flex:1;}
-.t-body h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:6px;}
-.t-body p{font-size:14px;margin:0;color:var(--muted);}
-
-.plays{margin:20px 0;}
-.play-card{border:1px solid var(--rule);border-radius:4px;margin-bottom:12px;overflow:hidden;}
-.play-head{display:grid;grid-template-columns:120px 1fr 100px 100px;gap:0;background:var(--ink);padding:12px 16px;align-items:center;}
-.play-tier{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;border-radius:20px;text-align:center;font-weight:500;}
-.tier-1{background:#1a2a3a;color:#6a9aba;}
-.tier-2{background:#1a2a1a;color:#6aba8a;}
-.tier-3{background:#2a1a2a;color:#ba8aba;}
-.play-name{font-family:'Libre Baskerville',serif;font-size:16px;color:#f0e8d8;padding-left:12px;}
-.play-signal{font-size:12px;color:#4a5060;text-align:right;}
-.play-value{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold-light);text-align:right;}
-.play-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
-.play-col{padding:14px 16px;border-right:1px solid var(--rule);}
-.play-col:last-child{border-right:none;}
-.play-col-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.play-col ul{list-style:none;}
-.play-col li{font-size:13px;color:#2e2820;padding:3px 0;padding-left:14px;position:relative;}
-.play-col li::before{content:'›';position:absolute;left:0;color:var(--gold);}
-
-.incentive-ladder{margin:20px 0;}
-.incentive-row{display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule);}
-.incentive-row:last-child{border-bottom:none;}
-.incentive-action{flex:1;font-size:14px;color:#2e2820;}
-.incentive-action strong{display:block;font-size:15px;margin-bottom:2px;}
-.incentive-action span{font-size:12px;color:var(--muted);}
-.incentive-amount{font-family:'DM Mono',monospace;font-size:18px;color:var(--green);font-weight:500;min-width:80px;text-align:right;}
-.incentive-bar-wrap{width:120px;height:6px;background:#e8e0d0;border-radius:3px;overflow:hidden;}
-.incentive-bar{height:100%;background:var(--green);border-radius:3px;transition:width 0.5s;}
-
-.email-box{background:var(--white);border:1px solid var(--rule);border-radius:4px;margin:20px 0;overflow:hidden;}
-.email-header{background:#f5f5f5;padding:12px 20px;border-bottom:1px solid var(--rule);}
-.email-header .field{display:flex;gap:12px;font-size:13px;color:var(--muted);margin-bottom:4px;}
-.email-header .field strong{color:var(--ink);min-width:40px;}
-.email-body{padding:20px;font-size:14px;color:#2e2820;line-height:1.8;white-space:pre-wrap;}
-
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
 .card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
@@ -137,140 +56,194 @@ p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
 .card.blue-top{border-top:3px solid var(--accent);}
 .card.green-top{border-top:3px solid var(--green);}
 .card.red-top{border-top:3px solid var(--red);}
-.card.purple-top{border-top:3px solid var(--nat);}
 .card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
 .card p{font-size:13px;margin:0;color:var(--muted);}
-.card .big{font-family:'Libre Baskerville',serif;font-size:32px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px;}
-
-.progress-ring{display:flex;align-items:center;gap:24px;padding:20px 0;}
-.ring-wrap{position:relative;width:100px;height:100px;flex-shrink:0;}
-.ring-wrap svg{transform:rotate(-90deg);}
-.ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.ring-pct{font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700;color:var(--accent);}
-.ring-sub{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--muted);}
-.ring-details{flex:1;}
-.ring-details h4{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;}
-.ring-details p{font-size:14px;color:var(--muted);margin:0;}
-
-.milestone-track{display:flex;gap:0;margin:20px 0;overflow:hidden;border-radius:6px;border:1px solid var(--rule);}
-.ms{flex:1;padding:16px 12px;text-align:center;border-right:1px solid var(--rule);background:var(--white);transition:background 0.2s;}
-.ms:last-child{border-right:none;}
-.ms.done{background:#eaf4ee;}
-.ms.active{background:var(--blue-pale);}
-.ms-icon{font-size:18px;margin-bottom:6px;}
-.ms-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
-.ms.done .ms-label{color:var(--green);}
-.ms.active .ms-label{color:var(--accent);}
-.ms-status{font-size:11px;color:var(--muted);}
-.ms.done .ms-status{color:var(--green);}
-
-.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 0;}
+.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 0;}
 .contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
 .cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
 .cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
 .cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
-
-.bot-row{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 0;}
-.bot-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:3px;background:var(--blue-pale);color:var(--accent);}
-
 .footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
 .footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
 .footer-brand em{color:var(--gold-light);}
 .footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
+@media(max-width:700px){.hero{padding:40px 24px 36px;}.hero h1{font-size:30px;}.content{padding:32px 20px 60px;}.pillars,.grid-2,.grid-3{grid-template-columns:1fr;}.breadcrumb{padding:10px 24px;}}
+.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
 
-@media(max-width:700px){
-  .hero{padding:40px 24px 36px;}
-  .hero h1{font-size:30px;}
-  .content{padding:32px 20px 60px;}
-  .pillars,.grid-2,.grid-3,.play-body,.play-head{grid-template-columns:1fr;}
-  .milestone-track{flex-wrap:wrap;}
-  .breadcrumb{padding:10px 24px;}
-}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}</style></head><body><nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#agents">AI Agents</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="business_plan.html">Business Plan</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
-<div class="hero"><div class="hero-tag">Channel-Ready AE · Phase 3 · Module 11</div>
-<h1>Numbers That <em>Prove</em><br>the Partner Motion Works.</h1><div class="hero-sub">Your CEO asks 'how's the partner program going?' If you answer with feelings instead of numbers, you've lost credibility. This module teaches what to measure, how to present it, and how to build the internal case for channel investment.</div>
-<div class="hero-stats"><div class="hero-stat"><strong>3</strong><span>KPI Layers</span></div><div class="hero-stat"><strong>1</strong><span>Win Wire Format</span></div><div class="hero-stat"><strong>Monthly</strong><span>Reporting Cadence</span></div><div class="hero-stat"><strong>1</strong><span>Leadership Template</span></div></div></div>
-<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Dual Perspective</span><span class="ref-text" style="color:#6a7a9a;">Carl: HPE commercial pipeline data, field KPIs · Natalie: Expel C-suite channel reporting templates</span></div>
-<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
-<a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a><span style="color:#2a3a2a;">›</span>
-<span style="color:#6a9a6a;">Module 11 — KPI Frameworks & Pipeline Reporting</span>
-<span style="margin-left:auto;"><a href="curriculum.html" style="color:#3a5a3a;">← Back to Binder</a></span></div>
-<div class="nav-tabs"><button class="nav-tab active" onclick="showPanel('overview')">Overview</button><button class="nav-tab" onclick="showPanel('winwire')">Win Wire Format</button><button class="nav-tab" onclick="showPanel('leadership')">Leadership Report</button><button class="nav-tab" onclick="showPanel('checklist')">Monthly Checklist</button></div>
-<div class="content"><div class="panel active" id="panel-overview"><div class="section-label">Why This Module Exists</div>
-<h2>Channel sales without metrics is a faith exercise. CFOs don't fund faith.</h2>
-<p>This module teaches the three-layer KPI stack (leading → middle → lagging), the Win Wire format, and how to present partner performance to your CEO or board. Includes Natalie's leadership reporting framework from Expel — what the C-suite actually needs to see.</p>
-<div class="grid-3">
-<div class="card blue-top"><h4>Leading — Activity</h4><p>Deal regs submitted. Trainings completed. Co-sell sessions run. These tell you whether the partnership is active — they don't tell you if it's producing revenue yet.</p></div>
-<div class="card green-top"><h4>Middle — Pipeline</h4><p>Partner-sourced pipeline. Partner-influenced pipeline. Pipeline by tier. Pipeline velocity (days from deal reg to close). These tell you if activity is converting to opportunities.</p></div>
-<div class="card gold-top"><h4>Lagging — Revenue</h4><p>Bookings through the partner. Revenue by tier. Revenue per partner rep. Services attach rate. These are the numbers that justify the program's existence.</p></div>
-</div></div><div class="panel" id="panel-winwire"><div class="section-label">The Win Wire</div>
-<h2>A structured partner update. 15 minutes to write. Keeps you on the DM's radar.</h2>
-<p>Send monthly or bi-weekly. Two paragraphs. No fluff. Format: accounts confirmed, activity completed, pipeline identified, deal regs submitted, what's next.</p>
-<div class="email-box"><div class="email-header"><div class="field"><strong>To:</strong> [Partner DM, SM]</div><div class="field"><strong>Subject:</strong> [Your Company] × [Partner] — [Month] Update</div></div>
-<div class="email-body">Hi [Name],
-
-Month [X] update — short version:
-
-ACCOUNTS
-→ [X] of [X] co-sell accounts confirmed active
-
-ACTIVITY
-→ [X] co-sell sessions completed
-→ [X] deal registrations submitted
-→ [X] customer meetings completed
-
-PIPELINE
-→ Total: $[X] ([X]% of quarterly target)
-→ Named commits: [Account 1], [Account 2], [Account 3]
-→ Forward pipeline Q[X+1]: $[X]
-
-WHAT'S NEXT
-→ [Specific action 1]
-→ [Specific action 2]
-
-Full detail in the shared tracker. Let me know if anything needs attention before our sync on [date].
-
-[Your Name]</div></div></div><div class="panel" id="panel-leadership"><div class="section-label">Internal Reporting</div>
-<h2>How to report partner performance to your VP Sales or CRO.</h2>
-<div class="email-box"><div class="email-header"><div class="field"><strong>To:</strong> [Your VP Sales / CRO]</div><div class="field"><strong>Subject:</strong> [Partner] — Q[X] Channel Performance Summary</div></div>
-<div class="email-body">EXECUTIVE SUMMARY
-[Partner] generated $[X] in partner-sourced pipeline and $[X] in closed revenue this quarter. [X] deal regs submitted by [X] active reps. QoQ trend: [up/down/flat].
-
-KEY METRICS
-→ Pipeline (partner-sourced): $[X] ([X]% of target)
-→ Pipeline (partner-influenced): $[X]
-→ Deal regs: [X] submitted, [X] approved, [X] in conflict
-→ Active reps: [X] of [X] trained submitting this quarter
-→ Services attach rate: [X]%
-
-TOP 3 OPPORTUNITIES
-→ [Account 1]: $[X], [stage], expected [close date]
-→ [Account 2]: $[X], [stage], expected [close date]
-→ [Account 3]: $[X], [stage], expected [close date]
-
-RECOMMENDATION
-[Continue / Increase investment / Escalate / Consider dedicated channel hire]</div></div>
-<div class="explain">Natalie's insight from Expel: "The C-suite needs 3 things: how much pipeline, how much revenue, and whether this is scaling or stalling. Everything else is supporting evidence. Lead with the three numbers."</div></div><div class="panel" id="panel-checklist"><div class="section-label">Operations</div>
-<h2>Monthly reporting checklist.</h2>
-<div class="checklist" id="checklist">
-<div class="check-group"><div class="check-group-title">Data Collection</div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Pull deal reg submission count for the month by partner and by rep</div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Update pipeline tracker: partner-sourced vs. partner-influenced</div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Calculate services attach rate on closed deals</div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Review per-rep activity: who submitted, who didn't, what changed</div></div>
+<div class="hero">
+  <div class="hero-tag">Channel-Ready AE · Phase 3 · Module 11</div>
+  <h1>Competitive Intelligence<br>in <em>Channel</em>.</h1>
+  <div class="hero-sub">Knowing your channel motion vs. direct vs. competitor channel — and positioning your company in a three-way channel fight. The competitive intelligence practices that give you defensible answers when a partner asks why they should choose you over the other vendors on their line card.</div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>3-Way</strong><span>Channel Fight</span></div>
+    <div class="hero-stat"><strong>Your</strong><span>Channel Motion</span></div>
+    <div class="hero-stat"><strong>Direct</strong><span>vs Channel Dynamic</span></div>
+    <div class="hero-stat"><strong>Intel</strong><span>Into Positioning</span></div>
+  </div>
 </div>
-<div class="check-group"><div class="check-group-title">Reporting</div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Send Win Wire to partner DM</div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Update internal leadership report (if quarterly, prep the data monthly)</div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Complete Six Asks RAG scorecard for each partner</div></div>
-</div></div>
-<div style="margin-top:20px;padding:14px 20px;background:var(--warm);border:1px solid var(--rule);border-radius:4px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);"><span id="check-progress">0 of 7 items complete</span></div></div>
-<div class="contrib-row"><span class="contrib-pill cp-carl">● CARL — HPE commercial pipeline data, field KPIs</span><span class="contrib-pill cp-nat">● NATALIE — Expel C-suite reporting, CDW-side data expectations</span></div>
-<div class="bot-row"><span class="bot-pill">Pipeline Tracker</span><span class="bot-pill">QBR Prep Agent</span></div>
-<div class="footer"><div><div class="footer-brand">Channel-<em>Ready</em> AE</div>
-<div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 11 · KPI FRAMEWORKS & PIPELINE REPORTING</div></div>
-<div class="footer-meta"><div>CONFIDENTIAL</div><div>CARL & NATALIE CLENDENIN</div></div></div></div>
+
+<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Competitive Positioning</span><span class="ref-text" style="color:#6a7a9a;">Know your position before every partner conversation and every co-sell customer call</span></div>
+
+<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
+  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
+  <span style="color:#2a3a2a;">›</span>
+  <span style="color:#6a9a6a;">Module 11 — Competitive Intelligence in Channel</span>
+  <span style="margin-left:auto;"><a href="module_10.html" style="color:#3a5a3a;">← Module 10</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="module_12.html" style="color:#5a7a9a;margin-left:12px;">Module 12 →</a></span>
+</div>
+
+<div class="nav-tabs">
+  <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
+  <button class="nav-tab" onclick="showPanel('framework')">Framework</button>
+  <button class="nav-tab" onclick="showPanel('practice')">In Practice</button>
+  <button class="nav-tab" onclick="showPanel('fieldnotes')">Field Notes</button>
+</div>
+
+<div class="content">
+
+<div class="panel active" id="panel-overview">
+<div class="section-label">Why This Module Exists</div>
+<h2>Your partner has 3–5 vendors in your category. You need to know why you win — and be able to say it in 90 seconds.</h2>
+<div class="explain">Competitive intelligence in channel isn't about badmouthing competitors. It's about understanding exactly what the three-way fight looks like in your category — and positioning your product, your program, and your working relationship in a way that wins that fight before the customer meeting starts.</div>
+<p>The channel competitive fight is more complex than a direct fight. In direct sales, you're competing with one or two alternatives for the customer's business. In channel, you're competing on multiple dimensions simultaneously: you're competing with other vendors for the partner's attention, you're competing with direct sales for the partner's trust, and you're competing with other vendors' channel motions for the customer's consideration set — all at the same time.</p>
+<p>Sandler's approach to competitive positioning is pain-based. You don't win by being "better" — you win by being better at solving the specific pain your target customer has. That means your competitive intelligence needs to tell you: where does your product's pain pattern diverge from your competitors'? Which customers are better served by your motion and why? What does a partner need to know to position you correctly in a competitive situation?</p>
+<div class="callout">
+  <div class="callout-tag">THE CORE INSIGHT</div>
+  <strong>Competitive intelligence in channel is not about features. It's about pain fit.</strong> The partner who can say "this customer's specific problem is better solved by [your product] because [specific reason tied to their pain]" wins more deals than the partner reciting a feature comparison.
+</div>
+<div class="grid-3">
+  <div class="card gold-top"><h4>What You'll Learn</h4><p>The three-way channel fight — your channel motion vs. direct vs. competitor channel. How to build a pain-based competitive position your partners can use in customer conversations.</p></div>
+  <div class="card gold-top"><h4>What You'll Practice</h4><p>Building a one-page competitive brief for your top two competitors. Positioning your channel program against competitor programs. Handling "your competitor is cheaper" in partner conversations.</p></div>
+  <div class="card gold-top"><h4>What Changes After</h4><p>Your partners can articulate your competitive position in customer meetings without you in the room. Your win rate in competitive deals increases. You stop losing on price.</p></div>
+</div>
+</div>
+
+<div class="panel" id="panel-framework">
+<div class="section-label">The Three-Way Fight</div>
+<h2>Understanding the competitive landscape your partner operates in every day.</h2>
+
+<div class="pillars">
+  <div class="pillar">
+    <div class="pillar-head blue"><div class="pillar-icon">⚔</div><div class="pillar-title">Your Channel Motion</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>What pain pattern does your product solve best?</li>
+        <li>What ICP is your product most differentiated in?</li>
+        <li>What does your channel program offer that competitors don't?</li>
+        <li>Where does your product over-perform vs. direct alternatives?</li>
+        <li>What is your services attach story for partners?</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-head dark"><div class="pillar-icon">⚡</div><div class="pillar-title">Direct Sales Motion</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>When does your company go direct vs. through channel?</li>
+        <li>How do you prevent channel conflict with your own direct team?</li>
+        <li>What happens when a partner and your direct team compete?</li>
+        <li>What deal protection does your channel program offer?</li>
+        <li>Is direct a threat to your partners — and how do you address it?</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-head green"><div class="pillar-icon">🛡</div><div class="pillar-title">Competitor Channel Motion</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>How do competitors' channel programs differ from yours?</li>
+        <li>Where do they win — and what is their pain fit story?</li>
+        <li>What do their partners say about working with them?</li>
+        <li>What pain are their partners experiencing with them?</li>
+        <li>Where are their partners under-supported or underincentivized?</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h3>Building a Pain-Based Competitive Brief</h3>
+<div class="callout">
+  <div class="callout-tag">COMPETITIVE BRIEF STRUCTURE</div>
+  <strong>Competitor Name:</strong> [Name]<br><br>
+  <strong>Pain they solve best:</strong> [Specific problem where they have genuine advantage — be honest]<br><br>
+  <strong>Pain where we win:</strong> [Specific problem where your product is more differentiated]<br><br>
+  <strong>Their channel motion weakness:</strong> [What their partners complain about most — sourced from partner conversations, not marketing material]<br><br>
+  <strong>Your positioning when they come up in a deal:</strong> [Two sentences. Pain-based. No badmouthing.]<br><br>
+  One page. Updated every quarter. Every partner rep who sells your product should have this.
+</div>
+
+<h3>The Pricing Objection — Sandler's Approach</h3>
+<div class="grid-2">
+  <div class="card red-top"><h4>What Not to Do</h4><p>Immediately justify your price. Offer a discount. Say "but we have better features." All of these confirm the partner's framing that this is a price decision. It's not — it's a pain fit decision.</p></div>
+  <div class="card green-top"><h4>What to Do (Sandler)</h4><p>Get curious. "Is the other product solving the same specific problem, or are we comparing on price because the problems look similar on the surface?" Pain-fit differentiation is the only answer to a price objection that doesn't devalue your product.</p></div>
+</div>
+</div>
+
+<div class="panel" id="panel-practice">
+<div class="section-label">Competitive Intelligence in Action</div>
+<h2>Using competitive knowledge in real partner and customer conversations.</h2>
+
+<h3>Sourcing Intelligence from Partners</h3>
+<p>Your partners are your best competitive intelligence source. They work with multiple vendors in your category every week. They know what your competitors are doing, what their channel programs look like, and what their customers are saying. The question is whether you're asking. At every QBR and monthly sync, include a competitive intelligence question: "What are you hearing from your customers about [competitor]? What are they winning on? Where are they falling short?"</p>
+
+<h3>Positioning in a Three-Way Customer Meeting</h3>
+<div class="callout">
+  <div class="callout-tag">COMPETITIVE POSITIONING SCRIPT</div>
+  When a customer mentions they're also talking to a competitor:<br><br>
+  "That makes sense — they're a solid option in [use case where they're strong]. What we typically find is that customers who are dealing with [your specific pain pattern] find that our approach works better because [specific reason tied to their pain — not features]. Can I ask — is [specific pain element] something you're experiencing, or is it more of a [competitor's pain pattern] situation?"<br><br>
+  You're positioning by pain pattern, not feature comparison. The customer identifies their situation. You're helping them see which solution fits their specific problem better.
+</div>
+
+<h3>When a Partner Sells Your Competitor Instead</h3>
+<p>Sometimes a partner will take an opportunity to a competitor instead of to you. This is not betrayal — it's business. Your response should be curious, not defensive: "Help me understand why you went that direction on this one. Was it the customer's specific requirement, or was there something about our program that made it a harder choice?" The answer gives you competitive intelligence and a chance to address a gap in your program.</p>
+</div>
+
+<div class="panel" id="panel-fieldnotes">
+<div class="section-label">From the Field</div>
+<h2>What experienced channel AEs know about competitive intelligence that new ones don't.</h2>
+
+<h3>The Best Competitive Intelligence Is Longitudinal</h3>
+<p>A single competitor conversation tells you what's happening right now. A pattern of competitor conversations over six months tells you where the market is moving. Track what you hear from partners and customers about competitors over time. Update your competitive brief quarterly. The AE who knows the competitive landscape better than anyone else in their company becomes indispensable to their partners — and to their own leadership.</p>
+
+<h3>When Competitors Are Better</h3>
+<div class="callout">
+  <div class="callout-tag">SANDLER RULE ON HONESTY</div>
+  If a competitor genuinely solves a specific customer's problem better than you do, say so. "I want to be straight with you — for this specific use case, they might actually be the better fit. Where we tend to win is [specific scenario]. Is that the situation you're in?" This counterintuitive honesty — which Sandler calls "being OK/OK" — builds more trust with partners and customers than competitive spin ever will. And it ensures that when you do say you're the better fit, they believe you.
+</div>
+
+<h3>Channel vs. Direct Conflict — The Conversation You Must Have</h3>
+<p>Every partner will eventually ask you whether your direct sales team will compete with them on their accounts. Have a clear, honest answer prepared before they ask it. If your company has channel conflict, acknowledge it and explain the deal protection mechanism. If your company has a channel-first policy, explain how it works. Vague answers to this question destroy partner trust faster than almost anything else you can do.</p>
+
+<div class="contrib-row">
+  <span class="contrib-pill cp-carl">● CARL — Competitive intelligence from HPE/Toshiba channel</span>
+  <span class="contrib-pill cp-nat">● NATALIE — How resellers evaluate vendors competitively</span>
+  <span class="contrib-pill cp-both">● Sandler pain-based competitive positioning</span>
+</div>
+
+<div class="footer">
+  <div>
+    <div class="footer-brand">Channel-<em>Ready</em> AE</div>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 11 · COMPETITIVE INTELLIGENCE IN CHANNEL · MARCH 2026</div>
+  </div>
+  <div class="footer-meta">
+    <div>CONFIDENTIAL</div>
+    <div>CARL & NATALIE CLENDENIN</div>
+  </div>
+</div>
+</div>
+
+</div>
+
 <script>
-function showPanel(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active');event.target.classList.add('active');}
-function toggleCheck(item){item.classList.toggle('done');var t=document.querySelectorAll('.check-item').length;var d=document.querySelectorAll('.check-item.done').length;var el=document.getElementById('check-progress');if(el)el.textContent=d+' of '+t+' complete'+(d===t?' — Done! 🎯':'');}
-</script></body></html>
+function showPanel(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>

@@ -3,23 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module 02 — The Six Things Your Partner Needs From You — Channel-Ready AE</title>
+<title>Module 02 — Partner Qualification — Channel-Ready AE</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;
-  --gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;
-  --rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;
-  --green:#1e3a2f;--green-light:#e8f4ee;
-  --red:#7a1e1e;--blue-pale:#e8f0f8;
-  --nat:#5a3a7a;--nat-bg:#f5f0fa;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
+:root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-light:#e8f4ee;--red:#7a1e1e;--blue-pale:#e8f0f8;--nat:#5a3a7a;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
+.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
 .hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
 .hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
 .hero h1 em{color:var(--gold-light);font-style:italic;}
@@ -28,45 +17,32 @@ body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font
 .hero-stat{font-family:'DM Mono',monospace;}
 .hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
 .hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
-
 .ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ref-bar.green-bar{background:#1a2a1a;}
 .ref-bar.blue-bar{background:#1a1a2a;}
-.ref-bar.purple-bar{background:#1a1a2a;}
 .ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
 .ref-text{font-size:13px;}
-
 .breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
 .breadcrumb a{text-decoration:none;}
-
 .nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:56px;z-index:20;overflow-x:auto;}
 .nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
-.nav-tab:hover{color:var(--accent);}
-.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
-
+.nav-tab:hover{color:var(--accent);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
 .content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}
-.panel.active{display:block;}
-
+.panel{display:none;}.panel.active{display:block;}
 .section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
 h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
 h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
 p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-
 .callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
 .callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
 .callout strong{color:var(--gold-light);}
 .explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
-
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
 .pillar{border:1px solid var(--rule);background:var(--white);border-radius:4px;overflow:hidden;}
 .pillar-head{padding:14px 20px;display:flex;align-items:center;gap:10px;}
 .pillar-head.blue{background:var(--accent);color:white;}
 .pillar-head.green{background:var(--green);color:white;}
-.pillar-head.gold{background:var(--gold);color:var(--ink);}
 .pillar-head.dark{background:#2a2020;color:#f0e8d8;}
-.pillar-head.purple{background:var(--nat);color:white;}
 .pillar-icon{font-size:20px;}
 .pillar-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;font-weight:500;}
 .pillar-body{padding:16px 20px;}
@@ -77,386 +53,184 @@ p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
 .tag-gold{background:var(--gold-pale);color:var(--gold);}
 .tag-blue{background:var(--blue-pale);color:var(--accent);}
 .tag-green{background:var(--green-light);color:var(--green);}
-
-.checklist{margin:20px 0;}
-.check-group{margin-bottom:20px;}
-.check-group-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--rule);}
-.check-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0ebe0;cursor:pointer;}
-.check-item:last-child{border-bottom:none;}
-.check-box{width:20px;height:20px;border:2px solid var(--rule);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;margin-top:2px;}
-.check-item.done .check-box{background:var(--green);border-color:var(--green);}
-.check-item.done .check-box::after{content:'✓';color:white;font-size:12px;font-weight:700;}
-.check-item.done .check-text{text-decoration:line-through;color:var(--muted);}
-.check-text{font-size:14px;color:#2e2820;line-height:1.5;}
-.check-note{font-size:12px;color:var(--muted);margin-top:3px;font-style:italic;}
-
-.timeline{position:relative;margin:24px 0;}
-.timeline::before{content:'';position:absolute;left:36px;top:0;bottom:0;width:2px;background:var(--rule);}
-.t-item{display:flex;gap:20px;margin-bottom:24px;position:relative;}
-.t-badge{width:72px;height:72px;border-radius:6px;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-family:'DM Mono',monospace;z-index:1;}
-.t-badge strong{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold-light);line-height:1;}
-.t-badge span{font-size:9px;color:#4a5060;letter-spacing:2px;margin-top:2px;}
-.t-body{background:var(--white);border:1px solid var(--rule);border-radius:4px;padding:14px 20px;flex:1;}
-.t-body h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:6px;}
-.t-body p{font-size:14px;margin:0;color:var(--muted);}
-
-.plays{margin:20px 0;}
-.play-card{border:1px solid var(--rule);border-radius:4px;margin-bottom:12px;overflow:hidden;}
-.play-head{display:grid;grid-template-columns:120px 1fr 100px 100px;gap:0;background:var(--ink);padding:12px 16px;align-items:center;}
-.play-tier{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;border-radius:20px;text-align:center;font-weight:500;}
-.tier-1{background:#1a2a3a;color:#6a9aba;}
-.tier-2{background:#1a2a1a;color:#6aba8a;}
-.tier-3{background:#2a1a2a;color:#ba8aba;}
-.play-name{font-family:'Libre Baskerville',serif;font-size:16px;color:#f0e8d8;padding-left:12px;}
-.play-signal{font-size:12px;color:#4a5060;text-align:right;}
-.play-value{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold-light);text-align:right;}
-.play-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
-.play-col{padding:14px 16px;border-right:1px solid var(--rule);}
-.play-col:last-child{border-right:none;}
-.play-col-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.play-col ul{list-style:none;}
-.play-col li{font-size:13px;color:#2e2820;padding:3px 0;padding-left:14px;position:relative;}
-.play-col li::before{content:'›';position:absolute;left:0;color:var(--gold);}
-
-.incentive-ladder{margin:20px 0;}
-.incentive-row{display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule);}
-.incentive-row:last-child{border-bottom:none;}
-.incentive-action{flex:1;font-size:14px;color:#2e2820;}
-.incentive-action strong{display:block;font-size:15px;margin-bottom:2px;}
-.incentive-action span{font-size:12px;color:var(--muted);}
-.incentive-amount{font-family:'DM Mono',monospace;font-size:18px;color:var(--green);font-weight:500;min-width:80px;text-align:right;}
-.incentive-bar-wrap{width:120px;height:6px;background:#e8e0d0;border-radius:3px;overflow:hidden;}
-.incentive-bar{height:100%;background:var(--green);border-radius:3px;transition:width 0.5s;}
-
-.email-box{background:var(--white);border:1px solid var(--rule);border-radius:4px;margin:20px 0;overflow:hidden;}
-.email-header{background:#f5f5f5;padding:12px 20px;border-bottom:1px solid var(--rule);}
-.email-header .field{display:flex;gap:12px;font-size:13px;color:var(--muted);margin-bottom:4px;}
-.email-header .field strong{color:var(--ink);min-width:40px;}
-.email-body{padding:20px;font-size:14px;color:#2e2820;line-height:1.8;white-space:pre-wrap;}
-
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
 .card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
 .card.gold-top{border-top:3px solid var(--gold);}
-.card.blue-top{border-top:3px solid var(--accent);}
 .card.green-top{border-top:3px solid var(--green);}
 .card.red-top{border-top:3px solid var(--red);}
-.card.purple-top{border-top:3px solid var(--nat);}
 .card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
 .card p{font-size:13px;margin:0;color:var(--muted);}
-.card .big{font-family:'Libre Baskerville',serif;font-size:32px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px;}
-
-.progress-ring{display:flex;align-items:center;gap:24px;padding:20px 0;}
-.ring-wrap{position:relative;width:100px;height:100px;flex-shrink:0;}
-.ring-wrap svg{transform:rotate(-90deg);}
-.ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.ring-pct{font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700;color:var(--accent);}
-.ring-sub{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--muted);}
-.ring-details{flex:1;}
-.ring-details h4{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;}
-.ring-details p{font-size:14px;color:var(--muted);margin:0;}
-
-.milestone-track{display:flex;gap:0;margin:20px 0;overflow:hidden;border-radius:6px;border:1px solid var(--rule);}
-.ms{flex:1;padding:16px 12px;text-align:center;border-right:1px solid var(--rule);background:var(--white);transition:background 0.2s;}
-.ms:last-child{border-right:none;}
-.ms.done{background:#eaf4ee;}
-.ms.active{background:var(--blue-pale);}
-.ms-icon{font-size:18px;margin-bottom:6px;}
-.ms-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
-.ms.done .ms-label{color:var(--green);}
-.ms.active .ms-label{color:var(--accent);}
-.ms-status{font-size:11px;color:var(--muted);}
-.ms.done .ms-status{color:var(--green);}
-
-.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 0;}
+.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 0;}
 .contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
 .cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
 .cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
 .cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
-
-.bot-row{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 0;}
-.bot-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:3px;background:var(--blue-pale);color:var(--accent);}
-
 .footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
 .footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
 .footer-brand em{color:var(--gold-light);}
 .footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
-
-@media(max-width:700px){
-  .hero{padding:40px 24px 36px;}
-  .hero h1{font-size:30px;}
-  .content{padding:32px 20px 60px;}
-  .pillars,.grid-2,.grid-3,.play-body,.play-head{grid-template-columns:1fr;}
-  .milestone-track{flex-wrap:wrap;}
-  .breadcrumb{padding:10px 24px;}
-}
-
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}</style>
+@media(max-width:700px){.hero{padding:40px 24px 36px;}.hero h1{font-size:30px;}.content{padding:32px 20px 60px;}.pillars,.grid-2,.grid-3{grid-template-columns:1fr;}.breadcrumb{padding:10px 24px;}}
+.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}
+</style>
 </head>
-<body><nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#agents">AI Agents</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="business_plan.html">Business Plan</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
+<body>
+<nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
 
 <div class="hero">
   <div class="hero-tag">Channel-Ready AE · Phase 1 · Module 02</div>
-  <h1>Six Asks. Get Them Right<br>or Get <em>Deprioritized</em>.</h1>
-  <div class="hero-sub">Partners evaluate every vendor on six dimensions. Nail all six and you're top-3. Miss two and you're noise. This framework was built from CDW & HPE tracking data and validated against Expel partner satisfaction surveys.</div>
+  <h1>Partner Qualification:<br><em>Disqualify Fast</em>.</h1>
+  <div class="hero-sub">The Pain Funnel applied to partner onboarding. Must-have vs. nice-to-have partner profiles, how to find real pain in a partner conversation, and how to exit bad-fit relationships before they consume your calendar.</div>
   <div class="hero-stats">
-    <div class="hero-stat"><strong>6</strong><span>Partner Asks</span></div>
-    <div class="hero-stat"><strong>Monthly</strong><span>RAG Tracking</span></div>
-    <div class="hero-stat"><strong>90 Days</strong><span>To Prove Yourself</span></div>
-    <div class="hero-stat"><strong>#1 Complaint</strong><span>Inconsistent Engagement</span></div>
+    <div class="hero-stat"><strong>20%</strong><span>Partners Drive 80% Revenue</span></div>
+    <div class="hero-stat"><strong>4</strong><span>Funnel Levels</span></div>
+    <div class="hero-stat"><strong>Must/Nice</strong><span>Profile Framework</span></div>
+    <div class="hero-stat"><strong>Fast</strong><span>Disqualification Target</span></div>
   </div>
 </div>
 
-<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Universal Framework</span><span class="ref-text" style="color:#6a7a9a;">CDW & HPE Asks model · Validated across Expel, Okta, Varonis, LastPass partner feedback</span></div>
+<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Sandler Qualification</span><span class="ref-text" style="color:#6a7a9a;">Use at every new partner onboarding conversation and annual partner review</span></div>
 
 <div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
   <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
   <span style="color:#2a3a2a;">›</span>
-  <span style="color:#6a9a6a;">Module 02 — The Six Things Your Partner Needs From You</span>
-  <span style="margin-left:auto;color:#2a3a2a;">← <a href="curriculum.html" style="color:#3a5a3a;">Back to Binder</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="business_plan.html" style="color:#5a7a9a;margin-left:12px;">Business Plan →</a></span>
+  <span style="color:#6a9a6a;">Module 02 — Partner Qualification</span>
+  <span style="margin-left:auto;"><a href="module_01.html" style="color:#3a5a3a;">← Module 01</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="module_03.html" style="color:#5a7a9a;margin-left:12px;">Module 03 →</a></span>
 </div>
 
 <div class="nav-tabs">
   <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
-  <button class="nav-tab" onclick="showPanel('sixasks')">The Six Asks</button>
-  <button class="nav-tab" onclick="showPanel('rag')">RAG Scorecard</button>
-  <button class="nav-tab" onclick="showPanel('checklist')">Monthly Checklist</button>
-  <button class="nav-tab" onclick="showPanel('templates')">Email Templates</button>
+  <button class="nav-tab" onclick="showPanel('framework')">Framework</button>
+  <button class="nav-tab" onclick="showPanel('practice')">In Practice</button>
+  <button class="nav-tab" onclick="showPanel('fieldnotes')">Field Notes</button>
 </div>
 
 <div class="content">
 
 <div class="panel active" id="panel-overview">
 <div class="section-label">Why This Module Exists</div>
-<h2>Your partner grades you every month. Here's the rubric.</h2>
-<div class="explain">Partners don't announce when they're deprioritizing you. They just stop returning calls. The Six Asks framework gives you a self-assessment rubric so you catch the problem before it's too late.</div>
-<p>This framework was formalized from Carl's CDW & HPE Asks tracking — a monthly scorecard that rated vendor performance across six dimensions. Natalie validated it from the reseller side at CDW and built a similar partner satisfaction framework at Expel. The six asks are universal: every VAR, in every vertical, evaluates vendors on these same dimensions.</p>
+<h2>Most channel AEs never disqualify a partner. That's why their territory is full of noise.</h2>
+<div class="explain">A partner who is enthusiastic but misaligned with your product is worse than no partner at all. They consume your time, expect support, and produce nothing. Qualification cuts through this fast.</div>
+<p>The channel orthodoxy says more partners means more coverage means more revenue. The reality is the opposite. Every partner you onboard improperly is a commitment you've made — to training, to enablement, to QBRs, to co-sell calls. Bad-fit partners crowd out the partners who could actually produce.</p>
+<p>Sandler's qualification approach starts with pain. If a partner doesn't feel real pain with their current vendor situation — if switching to your product doesn't solve a genuine problem in their business — they will not prioritize you. No amount of SPIF money or deal reg margin changes that. This module teaches you to find the pain, evaluate the profile, and exit fast when neither exists.</p>
 <div class="callout">
-  <div class="callout-tag">NATALIE'S INSIGHT</div>
-  <strong>The #1 partner complaint is not pricing or product. It's inconsistent engagement.</strong> Vendors who show up for 3 weeks, disappear for 6, then reappear asking "any pipeline?" are the ones who get cut from the QBR agenda. Consistency beats brilliance in channel sales.
+  <div class="callout-tag">THE CORE INSIGHT</div>
+  <strong>Qualification is a gift you give both parties.</strong> The partner who isn't a fit doesn't want to waste their time on your product either. Fast, clear disqualification leaves both of you free to find relationships that actually work.
+</div>
+<div class="grid-3">
+  <div class="card gold-top"><h4>What You'll Learn</h4><p>The Pain Funnel applied to partner onboarding. How to build a must-have vs. nice-to-have partner profile. The three disqualification triggers that should end a partner conversation immediately.</p></div>
+  <div class="card gold-top"><h4>What You'll Practice</h4><p>Running a partner qualification call using Pain Funnel questions. Scoring a partner against your profile. Writing a clean, professional exit when a partner isn't the right fit.</p></div>
+  <div class="card gold-top"><h4>What Changes After</h4><p>Your partner list gets smaller and your revenue per partner goes up. You stop attending enablement calls with people who will never sell your product.</p></div>
 </div>
 </div>
 
-<div class="panel" id="panel-sixasks">
-<div class="section-label">The Framework</div>
-<h2>The Six Things Every Partner Evaluates You On.</h2>
+<div class="panel" id="panel-framework">
+<div class="section-label">The Qualification System</div>
+<h2>Must-have profile + Pain Funnel = fast, defensible qualification decisions.</h2>
 
+<h3>Step 1 — Build Your Must-Have Partner Profile</h3>
+<p>Before you can qualify a partner, you need a clear profile of what a good partner looks like. This is not aspirational — it is a minimum bar. Partners who don't meet must-have criteria should be disqualified regardless of their enthusiasm.</p>
 <div class="pillars">
   <div class="pillar">
-    <div class="pillar-head blue"><div class="pillar-icon">📝</div><div class="pillar-title">1. Deal Reg & Pricing</div></div>
+    <div class="pillar-head blue"><div class="pillar-icon">✓</div><div class="pillar-title">Must-Have Criteria</div></div>
     <div class="pillar-body">
       <ul>
-        <li>Deal registration turnaround under 48 hours <span class="tag tag-blue">Standard</span></li>
-        <li>Competitive pricing that protects partner margin <span class="tag tag-blue">Margin</span></li>
-        <li>Clear, simple deal reg portal — no 15-field forms <span class="tag tag-blue">Process</span></li>
-        <li>Conflict resolution SLA: 72 hours max <span class="tag tag-blue">Escalation</span></li>
+        <li>Sells into your target verticals or segments <span class="tag tag-blue">Non-Negotiable</span></li>
+        <li>At least one rep with relevant technical knowledge <span class="tag tag-blue">Non-Negotiable</span></li>
+        <li>Three or more active accounts in your product sweet spot <span class="tag tag-blue">Non-Negotiable</span></li>
+        <li>Leadership willing to participate in a QBR within 90 days <span class="tag tag-blue">Non-Negotiable</span></li>
+        <li>Can commit a named rep to co-sell engagements <span class="tag tag-blue">Non-Negotiable</span></li>
       </ul>
-      <p style="font-size:13px;color:var(--muted);margin-top:12px;font-style:italic;">If your deal reg process is slow or confusing, partners submit to the vendor who makes it easy. This is the most transactional ask — and the one where failure is most visible.</p>
     </div>
   </div>
   <div class="pillar">
-    <div class="pillar-head green"><div class="pillar-icon">💬</div><div class="pillar-title">2. Quoting & Selling</div></div>
+    <div class="pillar-head dark"><div class="pillar-icon">○</div><div class="pillar-title">Nice-to-Have Criteria</div></div>
     <div class="pillar-body">
       <ul>
-        <li>Accurate, fast quotes — same day or next day <span class="tag tag-green">Speed</span></li>
-        <li>Pre-built configurations for common use cases <span class="tag tag-green">Ease</span></li>
-        <li>Battle cards the rep can use without reading a 40-page deck <span class="tag tag-green">Assets</span></li>
-        <li>FAQ doc answering "what if I've never sold this before?" <span class="tag tag-green">Onboard</span></li>
+        <li>Existing relationship with a complementary vendor <span class="tag tag-gold">Helpful</span></li>
+        <li>Dedicated pre-sales engineering team <span class="tag tag-gold">Helpful</span></li>
+        <li>MDF-eligible and willing to invest in demand gen <span class="tag tag-gold">Helpful</span></li>
+        <li>Previous experience with your product category <span class="tag tag-gold">Helpful</span></li>
+        <li>Geographic coverage in a strategic market for you <span class="tag tag-gold">Helpful</span></li>
       </ul>
-      <p style="font-size:13px;color:var(--muted);margin-top:12px;font-style:italic;">If a partner rep can't quote your product in 10 minutes, they'll quote the vendor they can.</p>
-    </div>
-  </div>
-  <div class="pillar">
-    <div class="pillar-head gold"><div class="pillar-icon">📅</div><div class="pillar-title">3. Consistent Proactive Engagement</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Weekly or bi-weekly co-sell sessions — non-negotiable <span class="tag tag-gold">Cadence</span></li>
-        <li>Monthly DM syncs with data, not just conversation <span class="tag tag-gold">Management</span></li>
-        <li>Don't go dark for 6 weeks then reappear asking for pipeline <span class="tag tag-gold">Consistency</span></li>
-        <li>Respond to partner emails within 4 business hours <span class="tag tag-gold">Responsiveness</span></li>
-      </ul>
-      <p style="font-size:13px;color:var(--muted);margin-top:12px;font-style:italic;">This is the ask that matters most. Show up, every time, on schedule. Consistency is the foundation of partner trust.</p>
-    </div>
-  </div>
-  <div class="pillar">
-    <div class="pillar-head dark"><div class="pillar-icon">🔄</div><div class="pillar-title">4. Own the Customer Lifecycle</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Handle your own renewals and support escalations <span class="tag tag-gold">Ownership</span></li>
-        <li>Don't dump post-sale problems on the partner <span class="tag tag-gold">Responsibility</span></li>
-        <li>Proactively communicate renewal timelines to the partner <span class="tag tag-gold">Visibility</span></li>
-        <li>Share customer health data with the partner AM <span class="tag tag-gold">Transparency</span></li>
-      </ul>
-      <p style="font-size:13px;color:var(--muted);margin-top:12px;font-style:italic;">Partners who get blamed for your product's support failures will stop selling it. Own your customer experience end-to-end.</p>
     </div>
   </div>
 </div>
 
-<div class="grid-2" style="margin-top:0;">
-  <div class="pillar">
-    <div class="pillar-head blue"><div class="pillar-icon">🗺️</div><div class="pillar-title">5. Product Roadmaps</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Share where your product is going — not just where it is <span class="tag tag-blue">Vision</span></li>
-        <li>Give partners 1-quarter advance notice on major releases <span class="tag tag-blue">Timing</span></li>
-        <li>Position upcoming features as co-sell opportunities <span class="tag tag-blue">Revenue</span></li>
-        <li>Never surprise a partner with a pricing change <span class="tag tag-blue">Trust</span></li>
-      </ul>
-    </div>
-  </div>
-  <div class="pillar">
-    <div class="pillar-head green"><div class="pillar-icon">👥</div><div class="pillar-title">6. Organizational Changes</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>When your team changes, communicate immediately <span class="tag tag-green">Urgency</span></li>
-        <li>Introduce the replacement before the predecessor leaves <span class="tag tag-green">Transition</span></li>
-        <li>New contact inherits the relationship context, not just the name <span class="tag tag-green">Continuity</span></li>
-        <li>#1 cause of partner decay: vendor contact disappears without notice <span class="tag tag-green">Risk</span></li>
-      </ul>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="panel" id="panel-rag">
-<div class="section-label">Self-Assessment</div>
-<h2>Monthly RAG scorecard — grade yourself honestly.</h2>
-<p>Score yourself against each Ask every month: <strong style="color:var(--green);">Green</strong> (meeting expectations), <strong style="color:#b8860b;">Amber</strong> (slipping), <strong style="color:var(--red);">Red</strong> (failing). Share this scorecard with your manager. Use it in QBR prep.</p>
-
+<h3>Step 2 — Run the Pain Funnel</h3>
+<p>The Pain Funnel is a Sandler technique for moving from surface-level interest to genuine business pain. In a partner context, you're probing the partner's own pain with their current situation — not their end-customer's pain. That comes later, in the deal cycle.</p>
 <div class="callout">
-  <div class="callout-tag">THE WARNING SIGNAL</div>
-  <strong>If you have two or more Reds for two consecutive months, the partner is deprioritizing you — guaranteed.</strong> They won't tell you. They'll just stop responding as quickly, stop bringing you into deals, and start routing opportunities to the vendor who's Green across the board. The scorecard catches the slide before it's irreversible.
+  <div class="callout-tag">PARTNER PAIN FUNNEL QUESTIONS</div>
+  <strong>Level 1 — Surface:</strong> "Tell me about your current vendor lineup in this category."<br><br>
+  <strong>Level 2 — Specifics:</strong> "Where are the gaps? What do your reps say most often when customers ask about this space?"<br><br>
+  <strong>Level 3 — Emotional Impact:</strong> "What does it cost you when you can't satisfy a customer in this category? Does it affect other deals?"<br><br>
+  <strong>Level 4 — Cost of Status Quo:</strong> "If nothing changes — you keep working with your current vendor — what does that look like in 12 months?"
 </div>
 
-<table style="width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;">
-  <thead>
-    <tr style="background:var(--ink);">
-      <th style="padding:11px 14px;text-align:left;color:#c8b88a;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;">ASK</th>
-      <th style="padding:11px 14px;text-align:center;color:#c8b88a;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;">THIS MONTH</th>
-      <th style="padding:11px 14px;text-align:center;color:#c8b88a;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;">LAST MONTH</th>
-      <th style="padding:11px 14px;text-align:left;color:#c8b88a;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;">EVIDENCE / NOTES</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="border-bottom:1px solid var(--rule);"><td style="padding:11px 14px;">1. Deal Reg & Pricing</td><td style="padding:11px;text-align:center;">🟢 🟡 🔴</td><td style="padding:11px;text-align:center;">🟢 🟡 🔴</td><td style="padding:11px 14px;color:var(--muted);font-size:13px;">Avg turnaround time, # submitted, # in conflict</td></tr>
-    <tr style="border-bottom:1px solid var(--rule);background:var(--warm);"><td style="padding:11px 14px;">2. Quoting & Selling</td><td style="padding:11px;text-align:center;">🟢 🟡 🔴</td><td style="padding:11px;text-align:center;">🟢 🟡 🔴</td><td style="padding:11px 14px;color:var(--muted);font-size:13px;">Quote turnaround time, battle card distributed?</td></tr>
-    <tr style="border-bottom:1px solid var(--rule);"><td style="padding:11px 14px;">3. Consistent Engagement</td><td style="padding:11px;text-align:center;">🟢 🟡 🔴</td><td style="padding:11px;text-align:center;">🟢 🟡 🔴</td><td style="padding:11px 14px;color:var(--muted);font-size:13px;">Co-sell sessions run this month, email response time</td></tr>
-    <tr style="border-bottom:1px solid var(--rule);background:var(--warm);"><td style="padding:11px 14px;">4. Customer Lifecycle</td><td style="padding:11px;text-align:center;">🟢 🟡 🔴</td><td style="padding:11px;text-align:center;">🟢 🟡 🔴</td><td style="padding:11px 14px;color:var(--muted);font-size:13px;">Support escalations handled, renewals communicated</td></tr>
-    <tr style="border-bottom:1px solid var(--rule);"><td style="padding:11px 14px;">5. Product Roadmaps</td><td style="padding:11px;text-align:center;">🟢 🟡 🔴</td><td style="padding:11px;text-align:center;">🟢 🟡 🔴</td><td style="padding:11px 14px;color:var(--muted);font-size:13px;">Roadmap shared? Upcoming features positioned?</td></tr>
-    <tr><td style="padding:11px 14px;">6. Org Changes</td><td style="padding:11px;text-align:center;">🟢 🟡 🔴</td><td style="padding:11px;text-align:center;">🟢 🟡 🔴</td><td style="padding:11px 14px;color:var(--muted);font-size:13px;">Any team changes communicated proactively?</td></tr>
-  </tbody>
-</table>
-
-<div class="explain">Print this. Fill it in on the last Friday of every month. It takes 5 minutes and prevents the slow death of a partner relationship you spent months building.</div>
-</div>
-
-<div class="panel" id="panel-checklist">
-<div class="section-label">Operational Rhythm</div>
-<h2>Monthly maintenance checklist — keep all six asks green.</h2>
-
-<div class="checklist" id="checklist">
-  <div class="check-group">
-    <div class="check-group-title">Deal Reg & Pricing</div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Review all pending deal registrations — none older than 48 hours unprocessed<div class="check-note">BLOCKING. A deal reg sitting in queue for a week is a partner who's losing trust.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Check for deal reg conflicts — resolve or escalate any flagged submissions<div class="check-note">Unresolved conflicts within 72 hours become partner relationship problems.</div></div></div>
-  </div>
-  <div class="check-group">
-    <div class="check-group-title">Engagement & Communication</div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Confirm all scheduled co-sell sessions were held this month (target: 4/month)<div class="check-note">If you cancelled more than one, you're sliding toward Amber on Ask #3.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Send Win Wire to partner DM with this month's numbers<div class="check-note">Even if the numbers are thin. Consistent reporting builds credibility.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Review email response time — were all partner emails answered within 4 hours?<div class="check-note">If you have unanswered partner emails from this week, fix it before checking this box.</div></div></div>
-  </div>
-  <div class="check-group">
-    <div class="check-group-title">Enablement & Assets</div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Confirm battle card is current — no outdated pricing, features, or competitive claims<div class="check-note">Review quarterly at minimum. Update immediately after any product or pricing change.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Check if any product updates need to be communicated to partner reps<div class="check-note">Ask #5 — roadmap visibility. One email, one paragraph, one reason it matters to their customers.</div></div></div>
-  </div>
-  <div class="check-group">
-    <div class="check-group-title">RAG Assessment</div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Complete the monthly RAG scorecard for this partner<div class="check-note">5 minutes. Last Friday of the month. Non-negotiable.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">If any Ask is Red, write a 1-sentence corrective action plan<div class="check-note">"Ask #3 is Red because I missed 2 co-sell sessions. Corrective: reschedule and add backup slot."</div></div></div>
-  </div>
-</div>
-
-<div style="margin-top:20px;padding:14px 20px;background:var(--warm);border:1px solid var(--rule);border-radius:4px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">
-  <span id="check-progress">0 of 10 items complete</span>
+<h3>Step 3 — Score and Decide</h3>
+<div class="grid-2">
+  <div class="card green-top"><h4>Qualify — All of These True</h4><p>Partner meets all must-have criteria. They articulate real pain at Level 3 or deeper in the funnel. They can name specific accounts and a timeline. Leadership is accessible and interested.</p></div>
+  <div class="card red-top"><h4>Disqualify — Any of These True</h4><p>Missing a must-have criterion. Pain is vague or hypothetical. No named rep available. Leadership has no interest in a QBR. Partner asks for concessions before committing to anything.</p></div>
 </div>
 </div>
 
-<div class="panel" id="panel-templates">
-<div class="section-label">Communication Templates</div>
-<h2>The emails that maintain the rhythm.</h2>
+<div class="panel" id="panel-practice">
+<div class="section-label">Qualification in Action</div>
+<h2>How a partner qualification call actually runs.</h2>
+<p>Most channel AEs treat a partner onboarding call as a product pitch. That's backwards. The goal of the first call is to determine whether a deeper relationship is worth your time — not to convince the partner to sign up. If you're doing most of the talking, you're pitching, not qualifying.</p>
 
-<h3>Template 1 — Monthly Check-In Email</h3>
-<div class="email-box">
-  <div class="email-header">
-    <div class="field"><strong>To:</strong> [Partner AM / Manager]</div>
-    <div class="field"><strong>Subject:</strong> [Your Company] × [Partner] — monthly sync + pipeline update</div>
-  </div>
-  <div class="email-body">Hi [Name],
-
-Quick monthly update ahead of our [date] sync:
-
-PIPELINE STATUS
-→ [X] active co-sell accounts, [X] with next steps this week
-→ [X] deal registrations submitted this month
-→ Largest opportunity: [Account Name] — [stage and expected close]
-
-WHAT I NEED FROM YOU
-→ Intro to [AM Name] on [Account] — they have the existing relationship
-→ Feedback on the battle card I sent last week — is the messaging landing?
-
-WHAT'S NEW FROM US
-→ [Product update / competitive win / new feature — 1 sentence]
-
-See you [date]. Let me know if the agenda needs adjusting.
-
-[Your Name]</div>
+<h3>Opening — Set the Purpose</h3>
+<div class="explain">This is a form of Up-Front Contract (covered in Module 03). Before you go anywhere, establish what the call is for and what both parties need to walk away with to make it worthwhile.</div>
+<div class="callout">
+  <div class="callout-tag">OPENING SCRIPT</div>
+  "I want to be upfront about what I'm hoping to accomplish today. I'm not here to sign you up — I want to figure out whether there's a real fit between what we're doing and what you're trying to accomplish. I'll ask you some questions about your current business, and I'd ask you to do the same for me. If it makes sense to go further, we'll know by the end of this call. Does that work?"
 </div>
 
-<h3>Template 2 — Re-engagement After a Gap</h3>
-<div class="email-box">
-  <div class="email-header">
-    <div class="field"><strong>To:</strong> [Partner AM]</div>
-    <div class="field"><strong>Subject:</strong> [Your Company] — getting back on track + 3 new accounts</div>
-  </div>
-  <div class="email-body">Hi [Name],
+<h3>The Middle — Pain Funnel Sequence</h3>
+<p>Run the four-level Pain Funnel questions in order. Don't rush to Level 4. Partners who feel pushed will give surface answers. Let silence work. Ask one question, then wait. The discomfort of silence often produces the most honest answers you'll get in the entire relationship.</p>
 
-I owe you an apology — I went quiet for a few weeks and that's not how I want to run this partnership. Here's what I'm doing to fix it:
-
-→ I've blocked our weekly co-sell slot permanently on my calendar — [day/time]
-→ I've pulled 3 fresh accounts in your territory for us to review together
-→ I've updated the shared pipeline tracker with current status on all active opps
-
-Can we get 20 minutes this week to reset? I'll bring the accounts and a quick update on [product news].
-
-[Your Name]
-
-P.S. — the $[X] SPIF program is still active. I'll have the updated details for you on our call.</div>
-</div>
+<h3>Closing — Binary Decision</h3>
+<div class="callout">
+  <div class="callout-tag">CLOSING SCRIPT</div>
+  "Based on what we've discussed, I think there's a real opportunity here / I'm not sure this is the right time for us to work together. Here's my honest read: [your assessment]. What's yours?" Make the partner co-own the decision. If they're not sure either, that's a disqualify.
 </div>
 
+<h3>The Fast Exit When It Doesn't Fit</h3>
+<p>A clean no is one of the most professional things you can deliver. Partners respect AEs who don't waste time. "Based on where you are today, I don't think we're the right fit right now. Let me know if that changes — I'd rather come back when the timing is right than force something that isn't." Then stop following up.</p>
+</div>
 
+<div class="panel" id="panel-fieldnotes">
+<div class="section-label">From the Field</div>
+<h2>The patterns that separate productive partner portfolios from bloated ones.</h2>
+
+<h3>The Most Common Qualification Mistake</h3>
+<p>Allowing enthusiasm to substitute for pain. A partner who says "we love this product, we have tons of customers who need this" is not qualified — they're excited. Excitement without named accounts, named pain, and a committed rep is not a qualified partner. Push through the enthusiasm to the specifics. Enthusiasm is not pipeline.</p>
+
+<h3>How to Handle the Pushy Partner Who Wants In Without Qualifying</h3>
+<div class="callout">
+  <div class="callout-tag">FIELD SCENARIO</div>
+  A partner contacts you wanting to sign the agreement today. They attended your webinar, they like the product, they want in. They haven't answered a single qualification question. The Sandler response: "I'm glad you're interested. Before we sign anything, I want to make sure we can actually deliver value to each other — I've seen too many partners sign up and then not produce because the fit wasn't right. Can we spend 30 minutes on the phone first?" Partners who refuse this step are not ready to be partners.
+</div>
+
+<h3>Revisiting Disqualified Partners</h3>
+<p>A disqualification is not permanent. Keep a short list of partners who showed genuine interest but weren't ready. Reach out every six months with a single question: "Has anything changed on your end that might make this a better time to talk?" If yes, re-run the qualification process from scratch. Don't skip steps because you've talked to them before.</p>
 
 <div class="contrib-row">
-  <span class="contrib-pill cp-carl">● CARL — HPE Asks framework, CDW tracking</span>
-  <span class="contrib-pill cp-nat">● NATALIE — Expel partner satisfaction data, CDW reseller perspective</span>
-</div>
-
-<div class="bot-row">
-  <span class="bot-pill">Email Agent</span>
-  <span class="bot-pill">QBR Prep Agent</span>
+  <span class="contrib-pill cp-carl">● CARL — Partner onboarding patterns from HPE/Toshiba channel</span>
+  <span class="contrib-pill cp-nat">● NATALIE — Reseller perspective on vendor qualification calls</span>
+  <span class="contrib-pill cp-both">● Sandler Pain Funnel methodology</span>
 </div>
 
 <div class="footer">
   <div>
     <div class="footer-brand">Channel-<em>Ready</em> AE</div>
-    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 02 · THE SIX THINGS YOUR PARTNER NEEDS FROM YOU · MARCH 2026</div>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 02 · PARTNER QUALIFICATION · MARCH 2026</div>
   </div>
   <div class="footer-meta">
     <div>CONFIDENTIAL</div>
     <div>CARL & NATALIE CLENDENIN</div>
   </div>
+</div>
 </div>
 
 </div>
@@ -467,13 +241,6 @@ function showPanel(id) {
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('panel-' + id).classList.add('active');
   event.target.classList.add('active');
-}
-function toggleCheck(item) {
-  item.classList.toggle('done');
-  var total = document.querySelectorAll('.check-item').length;
-  var done = document.querySelectorAll('.check-item.done').length;
-  var el = document.getElementById('check-progress');
-  if (el) el.textContent = done + ' of ' + total + ' items complete' + (done === total ? ' — Complete! 🎯' : '');
 }
 </script>
 </body>

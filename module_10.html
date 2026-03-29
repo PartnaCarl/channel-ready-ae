@@ -3,881 +3,236 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Partnership Kickoff Framework — Channel-Ready AE</title>
+<title>Module 10 — Prospecting Through Partners — Channel-Ready AE</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;
-  --gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;
-  --rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;
-  --green:#1e3a2f;--green-light:#e8f4ee;
-  --red:#7a1e1e;--blue-pale:#e8f0f8;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-
-/* HERO */
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
-.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);
-  text-transform:uppercase;margin-bottom:16px;position:relative;}
-.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;
-  color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
+:root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-light:#e8f4ee;--red:#7a1e1e;--blue-pale:#e8f0f8;--nat:#5a3a7a;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
+.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
+.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
+.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
 .hero h1 em{color:var(--gold-light);font-style:italic;}
 .hero-sub{font-size:17px;color:#6a7a8a;max-width:580px;position:relative;margin-bottom:32px;}
 .hero-stats{display:flex;gap:40px;position:relative;flex-wrap:wrap;}
 .hero-stat{font-family:'DM Mono',monospace;}
 .hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
 .hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
-
-/* NAV TABS */
-.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);
-  position:sticky;top:0;z-index:20;overflow-x:auto;}
-.nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;
-  text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;
-  margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border:none;background:none;}
-.nav-tab:hover{color:var(--accent);}
-.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
-
-/* CONTENT */
+.ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.ref-bar.blue-bar{background:#1a1a2a;}
+.ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
+.ref-text{font-size:13px;}
+.breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.breadcrumb a{text-decoration:none;}
+.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:56px;z-index:20;overflow-x:auto;}
+.nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
+.nav-tab:hover{color:var(--accent);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
 .content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}
-.panel.active{display:block;}
-
-/* SECTION HEADERS */
-.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;
-  color:var(--gold);text-transform:uppercase;margin-bottom:12px;
-  display:flex;align-items:center;gap:10px;}
+.panel{display:none;}.panel.active{display:block;}
+.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
-h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;
-  color:var(--ink);margin-bottom:16px;line-height:1.2;}
-h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;
-  color:var(--accent);margin:28px 0 10px;}
+h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
+h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
 p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;
-  position:relative;font-size:15px;line-height:1.7;}
-.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);
-  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
+.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
+.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
 .callout strong{color:var(--gold-light);}
-.explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;
-  margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
-
-/* PILLAR GRID */
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
+.pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:20px 0;}
 .pillar{border:1px solid var(--rule);background:var(--white);border-radius:4px;overflow:hidden;}
 .pillar-head{padding:14px 20px;display:flex;align-items:center;gap:10px;}
 .pillar-head.blue{background:var(--accent);color:white;}
 .pillar-head.green{background:var(--green);color:white;}
 .pillar-head.gold{background:var(--gold);color:var(--ink);}
-.pillar-head.dark{background:#2a2020;color:#f0e8d8;}
 .pillar-icon{font-size:20px;}
 .pillar-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;font-weight:500;}
 .pillar-body{padding:16px 20px;}
 .pillar-body ul{list-style:none;margin:0;}
-.pillar-body li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:14px;color:#2e2820;
-  display:flex;justify-content:space-between;align-items:start;gap:12px;}
+.pillar-body li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:14px;color:#2e2820;display:flex;justify-content:space-between;align-items:start;gap:12px;}
 .pillar-body li:last-child{border-bottom:none;}
-.pillar-body li .tag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;
-  border-radius:20px;white-space:nowrap;flex-shrink:0;}
+.pillar-body li .tag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
 .tag-gold{background:var(--gold-pale);color:var(--gold);}
 .tag-blue{background:var(--blue-pale);color:var(--accent);}
 .tag-green{background:var(--green-light);color:var(--green);}
-
-/* CHECKLIST */
-.checklist{margin:20px 0;}
-.check-group{margin-bottom:20px;}
-.check-group-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;
-  color:var(--accent);text-transform:uppercase;margin-bottom:8px;
-  padding-bottom:6px;border-bottom:1px solid var(--rule);}
-.check-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;
-  border-bottom:1px solid #f0ebe0;cursor:pointer;}
-.check-item:last-child{border-bottom:none;}
-.check-box{width:20px;height:20px;border:2px solid var(--rule);border-radius:3px;
-  flex-shrink:0;display:flex;align-items:center;justify-content:center;
-  transition:all 0.15s;margin-top:2px;}
-.check-item.done .check-box{background:var(--green);border-color:var(--green);}
-.check-item.done .check-box::after{content:'✓';color:white;font-size:12px;font-weight:700;}
-.check-item.done .check-text{text-decoration:line-through;color:var(--muted);}
-.check-text{font-size:14px;color:#2e2820;line-height:1.5;}
-.check-note{font-size:12px;color:var(--muted);margin-top:3px;font-style:italic;}
-
-/* TIMELINE */
-.timeline{position:relative;margin:24px 0;}
-.timeline::before{content:'';position:absolute;left:36px;top:0;bottom:0;
-  width:2px;background:var(--rule);}
-.t-item{display:flex;gap:20px;margin-bottom:24px;position:relative;}
-.t-badge{width:72px;height:72px;border-radius:6px;background:var(--ink);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  flex-shrink:0;font-family:'DM Mono',monospace;z-index:1;}
-.t-badge strong{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold-light);line-height:1;}
-.t-badge span{font-size:9px;color:#4a5060;letter-spacing:2px;margin-top:2px;}
-.t-body{background:var(--white);border:1px solid var(--rule);border-radius:4px;
-  padding:14px 20px;flex:1;}
-.t-body h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;
-  color:var(--accent);text-transform:uppercase;margin-bottom:6px;}
-.t-body p{font-size:14px;margin:0;color:var(--muted);}
-
-/* PLAYS TABLE */
-.plays{margin:20px 0;}
-.play-card{border:1px solid var(--rule);border-radius:4px;margin-bottom:12px;overflow:hidden;}
-.play-head{display:grid;grid-template-columns:120px 1fr 100px 100px;
-  gap:0;background:var(--ink);padding:12px 16px;align-items:center;}
-.play-tier{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;
-  padding:3px 10px;border-radius:20px;text-align:center;font-weight:500;}
-.tier-refresh{background:#1a2a3a;color:#6a9aba;}
-.tier-modernize{background:#1a2a1a;color:#6aba8a;}
-.tier-transform{background:#2a1a2a;color:#ba8aba;}
-.play-name{font-family:'Libre Baskerville',serif;font-size:16px;color:#f0e8d8;padding-left:12px;}
-.play-signal{font-size:12px;color:#4a5060;text-align:right;}
-.play-value{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold-light);text-align:right;}
-.play-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
-.play-col{padding:14px 16px;border-right:1px solid var(--rule);}
-.play-col:last-child{border-right:none;}
-.play-col-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;
-  color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.play-col ul{list-style:none;}
-.play-col li{font-size:13px;color:#2e2820;padding:3px 0;
-  padding-left:14px;position:relative;}
-.play-col li::before{content:'›';position:absolute;left:0;color:var(--gold);}
-
-/* INCENTIVE LADDER */
-.incentive-ladder{margin:20px 0;}
-.incentive-row{display:flex;align-items:center;gap:16px;padding:12px 0;
-  border-bottom:1px solid var(--rule);}
-.incentive-row:last-child{border-bottom:none;}
-.incentive-action{flex:1;font-size:14px;color:#2e2820;}
-.incentive-action strong{display:block;font-size:15px;margin-bottom:2px;}
-.incentive-action span{font-size:12px;color:var(--muted);}
-.incentive-amount{font-family:'DM Mono',monospace;font-size:18px;color:var(--green);
-  font-weight:500;min-width:80px;text-align:right;}
-.incentive-bar-wrap{width:120px;height:6px;background:#e8e0d0;border-radius:3px;overflow:hidden;}
-.incentive-bar{height:100%;background:var(--green);border-radius:3px;transition:width 0.5s;}
-
-/* PROGRESS */
-.progress-ring{display:flex;align-items:center;gap:24px;padding:20px 0;}
-.ring-wrap{position:relative;width:100px;height:100px;flex-shrink:0;}
-.ring-wrap svg{transform:rotate(-90deg);}
-.ring-label{position:absolute;inset:0;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;}
-.ring-pct{font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700;color:var(--accent);}
-.ring-sub{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--muted);}
-.ring-details{flex:1;}
-.ring-details h4{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;}
-.ring-details p{font-size:14px;color:var(--muted);margin:0;}
-
-/* EMAIL TEMPLATE */
-.email-box{background:var(--white);border:1px solid var(--rule);border-radius:4px;
-  margin:20px 0;overflow:hidden;}
-.email-header{background:#f5f5f5;padding:12px 20px;border-bottom:1px solid var(--rule);}
-.email-header .field{display:flex;gap:12px;font-size:13px;color:var(--muted);margin-bottom:4px;}
-.email-header .field strong{color:var(--ink);min-width:40px;}
-.email-body{padding:20px;font-size:14px;color:#2e2820;line-height:1.8;white-space:pre-wrap;}
-
-/* GRID UTILS */
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
 .card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
 .card.gold-top{border-top:3px solid var(--gold);}
 .card.blue-top{border-top:3px solid var(--accent);}
 .card.green-top{border-top:3px solid var(--green);}
-.card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;
-  color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
+.card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
 .card p{font-size:13px;margin:0;color:var(--muted);}
-.card .big{font-family:'Libre Baskerville',serif;font-size:32px;font-weight:700;
-  color:var(--gold);line-height:1;margin-bottom:4px;}
-
-/* MILESTONE TRACKER */
-.milestone-track{display:flex;gap:0;margin:20px 0;overflow:hidden;border-radius:6px;border:1px solid var(--rule);}
-.ms{flex:1;padding:16px 12px;text-align:center;border-right:1px solid var(--rule);
-  background:var(--white);transition:background 0.2s;}
-.ms:last-child{border-right:none;}
-.ms.done{background:#eaf4ee;}
-.ms.active{background:var(--blue-pale);}
-.ms-icon{font-size:18px;margin-bottom:6px;}
-.ms-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;
-  color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
-.ms.done .ms-label{color:var(--green);}
-.ms.active .ms-label{color:var(--accent);}
-.ms-status{font-size:11px;color:var(--muted);}
-.ms.done .ms-status{color:var(--green);}
-
-@media(max-width:700px){
-  .hero{padding:40px 24px 36px;}
-  .hero h1{font-size:30px;}
-  .content{padding:32px 20px 60px;}
-  .pillars,.grid-2,.grid-3,.play-body,.play-head{grid-template-columns:1fr;}
-  .milestone-track{flex-wrap:wrap;}
-}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}</style>
+.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 0;}
+.contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
+.cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
+.cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
+.cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
+.footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
+.footer-brand em{color:var(--gold-light);}
+.footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
+@media(max-width:700px){.hero{padding:40px 24px 36px;}.hero h1{font-size:30px;}.content{padding:32px 20px 60px;}.pillars,.grid-2,.grid-3{grid-template-columns:1fr;}.breadcrumb{padding:10px 24px;}}
+.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}
+</style>
 </head>
-<body><nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#agents">AI Agents</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="business_plan.html">Business Plan</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
+<body>
+<nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
 
-<!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">Channel-Ready AE · Phase 2 Module · Partnership Kickoff</div>
-  <h1>Contracts Signed.<br>Now <em>Activate</em> the Partnership.</h1>
-  <div class="hero-sub">Everything that happens in the first 90 days after agreement determines whether your VAR relationship becomes a revenue channel — or a line item nobody touches.</div>
+  <div class="hero-tag">Channel-Ready AE · Phase 3 · Module 10</div>
+  <h1>Prospecting<br><em>Through Partners</em>.</h1>
+  <div class="hero-sub">How to jointly prospect, co-source deals, and turn your partner network into an outbound engine — using Sandler principles to structure the prospecting motion so partners actually generate net-new pipeline instead of just passing warm referrals.</div>
   <div class="hero-stats">
-    <div class="hero-stat"><strong>4</strong><span>Activation Pillars</span></div>
-    <div class="hero-stat"><strong>90 Days</strong><span>Critical Window</span></div>
-    <div class="hero-stat"><strong>5 Plays</strong><span>Repeatable Sales Motions</span></div>
-    <div class="hero-stat"><strong>$500</strong><span>Deal Reg SPIF</span></div>
+    <div class="hero-stat"><strong>Joint</strong><span>Prospecting Model</span></div>
+    <div class="hero-stat"><strong>Co-Source</strong><span>Deal Generation</span></div>
+    <div class="hero-stat"><strong>Outbound</strong><span>Engine via Partners</span></div>
+    <div class="hero-stat"><strong>Named</strong><span>Accounts Required</span></div>
   </div>
 </div>
 
-<!-- REAL EXAMPLE BANNER -->
-<div style="background:#1a2a1a;padding:12px 40px;display:flex;align-items:center;gap:16px;">
-  <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;color:#4a7a5a;text-transform:uppercase;">Live Reference Case</span>
-  <span style="font-size:13px;color:#6a9a7a;">Toshiba GCS × CDW · Contracts completed 3/19/2025 · Year 1 Goal: $10M · Status: $1.63M (10%) through June</span>
+<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Sandler Prospecting Applied</span><span class="ref-text" style="color:#6a7a9a;">Building partner-sourced pipeline with discipline and mutual commitment</span></div>
+
+<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
+  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
+  <span style="color:#2a3a2a;">›</span>
+  <span style="color:#6a9a6a;">Module 10 — Prospecting Through Partners</span>
+  <span style="margin-left:auto;"><a href="module_09.html" style="color:#3a5a3a;">← Module 09</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="module_11.html" style="color:#5a7a9a;margin-left:12px;">Module 11 →</a></span>
 </div>
 
-
-<div style="background:#1a2a1a;padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;
-  color:#3a4a3a;letter-spacing:1px;display:flex;gap:8px;align-items:center;">
-  <a href="curriculum.html" style="color:#4a6a4a;text-decoration:none;">Business Plan</a>
-  <span style="color:#2a3a2a;">›</span>
-  <a href="curriculum.html" style="color:#4a6a4a;text-decoration:none;">Curriculum Binder</a>
-  <span style="color:#2a3a2a;">›</span>
-  <span style="color:#6a9a6a;">Module 10 — Partnership Kickoff</span>
-  <span style="margin-left:auto;color:#2a3a2a;">← <a href="curriculum.html" style="color:#3a5a3a;text-decoration:none;">Back to Binder</a></span>
-</div>
-<!-- NAV TABS -->
 <div class="nav-tabs">
   <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
-  <button class="nav-tab" onclick="showPanel('kickoff')">Kickoff Checklist</button>
-  <button class="nav-tab" onclick="showPanel('pillars')">4 Activation Pillars</button>
-  <button class="nav-tab" onclick="showPanel('plays')">Sales Plays</button>
-  <button class="nav-tab" onclick="showPanel('incentives')">Incentive Design</button>
-  <button class="nav-tab" onclick="showPanel('timeline')">90-Day Timeline</button>
-  <button class="nav-tab" onclick="showPanel('templates')">Email Templates</button>
+  <button class="nav-tab" onclick="showPanel('framework')">Framework</button>
+  <button class="nav-tab" onclick="showPanel('practice')">In Practice</button>
+  <button class="nav-tab" onclick="showPanel('fieldnotes')">Field Notes</button>
 </div>
 
 <div class="content">
 
-<!-- OVERVIEW PANEL -->
 <div class="panel active" id="panel-overview">
-  <div class="section-label">Why This Moment Matters</div>
-  <h2>The contract is not the win. The first 90 days are.</h2>
-  <div class="explain">Most startup AEs treat a signed partner agreement as the finish line. It's the starting gun. The VAR's sales reps don't know you exist yet. The relationship needs to be activated — deliberately, structurally, and fast — before your window closes.</div>
-
-  <p>A signed CDW agreement means CDW's leadership said yes. It does not mean CDW's account managers, inside reps, or field sellers know what to sell, who to call, or why your product matters to their customers. That is your job for the next 90 days.</p>
-
-  <div class="callout">
-    <div class="callout-tag">THE CORE INSIGHT</div>
-    <strong>You have approximately 6–8 weeks before a new partner relationship goes cold without intentional activation.</strong> CDW's sellers have 200+ vendor relationships competing for their attention. You are not special yet. You become special by being the easiest, most supportive, most lucrative vendor to sell. That reputation is built in the first 90 days — or not at all.
-  </div>
-
-  <!-- Live case milestones -->
-  <h3>What "Done Right" Looks Like — Live Reference</h3>
-  <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Toshiba GCS × CDW partnership milestones as of March 2025:</p>
-
-  <div class="milestone-track">
-    <div class="ms done"><div class="ms-icon">📄</div><div class="ms-label">CDW Agreement</div><div class="ms-status">✓ 3/19</div></div>
-    <div class="ms done"><div class="ms-icon">📄</div><div class="ms-label">Toshiba Agreement</div><div class="ms-status">✓ 3/19</div></div>
-    <div class="ms done"><div class="ms-icon">📋</div><div class="ms-label">Marketing Plan</div><div class="ms-status">✓ 3/19</div></div>
-    <div class="ms done"><div class="ms-icon">🏦</div><div class="ms-label">W9 / Supplier</div><div class="ms-status">✓ 3/19</div></div>
-    <div class="ms active"><div class="ms-icon">💰</div><div class="ms-label">First PO</div><div class="ms-status">Target: $1M</div></div>
-  </div>
-
-  <p>Notice: all four administrative milestones completed the same day. This is intentional — you do not want legal and paperwork dragging out after the partnership decision is made. Get everything signed in one motion, then immediately shift to activation.</p>
-
-  <!-- Year 1 goal progress -->
-  <h3>Year 1 Goal: $10M — Where Are We?</h3>
-  <div class="progress-ring">
-    <div class="ring-wrap">
-      <svg width="100" height="100" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="42" fill="none" stroke="#e8e0d0" stroke-width="10"/>
-        <circle cx="50" cy="50" r="42" fill="none" stroke="#1a3d5c" stroke-width="10"
-          stroke-dasharray="264" stroke-dashoffset="237" stroke-linecap="round"/>
-      </svg>
-      <div class="ring-label"><div class="ring-pct">10%</div><div class="ring-sub">OF GOAL</div></div>
-    </div>
-    <div class="ring-details">
-      <h4>$1.63M of $10M — Through June 2025</h4>
-      <p>This is what a partnership looks like 3 months post-signature. The pipeline is building. The first deals are closing. The work of activation is not done — but the framework is working. The remaining $8.37M is the co-sell motion running through H2.</p>
-    </div>
-  </div>
-
-  <div class="grid-3" style="margin-top:24px;">
-    <div class="card gold-top"><h4>Lesson 1</h4><p>Year 1 targets should be set <em>before</em> signature — not discovered after. If you don't set a number, neither side has accountability.</p></div>
-    <div class="card gold-top"><h4>Lesson 2</h4><p>10% at Month 3 is not failure. It reflects the lag between activation and first revenue. Pipeline built in Month 1–2 closes in Month 3–5.</p></div>
-    <div class="card gold-top"><h4>Lesson 3</h4><p>All four contract milestones completed same day. Never let paperwork stall momentum after the handshake. Prep docs in advance.</p></div>
-  </div>
+<div class="section-label">Why This Module Exists</div>
+<h2>Partners don't generate pipeline by accident. They do it when you build a joint prospecting motion with them.</h2>
+<div class="explain">The difference between a partner who passes you one deal per quarter and a partner who generates consistent new pipeline is almost always whether the AE has built a structured joint prospecting habit with them. This module shows you how.</div>
+<p>Most channel AEs wait for partners to bring them opportunities. The partner has 200 vendor relationships — if you're waiting passively, you're at the back of the line. The AEs who get consistent partner-sourced pipeline are the ones who actively build a joint prospecting motion: a regular cadence of prospecting activity where both parties are identifying accounts, reaching out together, and jointly qualifying before anyone invests time in a formal deal cycle.</p>
+<p>Sandler's prospecting principles apply here the same way they apply to direct sales: identify the pain pattern, target the accounts where that pain pattern is likely to exist, contact the right person with the right message, and qualify fast. The difference is that in channel, you're doing this in partnership — and you need to structure the partnership so the prospecting effort is mutual, not one-sided.</p>
+<div class="callout">
+  <div class="callout-tag">THE CORE INSIGHT</div>
+  <strong>Partners who prospect with you are partners who are invested in your success.</strong> Joint prospecting is the activity that converts a transactional partner relationship into a genuine co-sell partnership — and it's the fastest way to find out which partners are actually motivated.
+</div>
+<div class="grid-3">
+  <div class="card gold-top"><h4>What You'll Learn</h4><p>The joint prospecting framework. How to build a target account list with a partner. How to structure a weekly co-prospecting cadence that both parties show up to consistently.</p></div>
+  <div class="card gold-top"><h4>What You'll Practice</h4><p>Running a joint account planning session with a partner. Writing a co-sourced outreach sequence. Qualifying inbound partner referrals using Sandler pain questions.</p></div>
+  <div class="card gold-top"><h4>What Changes After</h4><p>Your partner-sourced pipeline grows. You stop being dependent on reactive referrals. Your best partners become genuine outbound engines for your product.</p></div>
+</div>
 </div>
 
-<!-- KICKOFF CHECKLIST -->
-<div class="panel" id="panel-kickoff">
-  <div class="section-label">Kickoff Checklist</div>
-  <h2>Everything you must do in the first 30 days.</h2>
-  <div class="explain">This checklist is built from real partnership launches. Items marked "blocking" mean the partnership cannot progress without them. Items marked "accelerating" are what separate average launches from fast ones.</div>
+<div class="panel" id="panel-framework">
+<div class="section-label">The Joint Prospecting System</div>
+<h2>Three components that turn partners into an outbound engine.</h2>
 
-  <div class="checklist" id="checklist">
-
-    <div class="check-group">
-      <div class="check-group-title">Week 1 — Administrative Foundation</div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Confirm all agreements executed and filed (partner agreement, W9, supplier setup)
-          <div class="check-note">BLOCKING. No SPIF payments, no MDF access, no deal registration eligibility until this is complete.</div>
-        </div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Obtain deal registration portal access for partner reps
-          <div class="check-note">BLOCKING. Partner reps cannot submit deal regs until they have credentials. Set this up before the first training call.</div>
-        </div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Map your internal contacts to partner org chart: VP → Director → Manager → rep level
-          <div class="check-note">ACCELERATING. You need a named contact at each level before you can operate the heatmap.</div>
-        </div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Set up shared pipeline tracking spreadsheet (two columns: your pipeline, partner's view)
-          <div class="check-note">ACCELERATING. "Same info reporting both ways" is the principle. The spreadsheet exists from Day 1 — even if it's empty.</div>
-        </div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Establish recurring meeting cadences: weekly co-sell call, monthly DM sync, quarterly QBR
-          <div class="check-note">BLOCKING. Calendar invites sent and accepted before the first activation week. Recurring slots are harder to cancel than to set.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="check-group">
-      <div class="check-group-title">Week 2 — Enablement Launch</div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Run first AM webinar / kickoff training (your product overview + pitch for their sellers)
-          <div class="check-note">BLOCKING. Partner reps cannot sell what they don't know. The first training is the first impression — keep it under 30 minutes, end with a "reason to call" list of 5 account types.</div>
-        </div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Deliver the sales play deck to partner AM contacts (not a product brochure — a "here's how to sell it" guide)
-          <div class="check-note">ACCELERATING. The CDW Sales Plays format: tier signals, anchor products, services pull-through, FAQs, email scripts. Give reps what they need to act independently.</div>
-        </div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Activate seller incentive program — communicate SPIF structure to every rep who attended training
-          <div class="check-note">ACCELERATING. A rep who doesn't know about the $500 deal reg SPIF will not think about deal registration. Tell them immediately after the first training call.</div>
-        </div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Distribute battle card / one-pager: 1 page, max, with "REFRESH IF / MODERNIZE IF / TRANSFORM IF" qualification signals
-          <div class="check-note">ACCELERATING. Reps do not re-read decks. They re-read battle cards. One page, in their inbox, with the signals that tell them when to call you.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="check-group">
-      <div class="check-group-title">Week 3–4 — Co-Sell Activation</div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Build Spreadsheet 1: your active pipeline where the partner has relationships
-          <div class="check-note">BLOCKING for co-sell. You cannot run a co-sell motion without a shared target account list. Pull your pipeline, map to partner's accounts, flag mutual acquisition targets.</div>
-        </div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Build Spreadsheet 2: your unattached prospects with no partner assigned, mapped to partner AMs
-          <div class="check-note">ACCELERATING. These are your net-new-logo opportunities. Give the partner rep a list of accounts in their territory that you want their help opening.</div>
-        </div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Run first co-sell session: review both spreadsheets, assign ownership, set next-step dates per account
-          <div class="check-note">BLOCKING. The co-sell session is the engine. Without a structured review of named accounts, the relationship produces goodwill but not pipeline.</div>
-        </div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Submit first deal registrations from co-sell session findings
-          <div class="check-note">ACCELERATING. The fastest way to demonstrate value to a partner rep is a deal reg that protects their margin on an account they brought you. Do this in the first 30 days.</div>
-        </div>
-      </div>
-      <div class="check-item" onclick="toggleCheck(this)">
-        <div class="check-box"></div>
-        <div class="check-text">Send first Win Wire — even if it's a pipeline update, not a closed deal
-          <div class="check-note">ACCELERATING. A Win Wire after the first 30 days signals professional discipline and keeps your partner's management aware of progress. Format: accounts confirmed, calls completed, pipeline identified, what's next.</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div style="margin-top:20px;padding:14px 20px;background:var(--warm);border:1px solid var(--rule);
-    border-radius:4px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">
-    <span id="check-progress">0 of 14 items complete</span>
-  </div>
-</div>
-
-<!-- 4 ACTIVATION PILLARS -->
-<div class="panel" id="panel-pillars">
-  <div class="section-label">The Activation Framework</div>
-  <h2>Every successful VAR partnership runs on four pillars.</h2>
-  <p>This framework comes directly from Carl's CDW-Toshiba Plan on a Page — but it applies to any vendor-VAR relationship regardless of product. A startup AE managing their first partner needs all four running simultaneously within 60 days of signature.</p>
-
-  <div class="pillars">
-    <div class="pillar">
-      <div class="pillar-head blue"><div class="pillar-icon">🎓</div><div class="pillar-title">Pillar 1 — Enablement</div></div>
-      <div class="pillar-body">
-        <ul>
-          <li>AM-wide webinar — product overview and pitch for generalist reps <span class="tag tag-blue">Month 1</span></li>
-          <li>Deep-dive technical training — for partner SEs and solution architects <span class="tag tag-blue">Month 2</span></li>
-          <li>Mini-enablement embedded in every co-sell session <span class="tag tag-blue">Ongoing</span></li>
-          <li>Sales play deck distributed to all attending reps <span class="tag tag-blue">Month 1</span></li>
-          <li>Battle card / one-pager for in-field use <span class="tag tag-blue">Month 1</span></li>
-        </ul>
-        <p style="font-size:13px;color:var(--muted);margin-top:12px;font-style:italic;">Startup AE version: you cannot afford a dedicated PSR. You do the mini-enablement yourself at the start of every co-sell call. Keep it under 5 minutes, keep it tied to one specific "reason to call" for that week.</p>
-      </div>
-    </div>
-
-    <div class="pillar">
-      <div class="pillar-head green"><div class="pillar-icon">📣</div><div class="pillar-title">Pillar 2 — Marketing</div></div>
-      <div class="pillar-body">
-        <ul>
-          <li>Co-branded email campaign to partner's customer base <span class="tag tag-green">Month 2–3</span></li>
-          <li>ROI one-pager co-branded for partner AM use <span class="tag tag-green">Month 1</span></li>
-          <li>Seller incentive program — SPIF ladder by action type <span class="tag tag-green">Month 1</span></li>
-          <li>Executive access events (NRF, Groceryshop, etc.) <span class="tag tag-green">Quarterly</span></li>
-          <li>MDF request submitted for campaign activities <span class="tag tag-green">Month 2</span></li>
-        </ul>
-        <p style="font-size:13px;color:var(--muted);margin-top:12px;font-style:italic;">Startup AE version: Start with the SPIF ladder — it costs almost nothing and immediately gives partner reps a reason to act. Co-branded materials and MDF come once you have the first deal in pipeline.</p>
-      </div>
-    </div>
-
-    <div class="pillar">
-      <div class="pillar-head gold"><div class="pillar-icon">🤝</div><div class="pillar-title">Pillar 3 — Co-Selling</div></div>
-      <div class="pillar-body">
-        <ul>
-          <li>Spreadsheet 1: active pipeline with partner relationship flags <span class="tag tag-gold">Week 3</span></li>
-          <li>Spreadsheet 2: unattached prospects mapped to partner AMs <span class="tag tag-gold">Week 3</span></li>
-          <li>Weekly co-sell session reviewing both lists <span class="tag tag-gold">Ongoing</span></li>
-          <li>Mini-enablement segment in every session <span class="tag tag-gold">Ongoing</span></li>
-          <li>Deal registration submitted per co-sell outcome <span class="tag tag-gold">Ongoing</span></li>
-        </ul>
-        <p style="font-size:13px;color:var(--muted);margin-top:12px;font-style:italic;">"Same info reporting both ways" is the operating principle. What you see in the pipeline, they see. What they close, you track. No information asymmetry in a co-sell relationship.</p>
-      </div>
-    </div>
-
-    <div class="pillar">
-      <div class="pillar-head dark"><div class="pillar-icon">🎯</div><div class="pillar-title">Pillar 4 — Events</div></div>
-      <div class="pillar-body">
-        <ul>
-          <li>Industry event co-attendance (your vertical's flagship event) <span class="tag tag-gold">Annual</span></li>
-          <li>Private executive dinner co-hosted with partner <span class="tag tag-gold">Annual</span></li>
-          <li>Joint customer reception at major event <span class="tag tag-gold">Annual</span></li>
-          <li>Entry requirement: 30-min briefing from partner AMs <span class="tag tag-gold">Per event</span></li>
-          <li>Partner AM makes the customer ask, you support <span class="tag tag-gold">Per event</span></li>
-        </ul>
-        <p style="font-size:13px;color:var(--muted);margin-top:12px;font-style:italic;">Startup AE version: You may not have event budget in Year 1. Start by getting on your partner's event calendar as a supporting resource — not the host. Show up, support, then earn hosting rights in Year 2.</p>
-      </div>
+<div class="pillars">
+  <div class="pillar">
+    <div class="pillar-head blue"><div class="pillar-icon">📋</div><div class="pillar-title">Component 1 — Target Account List</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>Build a shared list of 10–20 named target accounts <span class="tag tag-blue">Required</span></li>
+        <li>Each account must fit your ICP and the partner's book <span class="tag tag-blue">Required</span></li>
+        <li>Partner must have a relationship or access to each account <span class="tag tag-blue">Required</span></li>
+        <li>Each account gets a tier: hot, warm, cold <span class="tag tag-blue">Required</span></li>
+        <li>Reviewed and updated at every monthly sync <span class="tag tag-blue">Cadence</span></li>
+      </ul>
     </div>
   </div>
-
-  <div class="callout" style="margin-top:24px;">
-    <div class="callout-tag">THE CORD PRINCIPLE</div>
-    Every quarter, the partner has a new focus area. Your job is to show <strong>"the cord"</strong> — the direct connection between their quarterly initiative and your product. Storage quarter? Here's how we fit. Security push? Here's our adjacent play. Partners prioritize vendors who make themselves relevant to what the partner is already selling — not vendors who ask the partner to change direction. Find the cord. Show it early. Pull it every quarter.
-  </div>
-</div>
-
-<!-- SALES PLAYS -->
-<div class="panel" id="panel-plays">
-  <div class="section-label">The 3-Tier Sales Model</div>
-  <h2>Retail Modernization Factory — Deals That Grow After the PO.</h2>
-  <p>This is Carl's live sales play framework for CDW reps selling Toshiba retail solutions. It's the clearest example in the curriculum of how to build a tiered play structure that any partner rep can use independently. Adapt the model to your own product — the architecture is what matters.</p>
-
-  <div class="explain">The insight: POS-only deals (or any hardware-only deal) do not compound. Services and lifecycle do. The 3-tier model gives partner reps a clear expansion path that generates recurring revenue at every stage — and gives you, the startup, a reason to stay relevant after the first PO.</div>
-
-  <div class="plays">
-
-    <div class="play-card">
-      <div class="play-head">
-        <div class="play-tier tier-refresh">REFRESH</div>
-        <div class="play-name">Stabilize & Replace</div>
-        <div class="play-signal" style="color:#6a9aba;font-size:11px;">Aging devices 5+ yrs<br>IT-led budget</div>
-        <div class="play-value">$1K–$3K<br><span style="font-size:10px;color:#4a5060;">per store/CDW svc</span></div>
-      </div>
-      <div class="play-body">
-        <div class="play-col">
-          <div class="play-col-title">Anchor Products</div>
-          <ul>
-            <li>TCx M1, M7, M11 mobile hardware</li>
-            <li>TCx Touch Display</li>
-            <li>TCx Print S10</li>
-            <li>Keyboards, Cash Drawers, Tills</li>
-          </ul>
-        </div>
-        <div class="play-col">
-          <div class="play-col-title">CDW Services Pull-Through</div>
-          <ul>
-            <li>Imaging & staging</li>
-            <li>Store rollout & field install</li>
-            <li>Break/fix & asset lifecycle</li>
-          </ul>
-        </div>
-        <div class="play-col">
-          <div class="play-col-title">Adjacent Brands</div>
-          <ul>
-            <li>Microsoft (Windows IoT)</li>
-            <li>Intel / AMD</li>
-            <li>Cisco Meraki, HPE Aruba</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="play-card">
-      <div class="play-head">
-        <div class="play-tier tier-modernize">MODERNIZE</div>
-        <div class="play-name">Enable Efficiency & Upgrade Experience</div>
-        <div class="play-signal" style="color:#6aba8a;font-size:11px;">Shrink / SCO fraud<br>Joint IT+Ops ownership</div>
-        <div class="play-value">$5K–$12K<br><span style="font-size:10px;color:#4a5060;">per store/CDW svc</span></div>
-      </div>
-      <div class="play-body">
-        <div class="play-col">
-          <div class="play-col-title">Anchor Products</div>
-          <ul>
-            <li>TCx 620 / TCx 820 POS</li>
-            <li>Self Service Hardware</li>
-            <li>ELERA full platform</li>
-            <li>Vision-enabled loss prevention</li>
-          </ul>
-        </div>
-        <div class="play-col">
-          <div class="play-col-title">CDW Services Pull-Through</div>
-          <ul>
-            <li>Vision deployment & tuning</li>
-            <li>Managed networking</li>
-            <li>MDR / SOC security arch</li>
-            <li>Ongoing store monitoring</li>
-          </ul>
-        </div>
-        <div class="play-col">
-          <div class="play-col-title">Adjacent Brands</div>
-          <ul>
-            <li>Everseen, Axis Communications</li>
-            <li>Cisco Meraki, Extreme</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="play-card">
-      <div class="play-head">
-        <div class="play-tier tier-transform">TRANSFORM</div>
-        <div class="play-name">Unified Commerce & Intelligence</div>
-        <div class="play-signal" style="color:#ba8aba;font-size:11px;">Exec-led initiative<br>Multi-year platform</div>
-        <div class="play-value">$15K–$30K+<br><span style="font-size:10px;color:#4a5060;">per store/yr CDW svc</span></div>
-      </div>
-      <div class="play-body">
-        <div class="play-col">
-          <div class="play-col-title">Anchor Products</div>
-          <ul>
-            <li>ELERA as solution platform</li>
-            <li>Toshiba Services</li>
-            <li>API-driven integrations</li>
-            <li>Advanced computer vision</li>
-          </ul>
-        </div>
-        <div class="play-col">
-          <div class="play-col-title">CDW Services Pull-Through</div>
-          <ul>
-            <li>Cloud & data architecture</li>
-            <li>Custom app development</li>
-            <li>Analytics / AI/ML</li>
-            <li>Managed retail platforms</li>
-          </ul>
-        </div>
-        <div class="play-col">
-          <div class="play-col-title">Adjacent Brands</div>
-          <ul>
-            <li>Microsoft Azure, Snowflake</li>
-            <li>Databricks</li>
-          </ul>
-        </div>
-      </div>
+  <div class="pillar">
+    <div class="pillar-head green"><div class="pillar-icon">📅</div><div class="pillar-title">Component 2 — Weekly Co-Prospect Call</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>30-min weekly call: what went out, what came back <span class="tag tag-green">Required</span></li>
+        <li>Partner owns the relationship intro, you own the qualification <span class="tag tag-green">Role Split</span></li>
+        <li>UFC for each call — purpose and outcome stated upfront <span class="tag tag-green">Required</span></li>
+        <li>No call without a specific action item from the previous call <span class="tag tag-green">Required</span></li>
+        <li>Track: outreach sent, responses, meetings booked <span class="tag tag-green">Metrics</span></li>
+      </ul>
     </div>
   </div>
-
-  <div class="callout" style="margin-top:8px;">
-    <div class="callout-tag">QUALIFICATION SIGNALS</div>
-    <strong>REFRESH IF:</strong> POS devices over 5 years old, or breaking into a new account.<br>
-    <strong>MODERNIZE IF:</strong> Shrink, self-checkout fraud, or multi-store inconsistency challenges.<br>
-    <strong>TRANSFORM IF:</strong> Executive-led digital strategy with multi-year budget authority.<br><br>
-    The most important FAQ in the CDW Sales Plays deck: <em>"What if I've never sold retail before?"</em> — Answer: Start with REFRESH as an infrastructure conversation. You are not expected to be a retail expert. Overlays will support you. Your role is to open a discovery conversation, not close a platform deal on the first call.
-  </div>
-
-  <h3>How to Build Your Own Play Structure</h3>
-  <div class="grid-3">
-    <div class="card blue-top"><h4>Step 1 — Define Your Tiers</h4><p>What are the 3 versions of a deal with your product? Entry (hardware/software only), Mid (+ services), Full (+ strategic platform)? Name them simply. Refresh/Modernize/Transform works. So does Basic/Growth/Enterprise.</p></div>
-    <div class="card blue-top"><h4>Step 2 — Identify the Signals</h4><p>What does the customer say or show when they're in each tier? Write the qualification signals in plain language. "REFRESH IF..." is a format any rep can memorize in 60 seconds.</p></div>
-    <div class="card blue-top"><h4>Step 3 — Map the Pull-Through</h4><p>What services does your VAR want to sell alongside each tier? That's their reason to push your deal. No pull-through = no motivation. Build the services map before you run your first training.</p></div>
-  </div>
-</div>
-
-<!-- INCENTIVE DESIGN -->
-<div class="panel" id="panel-incentives">
-  <div class="section-label">Incentive Architecture</div>
-  <h2>You don't ask partner reps to act. You pay them to act.</h2>
-  <div class="explain">Most startup AEs don't know this is how the channel economy works. CDW's reps have 200+ vendor relationships. They act on the ones that reward specific behaviors with specific dollar amounts. The incentive ladder is not optional — it is the mechanism that creates repeatable partner rep behavior.</div>
-
-  <h3>Live Reference: Toshiba × CDW Incentive Structure</h3>
-  <div class="incentive-ladder">
-    <div class="incentive-row">
-      <div class="incentive-action">
-        <strong>Deal Registration SPIF</strong>
-        <span>$500 per qualified deal registration submitted by a CDW rep on a Toshiba opportunity. Target: ~100 registrations = $50,000 deployed.</span>
-      </div>
-      <div class="incentive-amount">$500</div>
-      <div class="incentive-bar-wrap"><div class="incentive-bar" style="width:100%"></div></div>
-    </div>
-    <div class="incentive-row">
-      <div class="incentive-action">
-        <strong>Seller Incentive Program — Total Budget</strong>
-        <span>Total SPIF budget allocated for Year 1 CDW partnership. Tracked against submissions and distributed monthly.</span>
-      </div>
-      <div class="incentive-amount">$50K</div>
-      <div class="incentive-bar-wrap"><div class="incentive-bar" style="width:90%"></div></div>
-    </div>
-    <div class="incentive-row">
-      <div class="incentive-action">
-        <strong>Executive Access Events</strong>
-        <span>NRF (NYC, January) and Groceryshop (Las Vegas, September) — private dinners and hosted receptions co-hosted with CDW. Entry requirement: 30-min Toshiba briefing with CDW AM making the customer ask.</span>
-      </div>
-      <div class="incentive-amount">$25K</div>
-      <div class="incentive-bar-wrap"><div class="incentive-bar" style="width:50%"></div></div>
-    </div>
-  </div>
-
-  <h3>The HPE Virtual Co-Sell Incentive Model (Translated for Startups)</h3>
-  <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">From the Virtual Co-Selling Campaign — specific dollar triggers that drive specific actions from partner reps.</p>
-  <div class="incentive-ladder">
-    <div class="incentive-row">
-      <div class="incentive-action"><strong>Training Call Participation</strong><span>A rep takes a 30-minute product training call. Small amount — big return. Creates the first touchpoint and makes them eligible for higher-tier incentives.</span></div>
-      <div class="incentive-amount">$25</div>
-      <div class="incentive-bar-wrap"><div class="incentive-bar" style="width:15%"></div></div>
-    </div>
-    <div class="incentive-row">
-      <div class="incentive-action"><strong>Product Demo Scheduled</strong><span>Rep schedules a product demo for a customer account. Infosight / technical demo format. Creates qualified opportunity.</span></div>
-      <div class="incentive-amount">$100</div>
-      <div class="incentive-bar-wrap"><div class="incentive-bar" style="width:35%"></div></div>
-    </div>
-    <div class="incentive-row">
-      <div class="incentive-action"><strong>Customer Meeting Completed</strong><span>Rep delivers a qualified customer meeting with the vendor present. Creates pipeline and advances deal stage.</span></div>
-      <div class="incentive-amount">$200</div>
-      <div class="incentive-bar-wrap"><div class="incentive-bar" style="width:55%"></div></div>
-    </div>
-    <div class="incentive-row">
-      <div class="incentive-action"><strong>Deal Registration Submitted</strong><span>Rep submits a qualified deal registration. Highest single-action incentive. Protects margin and creates accountability on both sides for the opportunity.</span></div>
-      <div class="incentive-amount">$300</div>
-      <div class="incentive-bar-wrap"><div class="incentive-bar" style="width:75%"></div></div>
-    </div>
-  </div>
-
-  <h3>How to Build Your Incentive Ladder on a Startup Budget</h3>
-  <div class="grid-2">
-    <div class="card green-top">
-      <h4>If you have $5,000 to start</h4>
-      <p>Allocate: $25/training (up to 50 reps = $1,250). $100/demo (up to 20 = $2,000). $300/deal reg (up to 5 = $1,500). Reserve $250 as buffer. You've now created a structured incentive program for 75 rep interactions.</p>
-    </div>
-    <div class="card green-top">
-      <h4>If you have $1,000 to start</h4>
-      <p>Skip training incentive. Focus: $200/customer meeting (up to 3 = $600) + $100/demo (up to 4 = $400). Fewer incentives, higher threshold, still creates action. Tell reps upfront: "First 3 customer meetings get $200 each."</p>
-    </div>
-    <div class="card green-top">
-      <h4>Non-cash incentives that work</h4>
-      <p>Amazon gift cards, Airpods, Yeti coolers, dinner reservations, event access. Partner reps respond to tangible, fast-to-deliver rewards. A $75 Amazon card in 48 hours beats a $200 "will process in 60 days" check.</p>
-    </div>
-    <div class="card green-top">
-      <h4>The rule nobody tells you</h4>
-      <p>Always announce the incentive at the end of the training call, not the beginning. Starting with "you'll get $25 for this" signals the content isn't worth their time. Ending with "and for showing up today..." rewards action already taken.</p>
+  <div class="pillar">
+    <div class="pillar-head gold"><div class="pillar-icon">✉</div><div class="pillar-title">Component 3 — Co-Sourced Outreach</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>Partner sends intro, you provide the email/script <span class="tag tag-gold">Model</span></li>
+        <li>Message anchors on the end customer's likely pain — not your product <span class="tag tag-gold">Required</span></li>
+        <li>Call to action: a brief conversation, not a demo <span class="tag tag-gold">Required</span></li>
+        <li>Follow-up sequence owned by partner, supported by you <span class="tag tag-gold">Model</span></li>
+        <li>All responses routed to weekly co-prospect call <span class="tag tag-gold">Cadence</span></li>
+      </ul>
     </div>
   </div>
 </div>
 
-<!-- 90 DAY TIMELINE -->
-<div class="panel" id="panel-timeline">
-  <div class="section-label">The Critical Window</div>
-  <h2>90 days. Three phases. No exceptions.</h2>
-  <p>Partnerships that don't achieve meaningful co-sell activity within 90 days of signing rarely recover without significant reset. This timeline is the operational plan that prevents that outcome.</p>
-
-  <div class="timeline">
-    <div class="t-item">
-      <div class="t-badge"><strong>1–2</strong><span>WEEKS</span></div>
-      <div class="t-body">
-        <h4>Administrative Foundation</h4>
-        <p>All agreements executed. Deal reg portal access provisioned. Internal/external org map built. Shared pipeline tracker created (empty is fine). Recurring calendar slots sent and accepted. Do not proceed to enablement until these are done — a rep who attends a training call but can't submit a deal reg is a wasted touchpoint.</p>
-      </div>
-    </div>
-    <div class="t-item">
-      <div class="t-badge"><strong>2–3</strong><span>WEEKS</span></div>
-      <div class="t-body">
-        <h4>First Training + Incentive Activation</h4>
-        <p>AM-wide webinar: 30 minutes max. Product overview, one "reason to call" customer profile, three qualification signals. Sales play deck distributed same day. SPIF structure announced at the end of the call. Battle card in every rep's inbox within 24 hours. The rep should leave this call knowing: what to sell, who to sell it to, and what they get for doing it.</p>
-      </div>
-    </div>
-    <div class="t-item">
-      <div class="t-badge"><strong>3–4</strong><span>WEEKS</span></div>
-      <div class="t-body">
-        <h4>First Co-Sell Session</h4>
-        <p>Build Spreadsheet 1 (your pipeline with partner relationships) and Spreadsheet 2 (unattached prospects mapped to partner AMs). Run the first co-sell session: review both lists, assign ownership per account, set next-step dates. Goal for this session: 10 accounts with a named rep and a next action. Not 100. Ten. Quality over quantity on the first pass.</p>
-      </div>
-    </div>
-    <div class="t-item">
-      <div class="t-badge"><strong>30</strong><span>DAYS</span></div>
-      <div class="t-body">
-        <h4>First Deal Registrations + Win Wire</h4>
-        <p>Submit first deal registrations from co-sell session outcomes. Even if the deals are early-stage — deal reg protects margin and creates accountability. Send the first Win Wire to the partner's leadership: accounts confirmed, training completed, co-selling calls run, pipeline identified, next steps. Two paragraphs. This is what keeps the relationship on leadership's radar.</p>
-      </div>
-    </div>
-    <div class="t-item">
-      <div class="t-badge"><strong>30–60</strong><span>DAYS</span></div>
-      <div class="t-body">
-        <h4>Cadence Locked In, Deeper Enablement</h4>
-        <p>Weekly co-sell sessions are running and producing named account action items. Monthly DM sync is happening. Technical deep-dive training run for SEs and solution architects. MDF request submitted if applicable. The "cord" — connection between your product and the partner's Q2 focus — identified and communicated to all reps.</p>
-      </div>
-    </div>
-    <div class="t-item">
-      <div class="t-badge"><strong>60–90</strong><span>DAYS</span></div>
-      <div class="t-body">
-        <h4>First Revenue Signal + QBR Prep</h4>
-        <p>First deal in late-stage or closed. If not closed, first commit-level opportunity with a specific close date. Pipeline summary updated. QBR package being built for the 90-day mark: what was committed, what happened, what changed, what's the 90-day forward plan. The QBR at Day 90 is the first real test of whether the partnership is working — prepare for it from Day 1.</p>
-      </div>
-    </div>
-    <div class="t-item">
-      <div class="t-badge"><strong>90</strong><span>DAYS</span></div>
-      <div class="t-body">
-        <h4>First QBR — The Proof of Concept</h4>
-        <p>Agenda: State of Business (your side), State of Business (their side), 90-day review vs. commitments, pipeline by tier (Refresh/Modernize/Transform or your equivalent), top 10 active accounts with status, challenges and corrective actions, Q2 joint plan. The QBR at Day 90 does not need perfect numbers. It needs to demonstrate that you are a professional, data-driven vendor partner who shows up with receipts — not excuses.</p>
-      </div>
-    </div>
-  </div>
+<h3>The Pain-First Outreach Message</h3>
+<div class="callout">
+  <div class="callout-tag">CO-SOURCED OUTREACH TEMPLATE</div>
+  From: [Partner Rep Name]<br>
+  To: [Target Contact]<br><br>
+  "I've been working with [your company's] team on some situations in [vertical] where [specific pain pattern] is creating real pressure for operations and IT leadership. A few of my customers have run into this — specifically around [two-sentence problem description]. I thought it might be worth a quick 15-minute call to see if this is something you're dealing with, or not. Are you open to a brief conversation?"<br><br>
+  The message leads with pain, not product. The partner's credibility makes it land.
+</div>
 </div>
 
-<!-- EMAIL TEMPLATES -->
-<div class="panel" id="panel-templates">
-  <div class="section-label">Communication Templates</div>
-  <h2>The emails that keep the partnership alive.</h2>
-  <div class="explain">These templates are drawn from real communication patterns in the source documents. Adapt the specifics to your product and partner — the structure and cadence are what matter.</div>
+<div class="panel" id="panel-practice">
+<div class="section-label">Building the Joint Prospecting Motion</div>
+<h2>From account list to first conversation — step by step.</h2>
 
-  <h3>Template 1 — Partnership Kickoff Email (Post-Signature)</h3>
-  <div class="email-box">
-    <div class="email-header">
-      <div class="field"><strong>To:</strong> [Partner District Manager], [Partner Sales Manager], [Partner AM Lead]</div>
-      <div class="field"><strong>Subject:</strong> [Your Company] × [Partner] — Kickoff + First 30 Days</div>
-    </div>
-    <div class="email-body">Hi [Name],
+<h3>Step 1 — The Account Planning Session</h3>
+<p>Schedule a 60-minute account planning session with the partner. Purpose: build the target account list together. Bring a proposed list of accounts based on your ICP. Ask the partner to bring their top accounts in your target segment. Combine and tier the list. Assign ownership. This session typically surfaces 15-20 real targets in the first meeting.</p>
 
-Agreements are signed — excited to get moving. Here's how I'm thinking about the first 30 days to make sure we're generating real pipeline fast:
-
-WEEK 1–2
-→ Deal reg portal access set up for your team (I'll send credentials by [date])
-→ Shared pipeline tracker live (I'll send the link today)
-→ 30-min kickoff training call scheduled with your AM team
-
-WEEK 3–4
-→ First co-sell session: we'll review your accounts against my open pipeline and identify 10 targets to pursue together
-→ First deal registrations submitted from that session
-
-The SPIF program is active from Day 1: $[amount] per qualified deal registration, $[amount] per customer meeting. I'll walk through the full structure on the training call.
-
-My goal for Day 30: 10 named co-sell accounts with assigned rep ownership and next steps.
-
-Does [date/time] work for the kickoff training? I'll keep it to 30 minutes.
-
-[Your name]</div>
-  </div>
-
-  <h3>Template 2 — Win Wire (Monthly Partner Update)</h3>
-  <div class="email-box">
-    <div class="email-header">
-      <div class="field"><strong>To:</strong> [Partner DM], [Partner Sales Manager]</div>
-      <div class="field"><strong>Subject:</strong> [Your Company] × [Partner] — [Month] Update</div>
-    </div>
-    <div class="email-body">Hi [Name],
-
-Month [X] update — short version:
-
-ACCOUNTS
-[X] of [X] co-sell accounts confirmed active (X%)
-
-CO-SELL ACTIVITY
-[X] strategy calls completed
-[X] deal registrations submitted
-[X] customer meetings scheduled
-
-PIPELINE
-Forecast [Month]: [$ amount won], [$ commit]
-Named commits: [Account 1], [Account 2], [Account 3]
-Forward pipeline [Next Quarter]: [$ amount]
-[X] commit
-
-WHAT'S NEXT
-→ [Specific next action 1]
-→ [Specific next action 2]
-
-Full pipeline detail in the shared tracker. Let me know if anything needs attention before our next sync on [date].
-
-[Your name]</div>
-  </div>
-
-  <h3>Template 3 — Co-Sell Ask to Partner Rep</h3>
-  <div class="email-box">
-    <div class="email-header">
-      <div class="field"><strong>To:</strong> [Partner AM / Inside Rep]</div>
-      <div class="field"><strong>Subject:</strong> [Account Name] — quick co-sell ask</div>
-    </div>
-    <div class="email-body">Hi [Name],
-
-I have [Account Name] in my pipeline — looks like you have a relationship there based on [existing purchase history / your territory map / recent activity].
-
-Quick ask: would you be open to a 20-minute joint call with their IT team? I can lead the product conversation, you anchor the relationship and handle the services discussion.
-
-If this closes, I'll submit the deal reg in your name — you'll get the $[SPIF amount] on registration plus your standard margin on any attached services.
-
-I've got availability [date/time options]. Does any of that work?
-
-[Your name]</div>
-  </div>
-
-  <h3>Template 4 — Seller Training Invitation</h3>
-  <div class="email-box">
-    <div class="email-header">
-      <div class="field"><strong>To:</strong> [Partner Sales Manager]</div>
-      <div class="field"><strong>Subject:</strong> 30-min [Your Company] training for your team — [date]</div>
-    </div>
-    <div class="email-body">Hi [Name],
-
-I'd like to run a 30-minute product training for your AM team on [date]. Here's what I'll cover:
-
-→ The 3 customer profiles most likely to buy [your product] in your territory
-→ The signals that tell you when to call me (so you're not guessing)
-→ How the deal reg program works + SPIF structure
-→ 2 email scripts your reps can use this week
-
-I'll keep it tight — 25 minutes content, 5 minutes Q&A.
-
-For anyone who attends: [incentive — e.g., $25 gift card OR a personalized account target list for their territory].
-
-Zoom link: [link]
-Date: [date] at [time]
-
-Worth the 30 minutes. Let me know if you want me to send the calendar invite directly to your team.
-
-[Your name]</div>
-  </div>
+<h3>Step 2 — Mapping the Pain Pattern</h3>
+<div class="explain">Before you reach out to any target account, agree on the pain pattern. What problem do these accounts likely have? Why would they be feeling it now? What is the cost of not solving it?</div>
+<div class="callout">
+  <div class="callout-tag">PAIN PATTERN MAPPING WITH THE PARTNER</div>
+  "Walk me through the last customer you sold this kind of solution to. What was their situation? What were they dealing with that made them ready to buy? What was the thing that finally triggered the decision?" Use the partner's real experience to build the outreach narrative. It's more compelling and more accurate than anything you could invent.
 </div>
 
-</div><!-- end content -->
+<h3>Step 3 — Launching the Outreach</h3>
+<p>Write the first outreach email together in the account planning session. Get the partner's voice into it — it should sound like them, not like a vendor template. Have the partner review it before it goes. Launch it to the top 5 accounts on the list. Review responses at the weekly co-prospect call.</p>
+
+<h3>Qualifying Inbound Partner Referrals</h3>
+<p>When a partner brings you an inbound referral, apply the Sandler Pain Funnel immediately — not to the end customer, but to the partner. "Before I reach out to this customer, help me understand what you know about their situation. What's the problem they're dealing with? How long have they had it? Why are they looking now?" If the partner can't answer these questions, the referral isn't qualified enough to pursue yet.</p>
+</div>
+
+<div class="panel" id="panel-fieldnotes">
+<div class="section-label">From the Field</div>
+<h2>What separates partners who generate pipeline from partners who pass leads.</h2>
+
+<h3>The Difference Between a Referral and a Lead</h3>
+<p>A referral is: "You should talk to [Company] — they might need something like this." A lead is: "I talked to [Name] at [Company] last week. They're dealing with [specific pain], they've been trying to solve it for six months, they have budget, and [Name] said they'd take a call from you this week." The joint prospecting motion produces leads, not referrals. Referrals require you to restart the qualification process. Leads are already partway through it.</p>
+
+<h3>Maintaining the Weekly Cadence</h3>
+<div class="callout">
+  <div class="callout-tag">CADENCE RULE</div>
+  The weekly co-prospect call is the most important meeting in a productive partner relationship. It is more important than the QBR. It is the place where pipeline actually gets created. Protect it. If a partner cancels more than twice in a row with no reschedule, apply NRS (Module 06). A partner who won't show up to the co-prospect call is a partner who isn't building pipeline with you — and that's a qualification failure, not a scheduling conflict.
+</div>
+
+<h3>When the Partner's Network Is Tapped Out</h3>
+<p>After 60-90 days of joint prospecting with the same partner, you may find you've exhausted the easy targets in their current book. This is the signal to discuss expansion: new verticals, new geographies, new account segments. The joint prospecting motion that built the first tier of pipeline is also the template for building the next one. But it requires a fresh account planning session and a new target list.</p>
+
+<div class="contrib-row">
+  <span class="contrib-pill cp-carl">● CARL — Partner-sourced pipeline patterns from vendor side</span>
+  <span class="contrib-pill cp-nat">● NATALIE — How resellers approach outbound with vendor support</span>
+  <span class="contrib-pill cp-both">● Sandler pain-first outreach methodology</span>
+</div>
+
+<div class="footer">
+  <div>
+    <div class="footer-brand">Channel-<em>Ready</em> AE</div>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 10 · PROSPECTING THROUGH PARTNERS · MARCH 2026</div>
+  </div>
+  <div class="footer-meta">
+    <div>CONFIDENTIAL</div>
+    <div>CARL & NATALIE CLENDENIN</div>
+  </div>
+</div>
+</div>
+
+</div>
 
 <script>
 function showPanel(id) {
@@ -885,19 +240,6 @@ function showPanel(id) {
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('panel-' + id).classList.add('active');
   event.target.classList.add('active');
-}
-
-function toggleCheck(item) {
-  item.classList.toggle('done');
-  updateProgress();
-}
-
-function updateProgress() {
-  const total = document.querySelectorAll('.check-item').length;
-  const done = document.querySelectorAll('.check-item.done').length;
-  const el = document.getElementById('check-progress');
-  if (el) el.textContent = done + ' of ' + total + ' items complete' +
-    (done === total ? ' — Ready to activate. 🎯' : '');
 }
 </script>
 </body>

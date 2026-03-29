@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Channel-Ready AE — B2B Channel Sales Training</title>
+<title>Channel-Ready AE — Sandler-Based Channel Sales Training</title>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -185,39 +185,58 @@ section { padding: 100px 48px; }
   border: 1px solid #c8c0b0; border-radius: 2px;
 }
 
-/* AGENT ADD-ON */
-.agents { background: #f8f7f4; }
-.agents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
-.agent-card {
+/* BLITZ MASTERS */
+.blitz { background: #181410; }
+.blitz-inner { max-width: 1100px; margin: 0 auto; }
+.blitz-tag {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 4px;
+  color: #5a4a30; text-transform: uppercase; margin-bottom: 16px;
+}
+.blitz-inner h2 {
+  font-family: 'Libre Baskerville', serif; font-size: 36px; font-weight: 700;
+  color: #f0e8d8; letter-spacing: -1px; line-height: 1.1; margin-bottom: 16px;
+}
+.blitz-inner h2 em { color: var(--gold-mid); font-style: italic; }
+.blitz-inner .blitz-sub { font-size: 17px; color: #7a6e5f; max-width: 560px; line-height: 1.7; margin-bottom: 40px; }
+.blitz-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+.blitz-card {
+  border: 1px solid #2a2520; padding: 28px 32px;
+}
+.blitz-card h4 {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px;
+  color: var(--gold); text-transform: uppercase; margin-bottom: 10px;
+}
+.blitz-card p { font-size: 14px; color: #8a7d6b; line-height: 1.7; margin: 0; }
+.blitz-notice {
+  border: 1px solid #2a2520; padding: 28px 36px;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+}
+.blitz-notice-copy h3 {
+  font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700;
+  color: #f0e8d8; margin-bottom: 8px;
+}
+.blitz-notice-copy p { font-size: 14px; color: #6a5e4f; margin: 0; }
+.blitz-badge {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px;
+  color: #4a4035; text-transform: uppercase; border: 1px solid #3a3020;
+  padding: 10px 20px; white-space: nowrap;
+}
+
+/* METHODOLOGY */
+.method { background: #f8f7f4; }
+.method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
+.method-card {
   background: #ffffff; padding: 32px; border: 1px solid #ddd5c0;
 }
-.agent-icon {
+.method-icon {
   font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px;
   color: var(--gold); text-transform: uppercase; margin-bottom: 16px;
 }
-.agent-card h4 {
+.method-card h4 {
   font-family: 'Libre Baskerville', serif; font-size: 17px; font-weight: 700;
   color: #181410; margin-bottom: 10px; line-height: 1.3;
 }
-.agent-card p { font-size: 13px; color: #6a5e4f; line-height: 1.7; }
-.agents-cta {
-  margin-top: 48px; padding: 40px; background: #181410;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 24px;
-}
-.agents-cta-copy h3 {
-  font-family: 'Libre Baskerville', serif; font-size: 22px; font-weight: 700;
-  color: #f0e8d8; margin-bottom: 6px;
-}
-.agents-cta-copy p { font-size: 14px; color: #8a7d6b; }
-.agents-price {
-  font-family: 'Libre Baskerville', serif; font-size: 32px; font-weight: 700;
-  color: var(--gold-mid);
-}
-.agents-price span {
-  font-family: 'DM Mono', monospace; font-size: 11px; color: #5a5040;
-  letter-spacing: 1px; display: block; margin-top: 2px;
-}
+.method-card p { font-size: 13px; color: #6a5e4f; line-height: 1.7; }
 
 /* PRICING */
 .pricing { background: #f0ebe0; }
@@ -328,11 +347,6 @@ section { padding: 100px 48px; }
   font-size: 18px; color: #7a6e5f; max-width: 480px;
   margin: 0 auto 40px; line-height: 1.7;
 }
-.cohort-notice {
-  display: inline-block; margin-top: 24px;
-  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px;
-  color: #3a322a; text-transform: uppercase;
-}
 
 /* MODAL */
 .modal-overlay {
@@ -416,11 +430,11 @@ footer {
   section { padding: 72px 24px; }
   .who-grid { grid-template-columns: 1fr; }
   .phase { grid-template-columns: 1fr; gap: 16px; }
-  .agents-grid { grid-template-columns: 1fr; }
+  .method-grid { grid-template-columns: 1fr; }
+  .blitz-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
   .founders-grid { grid-template-columns: 1fr; }
   .final-cta h2 { font-size: 32px; }
-  .agents-cta { flex-direction: column; align-items: flex-start; }
   footer { padding: 32px 24px; flex-direction: column; gap: 12px; }
 }
 </style>
@@ -431,45 +445,45 @@ footer {
 <nav class="nav">
   <a class="nav-logo" href="#">Channel-<span>Ready</span> AE</a>
   <ul class="nav-links">
-    <li><a href="#program">Program</a></li>
-    <li><a href="#agents">AI Agents</a></li>
+    <li><a href="#who">Who It's For</a></li>
+    <li><a href="#program">The Program</a></li>
+    <li><a href="#methodology">Methodology</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#founders">Founders</a></li>
+    <li><a href="#founders">Instructors</a></li>
     <li><a href="curriculum.html">Curriculum</a></li>
     <li><a href="business_plan.html">Business Plan</a></li>
   </ul>
-  <a class="nav-cta" href="#apply" onclick="openModal()">Apply Now</a>
+  <a class="nav-cta" href="#apply" onclick="openModal()">Enroll Now</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Channel Sales Enablement</div>
-    <h1>Your AEs don't know<br>how to <em>work the channel.</em></h1>
+    <div class="hero-eyebrow">Sandler Sales · Channel Partner Training · Partna Company</div>
+    <h1>Stop giving it away.<br>Start running a <em>real channel.</em></h1>
     <p class="hero-sub">
-      A 6-month cohort program that turns quota-carrying AEs into channel operators —
-      taught by two practitioners currently running partner ecosystems at scale.
+      Channel-Ready AE is the only training program built specifically for channel Account Executives — using Sandler Sales methodology adapted for partner ecosystems. No theory. No AI shortcuts. Proven process.
     </p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#apply" onclick="openModal()">Apply for the Next Cohort</a>
+      <a class="btn-primary" href="#apply" onclick="openModal()">Enroll in the Next Cohort</a>
       <a class="btn-ghost" href="curriculum.html">See the full curriculum →</a>
     </div>
     <div class="hero-stats">
       <div>
+        <div class="hero-stat-val">12</div>
+        <div class="hero-stat-label">Core Modules</div>
+      </div>
+      <div>
         <div class="hero-stat-val">6</div>
-        <div class="hero-stat-label">Month Program</div>
+        <div class="hero-stat-label">Sandler Frameworks</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">$400</div>
+        <div class="hero-stat-label">Per Seat / Month</div>
       </div>
       <div>
         <div class="hero-stat-val">3</div>
         <div class="hero-stat-label">Learning Phases</div>
-      </div>
-      <div>
-        <div class="hero-stat-val">6</div>
-        <div class="hero-stat-label">AI Agents Included</div>
-      </div>
-      <div>
-        <div class="hero-stat-val">$7.5K</div>
-        <div class="hero-stat-label">Team License</div>
       </div>
     </div>
   </div>
@@ -479,31 +493,30 @@ footer {
 <section class="who" id="who">
   <div class="section-inner">
     <div class="section-eyebrow">Who This Is For</div>
-    <h2 class="section-title">Built for the gap<br>no one talks about.</h2>
+    <h2 class="section-title">Built for the channel AE<br>who keeps <em>giving it away.</em></h2>
     <p class="section-intro">
-      Since 2023, channel teams have been cut at nearly every mid-market B2B tech company.
-      AEs inherited the partner motion with zero training. This is the program that closes that gap.
+      Most channel AEs were trained in direct sales. The indirect model is different — and Sandler's framework maps to it precisely. This program closes that gap.
     </p>
     <div class="who-grid">
       <div class="who-card highlight">
         <div class="who-card-label">The Problem</div>
-        <h3>AEs who inherited the channel motion with no playbook</h3>
-        <p>Your AEs are managing CDW, SHI, Insight, and WWT relationships with instinct — not process. Deal registrations are falling through. QBRs have no structure. Partners are going to competitors who have a program.</p>
+        <h3>Channel AEs who consult for free and wonder why partners don't close</h3>
+        <p>You're building partner business plans, running joint calls, sending proposals — and nothing closes. Partners take your intellectual property and shop it to the lowest-price vendor. The Sandler framework stops this pattern permanently.</p>
       </div>
       <div class="who-card">
         <div class="who-card-label">The Company Profile</div>
-        <h3>$10M–$75M ARR B2B tech companies</h3>
-        <p>You're growing fast enough that channel matters, but not big enough to have a dedicated CAM for every AE. Your team is closing deals through partners but leaving significant revenue on the table by not enabling them properly.</p>
+        <h3>B2B tech companies with $10M–$75M ARR and active partner ecosystems</h3>
+        <p>You have VARs, MSPs, or distributors selling your product — but your AEs were trained in direct-sales methodologies. The channel requires different skills: qualifying partners, protecting your time, and building the Sandler Up-Front Contract into every relationship.</p>
       </div>
       <div class="who-card">
         <div class="who-card-label">The AE Profile</div>
-        <h3>Quota-carrying reps managing 5–15 partner relationships</h3>
-        <p>They know how to close direct. They don't know how deal registration actually works, how to structure a partner QBR, how to resolve partner conflict without blowing the relationship, or how to leverage a distributor's resources.</p>
+        <h3>Quota-carrying reps managing 5–15 partner relationships without a framework</h3>
+        <p>You know how to close direct. You don't know how to apply the Pain Funnel to a partner conversation, how to use Negative Reverse Selling when a partner stalls, or how to run a QBR that actually creates urgency instead of validating inaction.</p>
       </div>
       <div class="who-card">
         <div class="who-card-label">The Outcome</div>
-        <h3>AEs who run the channel motion as a force multiplier</h3>
-        <p>After 6 months, your AEs treat their top 3 partners as an extension of their pipeline — not an administrative burden. Partner-sourced revenue increases. Deal reg quality improves. QBRs become pipeline generators instead of status reports.</p>
+        <h3>AEs who run the Sandler system through every partner touchpoint</h3>
+        <p>After completing this program, your AEs establish Up-Front Contracts on every partner deal, qualify with the Pain Funnel before investing time, and use Negative Reverse Selling to get partners to close themselves. The channel becomes a disciplined sales motion — not a relationship management job.</p>
       </div>
     </div>
   </div>
@@ -513,63 +526,56 @@ footer {
 <section class="program" id="program">
   <div class="section-inner">
     <div class="section-eyebrow">The Curriculum</div>
-    <h2 class="section-title">Three phases.<br>One <em>complete motion.</em></h2>
+    <h2 class="section-title">Three phases.<br>One <em>complete Sandler motion.</em></h2>
     <p class="section-intro">
-      Each phase builds on the last. By Month 6, your AEs have a repeatable partner operating model
-      they can run independently — without a channel manager holding their hand.
+      Each phase builds on the last. By the end, your AEs have a Sandler-based partner operating system they can run on any partner, in any deal, without losing margin to free consulting.
     </p>
     <div class="phases">
       <div class="phase">
         <div>
           <div class="phase-number">Phase 01</div>
-          <div class="phase-duration">Months 1–2</div>
+          <div class="phase-duration">Modules 1–4</div>
         </div>
         <div>
-          <h3>Channel Foundations</h3>
-          <p>How the indirect channel actually works — distributor economics, partner tier structures, deal registration mechanics, and why partners choose one vendor over another. AEs learn how to think like a partner before they can influence one.</p>
+          <h3>Sandler Mindset for Channel</h3>
+          <p>The mental shift from direct-sales rep to channel operator. Identity/Role theory applied to the partner ecosystem. Why channel AEs fail — and why it always comes down to giving away intellectual property before commitment. Partner qualification using the Pain Funnel. Up-Front Contracts as a partner management tool.</p>
           <div class="phase-modules">
-            <span class="phase-module">Partner Ecosystem Maps</span>
-            <span class="phase-module">Deal Reg Mechanics</span>
-            <span class="phase-module">Distributor Economics</span>
-            <span class="phase-module">Partner Tier Psychology</span>
-            <span class="phase-module">VAR vs. MSP vs. SI Distinctions</span>
-            <span class="phase-module">First 90-Day Partner Plan</span>
+            <span class="phase-module">I/R Theory for Channel AEs</span>
+            <span class="phase-module">Partner Pain Funnel</span>
+            <span class="phase-module">Up-Front Contracts</span>
+            <span class="phase-module">DISC for Partner Types</span>
           </div>
         </div>
       </div>
       <div class="phase">
         <div>
           <div class="phase-number">Phase 02</div>
-          <div class="phase-duration">Months 3–4</div>
+          <div class="phase-duration">Modules 5–8</div>
         </div>
         <div>
-          <h3>Operating the Channel Motion</h3>
-          <p>Live scenario practice: partner conflict resolution, competitive deal reg disputes, QBR facilitation, and co-selling mechanics. AEs work through real situations using our scenario library — 20+ cases built from actual field situations.</p>
+          <h3>The Sandler Selling System in Channel</h3>
+          <p>Negative Reverse Selling applied to partner conversations. Protecting your time and IP with the No-Free-Consulting framework. Mapping the full channel deal lifecycle with Sandler checkpoints at every stage. Reading DISC profiles in partner and end-customer meetings. Live scenario practice with real partner objections.</p>
           <div class="phase-modules">
-            <span class="phase-module">QBR Structure &amp; Facilitation</span>
-            <span class="phase-module">Partner Conflict Playbooks</span>
-            <span class="phase-module">Co-Sell Motion</span>
-            <span class="phase-module">Competitive Deal Reg Defense</span>
-            <span class="phase-module">MDF Utilization</span>
-            <span class="phase-module">Escalation Framework</span>
+            <span class="phase-module">Negative Reverse Selling</span>
+            <span class="phase-module">No-Free-Consulting</span>
+            <span class="phase-module">Channel Deal Anatomy</span>
+            <span class="phase-module">DISC Application</span>
           </div>
         </div>
       </div>
       <div class="phase">
         <div>
           <div class="phase-number">Phase 03</div>
-          <div class="phase-duration">Months 5–6</div>
+          <div class="phase-duration">Modules 9–12</div>
         </div>
         <div>
-          <h3>Scale and Self-Sufficiency</h3>
-          <p>Building a repeatable partner operating model your AEs own. Pipeline planning with partners, annual partner planning, distributor relationship management, and how to tier and prioritize a 10+ partner book without a dedicated channel manager.</p>
+          <h3>Building the Repeatable Channel Motion</h3>
+          <p>Sandler-based QBR structure that drives commitment instead of reporting. Joint prospecting through partner ecosystems. Competitive channel intelligence. Building habits and systems so the Sandler method becomes the default — not a technique you reach for in difficult conversations.</p>
           <div class="phase-modules">
-            <span class="phase-module">Annual Partner Planning</span>
-            <span class="phase-module">Partner Pipeline Reviews</span>
-            <span class="phase-module">Book Tiering &amp; Focus</span>
-            <span class="phase-module">Distributor Leverage</span>
-            <span class="phase-module">Partner Enablement Ownership</span>
-            <span class="phase-module">Channel-Ready Certification</span>
+            <span class="phase-module">Sandler QBR Framework</span>
+            <span class="phase-module">Channel Prospecting</span>
+            <span class="phase-module">Competitive Intelligence</span>
+            <span class="phase-module">Repeatable Channel System</span>
           </div>
         </div>
       </div>
@@ -577,56 +583,77 @@ footer {
   </div>
 </section>
 
-<!-- AGENTS -->
-<section class="agents" id="agents">
-  <div class="section-inner">
-    <div class="section-eyebrow">AI Agent Add-On</div>
-    <h2 class="section-title">Six agents that do<br>the <em>operational work</em> for them.</h2>
-    <p class="section-intro">
-      Available to graduates in Month 3+. Six Claude-powered agents connect to your AEs' existing
-      email and CRM — and handle the channel operations work that eats their time.
+<!-- BLITZ MASTERS -->
+<section class="blitz" id="blitz" style="padding: 100px 48px;">
+  <div class="blitz-inner">
+    <div class="blitz-tag">Pre-Requisite Partner Program</div>
+    <h2>Before Sandler channel methodology,<br>build your <em>outbound muscle first.</em></h2>
+    <p class="blitz-sub">
+      Channel-Ready AE students are encouraged to complete Blitz Masters before or alongside this program. Blitz Masters is a high-intensity outbound training system focused on call blitzes, accountability sprints, and the prospecting habits that make Sandler channel methodology land. You can't work a Pain Funnel with a partner you haven't called.
     </p>
-    <div class="agents-grid">
-      <div class="agent-card">
-        <div class="agent-icon">Agent 01</div>
-        <h4>Email Triage</h4>
-        <p>Classifies and drafts responses to partner emails — deal reg inquiries, enablement requests, pricing questions — so AEs stay responsive without losing their day.</p>
+    <div class="blitz-grid">
+      <div class="blitz-card">
+        <h4>What Blitz Masters Builds</h4>
+        <p>High-volume outbound discipline. Call blitz frameworks. Accountability sprint structures. The prospecting confidence that channel AEs need before layering in Sandler methodology.</p>
       </div>
-      <div class="agent-card">
-        <div class="agent-icon">Agent 02</div>
-        <h4>Deal Reg Processor</h4>
-        <p>Validates inbound deal registrations against CRM data, flags conflicts, routes to the right AE, and drafts the approval or escalation response.</p>
+      <div class="blitz-card">
+        <h4>Why It Pairs With Sandler</h4>
+        <p>Sandler's Pain Funnel and Negative Reverse Selling only work if you're having enough conversations. Blitz Masters ensures you are. Outbound volume is the prerequisite for methodology to matter.</p>
       </div>
-      <div class="agent-card">
-        <div class="agent-icon">Agent 03</div>
-        <h4>Pipeline Tracker</h4>
-        <p>Weekly partner pipeline snapshots pulled from CRM. Flags deals that haven't moved in 21+ days and drafts the follow-up sequence for each.</p>
-      </div>
-      <div class="agent-card">
-        <div class="agent-icon">Agent 04</div>
-        <h4>QBR Prep</h4>
-        <p>Auto-assembles 90-day partner review packages from CRM data — prior quarter performance, open pipeline, next quarter targets — so QBRs run on facts, not memory.</p>
-      </div>
-      <div class="agent-card">
-        <div class="agent-icon">Agent 05</div>
-        <h4>Enablement Distributor</h4>
-        <p>Routes product collateral, competitive battlecards, and training materials to the right partner contacts by tier — automatically, when new content drops.</p>
-      </div>
-      <div class="agent-card">
-        <div class="agent-icon">Agent 06</div>
-        <h4>Conflict Detector</h4>
-        <p>Scans for duplicate deal registrations and territory overlaps before they become partner conflicts. Flags early so AEs can resolve before relationships break.</p>
+      <div class="blitz-card">
+        <h4>How They Connect</h4>
+        <p>Complete Blitz Masters to build the pipeline-generation habit. Use Channel-Ready AE to systematize how you work each partner conversation once you're in the room. The programs are designed to be sequential or concurrent.</p>
       </div>
     </div>
-    <div class="agents-cta">
-      <div class="agents-cta-copy">
-        <h3>Built on your existing tools.</h3>
-        <p>Connects to Gmail or Outlook + Salesforce or HubSpot. Managed dashboard included. No IT overhaul required.</p>
+    <div class="blitz-notice">
+      <div class="blitz-notice-copy">
+        <h3>Blitz Masters — Recommended Pre-Work</h3>
+        <p>Ask about the Blitz Masters + Channel-Ready AE combined enrollment when you apply. Both programs are offered through Partna Company.</p>
       </div>
-      <div>
-        <div class="agents-price">$400<span>per seat / per month</span></div>
+      <div class="blitz-badge">Partna Company Program</div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="method" id="methodology">
+  <div class="section-inner">
+    <div class="section-eyebrow">Sandler Methodology</div>
+    <h2 class="section-title">Six frameworks.<br>All adapted for <em>channel.</em></h2>
+    <p class="section-intro">
+      Sandler's core frameworks were built for direct sales. We've adapted each one specifically for the indirect channel — where the buyer is a partner, not an end customer.
+    </p>
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-icon">Framework 01</div>
+        <h4>Identity / Role Theory</h4>
+        <p>Channel AEs who over-invest emotionally in partner relationships give away the most. I/R Theory separates your identity from your role — so partner rejection doesn't trigger free consulting behavior.</p>
       </div>
-      <a class="btn-primary" href="#apply" onclick="openModal()">Learn More</a>
+      <div class="method-card">
+        <div class="method-icon">Framework 02</div>
+        <h4>Pain Funnel</h4>
+        <p>Applied to both partner qualification and end-customer conversations run through partners. Uncovers real pain — not feature interest — before any investment of time, travel, or IP.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">Framework 03</div>
+        <h4>Up-Front Contracts</h4>
+        <p>Every partner conversation — intro call, QBR, joint sales call — begins with an Up-Front Contract. Agenda, purpose, outcomes, and next steps agreed before the meeting starts.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">Framework 04</div>
+        <h4>Negative Reverse Selling</h4>
+        <p>Used when partners stall, go quiet, or ask for more resources without commitment. NRS surfaces the real objection — or disqualifies the partner — without breaking the relationship.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">Framework 05</div>
+        <h4>No-Free-Consulting</h4>
+        <p>The framework for protecting your time, your IP, and your deal margins. Defines exactly what requires partner commitment before you engage — and what happens when they take your work to a competitor.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-icon">Framework 06</div>
+        <h4>DISC for Channel</h4>
+        <p>Reading partner personality types and adapting communication style accordingly. D-types need decisions, not rapport. C-types need data, not enthusiasm. The wrong approach with the right partner is still a lost deal.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -635,59 +662,58 @@ footer {
 <section class="pricing" id="pricing">
   <div class="section-inner">
     <div class="section-eyebrow">Investment</div>
-    <h2 class="section-title">Straightforward pricing.<br>No hidden <em>add-ons.</em></h2>
+    <h2 class="section-title">Straightforward pricing.<br><em>$400 per seat / month.</em></h2>
     <p class="section-intro">
-      One-time program fee. Bi-weekly live cohort sessions included.
-      AI agents are an optional add-on after Month 3 of the program.
+      Cohort-based program with live instruction. Individual seats and team licenses available. One price — all 12 modules, all Sandler frameworks, all channel scenarios.
     </p>
     <div class="pricing-grid">
       <div class="pricing-card">
         <div class="pricing-tier">Individual Seat</div>
-        <div class="pricing-price">$1,200</div>
-        <div class="pricing-desc">one AE / full 6-month program</div>
+        <div class="pricing-price">$400</div>
+        <div class="pricing-desc">per month / per AE · 3-month minimum</div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
-          <li>Full 3-phase curriculum access</li>
-          <li>20+ live scenario library</li>
-          <li>Group cohort sessions (bi-weekly)</li>
+          <li>Full 12-module curriculum access</li>
+          <li>All 6 Sandler channel frameworks</li>
+          <li>Live bi-weekly cohort sessions</li>
+          <li>Scenario library — 20+ partner situations</li>
           <li>Channel-Ready AE certificate</li>
-          <li>6-month program access</li>
           <li>Slack community access</li>
         </ul>
         <div class="pricing-action">
-          <a href="#apply" onclick="openModal()">Apply for Individual Seat</a>
+          <a href="#apply" onclick="openModal()">Enroll — Individual Seat</a>
         </div>
       </div>
       <div class="pricing-card featured">
         <div class="pricing-badge">Most Popular</div>
         <div class="pricing-tier">Team License</div>
-        <div class="pricing-price">$7,500</div>
-        <div class="pricing-desc">5–10 AEs / dedicated cohort</div>
+        <div class="pricing-price">$400</div>
+        <div class="pricing-desc">per seat / month · 5–10 AEs · dedicated cohort</div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
           <li>Everything in Individual, plus:</li>
-          <li>Dedicated private cohort (your team only)</li>
-          <li>Custom scenario library for your partner ecosystem</li>
-          <li>Bi-weekly live sessions scheduled around your team</li>
+          <li>Private cohort — your team only</li>
+          <li>Custom scenarios for your partner ecosystem</li>
+          <li>Sessions scheduled around your team</li>
           <li>VP Sales quarterly check-in call</li>
-          <li>Agent add-on eligible at Month 3</li>
+          <li>Deal role-play with your actual partners</li>
         </ul>
         <div class="pricing-action">
-          <a href="#apply" onclick="openModal()">Apply for Team License</a>
+          <a href="#apply" onclick="openModal()">Enroll — Team License</a>
         </div>
       </div>
       <div class="pricing-card">
         <div class="pricing-tier">Enterprise</div>
-        <div class="pricing-price">$15K<span class="cents">+</span></div>
-        <div class="pricing-desc">15+ AEs / custom program</div>
+        <div class="pricing-price">Custom</div>
+        <div class="pricing-desc">15+ AEs / custom program build</div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
           <li>Everything in Team, plus:</li>
-          <li>Custom curriculum built around your partner ecosystem</li>
-          <li>Carl or Natalie co-facilitates key sessions</li>
-          <li>Agent add-on for all seats at Month 3</li>
-          <li>QBR support: live partner QBR co-facilitation</li>
+          <li>Custom curriculum for your partner ecosystem</li>
+          <li>Carl co-facilitates key live sessions</li>
+          <li>Live partner QBR co-facilitation</li>
           <li>Ongoing monthly advisory post-program</li>
+          <li>Leadership briefings on channel health</li>
         </ul>
         <div class="pricing-action">
           <a href="#apply" onclick="openModal()">Contact for Enterprise</a>
@@ -703,23 +729,19 @@ footer {
     <div class="section-eyebrow">The Instructors</div>
     <h2 class="section-title">Taught by practitioners.<br><em>Not consultants.</em></h2>
     <p class="section-intro">
-      Both founders are actively running partner ecosystems right now.
-      Everything in this program comes from what's working in the field today.
+      Both instructors are actively running partner ecosystems right now. Every framework in this program comes from what's working in the channel today.
     </p>
     <div class="founders-grid">
       <div class="founder-card">
         <div class="founder-name">Carl Clendenin</div>
         <div class="founder-title">Sr. Channel Sales Executive, Toshiba</div>
         <p class="founder-bio">
-          Carl manages the enterprise reseller ecosystem at Toshiba — including CDW, SHI, Insight,
-          Connection, Softchoice, Zones, ePlus, Presidio, and WWT. He's built the deal registration
-          process, QBR frameworks, and partner tiering model from scratch. He built this program
-          because he wished it existed 10 years ago.
+          Carl manages the enterprise reseller ecosystem at Toshiba — including CDW, SHI, Insight, Connection, Softchoice, Zones, ePlus, Presidio, and WWT. He has applied Sandler's framework to the channel motion for over a decade, building the Up-Front Contract, Pain Funnel, and No-Free-Consulting habit into every partner relationship he manages. He built this program because he wished it existed when he started.
         </p>
         <ul class="founder-credentials">
           <li>Manages 9 of the top 10 national VARs directly</li>
           <li>10+ years channel sales, distribution, and indirect motion</li>
-          <li>Built partner programs from zero at multiple companies</li>
+          <li>Sandler-trained, adapted for indirect channel</li>
           <li>Grayslake, IL — Lake County</li>
         </ul>
       </div>
@@ -727,10 +749,7 @@ footer {
         <div class="founder-name">Natalie Clendenin</div>
         <div class="founder-title">Channel AE, Expel</div>
         <p class="founder-bio">
-          Natalie runs the channel motion at Expel, a managed detection and response company
-          navigating a high-growth partner ecosystem. She brings the AE's-eye-view: what it
-          actually looks like to carry quota and manage partner relationships simultaneously
-          without a dedicated channel manager.
+          Natalie runs the channel motion at Expel, a managed detection and response company with a high-growth partner ecosystem. She brings the AE's perspective: what it actually looks like to carry quota, manage partner relationships, and apply Sandler's methodology simultaneously — without a dedicated channel manager or a script for every situation.
         </p>
         <ul class="founder-credentials">
           <li>CRN Women of the Channel 2025</li>
@@ -746,11 +765,11 @@ footer {
 <!-- FINAL CTA -->
 <section class="final-cta" id="apply">
   <div class="final-cta-eyebrow">Next Cohort — Limited Seats</div>
-  <h2>Ready to run<br>a <em>real channel motion?</em></h2>
-  <p>Applications take 5 minutes. We'll follow up within 24 hours to schedule a 20-minute intro call.</p>
-  <a class="btn-primary" href="#" onclick="openModal(); return false;">Apply for the Next Cohort</a>
-  <div class="cohort-note" style="margin-top: 24px; font-family: 'DM Mono', monospace; font-size: 10px; color: #2a2520; letter-spacing: 1.5px;">
-    Team license cohorts capped at 2 active simultaneously — apply early.
+  <h2>Stop managing partners.<br>Start <em>selling through them.</em></h2>
+  <p>Enrollment takes 5 minutes. We follow up within 24 hours to schedule a 20-minute intro call and confirm fit.</p>
+  <a class="btn-primary" href="#" onclick="openModal(); return false;">Enroll in the Next Cohort</a>
+  <div style="margin-top: 24px; font-family: 'DM Mono', monospace; font-size: 10px; color: #2a2520; letter-spacing: 1.5px;">
+    Team license cohorts capped at 2 active simultaneously — enroll early.
   </div>
 </section>
 
@@ -764,9 +783,9 @@ footer {
 <div class="modal-overlay" id="applyModal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">×</button>
-    <div class="modal-eyebrow">Application</div>
-    <h3>Apply for the Next Cohort</h3>
-    <p>Tell us a bit about your team. We'll follow up within 24 hours to schedule a quick intro call.</p>
+    <div class="modal-eyebrow">Enrollment</div>
+    <h3>Enroll in the Next Cohort</h3>
+    <p>Tell us about your team. We'll follow up within 24 hours to confirm fit and schedule an intro call.</p>
     <form name="channel-ready-apply" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
       <input type="hidden" name="form-name" value="channel-ready-apply">
       <input type="hidden" name="bot-field" style="display:none">
@@ -786,18 +805,22 @@ footer {
         <label>Program Interest</label>
         <select name="program">
           <option value="">Select one...</option>
-          <option value="individual">Individual Seat — $1,200</option>
-          <option value="team">Team License — $7,500 (5–10 AEs)</option>
-          <option value="enterprise">Enterprise — $15K+ (15+ AEs)</option>
-          <option value="agents">Just the AI Agent Add-On</option>
-          <option value="info">Just want more info</option>
+          <option value="individual">Individual Seat — $400/month</option>
+          <option value="team">Team License — $400/seat/month (5–10 AEs)</option>
+          <option value="enterprise">Enterprise — Custom (15+ AEs)</option>
+          <option value="blitz-bundle">Blitz Masters + Channel-Ready AE Bundle</option>
+          <option value="info">Just want more information</option>
         </select>
       </div>
       <div class="form-group">
         <label>How many AEs would go through the program?</label>
         <input type="text" name="ae_count" placeholder="e.g. 8">
       </div>
-      <button type="submit" class="form-submit">Submit Application</button>
+      <div class="form-group">
+        <label>What's your biggest channel challenge right now?</label>
+        <textarea name="challenge" placeholder="e.g. Partners take our IP and shop it to cheaper vendors..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Submit Enrollment</button>
       <div class="form-note">No commitment required. We'll reach out within 24 hours.</div>
     </form>
   </div>
@@ -836,14 +859,14 @@ function handleSubmit(e) {
     closeModal();
     var confirmed = document.createElement('div');
     confirmed.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#1e1a14;border:1px solid #c49020;color:#f0e8d8;padding:16px 32px;font-family:\'DM Mono\',monospace;font-size:11px;letter-spacing:1.5px;z-index:300;text-align:center;';
-    confirmed.textContent = 'APPLICATION RECEIVED — WE\'LL BE IN TOUCH WITHIN 24 HOURS';
+    confirmed.textContent = 'ENROLLMENT RECEIVED — WE\'LL BE IN TOUCH WITHIN 24 HOURS';
     document.body.appendChild(confirmed);
     setTimeout(function() { confirmed.remove(); }, 5000);
   }).catch(function() {
     closeModal();
     var msg = document.createElement('div');
     msg.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#1e1a14;border:1px solid #c49020;color:#f0e8d8;padding:16px 32px;font-family:\'DM Mono\',monospace;font-size:11px;letter-spacing:1.5px;z-index:300;text-align:center;';
-    msg.textContent = 'APPLICATION RECEIVED — THANK YOU';
+    msg.textContent = 'ENROLLMENT RECEIVED — THANK YOU';
     document.body.appendChild(msg);
     setTimeout(function() { msg.remove(); }, 5000);
   });

@@ -1,21 +1,14 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Module 09 — Running Your First QBR — Channel-Ready AE</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 09 — Partner QBR Mastery — Channel-Ready AE</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>:root{
-  --ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;
-  --gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;
-  --rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;
-  --green:#1e3a2f;--green-light:#e8f4ee;
-  --red:#7a1e1e;--blue-pale:#e8f0f8;
-  --nat:#5a3a7a;--nat-bg:#f5f0fa;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
+<style>
+:root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-light:#e8f4ee;--red:#7a1e1e;--blue-pale:#e8f0f8;--nat:#5a3a7a;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
+.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
 .hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
 .hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
 .hero h1 em{color:var(--gold-light);font-style:italic;}
@@ -24,112 +17,26 @@ body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font
 .hero-stat{font-family:'DM Mono',monospace;}
 .hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
 .hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
-
 .ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ref-bar.green-bar{background:#1a2a1a;}
 .ref-bar.blue-bar{background:#1a1a2a;}
-.ref-bar.purple-bar{background:#1a1a2a;}
 .ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
 .ref-text{font-size:13px;}
-
 .breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
 .breadcrumb a{text-decoration:none;}
-
 .nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:56px;z-index:20;overflow-x:auto;}
 .nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
-.nav-tab:hover{color:var(--accent);}
-.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
-
+.nav-tab:hover{color:var(--accent);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
 .content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}
-.panel.active{display:block;}
-
+.panel{display:none;}.panel.active{display:block;}
 .section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
 h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
 h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
 p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-
 .callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
 .callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
 .callout strong{color:var(--gold-light);}
 .explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
-
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
-.pillar{border:1px solid var(--rule);background:var(--white);border-radius:4px;overflow:hidden;}
-.pillar-head{padding:14px 20px;display:flex;align-items:center;gap:10px;}
-.pillar-head.blue{background:var(--accent);color:white;}
-.pillar-head.green{background:var(--green);color:white;}
-.pillar-head.gold{background:var(--gold);color:var(--ink);}
-.pillar-head.dark{background:#2a2020;color:#f0e8d8;}
-.pillar-head.purple{background:var(--nat);color:white;}
-.pillar-icon{font-size:20px;}
-.pillar-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;font-weight:500;}
-.pillar-body{padding:16px 20px;}
-.pillar-body ul{list-style:none;margin:0;}
-.pillar-body li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:14px;color:#2e2820;display:flex;justify-content:space-between;align-items:start;gap:12px;}
-.pillar-body li:last-child{border-bottom:none;}
-.pillar-body li .tag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
-.tag-gold{background:var(--gold-pale);color:var(--gold);}
-.tag-blue{background:var(--blue-pale);color:var(--accent);}
-.tag-green{background:var(--green-light);color:var(--green);}
-
-.checklist{margin:20px 0;}
-.check-group{margin-bottom:20px;}
-.check-group-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--rule);}
-.check-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0ebe0;cursor:pointer;}
-.check-item:last-child{border-bottom:none;}
-.check-box{width:20px;height:20px;border:2px solid var(--rule);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;margin-top:2px;}
-.check-item.done .check-box{background:var(--green);border-color:var(--green);}
-.check-item.done .check-box::after{content:'✓';color:white;font-size:12px;font-weight:700;}
-.check-item.done .check-text{text-decoration:line-through;color:var(--muted);}
-.check-text{font-size:14px;color:#2e2820;line-height:1.5;}
-.check-note{font-size:12px;color:var(--muted);margin-top:3px;font-style:italic;}
-
-.timeline{position:relative;margin:24px 0;}
-.timeline::before{content:'';position:absolute;left:36px;top:0;bottom:0;width:2px;background:var(--rule);}
-.t-item{display:flex;gap:20px;margin-bottom:24px;position:relative;}
-.t-badge{width:72px;height:72px;border-radius:6px;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-family:'DM Mono',monospace;z-index:1;}
-.t-badge strong{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold-light);line-height:1;}
-.t-badge span{font-size:9px;color:#4a5060;letter-spacing:2px;margin-top:2px;}
-.t-body{background:var(--white);border:1px solid var(--rule);border-radius:4px;padding:14px 20px;flex:1;}
-.t-body h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:6px;}
-.t-body p{font-size:14px;margin:0;color:var(--muted);}
-
-.plays{margin:20px 0;}
-.play-card{border:1px solid var(--rule);border-radius:4px;margin-bottom:12px;overflow:hidden;}
-.play-head{display:grid;grid-template-columns:120px 1fr 100px 100px;gap:0;background:var(--ink);padding:12px 16px;align-items:center;}
-.play-tier{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;border-radius:20px;text-align:center;font-weight:500;}
-.tier-1{background:#1a2a3a;color:#6a9aba;}
-.tier-2{background:#1a2a1a;color:#6aba8a;}
-.tier-3{background:#2a1a2a;color:#ba8aba;}
-.play-name{font-family:'Libre Baskerville',serif;font-size:16px;color:#f0e8d8;padding-left:12px;}
-.play-signal{font-size:12px;color:#4a5060;text-align:right;}
-.play-value{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold-light);text-align:right;}
-.play-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
-.play-col{padding:14px 16px;border-right:1px solid var(--rule);}
-.play-col:last-child{border-right:none;}
-.play-col-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.play-col ul{list-style:none;}
-.play-col li{font-size:13px;color:#2e2820;padding:3px 0;padding-left:14px;position:relative;}
-.play-col li::before{content:'›';position:absolute;left:0;color:var(--gold);}
-
-.incentive-ladder{margin:20px 0;}
-.incentive-row{display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule);}
-.incentive-row:last-child{border-bottom:none;}
-.incentive-action{flex:1;font-size:14px;color:#2e2820;}
-.incentive-action strong{display:block;font-size:15px;margin-bottom:2px;}
-.incentive-action span{font-size:12px;color:var(--muted);}
-.incentive-amount{font-family:'DM Mono',monospace;font-size:18px;color:var(--green);font-weight:500;min-width:80px;text-align:right;}
-.incentive-bar-wrap{width:120px;height:6px;background:#e8e0d0;border-radius:3px;overflow:hidden;}
-.incentive-bar{height:100%;background:var(--green);border-radius:3px;transition:width 0.5s;}
-
-.email-box{background:var(--white);border:1px solid var(--rule);border-radius:4px;margin:20px 0;overflow:hidden;}
-.email-header{background:#f5f5f5;padding:12px 20px;border-bottom:1px solid var(--rule);}
-.email-header .field{display:flex;gap:12px;font-size:13px;color:var(--muted);margin-bottom:4px;}
-.email-header .field strong{color:var(--ink);min-width:40px;}
-.email-body{padding:20px;font-size:14px;color:#2e2820;line-height:1.8;white-space:pre-wrap;}
-
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
 .card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
@@ -137,117 +44,161 @@ p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
 .card.blue-top{border-top:3px solid var(--accent);}
 .card.green-top{border-top:3px solid var(--green);}
 .card.red-top{border-top:3px solid var(--red);}
-.card.purple-top{border-top:3px solid var(--nat);}
 .card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
 .card p{font-size:13px;margin:0;color:var(--muted);}
-.card .big{font-family:'Libre Baskerville',serif;font-size:32px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px;}
-
-.progress-ring{display:flex;align-items:center;gap:24px;padding:20px 0;}
-.ring-wrap{position:relative;width:100px;height:100px;flex-shrink:0;}
-.ring-wrap svg{transform:rotate(-90deg);}
-.ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.ring-pct{font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700;color:var(--accent);}
-.ring-sub{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--muted);}
-.ring-details{flex:1;}
-.ring-details h4{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;}
-.ring-details p{font-size:14px;color:var(--muted);margin:0;}
-
-.milestone-track{display:flex;gap:0;margin:20px 0;overflow:hidden;border-radius:6px;border:1px solid var(--rule);}
-.ms{flex:1;padding:16px 12px;text-align:center;border-right:1px solid var(--rule);background:var(--white);transition:background 0.2s;}
-.ms:last-child{border-right:none;}
-.ms.done{background:#eaf4ee;}
-.ms.active{background:var(--blue-pale);}
-.ms-icon{font-size:18px;margin-bottom:6px;}
-.ms-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
-.ms.done .ms-label{color:var(--green);}
-.ms.active .ms-label{color:var(--accent);}
-.ms-status{font-size:11px;color:var(--muted);}
-.ms.done .ms-status{color:var(--green);}
-
-.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 0;}
+.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 0;}
 .contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
 .cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
 .cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
 .cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
-
-.bot-row{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 0;}
-.bot-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:3px;background:var(--blue-pale);color:var(--accent);}
-
 .footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
 .footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
 .footer-brand em{color:var(--gold-light);}
 .footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
+@media(max-width:700px){.hero{padding:40px 24px 36px;}.hero h1{font-size:30px;}.content{padding:32px 20px 60px;}.grid-2,.grid-3{grid-template-columns:1fr;}.breadcrumb{padding:10px 24px;}}
+.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
 
-@media(max-width:700px){
-  .hero{padding:40px 24px 36px;}
-  .hero h1{font-size:30px;}
-  .content{padding:32px 20px 60px;}
-  .pillars,.grid-2,.grid-3,.play-body,.play-head{grid-template-columns:1fr;}
-  .milestone-track{flex-wrap:wrap;}
-  .breadcrumb{padding:10px 24px;}
-}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}</style></head><body><nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#agents">AI Agents</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="business_plan.html">Business Plan</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
-<div class="hero"><div class="hero-tag">Channel-Ready AE · Phase 2 · Module 09</div>
-<h1>The Meeting That Decides<br>Whether You Get <em>Another Quarter</em>.</h1><div class="hero-sub">The QBR at Day 90 is the first real test of whether your partnership is working. It's also when the partner's DM decides whether you're worth their team's time. This module teaches QBR from both sides: how to deliver one (Carl) and how to evaluate one (Natalie).</div>
-<div class="hero-stats"><div class="hero-stat"><strong>Both Sides</strong><span>Vendor + Partner View</span></div><div class="hero-stat"><strong>90 min</strong><span>Standard QBR</span></div><div class="hero-stat"><strong>7</strong><span>Agenda Items</span></div><div class="hero-stat"><strong>1</strong><span>Rule: Receipts Not Excuses</span></div></div></div>
-<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Dual Perspective</span><span class="ref-text" style="color:#6a7a9a;">Carl: CDW/Polycom QBR, HPE SMB Update · Natalie: CDW DM evaluation criteria, Expel QBR framework</span></div>
-<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
-<a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a><span style="color:#2a3a2a;">›</span>
-<span style="color:#6a9a6a;">Module 09 — Running Your First QBR</span>
-<span style="margin-left:auto;"><a href="curriculum.html" style="color:#3a5a3a;">← Back to Binder</a></span></div>
-<div class="nav-tabs"><button class="nav-tab active" onclick="showPanel('overview')">Overview</button><button class="nav-tab" onclick="showPanel('agenda')">Both-Sides Agenda</button><button class="nav-tab" onclick="showPanel('thindata')">When Data Is Thin</button><button class="nav-tab" onclick="showPanel('templates')">Email Templates</button></div>
-<div class="content"><div class="panel active" id="panel-overview"><div class="section-label">Why This Module Exists</div>
-<h2>A QBR with data — even bad data — beats a QBR with promises.</h2>
-<p>The QBR does not need perfect numbers. It needs to demonstrate that you are a professional, data-driven vendor partner who shows up with receipts — not excuses. This module teaches the both-sides agenda: what you present as a vendor AND what the partner DM is actually evaluating in that room.</p>
-<div class="callout"><div class="callout-tag">NATALIE'S PERSPECTIVE — FROM THE PARTNER CHAIR</div><strong>What the DM is evaluating:</strong> Is this vendor producing revenue? Are my reps engaged? Is the vendor showing up consistently? Is the data clean? Is this worth another quarter of my team's time? A vendor who shows up with actual numbers — even bad ones — gets more respect than one with a deck full of aspirations.</div></div><div class="panel" id="panel-agenda"><div class="section-label">The Structure</div>
-<h2>The 7-part QBR agenda — vendor delivery + partner evaluation.</h2>
-<div class="grid-2">
-<div class="card blue-top"><h4>Your Delivery (Vendor Side)</h4>
-<p>1. <strong>State of Business:</strong> Pipeline, deal reg count, revenue, year-over-year<br>
-2. <strong>Top 10 Active Accounts:</strong> Status, next steps, where you need help<br>
-3. <strong>What's Working:</strong> Wins, successful co-sells, rep engagement<br>
-4. <strong>What Needs to Change:</strong> Stalled deals, process friction<br>
-5. <strong>Forward Plan:</strong> Next quarter targets, new plays, enablement calendar<br>
-6. <strong>The Cord:</strong> How you connect to next quarter's partner focus<br>
-7. <strong>The Ask:</strong> What specific support do you need from the partner org?</p></div>
-<div class="card purple-top"><h4>Partner Evaluation (DM Perspective)</h4>
-<p>The DM is scoring you on 5 dimensions:<br><br>
-<strong>Revenue:</strong> Did this vendor produce enough to justify the time investment?<br>
-<strong>Engagement:</strong> Are my reps actually working with this vendor consistently?<br>
-<strong>Professionalism:</strong> Does this vendor bring data, or do they bring excuses?<br>
-<strong>Trajectory:</strong> Is the trend improving, flat, or declining?<br>
-<strong>Effort-to-Value:</strong> Is this partnership worth maintaining vs. replacing with a different vendor?</p></div>
-</div></div><div class="panel" id="panel-thindata"><div class="section-label">The Hard Part</div>
-<h2>How to run a QBR when you have 2 deals and no data.</h2>
-<p>Your first QBR will have thin numbers. That's expected. The goal is not to impress with volume — it's to demonstrate discipline.</p>
-<div class="grid-2">
-<div class="card green-top"><h4>What to Show</h4><p>The accounts you've reviewed together. The actions taken since contract. What you learned about where your product fits. A specific plan for the next 90 days with named accounts and named reps. Completion rates on your Six Asks scorecard.</p></div>
-<div class="card red-top"><h4>What to Avoid</h4><p>Vague optimism ("we think pipeline is building"). Blame ("your reps aren't engaging"). Excuses ("the market is tough"). Massive slide decks to compensate for thin data. Asking "what can we do better?" without proposing an answer first.</p></div>
+<div class="hero">
+  <div class="hero-tag">Channel-Ready AE · Phase 3 · Module 09</div>
+  <h1>Partner QBR Mastery:<br><em>Real Commitments</em>.</h1>
+  <div class="hero-sub">Running Sandler-based quarterly business reviews that produce specific, named commitments — not slide decks that get filed and forgotten. The QBR structure that makes partners accountable and makes you the vendor they can't ignore.</div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>QBR</strong><span>Quarterly Business Review</span></div>
+    <div class="hero-stat"><strong>UFC</strong><span>Opens Every QBR</span></div>
+    <div class="hero-stat"><strong>Named</strong><span>Commitments Required</span></div>
+    <div class="hero-stat"><strong>Zero</strong><span>Slide-Deck Theater</span></div>
+  </div>
 </div>
-<div class="explain">Thin data + clear plan beats no data + vague optimism. Every time. The DM has sat through 50 QBRs from vendors with no data and big promises. Be the vendor who has a spreadsheet, even if it's half-empty, and a specific plan for what fills the other half.</div></div><div class="panel" id="panel-templates"><div class="section-label">Templates</div>
-<h2>QBR communication templates.</h2>
-<h3>Template — QBR Agenda Pre-Send</h3>
-<div class="email-box"><div class="email-header"><div class="field"><strong>To:</strong> [Partner DM, SM, AM Lead]</div><div class="field"><strong>Subject:</strong> [Your Company] × [Partner] — Q[X] QBR agenda — [date]</div></div>
-<div class="email-body">Hi [Name],
 
-Looking forward to our QBR on [date]. Here's the agenda:
+<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Sandler QBR Framework</span><span class="ref-text" style="color:#6a7a9a;">Quarterly cadence with top partners — no QBR without UFC and named action items</span></div>
 
-1. State of Business — Q[X] pipeline, revenue, and deal reg summary (10 min)
-2. Top 10 Active Accounts — status and where I need your team's help (15 min)
-3. What's working / what needs to change — honest assessment (10 min)
-4. Forward Plan — Q[X+1] targets, new plays, and the cord to your team's focus (10 min)
-5. Your perspective — what you need from us that you're not getting (10 min)
-6. Alignment — joint commitments for next quarter (5 min)
+<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
+  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
+  <span style="color:#2a3a2a;">›</span>
+  <span style="color:#6a9a6a;">Module 09 — Partner QBR Mastery</span>
+  <span style="margin-left:auto;"><a href="module_08.html" style="color:#3a5a3a;">← Module 08</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="module_10.html" style="color:#5a7a9a;margin-left:12px;">Module 10 →</a></span>
+</div>
 
-I'll share the data package 48 hours before the meeting so you can review ahead of time. If there's anything specific you want me to address, let me know and I'll build it in.
+<div class="nav-tabs">
+  <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
+  <button class="nav-tab" onclick="showPanel('framework')">Framework</button>
+  <button class="nav-tab" onclick="showPanel('practice')">In Practice</button>
+  <button class="nav-tab" onclick="showPanel('fieldnotes')">Field Notes</button>
+</div>
 
-[Your Name]</div></div></div>
-<div class="contrib-row"><span class="contrib-pill cp-carl">● CARL — CDW/Polycom QBR, HPE SMB Update performance reviews</span><span class="contrib-pill cp-nat">● NATALIE — CDW DM evaluation criteria, Expel QBR framework</span></div>
-<div class="bot-row"><span class="bot-pill">QBR Prep Agent</span></div>
-<div class="footer"><div><div class="footer-brand">Channel-<em>Ready</em> AE</div>
-<div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 09 · RUNNING YOUR FIRST QBR</div></div>
-<div class="footer-meta"><div>CONFIDENTIAL</div><div>CARL & NATALIE CLENDENIN</div></div></div></div>
+<div class="content">
+
+<div class="panel active" id="panel-overview">
+<div class="section-label">Why This Module Exists</div>
+<h2>Most QBRs are expensive slide presentations that produce no accountability.</h2>
+<div class="explain">The average channel QBR follows the same pattern: AE presents numbers, partner nods, both parties agree things will be better next quarter, no specific commitments are made, nothing changes. The Sandler QBR breaks this pattern at every step.</div>
+<p>The problem with the traditional QBR format is structural: it's designed for presentation, not for accountability. The AE presents their slides. The partner presents theirs. Everyone is polite. Difficult conversations are avoided. No one commits to anything specific enough to be measured. Three months later, the same conversation happens again.</p>
+<p>A Sandler-based QBR operates differently from the first minute. It opens with a UFC that establishes what success looks like by the end of the meeting. It reviews last quarter's results honestly — including where things fell short and why. It produces specific, named, dated commitments from both parties. And it ends with a UFC on next steps. This is the QBR that partners remember and prepare for — because they know you will hold them to what they say.</p>
+<div class="callout">
+  <div class="callout-tag">THE CORE INSIGHT</div>
+  <strong>A QBR that doesn't produce named commitments is a status update with overhead.</strong> If you leave without knowing exactly who is doing what by when, you didn't run a QBR — you ran a meeting.
+</div>
+<div class="grid-3">
+  <div class="card gold-top"><h4>What You'll Learn</h4><p>The Sandler QBR structure from UFC open through commitment close. How to have the honest conversation about why last quarter missed. How to get real commitments without threatening the relationship.</p></div>
+  <div class="card gold-top"><h4>What You'll Practice</h4><p>Opening a QBR with a UFC. Running an honest last-quarter debrief. Driving to specific, named action items with dates and owners. Closing the QBR with a confirmed next step.</p></div>
+  <div class="card gold-top"><h4>What Changes After</h4><p>Your QBRs become the partner meeting they actually prepare for. Partner accountability increases because commitments are explicit. Your forecast accuracy improves because you're hearing honest assessments.</p></div>
+</div>
+</div>
+
+<div class="panel" id="panel-framework">
+<div class="section-label">The Sandler QBR Structure</div>
+<h2>A 90-minute QBR that produces accountability instead of theater.</h2>
+
+<h3>Section 1 — UFC Open (10 min)</h3>
+<div class="callout">
+  <div class="callout-tag">QBR UFC SCRIPT</div>
+  "Before we get into the data, I want to set up what I'm hoping we accomplish today. I want to look at last quarter honestly — not defensively, just accurately — and I want us to leave with a specific plan for next quarter that we're both committed to. That means I'm going to say some things that might be uncomfortable, and I'm asking you to do the same. By the end, I want a list of named action items with dates and owners. Is that the kind of QBR you're prepared for today?"
+</div>
+
+<h3>Section 2 — Last Quarter Debrief (30 min)</h3>
+<p>Review the numbers without spin. If you missed, say you missed. Then ask why — and let the partner answer. The Sandler approach is to present the data and ask the partner to diagnose before you offer your own assessment. "Here's what we agreed on last quarter. Here's what happened. What's your read on the gap?"</p>
+<div class="grid-2">
+  <div class="card blue-top"><h4>Review — What Was Committed</h4><p>Pull up the commitment list from the last QBR. Read each item aloud. Was it completed, partially completed, or missed? No editorializing — just the facts. Let the partner respond to each item.</p></div>
+  <div class="card blue-top"><h4>Diagnose — What Caused the Gap</h4><p>For each miss, ask: "What happened?" Not "whose fault was it?" but "what was the root cause?" You're building a shared understanding of the friction, not assigning blame. That shared understanding becomes the basis for next quarter's plan.</p></div>
+</div>
+
+<h3>Section 3 — Next Quarter Planning (30 min)</h3>
+<p>Based on the debrief diagnosis, build a plan that addresses the actual root causes. Don't just increase the target — change the approach. Each action item must have a name, a date, and a success criterion. "We'll try to do more joint calls" is not an action item. "We'll schedule two joint customer calls per week starting the first week of the quarter, with [rep name] as the owner" is an action item.</p>
+
+<h3>Section 4 — Commitment Close (10 min)</h3>
+<div class="callout">
+  <div class="callout-tag">COMMITMENT CLOSE SCRIPT</div>
+  "Before we finish, I want to read back what we've committed to and make sure we're both clear. [Read each item.] Are you comfortable committing to these specifically? I'm going to send you this list today and I'll reference it at our next QBR. And from my side, I'm committing to [your items]. Does that work?"
+</div>
+</div>
+
+<div class="panel" id="panel-practice">
+<div class="section-label">QBR in Action</div>
+<h2>The conversations most channel AEs avoid — and why you shouldn't.</h2>
+
+<h3>The Partner Who Wants to Skip the Debrief</h3>
+<p>Some partners try to jump straight to "so what are we doing next quarter?" They don't want to look at last quarter's misses in detail. This is a red flag — and a reason to stay with the debrief, not skip it. You cannot plan effectively without understanding what caused last quarter's results.</p>
+<div class="callout">
+  <div class="callout-tag">RESPONSE TO "LET'S JUST FOCUS FORWARD"</div>
+  "I hear you — and I want to focus forward too. But I've found that when we skip the honest look at what happened, we end up planning the same thing and getting the same result. Can we spend just 15 minutes on the diagnosis? I think we'll be able to plan much better after."
+</div>
+
+<h3>The Partner Who Has Excuses for Everything</h3>
+<p>Every miss has an explanation. Market conditions, personnel changes, customer delays. These may all be real. Your job is not to dispute them — it's to ask what you and the partner will do differently to account for these realities in the next quarter's plan. "Given that [reason], what changes do we need to make to our approach?" That question moves from excuse to accountability.</p>
+
+<h3>The Partner Who Won't Commit to Specifics</h3>
+<div class="callout">
+  <div class="callout-tag">DRIVING TO SPECIFICS</div>
+  When a partner says "we'll try to bring in more opportunities," your response is: "I appreciate that — let's make it more specific so we can both track it. If we were going to say that in a way I could measure at the next QBR, what would that look like exactly? Is it number of deals registered? Number of joint calls? A specific revenue number?" Keep asking until you have something measurable.
+</div>
+</div>
+
+<div class="panel" id="panel-fieldnotes">
+<div class="section-label">From the Field</div>
+<h2>What separates a QBR that matters from a QBR that gets rescheduled.</h2>
+
+<h3>The Pre-QBR Send</h3>
+<p>Send the data package at least 48 hours before the QBR: last quarter's commitment list, pipeline summary, revenue and deal metrics, and the proposed agenda with your UFC stated in writing. Partners who show up to a Sandler QBR prepared are more willing to have honest conversations. The pre-send signals that this is a different kind of meeting.</p>
+
+<h3>The Post-QBR Follow-Through</h3>
+<p>Within 24 hours of the QBR, send a written summary of every commitment made — who owns it, what it is, and when it's due. Reference this document at every monthly sync between now and the next QBR. Partners who know you track commitments start taking them more seriously in the moment they make them.</p>
+
+<div class="callout">
+  <div class="callout-tag">THE ACCOUNTABILITY LOOP</div>
+  QBR commitments reviewed at monthly syncs. Monthly syncs reference QBR commitments. Next QBR opens with the previous QBR's commitment list. This loop is what turns a once-a-quarter conversation into a continuous accountability system. Partners who experience this loop for two consecutive quarters almost always produce more than partners in a traditional QBR program.
+</div>
+
+<div class="contrib-row">
+  <span class="contrib-pill cp-carl">● CARL — QBR patterns from the vendor side</span>
+  <span class="contrib-pill cp-nat">● NATALIE — What makes a QBR worth a reseller's time</span>
+  <span class="contrib-pill cp-both">● Sandler UFC and accountability methodology</span>
+</div>
+
+<div class="footer">
+  <div>
+    <div class="footer-brand">Channel-<em>Ready</em> AE</div>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 09 · PARTNER QBR MASTERY · MARCH 2026</div>
+  </div>
+  <div class="footer-meta">
+    <div>CONFIDENTIAL</div>
+    <div>CARL & NATALIE CLENDENIN</div>
+  </div>
+</div>
+</div>
+
+</div>
+
 <script>
-function showPanel(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active');event.target.classList.add('active');}
-function toggleCheck(item){item.classList.toggle('done');var t=document.querySelectorAll('.check-item').length;var d=document.querySelectorAll('.check-item.done').length;var el=document.getElementById('check-progress');if(el)el.textContent=d+' of '+t+' complete'+(d===t?' — Done! 🎯':'');}
-</script></body></html>
+function showPanel(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>

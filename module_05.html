@@ -1,21 +1,14 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Module 05 — The 4-Step Activation Model — Channel-Ready AE</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 05 — DISC Profiling for Channel — Channel-Ready AE</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>:root{
-  --ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;
-  --gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;
-  --rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;
-  --green:#1e3a2f;--green-light:#e8f4ee;
-  --red:#7a1e1e;--blue-pale:#e8f0f8;
-  --nat:#5a3a7a;--nat-bg:#f5f0fa;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
+<style>
+:root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-light:#e8f4ee;--red:#7a1e1e;--blue-pale:#e8f0f8;--nat:#5a3a7a;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
+.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
 .hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
 .hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
 .hero h1 em{color:var(--gold-light);font-style:italic;}
@@ -24,44 +17,32 @@ body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font
 .hero-stat{font-family:'DM Mono',monospace;}
 .hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
 .hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
-
 .ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ref-bar.green-bar{background:#1a2a1a;}
 .ref-bar.blue-bar{background:#1a1a2a;}
-.ref-bar.purple-bar{background:#1a1a2a;}
 .ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
 .ref-text{font-size:13px;}
-
 .breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
 .breadcrumb a{text-decoration:none;}
-
 .nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:56px;z-index:20;overflow-x:auto;}
 .nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
-.nav-tab:hover{color:var(--accent);}
-.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
-
+.nav-tab:hover{color:var(--accent);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
 .content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}
-.panel.active{display:block;}
-
+.panel{display:none;}.panel.active{display:block;}
 .section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
 h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
 h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
 p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-
 .callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
 .callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
 .callout strong{color:var(--gold-light);}
 .explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
-
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
 .pillar{border:1px solid var(--rule);background:var(--white);border-radius:4px;overflow:hidden;}
 .pillar-head{padding:14px 20px;display:flex;align-items:center;gap:10px;}
 .pillar-head.blue{background:var(--accent);color:white;}
 .pillar-head.green{background:var(--green);color:white;}
 .pillar-head.gold{background:var(--gold);color:var(--ink);}
-.pillar-head.dark{background:#2a2020;color:#f0e8d8;}
 .pillar-head.purple{background:var(--nat);color:white;}
 .pillar-icon{font-size:20px;}
 .pillar-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;font-weight:500;}
@@ -73,224 +54,203 @@ p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
 .tag-gold{background:var(--gold-pale);color:var(--gold);}
 .tag-blue{background:var(--blue-pale);color:var(--accent);}
 .tag-green{background:var(--green-light);color:var(--green);}
-
-.checklist{margin:20px 0;}
-.check-group{margin-bottom:20px;}
-.check-group-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--rule);}
-.check-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0ebe0;cursor:pointer;}
-.check-item:last-child{border-bottom:none;}
-.check-box{width:20px;height:20px;border:2px solid var(--rule);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;margin-top:2px;}
-.check-item.done .check-box{background:var(--green);border-color:var(--green);}
-.check-item.done .check-box::after{content:'✓';color:white;font-size:12px;font-weight:700;}
-.check-item.done .check-text{text-decoration:line-through;color:var(--muted);}
-.check-text{font-size:14px;color:#2e2820;line-height:1.5;}
-.check-note{font-size:12px;color:var(--muted);margin-top:3px;font-style:italic;}
-
-.timeline{position:relative;margin:24px 0;}
-.timeline::before{content:'';position:absolute;left:36px;top:0;bottom:0;width:2px;background:var(--rule);}
-.t-item{display:flex;gap:20px;margin-bottom:24px;position:relative;}
-.t-badge{width:72px;height:72px;border-radius:6px;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-family:'DM Mono',monospace;z-index:1;}
-.t-badge strong{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold-light);line-height:1;}
-.t-badge span{font-size:9px;color:#4a5060;letter-spacing:2px;margin-top:2px;}
-.t-body{background:var(--white);border:1px solid var(--rule);border-radius:4px;padding:14px 20px;flex:1;}
-.t-body h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:6px;}
-.t-body p{font-size:14px;margin:0;color:var(--muted);}
-
-.plays{margin:20px 0;}
-.play-card{border:1px solid var(--rule);border-radius:4px;margin-bottom:12px;overflow:hidden;}
-.play-head{display:grid;grid-template-columns:120px 1fr 100px 100px;gap:0;background:var(--ink);padding:12px 16px;align-items:center;}
-.play-tier{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;border-radius:20px;text-align:center;font-weight:500;}
-.tier-1{background:#1a2a3a;color:#6a9aba;}
-.tier-2{background:#1a2a1a;color:#6aba8a;}
-.tier-3{background:#2a1a2a;color:#ba8aba;}
-.play-name{font-family:'Libre Baskerville',serif;font-size:16px;color:#f0e8d8;padding-left:12px;}
-.play-signal{font-size:12px;color:#4a5060;text-align:right;}
-.play-value{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold-light);text-align:right;}
-.play-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
-.play-col{padding:14px 16px;border-right:1px solid var(--rule);}
-.play-col:last-child{border-right:none;}
-.play-col-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.play-col ul{list-style:none;}
-.play-col li{font-size:13px;color:#2e2820;padding:3px 0;padding-left:14px;position:relative;}
-.play-col li::before{content:'›';position:absolute;left:0;color:var(--gold);}
-
-.incentive-ladder{margin:20px 0;}
-.incentive-row{display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule);}
-.incentive-row:last-child{border-bottom:none;}
-.incentive-action{flex:1;font-size:14px;color:#2e2820;}
-.incentive-action strong{display:block;font-size:15px;margin-bottom:2px;}
-.incentive-action span{font-size:12px;color:var(--muted);}
-.incentive-amount{font-family:'DM Mono',monospace;font-size:18px;color:var(--green);font-weight:500;min-width:80px;text-align:right;}
-.incentive-bar-wrap{width:120px;height:6px;background:#e8e0d0;border-radius:3px;overflow:hidden;}
-.incentive-bar{height:100%;background:var(--green);border-radius:3px;transition:width 0.5s;}
-
-.email-box{background:var(--white);border:1px solid var(--rule);border-radius:4px;margin:20px 0;overflow:hidden;}
-.email-header{background:#f5f5f5;padding:12px 20px;border-bottom:1px solid var(--rule);}
-.email-header .field{display:flex;gap:12px;font-size:13px;color:var(--muted);margin-bottom:4px;}
-.email-header .field strong{color:var(--ink);min-width:40px;}
-.email-body{padding:20px;font-size:14px;color:#2e2820;line-height:1.8;white-space:pre-wrap;}
-
+.tag-purple{background:#f5f0fa;color:var(--nat);}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
 .card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
 .card.gold-top{border-top:3px solid var(--gold);}
 .card.blue-top{border-top:3px solid var(--accent);}
 .card.green-top{border-top:3px solid var(--green);}
-.card.red-top{border-top:3px solid var(--red);}
-.card.purple-top{border-top:3px solid var(--nat);}
 .card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
 .card p{font-size:13px;margin:0;color:var(--muted);}
-.card .big{font-family:'Libre Baskerville',serif;font-size:32px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px;}
-
-.progress-ring{display:flex;align-items:center;gap:24px;padding:20px 0;}
-.ring-wrap{position:relative;width:100px;height:100px;flex-shrink:0;}
-.ring-wrap svg{transform:rotate(-90deg);}
-.ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.ring-pct{font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700;color:var(--accent);}
-.ring-sub{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--muted);}
-.ring-details{flex:1;}
-.ring-details h4{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;}
-.ring-details p{font-size:14px;color:var(--muted);margin:0;}
-
-.milestone-track{display:flex;gap:0;margin:20px 0;overflow:hidden;border-radius:6px;border:1px solid var(--rule);}
-.ms{flex:1;padding:16px 12px;text-align:center;border-right:1px solid var(--rule);background:var(--white);transition:background 0.2s;}
-.ms:last-child{border-right:none;}
-.ms.done{background:#eaf4ee;}
-.ms.active{background:var(--blue-pale);}
-.ms-icon{font-size:18px;margin-bottom:6px;}
-.ms-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
-.ms.done .ms-label{color:var(--green);}
-.ms.active .ms-label{color:var(--accent);}
-.ms-status{font-size:11px;color:var(--muted);}
-.ms.done .ms-status{color:var(--green);}
-
-.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 0;}
+.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 0;}
 .contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
 .cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
 .cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
 .cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
-
-.bot-row{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 0;}
-.bot-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:3px;background:var(--blue-pale);color:var(--accent);}
-
 .footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
 .footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
 .footer-brand em{color:var(--gold-light);}
 .footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
+@media(max-width:700px){.hero{padding:40px 24px 36px;}.hero h1{font-size:30px;}.content{padding:32px 20px 60px;}.pillars,.grid-2,.grid-3{grid-template-columns:1fr;}.breadcrumb{padding:10px 24px;}}
+.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
 
-@media(max-width:700px){
-  .hero{padding:40px 24px 36px;}
-  .hero h1{font-size:30px;}
-  .content{padding:32px 20px 60px;}
-  .pillars,.grid-2,.grid-3,.play-body,.play-head{grid-template-columns:1fr;}
-  .milestone-track{flex-wrap:wrap;}
-  .breadcrumb{padding:10px 24px;}
-}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}</style></head><body><nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#agents">AI Agents</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="business_plan.html">Business Plan</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
-<div class="hero"><div class="hero-tag">Channel-Ready AE · Phase 2 · Module 05</div>
-<h1>From Contract to Revenue<br>in <em>90 Days</em>.</h1><div class="hero-sub">The activation model that turns a signed partner agreement into an operating co-sell motion. Anchored in Natalie's Expel cybersecurity partner launch and Carl's HPE 90-day plan — proving the framework works across verticals.</div>
-<div class="hero-stats"><div class="hero-stat"><strong>4</strong><span>Activation Steps</span></div><div class="hero-stat"><strong>90</strong><span>Day Window</span></div><div class="hero-stat"><strong>15</strong><span>Day Milestones</span></div><div class="hero-stat"><strong>2</strong><span>Vertical Proofs</span></div></div></div>
-<div class="ref-bar" style="background:#2a1a2a;"><span class="ref-tag" style="color:#7a5a9a;">Priority Build — Natalie's IP</span><span class="ref-text" style="color:#9a7aba;">Expel cybersecurity partner launch + HPE 90-day plan · Proves the framework travels beyond retail</span></div>
+<div class="hero">
+  <div class="hero-tag">Channel-Ready AE · Phase 2 · Module 05</div>
+  <h1>DISC Profiling<br>for <em>Channel Sales</em>.</h1>
+  <div class="hero-sub">Reading partner and buyer personality types. How to adapt your communication, your discovery style, and your closing approach based on whether you're talking to a D, I, S, or C — and why this matters most in a channel context with layered stakeholders.</div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>D</strong><span>Dominant</span></div>
+    <div class="hero-stat"><strong>I</strong><span>Influencing</span></div>
+    <div class="hero-stat"><strong>S</strong><span>Steady</span></div>
+    <div class="hero-stat"><strong>C</strong><span>Conscientious</span></div>
+  </div>
+</div>
+
+<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">DISC + Sandler</span><span class="ref-text" style="color:#6a7a9a;">Applies to every partner rep, partner leader, and end-customer contact you engage</span></div>
+
 <div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
-<a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a><span style="color:#2a3a2a;">›</span>
-<span style="color:#6a9a6a;">Module 05 — The 4-Step Activation Model</span>
-<span style="margin-left:auto;"><a href="curriculum.html" style="color:#3a5a3a;">← Back to Binder</a></span></div>
-<div class="nav-tabs"><button class="nav-tab active" onclick="showPanel('overview')">Overview</button><button class="nav-tab" onclick="showPanel('checklist')">90-Day Checklist</button><button class="nav-tab" onclick="showPanel('timeline')">90-Day Timeline</button><button class="nav-tab" onclick="showPanel('templates')">Email Templates</button></div>
-<div class="content"><div class="panel active" id="panel-overview"><div class="section-label">Why This Is the Priority Build</div>
-<h2>Module 10 proved the curriculum works in retail. This module proves it travels.</h2>
-<div class="explain">A startup buyer told us: "I need to see at least one module from a non-retail, non-CDW source before I trust the framework works for my cybersecurity team." This module is the answer — anchored in Natalie's Expel partner launch, validated against Carl's HPE activation model.</div>
-<p>The 4-Step Activation Model is the sequence that turns a signed agreement into actual co-sell revenue within 90 days. It works the same whether you're activating a CDW relationship for POS hardware or an Optiv relationship for cybersecurity — because the underlying partner dynamics are identical: reps need to be found, trained, aligned on targets, and incentivized to act.</p>
+  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
+  <span style="color:#2a3a2a;">›</span>
+  <span style="color:#6a9a6a;">Module 05 — DISC Profiling for Channel</span>
+  <span style="margin-left:auto;"><a href="module_04.html" style="color:#3a5a3a;">← Module 04</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="module_06.html" style="color:#5a7a9a;margin-left:12px;">Module 06 →</a></span>
+</div>
+
+<div class="nav-tabs">
+  <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
+  <button class="nav-tab" onclick="showPanel('framework')">Framework</button>
+  <button class="nav-tab" onclick="showPanel('practice')">In Practice</button>
+  <button class="nav-tab" onclick="showPanel('fieldnotes')">Field Notes</button>
+</div>
+
+<div class="content">
+
+<div class="panel active" id="panel-overview">
+<div class="section-label">Why This Module Exists</div>
+<h2>You're not talking to one type of person. Your approach has to flex.</h2>
+<div class="explain">Channel sales puts you in contact with more personality types per day than almost any other sales motion. Partner leaders, partner reps, end-customer executives, technical evaluators — each type requires a different approach. DISC gives you the language to adjust quickly.</div>
+<p>Most AEs have one default style. They're naturally direct or naturally relationship-driven or naturally analytical. That style works well with partners who share it — and creates friction with everyone else. DISC isn't about changing who you are. It's about recognizing what the person in front of you needs from you in order to feel heard, understood, and ready to move forward.</p>
+<p>In a channel motion, DISC is especially powerful because you're often dealing with a layered cast of characters: the partner's VP who is a hard D, the partner's account manager who is a strong I, and the end customer's IT director who is a deep C. The Sandler AE who can flex across all three in a single co-sell meeting is the one who wins the deal and the long-term relationship.</p>
+<div class="callout">
+  <div class="callout-tag">THE CORE INSIGHT</div>
+  <strong>People don't resist products. They resist salespeople who communicate in a style that doesn't match their own.</strong> DISC lets you close that gap before resistance builds.
+</div>
+<div class="grid-3">
+  <div class="card gold-top"><h4>What You'll Learn</h4><p>The four DISC profiles and how to identify them quickly in a partner conversation. What each type needs from a vendor AE to feel comfortable moving forward.</p></div>
+  <div class="card gold-top"><h4>What You'll Practice</h4><p>Identifying the DISC profile of your key partner contacts. Adapting your opening, discovery questions, and proposal delivery for each type in real conversations.</p></div>
+  <div class="card gold-top"><h4>What Changes After</h4><p>Fewer "they just went quiet" situations. Faster trust-building with partner leaders. Better co-sell dynamics because you're meeting each contact where they are.</p></div>
+</div>
+</div>
+
+<div class="panel" id="panel-framework">
+<div class="section-label">The Four Profiles</div>
+<h2>D, I, S, C — what each type needs from you in a channel conversation.</h2>
+
+<div class="pillars">
+  <div class="pillar">
+    <div class="pillar-head blue"><div class="pillar-icon">D</div><div class="pillar-title">Dominant — The Driver</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>Wants results, control, and direct answers <span class="tag tag-blue">Core Need</span></li>
+        <li>Fears loss of control and wasting time <span class="tag tag-blue">Fear</span></li>
+        <li>Decides quickly — bottom line first, detail later <span class="tag tag-blue">Decision</span></li>
+        <li>Channel profile: VP of Sales, GM, aggressive partner owner <span class="tag tag-blue">Who</span></li>
+        <li>Your approach: be direct, skip the warm-up, lead with outcomes <span class="tag tag-blue">How</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-head gold"><div class="pillar-icon">I</div><div class="pillar-title">Influencing — The Enthusiast</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>Wants recognition, collaboration, and excitement <span class="tag tag-gold">Core Need</span></li>
+        <li>Fears rejection and being ignored <span class="tag tag-gold">Fear</span></li>
+        <li>Decides on relationships and vision, not data <span class="tag tag-gold">Decision</span></li>
+        <li>Channel profile: partner AM, inside rep, business development rep <span class="tag tag-gold">Who</span></li>
+        <li>Your approach: match energy, tell stories, make them the hero <span class="tag tag-gold">How</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-head green"><div class="pillar-icon">S</div><div class="pillar-title">Steady — The Loyalist</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>Wants stability, predictability, and harmony <span class="tag tag-green">Core Need</span></li>
+        <li>Fears change and conflict <span class="tag tag-green">Fear</span></li>
+        <li>Decides slowly — needs to consult others, build consensus <span class="tag tag-green">Decision</span></li>
+        <li>Channel profile: long-tenure partner rep, technical account manager <span class="tag tag-green">Who</span></li>
+        <li>Your approach: be patient, prove track record, reduce perceived risk <span class="tag tag-green">How</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-head purple"><div class="pillar-icon">C</div><div class="pillar-title">Conscientious — The Analyst</div></div>
+    <div class="pillar-body">
+      <ul>
+        <li>Wants accuracy, proof, and process compliance <span class="tag tag-purple">Core Need</span></li>
+        <li>Fears being wrong and making mistakes <span class="tag tag-purple">Fear</span></li>
+        <li>Decides on data, documentation, and validation <span class="tag tag-purple">Decision</span></li>
+        <li>Channel profile: IT director, pre-sales engineer, technical evaluator <span class="tag tag-purple">Who</span></li>
+        <li>Your approach: provide specifics, show data, let them ask every question <span class="tag tag-purple">How</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h3>DISC in a Three-Layer Channel Deal</h3>
+<div class="callout">
+  <div class="callout-tag">LAYERED DEAL EXAMPLE</div>
+  <strong>Partner VP (D):</strong> Open with the revenue outcome. "Last quarter, partners who activated this product averaged $X in attached margin per deal. I want that for your team." Two sentences. Done.<br><br>
+  <strong>Partner AM (I):</strong> "You're going to be the one who brings this to your customers first. Your customers will remember you for it." Make it a story they can tell.<br><br>
+  <strong>End-Customer IT Director (C):</strong> Send the architecture diagram, security documentation, and integration specs 48 hours before the call. Let them read it. Answer their questions with data, not enthusiasm.
+</div>
+</div>
+
+<div class="panel" id="panel-practice">
+<div class="section-label">DISC in Action</div>
+<h2>Reading the room quickly and adjusting in real time.</h2>
+<p>You often don't have the luxury of profiling a partner contact before the first call. DISC is most valuable as a real-time diagnostic — reading signals in the first five minutes and adjusting accordingly.</p>
+
+<h3>Quick Identification Signals</h3>
 <div class="grid-2">
-<div class="card blue-top"><h4>Step 1 — Relationship Building</h4><p>Days 0–15. Identify 5–8 target reps. Build the account overlap list. Map the partner org. Schedule intro calls with named accounts in hand.</p></div>
-<div class="card green-top"><h4>Step 2 — Enablement</h4><p>Days 15–30. First training call. Sales play deck distributed. Battle card in every inbox. SPIF announced at end of training.</p></div>
-<div class="card gold-top"><h4>Step 3 — Alignment</h4><p>Days 30–60. Recurring cadences locked. Account lists finalized. First deal regs submitted. The cord identified for this quarter.</p></div>
-<div class="card purple-top"><h4>Step 4 — Incentive</h4><p>Days 30–90. SPIF program live and reinforced at every touchpoint. First QBR prep underway. First deal in late-stage or closed.</p></div>
-</div></div><div class="panel" id="panel-checklist"><div class="section-label">Execution</div>
-<h2>The complete 90-day activation checklist.</h2>
-<div class="checklist" id="checklist">
-<div class="check-group"><div class="check-group-title">Days 0–15 — Relationship Building</div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Identify 5–8 target partner reps by territory and vertical fit<div class="check-note">Not every rep is your rep. Pick based on territory overlap and vertical expertise.</div></div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Build account overlap list: your pipeline × their territory<div class="check-note">Pre-populate Spreadsheet 1 so you walk into the first meeting with value, not asks.</div></div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Map partner org chart: VP → DM → SM → AM<div class="check-note">Names, titles, LinkedIn. You need contacts at every level.</div></div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Schedule intro calls with each target rep — bring 3 account names to each<div class="check-note">Accounts are currency. Never show up to a partner meeting empty-handed.</div></div></div>
+  <div class="card blue-top"><h4>D Signals</h4><p>Speaks fast, interrupts, skips pleasantries, asks "what's the bottom line," checks phone during small talk. Gets impatient with anything that doesn't get to the point immediately.</p></div>
+  <div class="card gold-top"><h4>I Signals</h4><p>Lots of personal stories, uses your name frequently, asks about your background, jokes early, references other people's opinions. Wants to know you before they hear you.</p></div>
+  <div class="card green-top"><h4>S Signals</h4><p>Asks about your existing customers, wants references, moves slowly, defers to teammates, avoids conflict. Asks "how does this usually work?" and "what do other partners do?"</p></div>
+  <div class="card blue-top" style="border-top-color:var(--nat);"><h4>C Signals</h4><p>Has notes, asks detailed technical questions, wants to see documentation before the demo, corrects minor inaccuracies, silent during presentations — processing, not checked out.</p></div>
 </div>
-<div class="check-group"><div class="check-group-title">Days 15–30 — Enablement</div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Run first AM webinar / product training (30 min max)<div class="check-note">Product overview + "reason to call" customer profiles + qualification signals. Keep it actionable.</div></div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Distribute sales play deck and battle card same day as training<div class="check-note">Reps forget 80% within 48 hours. The assets are the memory device.</div></div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Announce SPIF program at end of training call (not the beginning)<div class="check-note">Starting with money signals the content isn't worth their time. Ending with it rewards attendance.</div></div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Set up deal reg portal access for all trained reps<div class="check-note">BLOCKING. A trained rep who can't submit a deal reg is a wasted touchpoint.</div></div></div>
+
+<h3>The Mistake of Over-Adjusting</h3>
+<div class="explain">DISC is not a performance. Partners can tell when you're code-switching in an obvious way. The goal is subtle calibration — adjusting your pace, your level of detail, and your emotional temperature — not adopting a persona.</div>
+
+<h3>When Your Natural Style Creates Friction</h3>
+<div class="callout">
+  <div class="callout-tag">SELF-AWARENESS CHECK</div>
+  If you're a strong D dealing with an S partner rep: slow down, ask more questions, don't push for commitment too fast. The S reads your urgency as pressure — and pressure makes them retreat to "I need to think about it."<br><br>
+  If you're a strong I dealing with a C IT director: bring data, send materials in advance, don't oversell with enthusiasm. The C reads your excitement as evidence that you're glossing over risks they haven't considered yet.
 </div>
-<div class="check-group"><div class="check-group-title">Days 30–60 — Alignment</div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Lock in recurring meeting cadences: weekly co-sell, monthly DM, quarterly QBR<div class="check-note">Calendar invites sent AND accepted. Recurring slots are harder to cancel than to set.</div></div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Run first co-sell session: 10 named accounts, assigned ownership, next-step dates<div class="check-note">Quality over quantity. 10 accounts with real next steps beats 50 accounts with none.</div></div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Submit first deal registrations from co-sell findings<div class="check-note">Even early-stage deals. Deal reg protects margin and creates accountability.</div></div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Send first Win Wire to partner leadership<div class="check-note">Accounts confirmed, calls completed, pipeline identified, what's next. Two paragraphs.</div></div></div>
 </div>
-<div class="check-group"><div class="check-group-title">Days 60–90 — Incentive & Proof</div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Track SPIF payments against submissions — are reps responding to incentives?<div class="check-note">If SPIF participation is low, the amounts may be wrong or communication failed.</div></div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Run technical deep-dive for partner SEs and architects<div class="check-note">Month 2 enablement. The SEs validate your product technically — AMs trust their judgment.</div></div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Prepare QBR package for Day 90 review<div class="check-note">Start building 2 weeks before. Don't scramble the night before the meeting.</div></div></div>
-<div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">First deal in late-stage or closed — the proof of activation<div class="check-note">If no deal has progressed by Day 90, the activation has a problem. Diagnose in the QBR.</div></div></div>
-</div></div>
-<div style="margin-top:20px;padding:14px 20px;background:var(--warm);border:1px solid var(--rule);border-radius:4px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);"><span id="check-progress">0 of 16 items complete</span></div></div><div class="panel" id="panel-timeline"><div class="section-label">The Critical Window</div>
-<h2>90 days. Four steps. No exceptions.</h2>
-<p>Partnerships that don't achieve meaningful co-sell activity within 90 days of signing rarely recover without a significant reset. This timeline is the operating plan that prevents that outcome.</p>
-<div class="timeline">
-<div class="t-item"><div class="t-badge"><strong>0–15</strong><span>DAYS</span></div><div class="t-body"><h4>Relationship Building</h4><p>Identify 5–8 target reps. Build account overlap list. Map partner org. Schedule intro calls with 3 named accounts each. Pre-populate the shared pipeline tracker. Do not proceed to enablement until you have named contacts at AM, SM, and DM level.</p></div></div>
-<div class="t-item"><div class="t-badge"><strong>15–30</strong><span>DAYS</span></div><div class="t-body"><h4>Enablement Launch</h4><p>30-minute AM webinar. Sales play deck and battle card distributed same day. SPIF announced at end of call. Deal reg portal access provisioned to all trained reps. The rep leaves knowing: what to sell, who to sell it to, and what they get for doing it.</p></div></div>
-<div class="t-item"><div class="t-badge"><strong>30–60</strong><span>DAYS</span></div><div class="t-body"><h4>Alignment & First Pipeline</h4><p>Weekly co-sell sessions running. Monthly DM sync established. First deal regs submitted. Win Wire #1 sent. The cord identified for this quarter. Technical deep-dive run for SEs. Cadence is now locked — both sides showing up consistently.</p></div></div>
-<div class="t-item"><div class="t-badge"><strong>60–90</strong><span>DAYS</span></div><div class="t-body"><h4>Proof of Concept</h4><p>First deal in late-stage or closed. SPIF participation tracked and evaluated. QBR package being built. If no deal has progressed, diagnose: product fit, rep engagement, or territory mismatch? The Day 90 QBR is the first real test.</p></div></div>
-</div></div><div class="panel" id="panel-templates"><div class="section-label">Templates</div>
-<h2>Activation emails — the first 30 days.</h2>
-<h3>Template 1 — Kickoff Email (Day 1)</h3>
-<div class="email-box"><div class="email-header"><div class="field"><strong>To:</strong> [Partner DM, SM, AM Lead]</div><div class="field"><strong>Subject:</strong> [Your Company] × [Partner] — Kickoff + First 30 Days</div></div>
-<div class="email-body">Hi [Name],
 
-Agreements are signed — excited to get moving. Here's how I'm thinking about the first 30 days:
+<div class="panel" id="panel-fieldnotes">
+<div class="section-label">From the Field</div>
+<h2>DISC in channel is a multiplier — it accelerates every other skill you have.</h2>
 
-WEEK 1–2
-→ Deal reg portal access set up for your team (credentials by [date])
-→ Shared pipeline tracker live (link coming today)
-→ 30-min kickoff training scheduled with your AM team
+<h3>DISC and the Pain Funnel</h3>
+<p>The Pain Funnel questions stay the same across profiles, but how you ask them changes significantly. With a D, ask pain questions directly and accept short answers — then probe only if they open up. With a C, expect long answers with qualifying language — let them finish, don't rush. With an I, expect emotional answers at Level 3 before you even get there — they go there themselves. With an S, ask indirectly: "How does the team respond when this happens?" They find it easier to describe group impact than personal pain.</p>
 
-WEEK 3–4
-→ First co-sell session: your accounts against my open pipeline, 10 joint targets
-→ First deal registrations submitted from that session
+<h3>DISC and Up-Front Contracts</h3>
+<p>The UFC structure works across all profiles but needs adjustment in delivery. D: "Here's the agenda. We have 30 minutes. I want a decision by the end." I: "I've got a few things I want to make sure we cover — but tell me what's most important to you first." S: "I'll structure this so we have plenty of time for questions and no pressure to decide anything today." C: "I'll send you a pre-read before the call so you can review the details and come in with specific questions."</p>
 
-SPIF program is active from Day 1: $[X] per deal reg, $[X] per customer meeting.
+<div class="contrib-row">
+  <span class="contrib-pill cp-carl">● CARL — DISC applied to vendor-partner dynamics</span>
+  <span class="contrib-pill cp-nat">● NATALIE — DISC in reseller-side customer relationships</span>
+  <span class="contrib-pill cp-both">● Sandler DISC methodology</span>
+</div>
 
-My goal for Day 30: 10 named co-sell accounts with assigned ownership and next steps.
+<div class="footer">
+  <div>
+    <div class="footer-brand">Channel-<em>Ready</em> AE</div>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 05 · DISC PROFILING FOR CHANNEL · MARCH 2026</div>
+  </div>
+  <div class="footer-meta">
+    <div>CONFIDENTIAL</div>
+    <div>CARL & NATALIE CLENDENIN</div>
+  </div>
+</div>
+</div>
 
-Does [date/time] work for the kickoff training? I'll keep it to 30 minutes.
+</div>
 
-[Your Name]</div></div>
-
-<h3>Template 2 — Win Wire #1 (Day 30)</h3>
-<div class="email-box"><div class="email-header"><div class="field"><strong>To:</strong> [Partner DM]</div><div class="field"><strong>Subject:</strong> [Your Company] × [Partner] — Month 1 Update</div></div>
-<div class="email-body">Hi [Name],
-
-Month 1 recap:
-
-→ [X] reps trained, [X] attending co-sell sessions
-→ [X] co-sell accounts confirmed active
-→ [X] deal registrations submitted
-→ [X] customer meetings scheduled
-→ Pipeline identified: $[X]
-
-What's next:
-→ Technical deep-dive for your SE team on [date]
-→ Expanding co-sell list to [X] accounts
-→ First SPIF payments processing this week
-
-Full detail in the shared tracker. Let me know if anything needs attention before our sync on [date].
-
-[Your Name]</div></div></div>
-<div class="contrib-row"><span class="contrib-pill cp-carl">● CARL — HPE 90-Day Plan, Toshiba activation sequence</span><span class="contrib-pill cp-nat">● NATALIE — Expel 0→launch partner program, CDW-side activation perspective</span></div>
-<div class="bot-row"><span class="bot-pill">Pipeline Tracker</span><span class="bot-pill">Email Agent</span></div>
-<div class="footer"><div><div class="footer-brand">Channel-<em>Ready</em> AE</div>
-<div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 05 · THE 4-STEP ACTIVATION MODEL</div></div>
-<div class="footer-meta"><div>CONFIDENTIAL</div><div>CARL & NATALIE CLENDENIN</div></div></div></div>
 <script>
-function showPanel(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active');event.target.classList.add('active');}
-function toggleCheck(item){item.classList.toggle('done');var t=document.querySelectorAll('.check-item').length;var d=document.querySelectorAll('.check-item.done').length;var el=document.getElementById('check-progress');if(el)el.textContent=d+' of '+t+' complete'+(d===t?' — Done! 🎯':'');}
-</script></body></html>
+function showPanel(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>

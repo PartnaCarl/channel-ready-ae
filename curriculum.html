@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Channel-Ready AE — Curriculum Binder v3</title>
+<title>Channel-Ready AE — Curriculum Binder</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-bg:#eaf4ee;--purple:#4a2a6a;--purple-bg:#f3eef8;--purple-light:#d8c8e8;--red:#7a1e1e;--red-bg:#fde8e8;--amber:#7a4a00;--amber-bg:#fff8ec;--nat:#5a3a7a;--nat-bg:#f5f0fa;--nat-bdr:#c8a8e8;--carl:#1a3d5c;--carl-bg:#edf3f8;--carl-bdr:#a0c0d8;--teal:#0a5a5a;--teal-bg:#e8f5f5;}
@@ -25,11 +25,11 @@ p{color:#2e2820;font-size:14.5px;margin-bottom:12px;line-height:1.75;}
 .cb{padding:18px 22px;margin:16px 0;border-radius:0 6px 6px 0;position:relative;font-size:13px;line-height:1.65;}
 .cb::before{position:absolute;top:-10px;left:16px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;padding:2px 10px;border-radius:2px;font-weight:500;}
 .cb p{margin:0;}.cb p+p{margin-top:8px;}
-.cb-method{background:#f0f0f8;border:1px solid #c8c8d8;border-left:4px solid #4a4a6a;color:#2a2a4a;}.cb-method::before{content:'🧪 METHODOLOGY';background:#4a4a6a;color:#d8d8f0;}
-.cb-honest{background:var(--red-bg);border:1px solid #e8c0c0;border-left:4px solid var(--red);color:#4a2020;}.cb-honest::before{content:'⚠ HONEST STATUS';background:var(--red);color:#f0d8d8;}
-.cb-value{background:var(--teal-bg);border:1px solid #a0d0d0;border-left:4px solid var(--teal);color:#1a3a3a;}.cb-value::before{content:'✓ WHAT BUYERS VALUE';background:var(--teal);color:#d0f0f0;}
-.cb-insight{background:#faf6f0;border:1px solid #e8d8b8;border-left:4px solid var(--gold);color:#4a3e28;}.cb-insight::before{content:'🔍 BUYER INSIGHT';background:var(--gold);color:var(--ink);}
-.cb-transfer{background:var(--purple-bg);border:1px solid var(--purple-light);border-left:4px solid var(--purple);color:#3a2a4a;}.cb-transfer::before{content:'🔄 TRANSFERABILITY';background:var(--purple);color:#e8d8f8;}
+.cb-method{background:#f0f0f8;border:1px solid #c8c8d8;border-left:4px solid #4a4a6a;color:#2a2a4a;}.cb-method::before{content:'METHODOLOGY';background:#4a4a6a;color:#d8d8f0;}
+.cb-honest{background:var(--red-bg);border:1px solid #e8c0c0;border-left:4px solid var(--red);color:#4a2020;}.cb-honest::before{content:'HONEST STATUS';background:var(--red);color:#f0d8d8;}
+.cb-value{background:var(--teal-bg);border:1px solid #a0d0d0;border-left:4px solid var(--teal);color:#1a3a3a;}.cb-value::before{content:'CORE PRINCIPLE';background:var(--teal);color:#d0f0f0;}
+.cb-insight{background:#faf6f0;border:1px solid #e8d8b8;border-left:4px solid var(--gold);color:#4a3e28;}.cb-insight::before{content:'SANDLER INSIGHT';background:var(--gold);color:var(--ink);}
+.cb-transfer{background:var(--purple-bg);border:1px solid var(--purple-light);border-left:4px solid var(--purple);color:#3a2a4a;}.cb-transfer::before{content:'TRANSFERABILITY';background:var(--purple);color:#e8d8f8;}
 .arch{background:#edf3f8;border:1px solid #c0d4e8;border-left:4px solid var(--accent);color:#1a2e40;padding:22px 26px;border-radius:0 6px 6px 0;margin:0 0 16px;font-size:13.5px;line-height:1.7;position:relative;}
 .arch strong{color:var(--accent);}
 .arch-tag{position:absolute;top:-10px;left:20px;background:var(--accent);color:#d0e0f0;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
@@ -89,24 +89,24 @@ p{color:#2e2820;font-size:14.5px;margin-bottom:12px;line-height:1.75;}
 @media(max-width:700px){.hero{padding:36px 24px 32px;}.hero h1{font-size:28px;}.container{padding:24px 18px 60px;}.mg,.og,.rg{grid-template-columns:1fr;}.pbar{padding:10px 24px;}}
 .cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}</style>
 </head>
-<body><nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#agents">AI Agents</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="business_plan.html">Business Plan</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
+<body><nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#who">Who It's For</a></li><li><a href="index.html#program">Program</a></li><li><a href="index.html#methodology">Methodology</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Instructors</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="business_plan.html">Business Plan</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Enroll Now</a></nav>
 
 <div class="hero">
-  <div class="hero-tag">Curriculum Binder · v3.0 · March 2026 · Stress-Tested · All Modules Built</div>
+  <div class="hero-tag">Curriculum Binder · Sandler Channel Edition · March 2026 · All 12 Modules Built</div>
   <h1>Channel-<em>Ready</em> AE</h1>
-  <div class="hero-sub">Complete curriculum — 12 interactive modules, 6 AI agents, built from two practitioners' combined IP across retail, cybersecurity, identity, and infrastructure. Every module is clickable and fully built with frameworks, checklists, email templates, and scenarios.</div>
+  <div class="hero-sub">Complete 12-module Sandler-based training program for channel Account Executives. Every module covers a specific Sandler framework adapted for the indirect channel — partner qualification, Up-Front Contracts, Pain Funnel, Negative Reverse Selling, DISC, and No-Free-Consulting. Built from practitioner IP, not theory.</div>
   <div class="hero-meta">
     <div class="hero-stat"><strong>12</strong><span>Modules</span></div>
-    <div class="hero-stat"><strong>12</strong><span>Fully Built</span></div>
-    <div class="hero-stat"><strong>6</strong><span>Agents</span></div>
-    <div class="hero-stat"><strong>2</strong><span>Founder IPs</span></div>
-    <div class="hero-stat"><strong>4+</strong><span>Verticals</span></div>
-    <div class="hero-stat"><strong>50+</strong><span>Email Templates</span></div>
+    <div class="hero-stat"><strong>6</strong><span>Sandler Frameworks</span></div>
+    <div class="hero-stat"><strong>3</strong><span>Phases</span></div>
+    <div class="hero-stat"><strong>$400</strong><span>Per Seat / Month</span></div>
+    <div class="hero-stat"><strong>20+</strong><span>Partner Scenarios</span></div>
+    <div class="hero-stat"><strong>2</strong><span>Practitioner Instructors</span></div>
   </div>
 </div>
 
 <div class="pbar">
-  <div class="pbar-l">ALL MODULES FRAMEWORK-COMPLETE</div>
+  <div class="pbar-l">ALL MODULES COMPLETE</div>
   <div class="pbar-w"><div class="pbar-f"></div></div>
   <div class="pbar-l">12 / 12</div>
   <a href="business_plan.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--accent);text-decoration:none;border:1px solid var(--carl-bdr);padding:4px 12px;border-radius:3px;white-space:nowrap;transition:all 0.15s;" onmouseover="this.style.background='var(--accent)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--accent)'">Business Plan →</a>
@@ -114,160 +114,156 @@ p{color:#2e2820;font-size:14.5px;margin-bottom:12px;line-height:1.75;}
 
 <div class="container">
 
-<div class="cb cb-method"><p><strong>How this binder was stress-tested:</strong> The full project was evaluated from the perspective of a Series B cybersecurity startup ($18M ARR, 6 AEs, recently lost their channel manager). That exercise surfaced gaps in Natalie's IP visibility, CDW-specificity, build-state honesty, pilot outcomes, agent separation, and certification credibility. Every structural decision in this v3 binder is a direct response.</p></div>
+<div class="cb cb-method"><p><strong>How this curriculum is structured:</strong> Each module addresses one dimension of the Sandler Sales System adapted for the indirect channel. Modules build sequentially — the mindset shift comes first, then the specific frameworks, then the repeatable systems. The Blitz Masters outbound program is recommended as pre-work for students who need to build their prospecting volume before applying Sandler methodology to partner conversations.</p></div>
 
 <div class="arch"><div class="arch-tag">HOW THIS WORKS</div>
-<strong>Click any module to open the full interactive version</strong> — tabbed panels, clickable checklists, email templates, frameworks, and scenarios. The same knowledge base trains both the humans (curriculum) and the bots (AI agent add-on). Each module below links to its standalone page.</div>
+<strong>Click any module to open the full interactive version</strong> — tabbed panels, role-play scenarios, Sandler frameworks, partner scripts, and checklists. Each module is standalone and links to its own dedicated page.</div>
 
-<div class="cb cb-honest"><p><strong>Build state — March 2026:</strong> Module 10 (Partnership Kickoff) has live Toshiba × CDW case data. The remaining 11 modules are framework-complete with universal channel strategy — checklists, templates, and teaching structures ready. As proprietary source documents are uploaded, generic frameworks will be replaced with real practitioner artifacts. Pilot customers get Phase 1 at launch with Phases 2–3 on a rolling SLA.</p></div>
+<div class="cb cb-insight"><p><strong>The Sandler Channel Principle:</strong> Every Sandler framework — Pain Funnel, Up-Front Contract, Negative Reverse, DISC, I/R Theory, No-Free-Consulting — applies directly to the indirect channel. The buyer is a partner rep, not an end customer. The consultative posture is the same. The stakes for giving away IP are higher. This program teaches you to treat partner conversations with the same Sandler discipline as a direct enterprise deal.</p></div>
 
-<div class="cb cb-value"><p><strong>What a startup buyer valued most:</strong> Module 10's live case ($1.63M / $10M, real SPIF dollars, real dates) earns the meeting. "Announce the SPIF at the end, not the beginning" signals real practitioners. The training-as-prerequisite-for-agents positioning is credible. A simulated buyer said: "I'd join the pilot based on Module 10 alone."</p></div>
+<div class="cb cb-value"><p><strong>The Blitz Masters connection:</strong> Channel-Ready AE students are encouraged to complete or enroll in Blitz Masters first. Blitz Masters builds the outbound muscle — call blitz discipline, prospecting volume, accountability habits — that makes Sandler methodology land. You cannot run the Pain Funnel on a partner you haven't reached. Both programs are offered through Partna Company.</p></div>
 
 <div class="legend" style="background:var(--warm);">
-  <span class="legend-t">IP Sources</span>
-  <span><span class="dot" style="background:var(--carl);"></span> Carl — Vendor (Toshiba, HPE, Juniper)</span>
-  <span><span class="dot" style="background:var(--nat);"></span> Natalie — Partner (CDW, Expel, Okta, Varonis, LastPass)</span>
-  <span><span class="dot" style="background:var(--gold);"></span> Combined</span>
-</div>
-<div class="legend" style="background:var(--white);">
-  <span class="legend-t">Verticals</span>
-  <span class="vtag v-r">Retail</span> <span class="vtag v-c">Cybersecurity</span> <span class="vtag v-i">Identity</span> <span class="vtag v-f">Infrastructure</span> <span class="vtag v-u">Universal</span>
+  <span class="legend-t">Sandler Frameworks</span>
+  <span class="vtag v-c">I/R Theory</span>
+  <span class="vtag v-r">Pain Funnel</span>
+  <span class="vtag v-i">Up-Front Contract</span>
+  <span class="vtag v-f">Negative Reverse</span>
+  <span class="vtag v-u">DISC</span>
 </div>
 
 <!-- ===== PHASE 1 ===== -->
 <div class="phase">
-  <div class="phase-ey">Phase 1 · Months 1–2</div>
-  <div class="phase-t">Channel 101 — How This World Works</div>
-  <div class="phase-d">VAR economics, partner structure, deal registration, and the mental models every AE needs before the first partner call.</div>
+  <div class="phase-ey">Phase 1 · Modules 1–4</div>
+  <div class="phase-t">Sandler Mindset for Channel</div>
+  <div class="phase-d">The mental framework shift. Identity/Role theory, partner qualification using the Pain Funnel, Up-Front Contracts as a partner management tool, and DISC profiling for partner types.</div>
 </div>
-<div class="cb cb-transfer"><p><strong>Transferability:</strong> Phase 1 is product-agnostic and partner-agnostic. Examples span retail, cybersecurity, identity, and infrastructure.</p></div>
+<div class="cb cb-transfer"><p><strong>Transferability:</strong> Phase 1 frameworks are product-agnostic. They apply identically whether you sell cybersecurity, infrastructure, SaaS, hardware, or services through VARs, MSPs, distributors, or ISVs.</p></div>
 
 <div class="mg">
-  <div class="mc"><div class="mc-h"><div class="mc-num">MODULE 01</div><span class="mc-st st-planned">FRAMEWORK COMPLETE</span></div>
-    <div class="mc-b"><div class="mc-title">VAR Economics & Partner Structure</div><div class="mc-desc">How CDW, SHI, Insight, Optiv make money. Margin mechanics, MDF, deal reg economics. The language shift from selling to enabling. Pre-meeting checklist. 3 email templates.</div>
-    <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Agents: <strong>Email, Deal Reg</strong></div><a href="module_01.html" class="btn btn-plan">Open Module →</a></div></div>
+  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 01</div><span class="mc-st st-built">BUILT</span></div>
+    <div class="mc-b"><div class="mc-title">The Sandler Mindset for Channel</div><div class="mc-desc">Identity vs. Role theory. Why channel AEs fail — they give away IP before commitment. The emotional investment trap. Building the Sandler posture for partner conversations. Checklist: 10 signs you're consulting for free.</div>
+    <div class="mc-tags"><span class="vtag v-u">I/R Theory</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
+    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>I/R Theory, Posture</strong></div><a href="module_01.html" class="btn btn-go">Open Module →</a></div></div>
 
-  <div class="mc"><div class="mc-h"><div class="mc-num">MODULE 02</div><span class="mc-st st-planned">FRAMEWORK COMPLETE</span></div>
-    <div class="mc-b"><div class="mc-title">The Six Things Your Partner Needs From You</div><div class="mc-desc">The 6-Ask framework with monthly RAG scorecard. Deal reg & pricing, quoting, engagement, lifecycle, roadmaps, org changes. Monthly maintenance checklist. Re-engagement template.</div>
-    <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Agents: <strong>Email, QBR Prep</strong></div><a href="module_02.html" class="btn btn-plan">Open Module →</a></div></div>
+  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 02</div><span class="mc-st st-built">BUILT</span></div>
+    <div class="mc-b"><div class="mc-title">Partner Qualification — Pain Funnel Applied</div><div class="mc-desc">Using the Pain Funnel to qualify partners before investing time. Must-have vs. nice-to-have partner criteria. The partner onboarding conversation as a Sandler qualifying call. Disqualification framework.</div>
+    <div class="mc-tags"><span class="vtag v-r">Pain Funnel</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
+    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Pain Funnel, Qualification</strong></div><a href="module_02.html" class="btn btn-go">Open Module →</a></div></div>
 
-  <div class="mc"><div class="mc-h"><div class="mc-num">MODULE 03</div><span class="mc-st st-planned">FRAMEWORK COMPLETE</span></div>
-    <div class="mc-b"><div class="mc-title">The Cord Principle</div><div class="mc-desc">Stay relevant every quarter by connecting your product to the partner's current focus. 4-step process, 3 vertical examples (retail/cyber/identity), quarterly refresh checklist, cord email template.</div>
-    <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Agents: <strong>Enablement, Email</strong></div><a href="module_03.html" class="btn btn-plan">Open Module →</a></div></div>
+  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 03</div><span class="mc-st st-built">BUILT</span></div>
+    <div class="mc-b"><div class="mc-title">Up-Front Contracts with Partners</div><div class="mc-desc">Setting expectations on deals, timelines, roles, and commitments before any work begins. The UFC applied to partner onboarding, QBRs, joint calls, and co-sell commitments. Scripts for four partner situations.</div>
+    <div class="mc-tags"><span class="vtag v-i">Up-Front Contract</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
+    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Up-Front Contract</strong></div><a href="module_03.html" class="btn btn-go">Open Module →</a></div></div>
 
-  <div class="mc"><div class="mc-h"><div class="mc-num">MODULE 04</div><span class="mc-st st-planned">FRAMEWORK COMPLETE</span></div>
-    <div class="mc-b"><div class="mc-title">Deal Registration as a Business Tool</div><div class="mc-desc">Deal reg as pipeline engine: margin protection, conflict prevention, accountability, churn prevention. Clean vs. conflict framework. Per-rep tracking benchmarks. Conflict resolution templates.</div>
-    <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Agents: <strong>Deal Reg, Conflict</strong></div><a href="module_04.html" class="btn btn-plan">Open Module →</a></div></div>
+  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 04</div><span class="mc-st st-built">BUILT</span></div>
+    <div class="mc-b"><div class="mc-title">The Pain Funnel in Channel Conversations</div><div class="mc-desc">Uncovering real partner pain and end-customer pain — not feature interest. The Pain Funnel as a diagnostic tool for partner and joint sales conversations. What partners say vs. what they mean. Practice scenarios.</div>
+    <div class="mc-tags"><span class="vtag v-r">Pain Funnel</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
+    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Pain Funnel, Diagnosis</strong></div><a href="module_04.html" class="btn btn-go">Open Module →</a></div></div>
 </div>
 
 <!-- ===== PHASE 2 ===== -->
 <div class="phase">
-  <div class="phase-ey">Phase 2 · Months 3–4</div>
-  <div class="phase-t">Operating the Channel Motion</div>
-  <div class="phase-d">Co-sell campaigns, incentive design, QBR execution, partnership kickoff, and the 3-tier play model.</div>
+  <div class="phase-ey">Phase 2 · Modules 5–8</div>
+  <div class="phase-t">The Sandler Selling System in Channel</div>
+  <div class="phase-d">DISC profiling for partner types. Negative Reverse Selling for stalled partners. No-Free-Consulting to protect your time and IP. The full anatomy of a channel deal with Sandler checkpoints.</div>
 </div>
-<div class="cb cb-transfer"><p><strong>Transferability:</strong> Phase 2 uses real-world examples but every module includes a "Build Your Own" section. The frameworks adapt to any product and any partner.</p></div>
+<div class="cb cb-transfer"><p><strong>Transferability:</strong> Phase 2 uses real-world partner scenarios — VAR, MSP, ISV, distributor. Every module includes a role-play section you can adapt to your specific product and partner ecosystem.</p></div>
 
 <div class="mg">
-  <div class="mc priority"><div class="mc-h"><div class="mc-num">MODULE 05</div><span class="mc-st st-priority">PRIORITY BUILD</span></div>
-    <div class="mc-b"><div class="mc-title">The 4-Step Activation Model</div><div class="mc-desc">Relationship → Enablement → Alignment → Incentive. 90-day activation from contract to revenue. Full 16-item checklist. Timeline. Anchored in Natalie's Expel cybersecurity partner launch.</div>
-    <div class="mc-tags"><span class="vtag v-c">Cybersecurity</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Agents: <strong>Pipeline, Email</strong></div><a href="module_05.html" class="btn btn-pri">Open Module →</a></div></div>
+  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 05</div><span class="mc-st st-built">BUILT</span></div>
+    <div class="mc-b"><div class="mc-title">DISC for Channel — Reading Partner Personality Types</div><div class="mc-desc">Identifying D, I, S, C personality types in partner reps and partner leadership. Adapting communication style in partner calls, email, and QBRs. The cost of misreading a C-type partner with D-type energy.</div>
+    <div class="mc-tags"><span class="vtag v-u">DISC</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
+    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>DISC Profiling</strong></div><a href="module_05.html" class="btn btn-go">Open Module →</a></div></div>
 
-  <div class="mc"><div class="mc-h"><div class="mc-num">MODULE 06</div><span class="mc-st st-planned">FRAMEWORK COMPLETE</span></div>
-    <div class="mc-b"><div class="mc-title">Co-Sell Campaign Design</div><div class="mc-desc">The Two-Spreadsheet Model. 4:1 co-sell-to-QBR ratio. Weekly session format (5/15/10 min). Campaign setup checklist. Session follow-up and co-sell ask templates.</div>
-    <div class="mc-tags"><span class="vtag v-f">Infrastructure</span> <span class="cp cp-c">Carl</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Agents: <strong>Pipeline, Email</strong></div><a href="module_06.html" class="btn btn-plan">Open Module →</a></div></div>
+  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 06</div><span class="mc-st st-built">BUILT</span></div>
+    <div class="mc-b"><div class="mc-title">Negative Reverse Selling in Channel</div><div class="mc-desc">Getting partners to sell themselves on working deals with you. NRS applied to partner stalls, go-dark situations, and resource requests without commitment. The "maybe we're not the right fit" conversation.</div>
+    <div class="mc-tags"><span class="vtag v-f">Negative Reverse</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
+    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Negative Reverse Selling</strong></div><a href="module_06.html" class="btn btn-go">Open Module →</a></div></div>
 
-  <div class="mc"><div class="mc-h"><div class="mc-num">MODULE 07</div><span class="mc-st st-planned">FRAMEWORK COMPLETE</span></div>
-    <div class="mc-b"><div class="mc-title">Incentive Architecture</div><div class="mc-desc">SPIF ladder ($25→$500). Startup budget allocation ($1K and $5K models). Non-cash alternatives. "Announce at the end" rule. Toshiba $50K / Varonis / LastPass SPIF references.</div>
+  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 07</div><span class="mc-st st-built">BUILT</span></div>
+    <div class="mc-b"><div class="mc-title">No-Free-Consulting in the Channel</div><div class="mc-desc">Protecting your time, intellectual property, and deal margins. Defining what requires partner commitment before you engage. What to do when partners take your work to a cheaper vendor. The IP protection conversation.</div>
+    <div class="mc-tags"><span class="vtag v-u">No-Free-Consulting</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
+    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>No-Free-Consulting</strong></div><a href="module_07.html" class="btn btn-go">Open Module →</a></div></div>
+
+  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 08</div><span class="mc-st st-built">BUILT</span></div>
+    <div class="mc-b"><div class="mc-title">Anatomy of a Partner Deal</div><div class="mc-desc">Mapping the full channel deal lifecycle from partner interest through close. Sandler checkpoints at each stage: qualification, pain, budget, decision, fulfillment. Where deals die in channel and why. Deal review framework.</div>
     <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Agents: <strong>Enablement, Deal Reg</strong></div><a href="module_07.html" class="btn btn-plan">Open Module →</a></div></div>
-
-  <div class="mc"><div class="mc-h"><div class="mc-num">MODULE 08</div><span class="mc-st st-planned">FRAMEWORK COMPLETE</span></div>
-    <div class="mc-b"><div class="mc-title">The 3-Tier Sales Play Model</div><div class="mc-desc">Entry/Expand/Transform deal architecture. Qualification signals per tier. Services pull-through mapping. "Build Your Own" worksheet (3 steps). Sales play distribution template.</div>
-    <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-b">Both</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Agents: <strong>Enablement, Email</strong></div><a href="module_08.html" class="btn btn-plan">Open Module →</a></div></div>
-
-  <div class="mc"><div class="mc-h"><div class="mc-num">MODULE 09</div><span class="mc-st st-planned">FRAMEWORK COMPLETE</span></div>
-    <div class="mc-b"><div class="mc-title">Running Your First QBR</div><div class="mc-desc">Both-sides agenda: vendor delivery + partner DM evaluation. 7-part structure. "Thin data" playbook. QBR agenda pre-send template. Dual perspective from Carl (delivery) and Natalie (evaluation).</div>
-    <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Agents: <strong>QBR Prep</strong></div><a href="module_09.html" class="btn btn-plan">Open Module →</a></div></div>
-
-  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 10</div><span class="mc-st st-built">✓ BUILT · LIVE DATA</span></div>
-    <div class="mc-b"><div class="mc-title">Partnership Kickoff — Post-Contract</div><div class="mc-desc">14-step checklist. 4 activation pillars. 3-tier plays with live Toshiba × CDW data ($1.63M/$10M, $500 SPIF, $50K budget). 90-day timeline. 4 email templates. Win Wire format. Fully interactive.</div>
-    <div class="mc-tags"><span class="vtag v-r">Retail</span> <span class="cp cp-c">Carl</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Agents: <strong>Email, Deal Reg, Pipeline</strong></div><a href="module_10.html" class="btn btn-go">Open Module →</a></div></div>
+    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Deal Lifecycle, Sandler System</strong></div><a href="module_08.html" class="btn btn-go">Open Module →</a></div></div>
 </div>
 
 <!-- ===== PHASE 3 ===== -->
 <div class="phase">
-  <div class="phase-ey">Phase 3 · Months 5–6</div>
-  <div class="phase-t">Scale, Self-Sufficiency & the Agent Layer</div>
-  <div class="phase-d">KPI frameworks, pipeline reporting, leadership communication, and supervised AI agents.</div>
+  <div class="phase-ey">Phase 3 · Modules 9–12</div>
+  <div class="phase-t">Building the Repeatable Channel Motion</div>
+  <div class="phase-d">Sandler-based QBRs. Joint prospecting through partners. Competitive intelligence in the channel. Building the system so Sandler methodology becomes the default, not the exception.</div>
 </div>
 
 <div class="mg">
-  <div class="mc"><div class="mc-h"><div class="mc-num">MODULE 11</div><span class="mc-st st-planned">FRAMEWORK COMPLETE</span></div>
-    <div class="mc-b"><div class="mc-title">KPI Frameworks & Pipeline Reporting</div><div class="mc-desc">3-layer KPI stack (leading/middle/lagging). Win Wire format. Leadership report template. Monthly reporting checklist. Natalie's C-suite channel reporting framework from Expel.</div>
+  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 09</div><span class="mc-st st-built">BUILT</span></div>
+    <div class="mc-b"><div class="mc-title">Partner Business Review (QBR) — Sandler Style</div><div class="mc-desc">Running QBRs that create commitment, not reports. The Sandler QBR agenda: Up-Front Contract, pain review, pipeline diagnosis, next-quarter commitments. What to do when the partner has nothing to show.</div>
     <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Agents: <strong>Pipeline, QBR Prep</strong></div><a href="module_11.html" class="btn btn-plan">Open Module →</a></div></div>
+    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Sandler QBR, UFC</strong></div><a href="module_09.html" class="btn btn-go">Open Module →</a></div></div>
 
-  <div class="mc"><div class="mc-h"><div class="mc-num">MODULE 12</div><span class="mc-st st-planned">FRAMEWORK COMPLETE</span></div>
-    <div class="mc-b"><div class="mc-title">Introduction to the Agent Layer</div><div class="mc-desc">6 agents explained with module mappings. Supervision model (full → graduated → independent). Agent build roadmap. Honest status on technical development. Why training is the prerequisite.</div>
+  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 10</div><span class="mc-st st-built">BUILT</span></div>
+    <div class="mc-b"><div class="mc-title">Prospecting Through Partners</div><div class="mc-desc">How to jointly prospect and source deals through the channel. The joint prospecting call structure. Getting partners to open their accounts to you. Using Pain Funnel language in joint prospecting conversations.</div>
+    <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
+    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Pain Funnel, Joint Prospecting</strong></div><a href="module_10.html" class="btn btn-go">Open Module →</a></div></div>
+
+  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 11</div><span class="mc-st st-built">BUILT</span></div>
+    <div class="mc-b"><div class="mc-title">Competitive Intelligence in Channel</div><div class="mc-desc">Knowing your channel motion vs. direct vs. competitor motions. How partners compare vendors — and what they tell you vs. what they actually think. The competitive conversation framework using Sandler posture.</div>
+    <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
+    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Competitive Intelligence, NRS</strong></div><a href="module_11.html" class="btn btn-go">Open Module →</a></div></div>
+
+  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 12</div><span class="mc-st st-built">BUILT</span></div>
+    <div class="mc-b"><div class="mc-title">Building the Repeatable Channel Motion</div><div class="mc-desc">Systematizing Sandler habits for scale. Weekly, monthly, and quarterly rhythms. Partner tiering through Sandler qualification criteria. Building the operating system that works without willpower. Self-assessment and certification.</div>
     <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-b">Both</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Agents: <strong>All 6</strong></div><a href="module_12.html" class="btn btn-plan">Open Module →</a></div></div>
+    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>All 6 Sandler Frameworks</strong></div><a href="module_12.html" class="btn btn-go">Open Module →</a></div></div>
 </div>
 
 <!-- ===== OUTCOMES ===== -->
 <div style="margin-top:44px;padding-top:36px;border-top:2px solid var(--ink);">
-<div class="sl">Pilot Outcomes — Defined Before First Enrollment</div>
+<div class="sl">Pilot Outcomes — Measured from Day 1</div>
 <h2>What We're Measuring</h2>
 <div class="og">
-  <div class="oc"><div class="oc-l">Leading</div><div class="oc-t">Deal Reg Submission Rate</div><div class="oc-d">Before vs. after training at 30/60/90 days.</div></div>
-  <div class="oc"><div class="oc-l">Leading</div><div class="oc-t">Partner Response Rate</div><div class="oc-d">Reply rate on co-sell asks before vs. after.</div></div>
-  <div class="oc"><div class="oc-l">Leading</div><div class="oc-t">Time to First Pipeline</div><div class="oc-d">Days from enrollment to first partner-sourced opp.</div></div>
+  <div class="oc"><div class="oc-l">Behavior</div><div class="oc-t">Up-Front Contract Usage</div><div class="oc-d">% of partner conversations starting with a UFC. Baseline vs. 30/60/90 days.</div></div>
+  <div class="oc"><div class="oc-l">Behavior</div><div class="oc-t">Qualification Rate</div><div class="oc-d">Partners disqualified early using Pain Funnel vs. time wasted on unqualified partners.</div></div>
+  <div class="oc"><div class="oc-l">Behavior</div><div class="oc-t">No-Free-Consulting Incidents</div><div class="oc-d">Reduction in IP given before commitment. Tracked via deal notes and manager review.</div></div>
   <div class="oc"><div class="oc-l">Lagging</div><div class="oc-t">Partner-Sourced Revenue</div><div class="oc-d">Revenue at 6 months vs. pre-enrollment baseline.</div></div>
   <div class="oc"><div class="oc-l">Engagement</div><div class="oc-t">Completion Rate</div><div class="oc-d">% completing all 12 modules. Target: 70%+.</div></div>
-  <div class="oc"><div class="oc-l">Confidence</div><div class="oc-t">Channel Confidence Score</div><div class="oc-d">Pre/post survey. Expected: 3–4 point increase.</div></div>
+  <div class="oc"><div class="oc-l">Confidence</div><div class="oc-t">Sandler Posture Score</div><div class="oc-d">Pre/post self-assessment on Sandler framework fluency. Expected: 3–4 point increase.</div></div>
 </div>
 </div>
 
 <!-- ===== FAQ ===== -->
 <div style="margin-top:36px;padding-top:32px;border-top:1px solid var(--rule);">
 <div class="sl">Buyer FAQ</div>
-<h2>The Questions a Startup Buyer Would Ask</h2>
-<div class="faq"><div class="faq-q">"Is the full curriculum recorded when I sign up?"</div><div class="faq-a">Phase 1 modules (1–4) will be complete at launch. Phases 2–3 delivered on a rolling SLA. Pilot pricing reflects this. You get a written completion timeline.</div></div>
-<div class="faq"><div class="faq-q">"My partner is Optiv, not CDW. Does this transfer?"</div><div class="faq-a">The frameworks are structurally identical across VARs. Modules use multi-vertical examples. Team licenses get custom scenarios for your specific product and partners.</div></div>
-<div class="faq"><div class="faq-q">"What about the non-compete risk?"</div><div class="faq-a">Both founders' employment agreements are reviewed by an attorney before any customer contact. No enrollment until clear. Full refund contingency if a problem surfaces.</div></div>
-<div class="faq"><div class="faq-q">"What does the certification mean?"</div><div class="faq-a">Practitioner credential — proof of specific skills. No CompTIA/CRN affiliation yet (Year 2). Value comes from the skills and the practitioner credibility behind them.</div></div>
-<div class="faq"><div class="faq-q">"How do I know this works?"</div><div class="faq-a">6 pilot KPIs measured from Day 1, published after first 6-month cycle. If you're the first buyer, you get pilot pricing and direct founder access in exchange for being the proof point.</div></div>
+<h2>The Questions a Buyer Would Ask</h2>
+<div class="faq"><div class="faq-q">"Is this a Sandler-licensed program?"</div><div class="faq-a">No. We've adapted Sandler's publicly documented methodology — Pain Funnel, UFC, NRS, DISC, I/R Theory, No-Free-Consulting — specifically for the indirect channel. The frameworks are Sandler's. The channel application is ours.</div></div>
+<div class="faq"><div class="faq-q">"My partner is Optiv, not CDW. Does this transfer?"</div><div class="faq-a">The Sandler frameworks are structurally identical across partner types. Whether you work with VARs, MSPs, distributors, or ISVs, the Pain Funnel qualifies the same way. Scenarios are drawn from multiple partner types.</div></div>
+<div class="faq"><div class="faq-q">"Do my AEs need Sandler training first?"</div><div class="faq-a">No prior Sandler training required. The program introduces each framework from first principles and applies it immediately to partner situations. Direct-sales Sandler experience is helpful but not a prerequisite.</div></div>
+<div class="faq"><div class="faq-q">"What is Blitz Masters and do we need it?"</div><div class="faq-a">Blitz Masters is a separate Partna Company program focused on high-intensity outbound prospecting — call blitzes, accountability sprints, volume habits. It's recommended pre-work. If your AEs are already generating sufficient partner conversations, Channel-Ready AE alone is sufficient.</div></div>
+<div class="faq"><div class="faq-q">"What does the certificate mean?"</div><div class="faq-a">The Channel-Ready AE certificate demonstrates practitioner-level fluency in six Sandler frameworks as applied to the indirect channel. It's a credential that differentiates AEs who can quantify their channel methodology from those who cannot.</div></div>
 </div>
 
 <!-- ===== READINESS ===== -->
 <div style="margin-top:36px;padding-top:32px;border-top:1px solid var(--rule);">
-<div class="sl">Launch Readiness</div>
-<h2>What's Done, Pending, and Blocking</h2>
+<div class="sl">Program Readiness</div>
+<h2>What's Built and What's In Progress</h2>
 <div class="rg">
-  <div class="rc"><div class="rs rs-d">COMPLETE</div><h4>Module 10 — Live Data</h4><p>Fully interactive with Toshiba × CDW case. The proof of concept.</p></div>
-  <div class="rc"><div class="rs rs-d">COMPLETE</div><h4>All 12 Module Frameworks</h4><p>Every module built with tabbed content, checklists, templates, and scenarios.</p></div>
-  <div class="rc"><div class="rs rs-d">COMPLETE</div><h4>Business Plan v3</h4><p>Revenue model, pricing, risk analysis. Stress-tested through buyer review.</p></div>
-  <div class="rc"><div class="rs rs-p">IN PROGRESS</div><h4>Module 05 — Natalie IP</h4><p>Expel cybersecurity case replacing generic framework. Target: May 2026.</p></div>
+  <div class="rc"><div class="rs rs-d">COMPLETE</div><h4>All 12 Modules Built</h4><p>Every module complete with tabbed content, scenarios, frameworks, and scripts.</p></div>
+  <div class="rc"><div class="rs rs-d">COMPLETE</div><h4>Six Sandler Frameworks Adapted</h4><p>I/R Theory, Pain Funnel, UFC, NRS, DISC, No-Free-Consulting — all mapped to channel.</p></div>
+  <div class="rc"><div class="rs rs-d">COMPLETE</div><h4>Business Plan v1</div><p>Revenue model, pricing, risk analysis. $400/seat/month. Break-even Month 8.</p></div>
+  <div class="rc"><div class="rs rs-p">IN PROGRESS</div><h4>Blitz Masters Integration</h4><p>Bundle enrollment pathway and pre-work recommendations. Target: May 2026.</p></div>
   <div class="rc"><div class="rs rs-b">BLOCKING</div><h4>Non-Compete Legal Review</h4><p>Highest priority. No customer contact until clear. Budget: $1,500–$2,500.</p></div>
-  <div class="rc"><div class="rs rs-b">BLOCKING</div><h4>LLC Formation</h4><p>New Illinois LLC. Blocked on entity name and equity split. Target: April 2026.</p></div>
-  <div class="rc"><div class="rs rs-b">BLOCKING</div><h4>Kajabi Portal</h4><p>Course platform. Needs recorded modules. Target: May 2026.</p></div>
-  <div class="rc"><div class="rs rs-b">BLOCKING</div><h4>Agent Technical Build</h4><p>Separate product. Needs contractor. Does not gate training launch.</p></div>
+  <div class="rc"><div class="rs rs-b">BLOCKING</div><h4>LLC Formation</h4><p>New Illinois LLC under Partna Company. Target: April 2026.</p></div>
 </div>
 </div>
 
 <div class="footer">
   <div><div class="footer-brand">Channel-<em>Ready</em> AE</div>
-  <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">CURRICULUM BINDER · V3.0 · MARCH 2026 · ALL MODULES BUILT</div></div>
-  <div class="footer-meta"><div><a href="business_plan.html" style="color:var(--gold);text-decoration:none;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;">View Business Plan →</a></div><div>CARL & NATALIE CLENDENIN</div><div>12 MODULES · 6 AGENTS · 2 FOUNDERS · STRESS-TESTED</div></div>
+  <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">CURRICULUM BINDER · SANDLER CHANNEL EDITION · MARCH 2026</div></div>
+  <div class="footer-meta"><div><a href="business_plan.html" style="color:var(--gold);text-decoration:none;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;">View Business Plan →</a></div><div>CARL &amp; NATALIE CLENDENIN</div><div>12 MODULES · 6 SANDLER FRAMEWORKS · PARTNA COMPANY</div></div>
 </div>
 
 </div>
