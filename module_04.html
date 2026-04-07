@@ -57,6 +57,10 @@
     footer .brand{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--text-dim)}.brand em{color:var(--accent);font-style:normal}
     footer .meta{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
     @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.page-wrap{padding:40px 20px 80px}.stats{flex-wrap:wrap}.cards,.cards3{grid-template-columns:1fr}.consulting-strip{flex-direction:column}footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px}}
+
+    .subnav{display:flex;gap:6px;flex-wrap:wrap;padding:14px 0;margin-bottom:36px;border-bottom:1px solid var(--border)}
+    .subnav a{font-family:var(--font-head);font-size:12px;font-weight:600;letter-spacing:0.04em;color:var(--text-dim);text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:2px;transition:color 0.15s,border-color 0.15s,background 0.15s;white-space:nowrap}
+    .subnav a:hover{color:var(--accent);border-color:var(--accent-border);background:var(--accent-dim)}
 </style>
 </head>
 <body>
@@ -81,8 +85,15 @@
     <span class="mod-nav-mid">Phase 1 &middot; Pain Funnel · Diagnosis</span>
     <a href="module_05.html">Module 05 &rarr;</a>
   </div>
+
+  <nav class="subnav">
+    <a href="#the-pain-funnel-doesn-t-change-in-channe">Pain Funnel doesn't change</a>
+    <a href="#two-pain-funnels-partner-pain-and-custom">Two Pain Funnels</a>
+    <a href="#feature-interest-vs-real-pain-the-most-i">Feature interest vs. real pain</a>
+    <a href="#field-notes-the-pain-funnel-in-the-wild">Field Notes</a>
+  </nav>
   <div class="fw-badge"><span>&or;</span><span>Channel Activation System&trade; &mdash; Pain Funnel · Diagnosis</span></div>
-<div class="section"><h2>The Pain Funnel doesn't change in channel. What changes is <em>who has the pain.</em></h2>
+<div class="section" id="the-pain-funnel-doesn-t-change-in-channe"><h2>The Pain Funnel doesn't change in channel. What changes is <em>who has the pain.</em></h2>
 <p>In direct sales, the Pain Funnel uncovers the buyer's pain. In channel sales, there are two pain sources to diagnose: the partner's pain (why they're not selling as much as they should be) and the end-customer's pain (why the customer needs your product). A channel AE who confuses these two types of pain — or who skips pain diagnosis entirely and jumps to a product pitch — produces conversations that partners forget before the call ends.</p>
 <p>The Pain Funnel's three levels move from surface-level problem to business impact to real pain. The goal is not to find out what the partner or customer likes about your product. The goal is to find out what it costs them to not have it — in lost revenue, customer churn, operational friction, or competitive disadvantage. That cost is the foundation of every compelling argument for moving forward.</p>
 <div class="insight"><div class="insight-lbl">The Core Insight</div><p><strong>Partners don't buy on features. They sell on customer pain. Your job is to help them articulate that pain before they're in front of the customer — so they're not figuring it out in real time at your expense.</strong></p></div>
@@ -91,7 +102,7 @@
   <div class="card"><div class="card-lbl">What You'll Practice</div><p>Diagnosing partner pain in the onboarding and QBR context. Running a joint customer call where the Pain Funnel drives the discovery instead of a feature walkthrough. Recognizing when a partner is describing feature interest, not real pain.</p></div>
   <div class="card"><div class="card-lbl">What Changes After</div><p>Partners come to joint calls prepared to talk about customer pain instead of product specs. Your win rate on co-sell deals improves because discovery happens before the demo, not during it.</p></div>
 </div></div>
-<div class="section"><h2>Two Pain Funnels: <em>Partner pain and customer pain.</em></h2>
+<div class="section" id="two-pain-funnels-partner-pain-and-custom"><h2>Two Pain Funnels: <em>Partner pain and customer pain.</em></h2>
 <h3>Diagnosing Partner Pain</h3>
 <p>Partner pain is the friction the partner experiences in their current vendor mix — missed revenue, customer escalations, margin compression, or competitive pressure. It's the reason they'd allocate more time and energy to selling your product over alternatives. If you can't articulate the partner's pain in their own terms, you haven't done the qualification work.</p>
 <div class="script"><div class="script-lbl">Partner Pain Funnel — Level 1</div><p>"How are your current vendor relationships working for you in this space?" (Surface problem)</p></div>
@@ -100,7 +111,7 @@
 <h3>Diagnosing Customer Pain in a Joint Call</h3>
 <p>On joint customer calls, the Pain Funnel runs through the partner — not around them. The partner has the customer relationship; you have the diagnostic framework. Prepare the partner to ask the Pain Funnel questions themselves, with your coaching in advance and your support in the room.</p>
 <div class="script"><div class="script-lbl">Customer Pain Funnel — Joint Call Setup (Coach the Partner Before)</div><p>"In this call, let's lead with their environment before we talk about our product. Ask them: what's the current state of [problem area], what's it costing them, and how long it's been an issue. That diagnostic is worth more than any demo we could run."</p></div></div>
-<div class="section"><h2>Feature interest vs. real pain — <em>the most important distinction in channel.</em></h2>
+<div class="section" id="feature-interest-vs-real-pain-the-most-i"><h2>Feature interest vs. real pain — <em>the most important distinction in channel.</em></h2>
 <p>The most common failure mode in channel co-sell calls: the partner opens with a product pitch instead of a pain diagnosis, the customer asks a few feature questions, the demo runs without any pain established, and the deal stalls at evaluation with no urgency to close.</p>
 <p>Feature interest is "that looks useful." Real pain is "we've lost three customers this year because we couldn't solve this." The closing velocity on a real-pain deal is 3–5x faster than on a feature-interest deal because the customer has a compelling reason to act. Your job in the co-sell motion is to help the partner run the conversation that surfaces real pain — not the conversation that produces a lukewarm demo request.</p>
 <h3>What Partners Say vs. What They Mean</h3>
@@ -109,7 +120,7 @@
   <div class="card"><div class="card-lbl">Partner Says</div><h4>"I have a hot deal for you."</h4><p>What they mean: a customer is interested. Pain may or may not have been diagnosed. Ask: "What pain is driving the urgency? What happens if they don't solve this in the next 90 days?" If they can't answer, it's not as hot as they think.</p></div>
 </div>
 <div class="script"><div class="script-lbl">Redirecting a Feature Pitch Back to Pain</div><p>"Before we walk through the product, help me understand your customer's current situation. What problem are they trying to solve, and what's it costing them today? That's going to make the demo a lot more relevant."</p></div></div>
-<div class="section"><h2>Field Notes: The Pain Funnel in the wild.</h2>
+<div class="section" id="field-notes-the-pain-funnel-in-the-wild"><h2>Field Notes: The Pain Funnel in the wild.</h2>
 <h3>The Partner Who Thinks They Know the Pain</h3>
 <p>Experienced partners often short-circuit the Pain Funnel because they believe they already know what their customer needs. Resist the urge to let them. Even accurate assumptions miss nuance that the Pain Funnel surfaces — and that nuance is often the difference between a stalled evaluation and a closed deal. Run the Pain Funnel even when you think you know the answer.</p>
 <div class="warn"><div class="warn-lbl">The Level 3 Pain Shortcut</div><p>Level 3 pain — the real, emotionally charged pain — often comes out in casual conversation rather than structured discovery. Train yourself to listen for it everywhere: a partner's offhand comment about a customer who threatened to switch vendors, a customer's sigh when you mention a competitor's name, a technical contact's frustration with a process that "we've been trying to fix for two years." These are Level 3 signals. Stop and go deeper.</p></div>
