@@ -2,8 +2,73 @@
   publish = "."
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/curriculum"
+  to = "/curriculum.html"
+  status = 200
+
+[[redirects]]
+  from = "/business_plan"
+  to = "/business_plan.html"
+  status = 200
+
+[[redirects]]
+  from = "/module_01"
+  to = "/module_01.html"
+  status = 200
+
+[[redirects]]
+  from = "/module_02"
+  to = "/module_02.html"
+  status = 200
+
+[[redirects]]
+  from = "/module_03"
+  to = "/module_03.html"
+  status = 200
+
+[[redirects]]
+  from = "/module_04"
+  to = "/module_04.html"
+  status = 200
+
+[[redirects]]
+  from = "/module_05"
+  to = "/module_05.html"
+  status = 200
+
+[[redirects]]
+  from = "/module_06"
+  to = "/module_06.html"
+  status = 200
+
+[[redirects]]
+  from = "/module_07"
+  to = "/module_07.html"
+  status = 200
+
+[[redirects]]
+  from = "/module_08"
+  to = "/module_08.html"
+  status = 200
+
+[[redirects]]
+  from = "/module_09"
+  to = "/module_09.html"
+  status = 200
+
+[[redirects]]
+  from = "/module_10"
+  to = "/module_10.html"
+  status = 200
+
+[[redirects]]
+  from = "/module_11"
+  to = "/module_11.html"
+  status = 200
+
+[[redirects]]
+  from = "/module_12"
+  to = "/module_12.html"
   status = 200
 
 [build.environment]
