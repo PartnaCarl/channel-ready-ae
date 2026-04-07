@@ -1,446 +1,759 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Business Plan — Channel-Ready AE</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;
-  --gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;
-  --rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;
-  --green:#1e3a2f;--green-light:#e8f4ee;
-  --red:#7a1e1e;--red-bg:#fdf0f0;
-  --amber:#7a4a00;--amber-bg:#fff8ec;
-  --nat:#5a3a7a;--nat-bg:#f5f0fa;--nat-bdr:#c8a8e8;
-  --carl:#1a3d5c;--carl-bg:#edf3f8;--carl-bdr:#a0c0d8;
-  --blue-pale:#e8f0f8;--green-bg:#eaf4ee;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Plan — Channel-Ready AE</title>
+  <meta name="description" content="Business Plan v1.1 — Channel-Ready AE. Sandler-based channel sales training program. Revenue model, projections, risk analysis, and 18-month roadmap." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a; --ink: #111111; --surface: #161616;
+      --border: #242424; --muted: #333333;
+      --text-dim: #888888; --text: #d4d4d4; --white: #f5f5f5;
+      --accent: #e8c547;
+      --accent-dim: rgba(232,197,71,0.10);
+      --accent-border: rgba(232,197,71,0.28);
+      --blue: #60a5fa; --blue-dim: rgba(96,165,250,0.10); --blue-border: rgba(96,165,250,0.25);
+      --red: #f87171; --red-dim: rgba(248,113,113,0.10); --red-border: rgba(248,113,113,0.25);
+      --green: #4ade80; --green-dim: rgba(74,222,128,0.10); --green-border: rgba(74,222,128,0.25);
+      --font-head: 'Cormorant Garamond', serif; --font-body: 'Crimson Pro', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
-.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
-.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
-.hero h1 em{color:var(--gold-light);font-style:italic;}
-.hero-sub{font-size:17px;color:#6a7a8a;max-width:580px;position:relative;margin-bottom:32px;}
-.hero-stats{display:flex;gap:40px;position:relative;flex-wrap:wrap;}
-.hero-stat{font-family:'DM Mono',monospace;}
-.hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
-.hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,10,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    .nav-logo { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo em { color: var(--accent); font-style: normal; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta { background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 18px; border-radius: 3px; text-decoration: none; transition: opacity 0.15s; }
+    .nav-cta:hover { opacity: 0.85; }
 
-.ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ref-bar.gold-bar{background:#1a1800;}
-.ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
-.ref-text{font-size:13px;}
+    /* PAGE HEADER */
+    .page-header { border-bottom: 1px solid var(--border); padding: 72px 40px 56px; max-width: 1100px; margin: 0 auto; }
+    .breadcrumb { font-size: 12px; color: var(--text-dim); margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .page-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .page-title { font-family: var(--font-head); font-size: clamp(40px, 5vw, 60px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: var(--white); margin-bottom: 20px; }
+    .page-title em { color: var(--accent); font-style: normal; }
+    .page-sub { font-size: 17px; color: var(--text-dim); max-width: 640px; line-height: 1.75; margin-bottom: 36px; }
+    .kpi-row { display: flex; gap: 40px; flex-wrap: wrap; padding-top: 4px; }
+    .kpi { }
+    .kpi-value { font-family: var(--font-head); font-size: 28px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
+    .kpi-label { font-size: 12px; color: var(--text-dim); letter-spacing: 0.04em; }
+    .kpi-value.accent { color: var(--accent); }
 
-.breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.breadcrumb a{text-decoration:none;}
+    /* NAV SIDEBAR */
+    .content-layout { max-width: 1100px; margin: 0 auto; padding: 60px 40px; display: grid; grid-template-columns: 200px 1fr; gap: 64px; align-items: start; }
+    .sidebar { position: sticky; top: 80px; }
+    .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .sidebar-nav a { font-size: 13px; color: var(--text-dim); text-decoration: none; padding: 8px 12px; border-radius: 3px; display: block; transition: color 0.15s, background 0.15s; border-left: 2px solid transparent; }
+    .sidebar-nav a:hover { color: var(--white); background: var(--surface); border-left-color: var(--border); }
 
-.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:0;z-index:20;overflow-x:auto;}
-.nav-tab{padding:14px 22px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
-.nav-tab:hover{color:var(--accent);}
-.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
+    /* CONTENT */
+    .content { min-width: 0; }
+    .section { margin-bottom: 72px; }
+    .section-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+    .section-title { font-family: var(--font-head); font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--white); margin-bottom: 20px; }
+    .section-title em { color: var(--accent); font-style: normal; }
+    .section-body { font-size: 15px; color: var(--text-dim); line-height: 1.8; margin-bottom: 32px; max-width: 660px; }
+    hr.rule { border: none; border-top: 1px solid var(--border); margin: 72px 0; }
 
-.content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}
-.panel.active{display:block;}
+    /* CALLOUT */
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); padding: 20px 24px; border-radius: 0 3px 3px 0; margin: 24px 0; }
+    .callout p { font-size: 15px; color: var(--text); font-style: italic; line-height: 1.7; }
 
-.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
-h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
-h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
-p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-.pull{font-family:'Libre Baskerville',serif;font-size:19px;font-style:italic;color:var(--ink);border-left:4px solid var(--gold-light);padding:16px 28px;margin:24px 0;line-height:1.5;background:var(--white);}
+    /* CARDS */
+    .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+    .card-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .card { background: var(--surface); padding: 28px; }
+    .card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .card h4 { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em; }
+    .card p { font-size: 13px; color: var(--text-dim); line-height: 1.7; }
+    .card-new { border-top: 2px solid var(--accent); }
 
-.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
-.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
-.callout strong{color:var(--gold-light);}
-.exec-box{background:var(--gold-pale);border:1px solid var(--gold-light);border-left:4px solid var(--gold-light);padding:28px 32px;margin:24px 0;}
-.exec-box p{color:#3a2810;margin-bottom:10px;font-size:15px;}
-.exec-box p:last-child{margin:0;}
+    /* MARKET STATS */
+    .market-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 32px; }
+    .market-card { background: var(--surface); padding: 32px 28px; }
+    .market-number { font-family: var(--font-head); font-size: 36px; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; margin-bottom: 4px; }
+    .market-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+    .market-card p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
 
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:20px 0;}
-.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin:20px 0;}
-.card{border:1px solid var(--rule);padding:22px;background:var(--white);border-radius:4px;}
-.card.gt{border-top:3px solid var(--gold);}
-.card.at{border-top:3px solid var(--accent);}
-.card.gnt{border-top:3px solid var(--green);}
-.card.rt{border-top:3px solid var(--red);}
-.card h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.card p{font-size:13px;margin:0;color:var(--muted);line-height:1.6;}
-.card .big{font-family:'Libre Baskerville',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:6px;}
-.card .green{color:var(--green);font-weight:700;}
-.card .red{color:var(--red);}
+    /* TABLE */
+    table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+    thead { background: var(--ink); }
+    th { font-family: var(--font-head); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    td { padding: 13px 16px; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--ink); }
+    .td-accent { color: var(--accent); font-family: var(--font-head); font-weight: 700; }
+    .td-white { color: var(--white); font-weight: 500; }
+    .td-new { color: var(--blue); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--blue-dim); border: 1px solid var(--blue-border); padding: 2px 7px; border-radius: 2px; display: inline-block; vertical-align: middle; margin-left: 8px; }
 
-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;}
-thead tr{background:var(--ink);}
-thead th{padding:11px 16px;text-align:left;color:#c8b88a;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;font-weight:400;}
-tbody tr{border-bottom:1px solid var(--rule);}
-tbody tr:nth-child(even){background:var(--warm);}
-tbody td{padding:11px 16px;color:#2e2820;}
-tbody td.mono{font-family:'DM Mono',monospace;font-size:13px;}
-tbody td.pos{color:var(--green);font-weight:700;}
-tbody td.neg{color:var(--red);}
-tbody td.gold{color:var(--gold);font-weight:700;}
-tfoot tr{background:var(--gold-pale);border-top:2px solid var(--gold-light);}
-tfoot td{padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);}
-.tnote{font-size:12px;color:var(--muted);margin-top:6px;font-style:italic;}
+    /* RISK BADGE */
+    .risk-low { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--green-dim); border: 1px solid var(--green-border); padding: 2px 7px; border-radius: 2px; white-space: nowrap; }
+    .risk-med { color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 2px 7px; border-radius: 2px; white-space: nowrap; }
+    .risk-high { color: var(--red); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--red-dim); border: 1px solid var(--red-border); padding: 2px 7px; border-radius: 2px; white-space: nowrap; }
 
-.risk-badge{display:inline-block;padding:2px 10px;border-radius:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;font-weight:500;}
-.risk-h{background:var(--red-bg);color:var(--red);}
-.risk-m{background:var(--amber-bg);color:var(--amber);}
-.risk-l{background:var(--green-bg);color:var(--green);}
+    /* SCENARIO BLOCKS */
+    .scenario-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+    .scenario { background: var(--surface); padding: 28px 24px; }
+    .scenario-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+    .scenario-value { font-family: var(--font-head); font-size: 28px; font-weight: 800; letter-spacing: -0.03em; color: var(--white); margin-bottom: 4px; }
+    .scenario p { font-size: 12px; color: var(--text-dim); line-height: 1.6; }
 
-.rm-item{display:grid;grid-template-columns:90px 1fr;margin-bottom:3px;}
-.rm-badge{background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 10px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:#3a4050;text-align:center;gap:3px;}
-.rm-badge strong{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold-light);display:block;font-weight:700;letter-spacing:0;line-height:1;}
-.rm-body{background:var(--white);border:1px solid var(--rule);border-left:3px solid var(--accent);padding:14px 20px;}
-.rm-body h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:5px;}
-.rm-body p{font-size:13px;color:var(--muted);margin:0;line-height:1.6;}
+    /* FOUNDERS */
+    .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .founder { background: var(--surface); padding: 36px 32px; }
+    .founder-name { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 4px; }
+    .founder-role { font-size: 13px; color: var(--accent); margin-bottom: 20px; }
+    .founder-bio { font-size: 14px; color: var(--text-dim); line-height: 1.7; margin-bottom: 20px; }
+    .founder-list { list-style: none; }
+    .founder-list li { font-size: 13px; color: var(--text-dim); padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; gap: 10px; }
+    .founder-list li:last-child { border-bottom: none; }
+    .founder-list li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
 
-.founder-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
-.founder-card{border:1px solid var(--rule);padding:24px;background:var(--white);border-top:3px solid var(--accent);}
-.founder-name{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;margin-bottom:4px;}
-.founder-role{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:14px;}
+    /* ROADMAP */
+    .roadmap { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .roadmap-item { background: var(--surface); padding: 24px 28px; display: grid; grid-template-columns: 80px 1fr; gap: 24px; align-items: start; }
+    .roadmap-date { font-family: var(--font-head); font-size: 13px; font-weight: 800; color: var(--accent); letter-spacing: -0.01em; }
+    .roadmap-title { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; letter-spacing: -0.01em; }
+    .roadmap-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+    .roadmap-new { border-left: 3px solid var(--blue); }
 
-.enter-block{background:var(--ink);padding:48px 40px;margin:40px -40px -80px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
-.enter-block h3{font-family:'Libre Baskerville',serif;font-size:26px;color:#f0e8d8;font-weight:700;max-width:480px;line-height:1.2;}
-.enter-block h3 em{color:var(--gold-light);font-style:italic;}
-.enter-cta-group{display:flex;flex-direction:column;gap:12px;flex-shrink:0;}
-.enter-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-decoration:none;border-radius:4px;transition:all 0.2s;font-weight:500;}
-.enter-primary{background:var(--gold-light);color:var(--ink);}
-.enter-primary:hover{background:#e8c050;}
-.enter-secondary{background:transparent;border:1px solid #2a3040;color:#5a6878;}
-.enter-secondary:hover{border-color:#4a6080;color:#8aaac8;}
+    /* COMPETITIVE */
+    .competitive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+    .comp-card { background: var(--surface); padding: 28px; }
+    .comp-vs { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+    .comp-card h4 { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .comp-card p { font-size: 13px; color: var(--text-dim); line-height: 1.7; }
+    .comp-our { border-top: 2px solid var(--accent); }
+    .comp-our .comp-vs { color: var(--accent); }
 
-@media(max-width:800px){
-  .hero{padding:40px 24px 36px;}
-  .hero h1{font-size:30px;}
-  .breadcrumb{padding:10px 24px;}
-  .content{padding:32px 20px 60px;}
-  .g2,.g3,.g4,.founder-grid{grid-template-columns:1fr;}
-  .enter-block{padding:32px 20px;margin:32px -20px -60px;flex-direction:column;}
-}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}</style>
+    footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
+    .footer-brand { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--text-dim); }
+    .footer-brand em { color: var(--accent); font-style: normal; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-header { padding-left: 20px; padding-right: 20px; }
+      .content-layout { grid-template-columns: 1fr; padding: 40px 20px; }
+      .sidebar { display: none; }
+      .card-grid, .card-grid-3, .market-grid, .scenario-row, .founder-grid, .competitive-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
 </head>
-<body><nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#who">Who It's For</a></li><li><a href="index.html#program">Program</a></li><li><a href="index.html#methodology">Methodology</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Instructors</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="business_plan.html">Business Plan</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Enroll Now</a></nav>
+<body>
 
-<div class="hero">
-  <div class="hero-tag">Business Plan · Version 1.0 · March 2026 · Confidential · Partna Company</div>
-  <h1>Sandler for channel.<br>The only <em>program that exists.</em></h1>
-  <div class="hero-sub">A practitioner-built Sandler Sales methodology training program for channel AEs at B2B technology companies. $400/seat/month. No incumbent in the niche.</div>
-  <div class="hero-stats">
-    <div class="hero-stat"><strong>$400</strong><span>Per Seat / Month</span></div>
-    <div class="hero-stat"><strong>$108K</strong><span>Year 1 Target</span></div>
-    <div class="hero-stat"><strong>$319K</strong><span>Year 2 Target</span></div>
-    <div class="hero-stat"><strong>12</strong><span>Modules Built</span></div>
-    <div class="hero-stat"><strong>88%</strong><span>Gross Margin</span></div>
-    <div class="hero-stat"><strong>Mo. 8</strong><span>Break-Even</span></div>
-  </div>
-</div>
+<nav>
+  <a href="/" class="nav-logo">Channel-<em>Ready</em> AE</a>
+  <ul class="nav-links">
+    <li><a href="/#who">Who It's For</a></li>
+    <li><a href="/#program">Program</a></li>
+    <li><a href="/#methodology">Methodology</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#founders">Instructors</a></li>
+    <li><a href="/curriculum">Curriculum</a></li>
+    <li><a href="/business_plan" class="active">Business Plan</a></li>
+  </ul>
+  <a href="/#apply" class="nav-cta">Enroll Now</a>
+</nav>
 
-<div class="ref-bar gold-bar">
-  <span class="ref-tag" style="color:#5a4a20;">Founders</span>
-  <span class="ref-text" style="color:#3a3020;">Carl Clendenin (Toshiba GCS) &amp; Natalie Clendenin (Expel · CRN Women of the Channel 2025)</span>
-</div>
-
-<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
-  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
-  <span style="color:#2a3a2a;">›</span>
-  <span style="color:#6a9a6a;">Business Plan</span>
-  <span style="margin-left:auto;color:#2a3a2a;">← <a href="curriculum.html" style="color:#3a5a3a;">Back to Binder</a></span>
-</div>
-
-<div class="nav-tabs">
-  <button class="nav-tab active" onclick="showPanel('summary')">Overview</button>
-  <button class="nav-tab" onclick="showPanel('problem')">The Problem</button>
-  <button class="nav-tab" onclick="showPanel('product')">Product</button>
-  <button class="nav-tab" onclick="showPanel('market')">Market</button>
-  <button class="nav-tab" onclick="showPanel('revenue')">Revenue Model</button>
-  <button class="nav-tab" onclick="showPanel('projections')">Projections</button>
-  <button class="nav-tab" onclick="showPanel('risks')">Risks</button>
-  <button class="nav-tab" onclick="showPanel('founders')">Founders</button>
-  <button class="nav-tab" onclick="showPanel('roadmap')">Roadmap</button>
-</div>
-
-<div class="content">
-
-<!-- OVERVIEW -->
-<div class="panel active" id="panel-summary">
-  <div class="section-label">Executive Summary</div>
-  <h2>The one-page version.</h2>
-  <div class="exec-box">
-    <p><strong>Channel-Ready AE</strong> is a B2B sales training company that licenses a Sandler Sales methodology program specifically adapted for channel Account Executives. The program teaches quota-carrying AEs at technology companies how to apply the Sandler system — Pain Funnel, Up-Front Contracts, Negative Reverse Selling, DISC, Identity/Role Theory, and No-Free-Consulting — to the indirect channel, where the buyer is a partner rep, not an end customer.</p>
-    <p>The curriculum is built from practitioner IP: Carl Clendenin's 10+ years running the enterprise VAR ecosystem at Toshiba (CDW, SHI, Insight, WWT, and seven more national VARs), and Natalie Clendenin's channel AE experience at Expel, LastPass, Okta, and CDW. All 12 modules are built. The Blitz Masters outbound program is a companion product recommended as pre-work for students building prospecting habits alongside Sandler methodology.</p>
-    <p>Pricing: <strong>$400 per seat per month</strong>. Year 1 target: <strong>$108,000</strong>. Year 2 with growing enrollment and certificate renewals: <strong>$319,000</strong>. Break-even at Month 8 from first sale. Gross margin: 88% on training revenue.</p>
-  </div>
-  <div class="g4">
-    <div class="card gt"><div class="big">$400</div><h4>Per Seat / Month</h4><p>Core pricing. Team licenses billed per seat at the same rate.</p></div>
-    <div class="card gt"><div class="big">$108K</div><h4>Year 1 Revenue</h4><p>Base case: 20–25 active seats by Month 6.</p></div>
-    <div class="card gt"><div class="big">Mo. 8</div><h4>Break-Even</h4><p>All startup costs recovered. Monthly burn: $342/mo.</p></div>
-    <div class="card gt"><div class="big">88%</div><h4>Gross Margin</h4><p>Training revenue. High-margin, low-variable-cost model.</p></div>
-  </div>
-
-  <div class="callout">
-    <div class="callout-tag">WHY NOW</div>
-    Sandler, Challenger, MEDDIC, and SPIN Selling all teach direct sales. Zero programs exist for the indirect channel — where AEs must qualify partners instead of customers, protect IP from partners who shop it to competitors, and run QBRs that create commitment instead of reporting. <strong>The niche is unoccupied. The problem is live at every B2B tech company with a partner ecosystem.</strong>
-  </div>
-</div>
-
-<!-- PROBLEM -->
-<div class="panel" id="panel-problem">
-  <div class="section-label">The Problem</div>
-  <h2>Channel AEs are trained to close direct. The indirect model requires a different system.</h2>
-  <p>Technology companies at every stage route revenue through partners — VARs, MSPs, distributors, ISVs. The AEs managing those relationships were trained in direct-sales methodology. They pitch. They give away IP. They build business plans for partners who take the analysis to a lower-priced competitor. They run QBRs that report on the past instead of committing the future.</p>
-  <div class="pull">"The channel AE who gives away free consulting is the channel AE who has no pipeline. The Sandler system fixes this — but no one has adapted it for the channel. Until now."</div>
-  <div class="g2">
-    <div class="card rt"><h4>The Training Gap</h4><p>Sandler, MEDDIC, Challenger, and SPIN Selling all target direct-sales AEs. The indirect channel has a fundamentally different dynamic: the partner is not the buyer, joint sales require different qualification, and IP protection is a survival skill. Zero programs address this.</p></div>
-    <div class="card rt"><h4>The Cost of No-Framework</h4><p>Channel AEs without a Sandler framework over-invest in unqualified partners, give away technical resources before commitment, and accept non-committal QBRs as normal. Each free consulting engagement is margin bled directly to a competitor.</p></div>
-    <div class="card rt"><h4>The Market Tailwind</h4><p>Post-2022 VC pressure compressed channel teams at nearly every B2B tech company. AEs inherited the partner motion without training. The problem is larger in 2026 than it was in 2022 — and growing.</p></div>
-    <div class="card rt"><h4>No Incumbent in the Niche</h4><p>Channel consulting firms (Spur Reply, JS Group) target large enterprises at $50K+ minimums. Sandler's licensed partners teach direct-sales methodology. The Sandler-for-channel training niche is genuinely unoccupied at the $400/seat price point.</p></div>
-  </div>
-</div>
-
-<!-- PRODUCT -->
-<div class="panel" id="panel-product">
-  <div class="section-label">The Product</div>
-  <h2>12 modules. Six Sandler frameworks. One channel-capable AE.</h2>
-  <p>The curriculum adapts six core Sandler frameworks — Identity/Role Theory, Pain Funnel, Up-Front Contracts, Negative Reverse Selling, DISC, and No-Free-Consulting — specifically for the indirect channel. Each module focuses on one dimension of the Sandler system and applies it to real partner situations: VAR conversations, joint sales calls, QBRs, partner onboarding, and competitive displacement.</p>
-  <div class="g3">
-    <div class="card at">
-      <h4>Phase 1 — Modules 1–4</h4>
-      <p><strong>Sandler Mindset for Channel.</strong> I/R Theory, why channel AEs fail, partner qualification using the Pain Funnel, Up-Front Contracts, and Pain Funnel applied to partner conversations. Product-agnostic. Applies identically across VAR, MSP, ISV, distributor.</p>
+<!-- PAGE HEADER -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="page-header">
+    <div class="breadcrumb">
+      <a href="/">Channel-Ready AE</a>
+      <span>›</span>
+      <a href="/curriculum">Curriculum Binder</a>
+      <span>›</span>
+      <span>Business Plan</span>
     </div>
-    <div class="card at">
-      <h4>Phase 2 — Modules 5–8</h4>
-      <p><strong>The Sandler Selling System in Channel.</strong> DISC for partner types, Negative Reverse Selling for stalled partners, No-Free-Consulting for IP protection, and the full anatomy of a channel deal with Sandler checkpoints at every stage.</p>
-    </div>
-    <div class="card at">
-      <h4>Phase 3 — Modules 9–12</h4>
-      <p><strong>Repeatable Channel Motion.</strong> Sandler-based QBRs, joint prospecting through partner ecosystems, competitive intelligence using Sandler posture, and building the operating system so Sandler becomes the default, not the exception.</p>
-    </div>
-  </div>
-
-  <h3>The Blitz Masters Connection</h3>
-  <p>Blitz Masters is a companion Partna Company program focused on high-intensity outbound prospecting — call blitzes, accountability sprints, prospecting volume. It is recommended as pre-work for Channel-Ready AE students. The Sandler methodology lands harder when students are already generating enough partner conversations to apply it. Students can enroll in both simultaneously or complete Blitz Masters first.</p>
-
-  <h3>Certificate and Credential</h3>
-  <p>Graduates earn the Channel-Ready AE certificate — a practitioner credential demonstrating fluency in six Sandler frameworks as applied to the indirect channel. Certificate renewal at $299/person every two years creates a recurring revenue stream and maintains program relevance.</p>
-</div>
-
-<!-- MARKET -->
-<div class="panel" id="panel-market">
-  <div class="section-label">Market</div>
-  <h2>Large market. Unoccupied niche.</h2>
-  <div class="g3">
-    <div class="card"><div class="big">$4.2B</div><h4>TAM</h4><p>Global B2B sales training and enablement. 14% CAGR. Sandler, MEDDIC, Miller Heiman, RAIN Group dominate direct-sales training.</p></div>
-    <div class="card"><div class="big">$380M</div><h4>SAM</h4><p>Channel partner enablement for technology companies. 15,000+ US companies with active or emerging partner ecosystems — none with Sandler-adapted channel training.</p></div>
-    <div class="card"><div class="big">$8.5M</div><h4>Year 3 SOM</h4><p>~1,700 active seats at $400/seat/month. Achievable via LinkedIn outbound, accelerator partnerships, and referral loops from early cohorts.</p></div>
-  </div>
-
-  <h3>Primary Buyers</h3>
-  <div class="g2">
-    <div class="card at"><h4>VP Sales / CRO at B2B Tech ($10M–$75M ARR)</h4><p>Has 3–10 AEs managing partner relationships with no methodology. Partners are going cold. Deal registrations are inconsistent. Competitive losses through channel are increasing. <em>ROI frame: one month of a channel manager hire pays for the entire team program for three months.</em></p></div>
-    <div class="card at"><h4>Channel AE — Individual Contributor</h4><p>Carries quota that includes partner-sourced revenue. No training in Sandler or indirect channel methodology. Motivated by certification, career differentiation, and a framework that reduces the feeling of "winging it" in partner calls. <em>ROI frame: the first deal that doesn't get shopped to a cheaper vendor pays for the program.</em></p></div>
-  </div>
-</div>
-
-<!-- REVENUE MODEL -->
-<div class="panel" id="panel-revenue">
-  <div class="section-label">Revenue Model</div>
-  <h2>Seat-based monthly subscription. $400/seat/month.</h2>
-  <table>
-    <thead><tr><th>TIER</th><th>INCLUDED</th><th>PRICE</th><th>TERM</th><th>MARGIN</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Individual Seat</strong></td><td>Full 12-module curriculum, cohort sessions, scenario library, certificate</td><td class="mono gold">$400/mo</td><td>3-month minimum</td><td class="mono pos">~88%</td></tr>
-      <tr><td><strong>Team License (5–10 AEs)</strong></td><td>All above + dedicated private cohort, custom scenarios for their partner ecosystem</td><td class="mono gold">$400/seat/mo</td><td>3-month minimum</td><td class="mono pos">~88%</td></tr>
-      <tr><td><strong>Enterprise (15+ AEs)</strong></td><td>Custom curriculum, embedded coaching, live QBR co-facilitation, leadership briefings</td><td class="mono gold">Custom</td><td>6–12 months</td><td class="mono pos">~80%</td></tr>
-      <tr><td><strong>Certificate Renewal</strong></td><td>1-day refresher module, updated credential, new scenarios</td><td class="mono gold">$299/person</td><td>Every 2 years</td><td class="mono pos">~95%</td></tr>
-      <tr><td><strong>Blitz Masters Bundle</strong></td><td>Blitz Masters + Channel-Ready AE combined enrollment, discounted</td><td class="mono gold">$650/mo</td><td>3-month minimum</td><td class="mono pos">~85%</td></tr>
-    </tbody>
-    <tfoot><tr><td colspan="5">Pilot pricing for first 3 cohorts: Individual at $300/mo (vs. $400 standard). Written curriculum completion SLA provided to all pilot customers.</td></tr></tfoot>
-  </table>
-
-  <div class="g4" style="margin-top:28px;">
-    <div class="card"><h4>One-Time Startup Cost</h4><div class="big" style="font-size:28px;">$7,200</div><p>LLC, trademark, legal review, domain, branding, course platform setup.</p></div>
-    <div class="card"><h4>Monthly Burn</h4><div class="big" style="font-size:28px;">$342</div><p>Kajabi, LinkedIn Navigator, Zoom, QuickBooks, hosting.</p></div>
-    <div class="card"><h4>Seats to Cover Burn</h4><div class="big" style="font-size:28px;">1</div><p>One individual seat at $400/mo covers the entire monthly platform burn.</p></div>
-    <div class="card"><h4>Break-Even Month</h4><div class="big" style="font-size:28px;">Month 8</div><p>Full startup cost recovery from first sale date at base-case enrollment.</p></div>
-  </div>
-</div>
-
-<!-- PROJECTIONS -->
-<div class="panel" id="panel-projections">
-  <div class="section-label">Financial Projections</div>
-  <h2>24-month forecast. Three scenarios.</h2>
-
-  <h3>Year 1 — Monthly Active Seats (Base Case)</h3>
-  <table>
-    <thead><tr><th>PERIOD</th><th>NEW ENROLLMENTS</th><th>ACTIVE SEATS</th><th>MONTHLY REVENUE</th><th>EXPENSES</th><th>NET</th></tr></thead>
-    <tbody>
-      <tr><td>Months 1–2 (Build)</td><td>0</td><td>0</td><td class="mono">$0</td><td class="mono neg">–$6,500</td><td class="mono neg">–$6,500</td></tr>
-      <tr><td>Month 3</td><td>5 (pilot team)</td><td>5</td><td class="mono">$1,500 (pilot)</td><td class="mono neg">–$1,100</td><td class="mono pos">$400</td></tr>
-      <tr><td>Month 4</td><td>8 (team + ind.)</td><td>13</td><td class="mono">$4,900</td><td class="mono neg">–$1,200</td><td class="mono pos">$3,700</td></tr>
-      <tr><td>Month 5</td><td>10</td><td>23</td><td class="mono">$9,200</td><td class="mono neg">–$1,400</td><td class="mono pos">$7,800</td></tr>
-      <tr><td>Month 6</td><td>12</td><td>35</td><td class="mono">$14,000</td><td class="mono neg">–$1,500</td><td class="mono pos">$12,500</td></tr>
-      <tr><td>Months 7–9</td><td>10–15/mo avg</td><td>50–70</td><td class="mono">$20,000–$28,000</td><td class="mono neg">–$2,100</td><td class="mono pos">$18,000–$26,000</td></tr>
-      <tr><td>Months 10–12</td><td>15–20/mo avg</td><td>80–100</td><td class="mono">$32,000–$40,000</td><td class="mono neg">–$2,800</td><td class="mono pos">$29,000–$37,000</td></tr>
-    </tbody>
-    <tfoot><tr><td colspan="3"><strong>YEAR 1 TOTAL REVENUE</strong></td><td class="mono"><strong>~$108,000</strong></td><td></td><td class="mono pos"><strong>NET ~$88,000</strong></td></tr></tfoot>
-  </table>
-
-  <h3>Year 2 — Quarterly</h3>
-  <table>
-    <thead><tr><th>QUARTER</th><th>ACTIVE SEATS</th><th>TRAINING REVENUE</th><th>RENEWALS + BUNDLES</th><th>TOTAL</th></tr></thead>
-    <tbody>
-      <tr><td>Q1 Y2</td><td>120</td><td class="mono">$48,000</td><td class="mono">$8,000</td><td class="mono gold">$56,000</td></tr>
-      <tr><td>Q2 Y2</td><td>155</td><td class="mono">$62,000</td><td class="mono">$12,000</td><td class="mono gold">$74,000</td></tr>
-      <tr><td>Q3 Y2</td><td>185</td><td class="mono">$74,000</td><td class="mono">$16,000</td><td class="mono gold">$90,000</td></tr>
-      <tr><td>Q4 Y2</td><td>210</td><td class="mono">$84,000</td><td class="mono">$15,000</td><td class="mono gold">$99,000</td></tr>
-    </tbody>
-    <tfoot><tr><td><strong>YEAR 2 TOTAL</strong></td><td></td><td class="mono"><strong>$268,000</strong></td><td class="mono"><strong>$51,000</strong></td><td class="mono gold"><strong>$319,000</strong></td></tr></tfoot>
-  </table>
-  <p class="tnote">Year 2 expenses ~$55,000 (CS contractor, ad spend, upgraded tools). Year 2 net: ~$264,000 between two founders before tax.</p>
-
-  <div class="g3" style="margin-top:24px;">
-    <div class="card rt"><h4>Conservative</h4><div class="big" style="font-size:28px;">$62K</div><p>Year 1. 1–2 team enrollments/month, slow individual growth. Cash-flow positive Month 6.</p></div>
-    <div class="card gt"><h4>Base Case</h4><div class="big" style="font-size:28px;">$108K</div><p>Year 1. 20–25 active seats by Month 6. Primary planning scenario.</p></div>
-    <div class="card gnt"><h4>Stretch</h4><div class="big" style="font-size:28px;">$165K</div><p>Year 1. Accelerator partnership, one enterprise deal, strong referral loop from pilots.</p></div>
-  </div>
-</div>
-
-<!-- RISKS -->
-<div class="panel" id="panel-risks">
-  <div class="section-label">Risk Analysis</div>
-  <h2>What could go wrong — and how we respond.</h2>
-  <table>
-    <thead><tr><th>RISK</th><th>LIKELIHOOD</th><th>IMPACT</th><th>MITIGATION</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><strong>Non-compete violation</strong></td>
-        <td><span class="risk-badge risk-m">MEDIUM</span></td>
-        <td><span class="risk-badge risk-h">HIGH</span></td>
-        <td>Attorney reviews both employment agreements before any customer contact. Operate under Partna Company LLC. No pilot customer contacted until legal clears. Budget: $1,500–$2,500.</td>
-      </tr>
-      <tr>
-        <td><strong>Sandler trademark / IP risk</strong></td>
-        <td><span class="risk-badge risk-l">LOW</span></td>
-        <td><span class="risk-badge risk-m">MEDIUM</span></td>
-        <td>We teach adaptation of publicly documented Sandler frameworks, not Sandler-licensed content. Language carefully avoids Sandler brand claims. Reviewed by attorney alongside non-compete review.</td>
-      </tr>
-      <tr>
-        <td><strong>Market awareness — nobody searches for this</strong></td>
-        <td><span class="risk-badge risk-h">HIGH</span></td>
-        <td><span class="risk-badge risk-m">MEDIUM</span></td>
-        <td>Outbound-first go-to-market. LinkedIn outreach to VPs of Sales at B2B tech companies with known partner ecosystems. Problem-led messaging, not product-led. First buyers come from network.</td>
-      </tr>
-      <tr>
-        <td><strong>Curriculum completion — students don't finish</strong></td>
-        <td><span class="risk-badge risk-m">MEDIUM</span></td>
-        <td><span class="risk-badge risk-m">MEDIUM</span></td>
-        <td>Cohort structure with live sessions creates accountability. Module-by-module unlock prevents overwhelm. Bi-weekly check-ins for team licenses. Target 70% completion rate at 90 days.</td>
-      </tr>
-      <tr>
-        <td><strong>Both founders leave current jobs simultaneously</strong></td>
-        <td><span class="risk-badge risk-l">LOW</span></td>
-        <td><span class="risk-badge risk-h">HIGH</span></td>
-        <td>Side-project model through Year 1. Neither founder leaves until Partna Company revenue covers 50% of their current salary. Structured as evenings and weekends until that threshold.</td>
-      </tr>
-      <tr>
-        <td><strong>Sandler-licensed competitors enter the channel niche</strong></td>
-        <td><span class="risk-badge risk-l">LOW</span></td>
-        <td><span class="risk-badge risk-h">HIGH</span></td>
-        <td>First-mover advantage. Build brand recognition with practitioner credibility before any competitor can replicate the curriculum depth. Practitioner IP cannot be replicated by a licensed trainer without channel experience.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- FOUNDERS -->
-<div class="panel" id="panel-founders">
-  <div class="section-label">The Instructors</div>
-  <h2>Practitioners, not consultants.</h2>
-  <p>Both founders are actively running partner ecosystems while building this program. The IP comes from current experience, not case studies. This is the single most defensible element of Channel-Ready AE against any future competitor.</p>
-  <div class="founder-grid">
-    <div class="founder-card">
-      <div class="founder-name">Carl Clendenin</div>
-      <div class="founder-role">Sr. Channel Sales Executive · Toshiba Global Commerce Solutions</div>
-      <p style="font-size:14px;color:var(--muted);line-height:1.7;">Manages nine of the top ten national VARs for Toshiba — including CDW, SHI, Insight, Connection, Softchoice, Zones, ePlus, Presidio, and WWT. Built deal registration frameworks, QBR structures, partner tiering models, and co-sell motion from scratch. Applied Sandler methodology to channel sales for 10+ years. The program's technical and VAR-side IP.</p>
-      <ul style="list-style:none;margin-top:12px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">
-        <li style="padding:5px 0;border-bottom:1px solid var(--rule);">10+ years channel, distribution, and indirect motion</li>
-        <li style="padding:5px 0;border-bottom:1px solid var(--rule);">Built partner programs from zero at multiple companies</li>
-        <li style="padding:5px 0;border-bottom:1px solid var(--rule);">Sandler-trained, applied to VAR ecosystem management</li>
-        <li style="padding:5px 0;">Grayslake, IL — Lake County</li>
-      </ul>
-    </div>
-    <div class="founder-card">
-      <div class="founder-name">Natalie Clendenin</div>
-      <div class="founder-role">Channel Account Executive · Expel</div>
-      <p style="font-size:14px;color:var(--muted);line-height:1.7;">Runs the channel motion at Expel, a managed detection and response company. Brings the quota-carrying AE's perspective: what it actually looks like to manage partners, protect IP, run QBRs, and apply Sandler methodology simultaneously without a dedicated channel manager. Prior experience at CDW (rep side), LastPass, Okta, and Varonis.</p>
-      <ul style="list-style:none;margin-top:12px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">
-        <li style="padding:5px 0;border-bottom:1px solid var(--rule);">CRN Women of the Channel 2025</li>
-        <li style="padding:5px 0;border-bottom:1px solid var(--rule);">Channel AE at Expel (MDR / cybersecurity)</li>
-        <li style="padding:5px 0;border-bottom:1px solid var(--rule);">Specialist in MSSP and SI partner motions</li>
-        <li style="padding:5px 0;">Grayslake, IL — Lake County</li>
-      </ul>
+    <div class="page-eyebrow">Business Plan · Version 1.1 · April 2026 · Confidential · Partna Company</div>
+    <h1 class="page-title">Sandler for channel. The only <em>program that exists.</em></h1>
+    <p class="page-sub">A practitioner-built Sandler Sales methodology training program for channel AEs at B2B technology companies. $400/seat/month training revenue plus consulting services. No incumbent in the niche.</p>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-value accent">$400</div><div class="kpi-label">Per Seat / Month</div></div>
+      <div class="kpi"><div class="kpi-value">$155K</div><div class="kpi-label">Year 1 Target (Training + Consulting)</div></div>
+      <div class="kpi"><div class="kpi-value">$319K</div><div class="kpi-label">Year 2 Target</div></div>
+      <div class="kpi"><div class="kpi-value">12</div><div class="kpi-label">Modules Built</div></div>
+      <div class="kpi"><div class="kpi-value">88%</div><div class="kpi-label">Gross Margin (Training)</div></div>
+      <div class="kpi"><div class="kpi-value">Mo. 8</div><div class="kpi-label">Break-Even</div></div>
     </div>
   </div>
 </div>
 
-<!-- ROADMAP -->
-<div class="panel" id="panel-roadmap">
-  <div class="section-label">Execution Roadmap</div>
-  <h2>Months 1–18.</h2>
+<div class="content-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <ul class="sidebar-nav">
+      <li><a href="#overview">Executive Summary</a></li>
+      <li><a href="#problem">The Problem</a></li>
+      <li><a href="#product">The Product</a></li>
+      <li><a href="#market">Market</a></li>
+      <li><a href="#revenue">Revenue Model</a></li>
+      <li><a href="#projections">Projections</a></li>
+      <li><a href="#competitive">Competitive Position</a></li>
+      <li><a href="#risks">Risk Analysis</a></li>
+      <li><a href="#founders">Founders</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+    </ul>
+  </aside>
 
-  <div class="rm-item">
-    <div class="rm-badge"><strong>Apr</strong><span>2026</span></div>
-    <div class="rm-body"><h4>Legal Clearance + LLC Formation</h4><p>Non-compete review complete. Partna Company LLC filed in Illinois. Highest-priority blocker. Budget $1,500–$2,500 for legal, $500 for LLC.</p></div>
-  </div>
-  <div class="rm-item">
-    <div class="rm-badge"><strong>May</strong><span>2026</span></div>
-    <div class="rm-body"><h4>Platform + Pilot Launch</h4><p>Kajabi portal live with Modules 1–4. First pilot cohort enrolled (5–10 AEs at one company). Pilot pricing: $300/seat/month. LinkedIn outreach begins.</p></div>
-  </div>
-  <div class="rm-item">
-    <div class="rm-badge"><strong>Jun</strong><span>2026</span></div>
-    <div class="rm-body"><h4>Modules 5–8 Live + Blitz Masters Integration</h4><p>Phase 2 modules published. Blitz Masters pre-work pathway live. Second cohort enrolled. First referral from pilot customers targeted.</p></div>
-  </div>
-  <div class="rm-item">
-    <div class="rm-badge"><strong>Aug</strong><span>2026</span></div>
-    <div class="rm-body"><h4>All 12 Modules Live + Standard Pricing</h4><p>Full curriculum live. Transition from pilot to standard $400/seat/month. 30–40 active seats target. Break-even reached.</p></div>
-  </div>
-  <div class="rm-item">
-    <div class="rm-badge"><strong>Q4</strong><span>2026</span></div>
-    <div class="rm-body"><h4>Certificate Program + Enterprise Outreach</h4><p>Channel-Ready AE certificate formally launched. First enterprise deal targeted. Accelerator partnership conversations initiated. 80–100 active seats target.</p></div>
-  </div>
-  <div class="rm-item">
-    <div class="rm-badge"><strong>Q2</strong><span>2027</span></div>
-    <div class="rm-body"><h4>Year 2 Scale</h4><p>150+ active seats. First certificate renewals. Consider first CS hire (contractor). $319K Year 2 target in sight. Evaluate Sandler licensing partnership.</p></div>
-  </div>
+  <!-- CONTENT -->
+  <div class="content">
 
-  <div class="enter-block">
-    <h3>Ready to run a <em>real channel motion?</em></h3>
-    <div class="enter-cta-group">
-      <a href="index.html#apply" class="enter-btn enter-primary">Enroll Now →</a>
-      <a href="curriculum.html" class="enter-btn enter-secondary">View Full Curriculum →</a>
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section" id="overview">
+      <div class="section-eyebrow">Executive Summary</div>
+      <h2 class="section-title">The one-page <em>version.</em></h2>
+      <p class="section-body"><strong style="color:var(--white)">Channel-Ready AE</strong> is a B2B sales training company that licenses a Sandler Sales methodology program specifically adapted for channel Account Executives. The program teaches quota-carrying AEs at technology companies how to apply the Sandler system — Pain Funnel, Up-Front Contracts, Negative Reverse Selling, DISC, Identity/Role Theory, and No-Free-Consulting — to the indirect channel, where the buyer is a partner rep, not an end customer.</p>
+      <p class="section-body">The curriculum is built from practitioner IP: Carl Clendenin's 10+ years running the enterprise VAR ecosystem at Toshiba (CDW, SHI, Insight, WWT, and seven more national VARs), and Natalie Clendenin's channel AE experience at Expel, LastPass (4× CDW revenue growth), Okta, and Varonis. All 12 modules are complete.</p>
+      <p class="section-body">The business has two revenue streams. <strong style="color:var(--white)">Training:</strong> $400/seat/month cohort-based program. <strong style="color:var(--white)">Consulting:</strong> Channel Strategy Audits ($2,500 flat), team workshops ($5K–$15K), and Fractional VP of Channel retainers ($8K–$12K/month). Consulting serves as top-of-funnel entry for training — the audit surfaces the gaps; the curriculum fixes them.</p>
+
+      <div class="card-grid card-grid-3">
+        <div class="card">
+          <div class="card-label">Training Revenue</div>
+          <h4>$400 / Seat / Month</h4>
+          <p>Core pricing. Team licenses billed per seat at the same rate. Individual and enterprise tiers available.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Consulting Revenue</div>
+          <h4>$2.5K – $12K/mo</h4>
+          <p>Audits, workshops, and Fractional VP retainers. Top-of-funnel entry point that feeds training enrollment.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Why Now</div>
+          <h4>The niche is unoccupied</h4>
+          <p>Sandler, Challenger, MEDDIC, and SPIN Selling all teach direct sales. Zero programs exist for the indirect channel at the $400/seat price point.</p>
+        </div>
+      </div>
     </div>
+
+    <hr class="rule" />
+
+    <!-- THE PROBLEM -->
+    <div class="section" id="problem">
+      <div class="section-eyebrow">The Problem</div>
+      <h2 class="section-title">Channel AEs are trained to close direct. <em>The indirect model requires a different system.</em></h2>
+      <p class="section-body">Technology companies at every stage route revenue through partners — VARs, MSPs, distributors, ISVs. The AEs managing those relationships were trained in direct-sales methodology. They pitch. They give away IP. They build business plans for partners who take the analysis to a lower-priced competitor. They run QBRs that report on the past instead of committing the future.</p>
+
+      <div class="callout"><p>"The channel AE who gives away free consulting is the channel AE who has no pipeline. The Sandler system fixes this — but no one has adapted it for the channel. Until now."</p></div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-label">The Training Gap</div>
+          <h4>Zero programs address the indirect channel</h4>
+          <p>Sandler, MEDDIC, Challenger, and SPIN Selling all target direct-sales AEs. The indirect channel has a fundamentally different dynamic: the partner is not the buyer, joint sales require different qualification, and IP protection is a survival skill.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">The Cost of No-Framework</div>
+          <h4>Free consulting bleeds margin to competitors</h4>
+          <p>Channel AEs without a Sandler framework over-invest in unqualified partners, give away technical resources before commitment, and accept non-committal QBRs as normal. Each free consulting engagement is margin bled directly to a competitor.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">The Market Tailwind</div>
+          <h4>The problem is larger in 2026 than 2022</h4>
+          <p>Post-2022 VC pressure compressed channel teams at nearly every B2B tech company. AEs inherited the partner motion without training. 73% of IT spending flows through partners — and that percentage is growing.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">No Incumbent in the Niche</div>
+          <h4>Whitespace at the $400/seat price point</h4>
+          <p>Channel consulting firms (Spur Reply, JS Group, Alexander Group) target large enterprises at $50K–$200K+ minimums. Sandler's licensed partners teach direct-sales methodology. The Sandler-for-channel training niche is genuinely unoccupied.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule" />
+
+    <!-- PRODUCT -->
+    <div class="section" id="product">
+      <div class="section-eyebrow">The Product</div>
+      <h2 class="section-title">12 modules. Six Sandler frameworks. <em>One channel-capable AE.</em></h2>
+      <p class="section-body">The curriculum adapts six core Sandler frameworks — wrapped in our proprietary <strong style="color:var(--white)">Channel Activation System™</strong> — specifically for the indirect channel. Each module focuses on one dimension and applies it to real partner situations: VAR conversations, joint sales calls, QBRs, partner onboarding, and competitive displacement.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-label">Phase 1 · Modules 1–4</div>
+          <h4>Sandler Mindset for Channel</h4>
+          <p>I/R Theory, why channel AEs fail, partner qualification using the Pain Funnel, Up-Front Contracts, and Pain Funnel applied to partner conversations. Product-agnostic. Applies identically across VAR, MSP, ISV, distributor.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Phase 2 · Modules 5–8</div>
+          <h4>The Sandler Selling System in Channel</h4>
+          <p>DISC for partner types, Negative Reverse Selling for stalled partners, No-Free-Consulting for IP protection, and the full anatomy of a channel deal with Sandler checkpoints at every stage.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Phase 3 · Modules 9–12</div>
+          <h4>Repeatable Channel Motion</h4>
+          <p>Sandler-based QBRs, joint prospecting through partner ecosystems, competitive intelligence using Sandler posture, and building the operating system so Sandler becomes the default, not the exception.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Consulting Entry Point</div>
+          <h4>Channel Strategy Audit → Curriculum</h4>
+          <p>A 2-hour working session ($2,500) that diagnoses the partner motion and maps findings directly to curriculum modules. Designed as the consulting-to-training pipeline. Fractional VP of Channel retainers available for teams building from scratch.</p>
+        </div>
+      </div>
+
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 28px 32px; margin-top: 24px;">
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px;">Certificate &amp; Credential</div>
+        <p style="font-size: 14px; color: var(--text-dim); line-height: 1.7;">Graduates earn the <strong style="color:var(--white)">Channel-Ready AE certificate</strong> — a practitioner credential demonstrating fluency in six Sandler frameworks as applied to the indirect channel. Certificate renewal at $299/person every two years creates a recurring revenue stream. The channel training certification market has two incumbent players (Chanimal University, Channel Institute) — neither targets startup/growth-stage companies. Our certification fills that gap.</p>
+      </div>
+    </div>
+
+    <hr class="rule" />
+
+    <!-- MARKET -->
+    <div class="section" id="market">
+      <div class="section-eyebrow">Market</div>
+      <h2 class="section-title">Large market. <em>Unoccupied niche.</em></h2>
+
+      <div class="market-grid">
+        <div class="market-card">
+          <div class="market-number">$4.2B</div>
+          <div class="market-label">TAM</div>
+          <p>Global B2B sales training and enablement. 14% CAGR. Sandler, MEDDIC, Miller Heiman, RAIN Group dominate direct-sales training. None of them address channel.</p>
+        </div>
+        <div class="market-card">
+          <div class="market-number">$380M</div>
+          <div class="market-label">SAM</div>
+          <p>Channel partner enablement for technology companies. 15,000+ US companies with active or emerging partner ecosystems — none with Sandler-adapted channel training available at the $400/seat price point.</p>
+        </div>
+        <div class="market-card">
+          <div class="market-number">$8.5M</div>
+          <div class="market-label">Year 3 SOM</div>
+          <p>~1,700 active seats at $400/seat/month. Achievable via LinkedIn outbound, VC platform partnerships, accelerator relationships, and referral loops from early cohorts.</p>
+        </div>
+      </div>
+
+      <p class="section-body">Primary buyers fall into four personas. Each has distinct budget authority, urgency, and buying criteria.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-label">VP Sales / CRO · $10M–$100M ARR</div>
+          <h4>Has AEs managing partners with no methodology</h4>
+          <p>Partners are going cold. Deal registrations are inconsistent. Competitive losses through channel are increasing. <em style="color:var(--text)">ROI frame: one month of a channel manager hire pays for the entire team program for three months.</em></p>
+        </div>
+        <div class="card">
+          <div class="card-label">Channel AE — Individual Contributor</div>
+          <h4>Quota includes partner-sourced revenue, no training</h4>
+          <p>Motivated by certification, career differentiation, and a framework that reduces the feeling of winging it in partner calls. <em style="color:var(--text)">ROI frame: one deal that doesn't get shopped to a cheaper vendor pays for the program.</em></p>
+        </div>
+        <div class="card card-new">
+          <div class="card-label">VP / Head of Partnerships or Channel ← New</div>
+          <h4>Owns 5–20 PAMs with no shared Sandler language</h4>
+          <p>Budget authority. Buys training for the team and consulting for program design. Already knows the problem exists — just needs a productized solution at the right price point. Highest-volume buyer segment.</p>
+        </div>
+        <div class="card card-new">
+          <div class="card-label">PE Portfolio Companies ← New</div>
+          <h4>Board pressure to add channel revenue in 90 days</h4>
+          <p>Capital-constrained. No budget for a $200K consultancy. Starts with the Channel Strategy Audit ($2,500), converts to team license. PE firms running 5–10 portfolio companies are a multiplier distribution channel.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule" />
+
+    <!-- REVENUE MODEL -->
+    <div class="section" id="revenue">
+      <div class="section-eyebrow">Revenue Model</div>
+      <h2 class="section-title">Two revenue streams. <em>One flywheel.</em></h2>
+      <p class="section-body">Training is the core recurring revenue engine. Consulting is the top-of-funnel entry point that feeds training enrollment and produces high-margin project revenue in parallel. The audit finds the gaps — the curriculum fixes them.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Included</th>
+            <th>Price</th>
+            <th>Term</th>
+            <th>Margin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-white">Free Assessment</td>
+            <td>Channel Readiness Scorecard — 10-question diagnostic with personalized report</td>
+            <td class="td-accent">Free</td>
+            <td>One-time</td>
+            <td>Lead gen</td>
+          </tr>
+          <tr>
+            <td class="td-white">Starter Kit</td>
+            <td>Template library — deal reg workflow, partner tiering scorecard, QBR agenda</td>
+            <td class="td-accent">$297</td>
+            <td>One-time</td>
+            <td>~95%</td>
+          </tr>
+          <tr>
+            <td class="td-white">Individual Seat</td>
+            <td>Full 12-module curriculum, cohort sessions, scenario library, certificate, Slack</td>
+            <td class="td-accent">$400/mo</td>
+            <td>3-month min</td>
+            <td>~88%</td>
+          </tr>
+          <tr>
+            <td class="td-white">Team License (5–10 AEs)</td>
+            <td>All above + dedicated private cohort, custom scenarios, VP Sales check-in</td>
+            <td class="td-accent">$400/seat/mo</td>
+            <td>3-month min</td>
+            <td>~88%</td>
+          </tr>
+          <tr>
+            <td class="td-white">Enterprise (15+ AEs)</td>
+            <td>Custom curriculum, embedded coaching, live QBR co-facilitation, leadership briefings</td>
+            <td class="td-accent">Custom</td>
+            <td>6–12 months</td>
+            <td>~80%</td>
+          </tr>
+          <tr>
+            <td class="td-white">Certificate Renewal</td>
+            <td>1-day refresher module, updated credential, new scenarios</td>
+            <td class="td-accent">$299/person</td>
+            <td>Every 2 years</td>
+            <td>~95%</td>
+          </tr>
+          <tr>
+            <td class="td-white">Channel Strategy Audit <span class="td-new">Consulting</span></td>
+            <td>2-hour working session + written action plan mapped to curriculum modules</td>
+            <td class="td-accent">$2,500</td>
+            <td>One-time</td>
+            <td>~90%</td>
+          </tr>
+          <tr>
+            <td class="td-white">Team Workshop <span class="td-new">Consulting</span></td>
+            <td>Half or full-day workshop delivered for a sales team, custom to their ecosystem</td>
+            <td class="td-accent">$5K–$15K</td>
+            <td>One-time</td>
+            <td>~85%</td>
+          </tr>
+          <tr>
+            <td class="td-white">Fractional VP of Channel <span class="td-new">Consulting</span></td>
+            <td>Monthly advisory retainer — Carl or Natalie runs the channel motion</td>
+            <td class="td-accent">$8K–$12K/mo</td>
+            <td>3-month min</td>
+            <td>~85%</td>
+          </tr>
+          <tr>
+            <td class="td-white">Blitz Masters Bundle</td>
+            <td>Blitz Masters + Channel-Ready AE combined enrollment, discounted</td>
+            <td class="td-accent">$650/mo</td>
+            <td>3-month min</td>
+            <td>~85%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="card-grid card-grid-3" style="margin-top: 24px;">
+        <div class="card">
+          <div class="card-label">One-Time Startup Cost</div>
+          <h4>$7,200</h4>
+          <p>LLC, trademark, legal review, domain, branding, course platform setup.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Monthly Burn</div>
+          <h4>$342/mo</h4>
+          <p>Kajabi, LinkedIn Navigator, Zoom, QuickBooks, hosting. One individual seat covers the entire burn.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Break-Even</div>
+          <h4>Month 8</h4>
+          <p>Full startup cost recovery from first sale date at base-case enrollment. Consulting revenue accelerates this.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule" />
+
+    <!-- PROJECTIONS -->
+    <div class="section" id="projections">
+      <div class="section-eyebrow">Financial Projections</div>
+      <h2 class="section-title">24-month forecast. <em>Training + consulting.</em></h2>
+
+      <p style="font-size:14px; color: var(--text-dim); margin-bottom: 20px;">Year 1 now includes a consulting revenue line. Conservative estimate: 2 audits/month at $2,500 starting Month 4, plus workshop and retainer revenue in H2.</p>
+
+      <table>
+        <thead>
+          <tr><th>Period</th><th>New Enrollments</th><th>Active Seats</th><th>Training Revenue</th><th>Consulting Revenue</th><th>Net</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Months 1–2 (Build)</td><td>0</td><td>0</td><td>$0</td><td>$0</td><td class="td-accent">–$6,500</td></tr>
+          <tr><td>Month 3</td><td>5 (pilot)</td><td>5</td><td>$1,500 (pilot)</td><td>$0</td><td class="td-accent">$400</td></tr>
+          <tr><td>Month 4</td><td>8</td><td>13</td><td>$4,900</td><td>$5,000</td><td class="td-accent">$8,700</td></tr>
+          <tr><td>Month 5</td><td>10</td><td>23</td><td>$9,200</td><td>$5,000</td><td class="td-accent">$12,800</td></tr>
+          <tr><td>Month 6</td><td>12</td><td>35</td><td>$14,000</td><td>$7,500</td><td class="td-accent">$20,000</td></tr>
+          <tr><td>Months 7–9</td><td>10–15/mo avg</td><td>50–70</td><td>$20K–$28K/mo</td><td>$7,500–$15K/mo</td><td class="td-accent">$26K–$40K/mo</td></tr>
+          <tr><td>Months 10–12</td><td>15–20/mo avg</td><td>80–100</td><td>$32K–$40K/mo</td><td>$10K–$20K/mo</td><td class="td-accent">$39K–$57K/mo</td></tr>
+          <tr style="background: var(--ink);"><td class="td-white"><strong>Year 1 Total</strong></td><td></td><td></td><td class="td-accent"><strong>~$108,000</strong></td><td class="td-accent"><strong>~$47,000</strong></td><td class="td-accent"><strong>Net ~$135,000</strong></td></tr>
+        </tbody>
+      </table>
+
+      <table style="margin-top: 24px;">
+        <thead>
+          <tr><th>Quarter</th><th>Active Seats</th><th>Training Revenue</th><th>Renewals + Bundles</th><th>Total</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Q1 Y2</td><td>120</td><td>$48,000</td><td>$8,000</td><td class="td-accent">$56,000</td></tr>
+          <tr><td>Q2 Y2</td><td>155</td><td>$62,000</td><td>$12,000</td><td class="td-accent">$74,000</td></tr>
+          <tr><td>Q3 Y2</td><td>185</td><td>$74,000</td><td>$16,000</td><td class="td-accent">$90,000</td></tr>
+          <tr><td>Q4 Y2</td><td>210</td><td>$84,000</td><td>$15,000</td><td class="td-accent">$99,000</td></tr>
+          <tr style="background: var(--ink);"><td class="td-white"><strong>Year 2 Total</strong></td><td></td><td class="td-accent"><strong>$268,000</strong></td><td class="td-accent"><strong>$51,000</strong></td><td class="td-accent"><strong>$319,000</strong></td></tr>
+        </tbody>
+      </table>
+
+      <div class="scenario-row" style="margin-top: 24px;">
+        <div class="scenario">
+          <div class="scenario-label">Conservative</div>
+          <div class="scenario-value">$62K</div>
+          <p>Year 1 training only. 1–2 team enrollments/month, slow individual growth. Cash-flow positive Month 6. No consulting revenue modeled.</p>
+        </div>
+        <div class="scenario">
+          <div class="scenario-label">Base Case</div>
+          <div class="scenario-value">$155K</div>
+          <p>Year 1 training + consulting. 20–25 active seats by Month 6 plus 2 audits/month. Primary planning scenario. Break-even Month 8.</p>
+        </div>
+        <div class="scenario">
+          <div class="scenario-label">Stretch</div>
+          <div class="scenario-value">$220K</div>
+          <p>Year 1. Accelerator partnership, one enterprise deal, one Fractional VP retainer, strong referral loop from pilots. Training + consulting combined.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule" />
+
+    <!-- COMPETITIVE POSITION -->
+    <div class="section" id="competitive">
+      <div class="section-eyebrow">Competitive Position</div>
+      <h2 class="section-title">The battle card. <em>What buyers are comparing.</em></h2>
+      <p class="section-body">When a VP Sales evaluates this program, they're comparing against four alternatives. Here's the honest case for Channel-Ready AE against each one.</p>
+
+      <div class="competitive-grid">
+        <div class="comp-card">
+          <div class="comp-vs">vs. Hire a VP of Channel</div>
+          <h4>$250K+ fully loaded. 6–12 month ramp. One opinion.</h4>
+          <p>A full-time VP of Channel hire is the gold standard — but at $200K+ base plus benefits plus ramp time, it's not accessible until $30M+ ARR. Channel-Ready AE delivers a shared Sandler language for your entire team in 90 days at a fraction of the cost. Our Fractional VP retainer bridges the gap for companies not yet ready to hire.</p>
+        </div>
+        <div class="comp-card">
+          <div class="comp-vs">vs. Big Consultancy (Alexander Group, Spur Reply)</div>
+          <h4>$50K–$200K minimum. Built for enterprises. Not you.</h4>
+          <p>Firms like Alexander Group and Spur Reply do excellent work for Fortune 500 channel programs. Their minimum engagements start at $50K. Their IP is generic. Their practitioners are analysts, not working channel AEs. We're built specifically for Series A–C companies with 3–15 AEs who need a methodology now, not a strategy deck in 6 months.</p>
+        </div>
+        <div class="comp-card">
+          <div class="comp-vs">vs. General Training (Chanimal, Channel Institute)</div>
+          <h4>General channel management. Not Sandler. Not your problem.</h4>
+          <p>Chanimal University and Channel Institute teach channel management broadly — partner programs, co-marketing, program structure. They don't teach quota-carrying AEs how to apply Sandler's selling system to partner conversations. Different problem, different buyer, different outcome. We're the only Sandler-for-channel program at any price point.</p>
+        </div>
+        <div class="comp-card comp-our">
+          <div class="comp-vs" style="color: var(--accent);">Channel-Ready AE</div>
+          <h4>$400/seat/month. Sandler-adapted. Practitioner IP.</h4>
+          <p>The only program teaching Sandler methodology applied to the indirect channel. Built by two practitioners actively running partner ecosystems right now. Immediately applicable — AEs can run a UFC in their next partner call after Module 3. Includes consulting entry points for teams not ready for full program commitment. No incumbent. First-mover advantage.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule" />
+
+    <!-- RISK ANALYSIS -->
+    <div class="section" id="risks">
+      <div class="section-eyebrow">Risk Analysis</div>
+      <h2 class="section-title">What could go wrong — <em>and how we respond.</em></h2>
+
+      <table>
+        <thead>
+          <tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-white">Non-compete violation</td>
+            <td><span class="risk-med">Medium</span></td>
+            <td><span class="risk-high">High</span></td>
+            <td>Attorney reviews both employment agreements before any customer contact. Operate under Partna Company LLC. No pilot customer contacted until legal clears. Budget: $1,500–$2,500.</td>
+          </tr>
+          <tr>
+            <td class="td-white">Non-compete covers consulting, not just training</td>
+            <td><span class="risk-high">High</span></td>
+            <td><span class="risk-high">High</span></td>
+            <td>Attorney review must explicitly address consulting engagements (audits, retainers, workshops) — not just curriculum delivery. Separate legal opinion required. Do not launch consulting until confirmed clear.</td>
+          </tr>
+          <tr>
+            <td class="td-white">Sandler trademark / IP risk</td>
+            <td><span class="risk-low">Low</span></td>
+            <td><span class="risk-med">Medium</span></td>
+            <td>We teach adaptation of publicly documented Sandler frameworks, not Sandler-licensed content. Language carefully avoids Sandler brand claims (e.g., "Sandler-based" not "Sandler-licensed"). Reviewed by attorney alongside non-compete.</td>
+          </tr>
+          <tr>
+            <td class="td-white">Audience doesn't self-identify as needing Sandler for channel</td>
+            <td><span class="risk-high">High</span></td>
+            <td><span class="risk-med">Medium</span></td>
+            <td>Outbound-first go-to-market. Lead with the problem (free consulting, dead QBRs, partners going dark) — not the product (Sandler methodology). Buyers must see themselves in the pain before the solution lands. First buyers come from network.</td>
+          </tr>
+          <tr>
+            <td class="td-white">Market awareness — nobody searches for this</td>
+            <td><span class="risk-high">High</span></td>
+            <td><span class="risk-med">Medium</span></td>
+            <td>Outbound-first. LinkedIn content from Carl and Natalie leads with problem language. Conference speaking at Channel Partners Conference, GTIA ChannelCon, ASAP Summit builds brand with target audience. VC platform partnerships generate warm referrals.</td>
+          </tr>
+          <tr>
+            <td class="td-white">Curriculum completion — students don't finish</td>
+            <td><span class="risk-med">Medium</span></td>
+            <td><span class="risk-med">Medium</span></td>
+            <td>Cohort structure with live sessions creates accountability. Module-by-module unlock prevents overwhelm. Bi-weekly check-ins for team licenses. Target 70% completion rate at 90 days.</td>
+          </tr>
+          <tr>
+            <td class="td-white">Both founders leave current jobs simultaneously</td>
+            <td><span class="risk-low">Low</span></td>
+            <td><span class="risk-high">High</span></td>
+            <td>Side-project model through Year 1. Neither founder leaves until Partna Company revenue covers 50% of their current salary. Structured as evenings and weekends until that threshold is reached.</td>
+          </tr>
+          <tr>
+            <td class="td-white">Sandler-licensed competitors enter the channel niche</td>
+            <td><span class="risk-low">Low</span></td>
+            <td><span class="risk-high">High</span></td>
+            <td>First-mover advantage. Build brand recognition with practitioner credibility before any competitor can replicate curriculum depth. Practitioner IP (Natalie's 4× CDW growth, Carl's 9-VAR ecosystem) cannot be replicated by a licensed trainer without equivalent channel experience.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr class="rule" />
+
+    <!-- FOUNDERS -->
+    <div class="section" id="founders">
+      <div class="section-eyebrow">The Founders</div>
+      <h2 class="section-title">Practitioners, <em>not consultants.</em></h2>
+      <p class="section-body">Both founders are actively running partner ecosystems while building this program. The IP comes from current experience, not archived case studies. This is the single most defensible element of Channel-Ready AE against any future competitor.</p>
+
+      <div class="founder-grid">
+        <div class="founder">
+          <div class="founder-name">Carl Clendenin</div>
+          <div class="founder-role">Sr. Channel Sales Executive · Toshiba Global Commerce Solutions</div>
+          <p class="founder-bio">Manages nine of the top ten national VARs for Toshiba — including CDW, SHI, Insight, Connection, Softchoice, Zones, ePlus, Presidio, and WWT. Built deal registration frameworks, QBR structures, partner tiering models, and co-sell motion from scratch. Applied Sandler methodology to channel sales for 10+ years. The program's VAR ecosystem and enterprise channel IP.</p>
+          <ul class="founder-list">
+            <li>10+ years channel, distribution, and indirect motion</li>
+            <li>Built partner programs from zero at multiple companies</li>
+            <li>Sandler-trained, applied to VAR ecosystem management</li>
+            <li>Grayslake, IL — Lake County</li>
+          </ul>
+        </div>
+        <div class="founder">
+          <div class="founder-name">Natalie Clendenin</div>
+          <div class="founder-role">Channel Account Executive · Expel · CRN Women of the Channel 2025</div>
+          <p class="founder-bio">Runs the channel motion at Expel, a managed detection and response company. Brings the quota-carrying AE's perspective: what it actually looks like to manage partners, protect IP, run QBRs, and apply Sandler methodology simultaneously without a dedicated channel manager. Prior experience at CDW (rep side), LastPass (4× CDW revenue growth), Okta (quarterly alignment frameworks), and Varonis (SPIF design).</p>
+          <ul class="founder-list">
+            <li>CRN Women of the Channel 2025</li>
+            <li>4× CDW revenue growth at LastPass</li>
+            <li>Specialist in MSSP and SI partner motions</li>
+            <li>Grayslake, IL — Lake County</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule" />
+
+    <!-- ROADMAP -->
+    <div class="section" id="roadmap">
+      <div class="section-eyebrow">Execution Roadmap</div>
+      <h2 class="section-title">Months 1–24. <em>With milestones added.</em></h2>
+
+      <div class="roadmap">
+        <div class="roadmap-item">
+          <div class="roadmap-date">Apr 2026</div>
+          <div>
+            <div class="roadmap-title">Legal Clearance + LLC Formation</div>
+            <p class="roadmap-desc">Non-compete review complete — must cover both training delivery AND consulting engagements. Partna Company LLC filed in Illinois. Highest-priority blocker. Budget $1,500–$2,500 for legal, $500 for LLC.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-date">May 2026</div>
+          <div>
+            <div class="roadmap-title">Platform + Pilot Launch + Consulting Waitlist Live</div>
+            <p class="roadmap-desc">Kajabi portal live with Modules 1–4. First pilot cohort enrolled (5–10 AEs at one company). Pilot pricing: $300/seat/month. Channel Strategy Audit waitlist added to website. LinkedIn outreach begins for both founders — weekly content minimum.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-date">Jun 2026</div>
+          <div>
+            <div class="roadmap-title">Modules 5–8 Live + First Consulting Engagements</div>
+            <p class="roadmap-desc">Phase 2 modules published. Blitz Masters pre-work pathway live. Second cohort enrolled. First Channel Strategy Audits delivered. First referral from pilot customers targeted. Free Channel Readiness Assessment scorecard published as lead magnet.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-date">Aug 2026</div>
+          <div>
+            <div class="roadmap-title">All 12 Modules Live + Standard Pricing</div>
+            <p class="roadmap-desc">Full curriculum live. Transition from pilot to standard $400/seat/month. 30–40 active seats target. Break-even reached. First case study published (with client permission) showing behavior change metrics at 90 days.</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-new">
+          <div class="roadmap-date">Q3 2026</div>
+          <div>
+            <div class="roadmap-title">VC Platform Team Partnerships <span style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color: var(--blue); background: var(--blue-dim); border: 1px solid var(--blue-border); padding: 2px 7px; border-radius: 2px; margin-left: 8px;">New</span></div>
+            <p class="roadmap-desc">Target: listed on preferred vendor networks of 3–5 VC/PE funds with B2B SaaS portfolios. Offer to run channel workshops at portfolio summits. This becomes the highest-leverage distribution channel by Year 2.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-date">Q4 2026</div>
+          <div>
+            <div class="roadmap-title">Certificate Program + Enterprise Outreach</div>
+            <p class="roadmap-desc">Channel-Ready AE certificate formally launched. First enterprise deal targeted. 80–100 active seats target. Competitive positioning content published — battle card, ROI calculator, and case studies live on website.</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-new">
+          <div class="roadmap-date">Q4 2026</div>
+          <div>
+            <div class="roadmap-title">First Conference Speaking Submission <span style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color: var(--blue); background: var(--blue-dim); border: 1px solid var(--blue-border); padding: 2px 7px; border-radius: 2px; margin-left: 8px;">New</span></div>
+            <p class="roadmap-desc">Submit session proposals to Channel Partners Conference & Expo, GTIA ChannelCon, and ASAP Summit NYC. Talk track: "Why Every Channel AE Needs a Sandler Framework and Zero Programs Teach It." Speaking slot positions the brand with 8,000+ channel professionals.</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-new">
+          <div class="roadmap-date">Q1 2027</div>
+          <div>
+            <div class="roadmap-title">Annual Benchmark Report Published <span style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color: var(--blue); background: var(--blue-dim); border: 1px solid var(--blue-border); padding: 2px 7px; border-radius: 2px; margin-left: 8px;">New</span></div>
+            <p class="roadmap-desc">"State of Channel AE Enablement" — survey of 100+ companies on channel AE training gaps, free consulting behavior, and partner-sourced pipeline metrics. Original research becomes the most cited credibility asset and the annual anchor for press and speaking.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-date">Q2 2027</div>
+          <div>
+            <div class="roadmap-title">Year 2 Scale</div>
+            <p class="roadmap-desc">150+ active seats. First certificate renewals. First CS hire (contractor). $319K Year 2 target in sight. Evaluate Sandler licensing partnership. Consider cohort-based training at $2,000–$4,000/person as a middle-tier product between audit and full program.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="background: var(--surface); border: 1px solid var(--accent-border); border-radius: 4px; padding: 40px; text-align: center; margin-top: 48px;">
+      <div style="font-family: var(--font-head); font-size: 24px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; margin-bottom: 12px;">Ready to run a <em style="color:var(--accent)">real channel motion?</em></div>
+      <p style="font-size: 14px; color: var(--text-dim); margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto;">Enroll in the next cohort or start with a Channel Strategy Audit. Both options below.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="/#apply" style="background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; padding: 14px 28px; border-radius: 3px; text-decoration: none;">Enroll Now →</a>
+        <a href="/curriculum" style="border: 1px solid var(--border); color: var(--text); font-family: var(--font-head); font-weight: 600; font-size: 13px; padding: 14px 28px; border-radius: 3px; text-decoration: none;">View Full Curriculum →</a>
+      </div>
+    </div>
+
   </div>
 </div>
 
-</div>
+<footer>
+  <div class="footer-brand">Channel-<em>Ready</em> AE · Business Plan v1.1 · Partna Company LLC</div>
+  <div style="font-size:12px; color: var(--text-dim);">© 2026 Partna Company LLC · Grayslake, IL · carlpartna@gmail.com</div>
+</footer>
 
-<script>
-function showPanel(id) {
-  document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active'); });
-  document.querySelectorAll('.nav-tab').forEach(function(t) { t.classList.remove('active'); });
-  var panel = document.getElementById('panel-' + id);
-  if (panel) panel.classList.add('active');
-  event.target.classList.add('active');
-}
-</script>
 </body>
 </html>

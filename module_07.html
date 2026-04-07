@@ -1,203 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module 07 — No-Free-Consulting — Channel-Ready AE</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-light:#e8f4ee;--red:#7a1e1e;--blue-pale:#e8f0f8;--nat:#5a3a7a;}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
-.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
-.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
-.hero h1 em{color:var(--gold-light);font-style:italic;}
-.hero-sub{font-size:17px;color:#6a7a8a;max-width:580px;position:relative;margin-bottom:32px;}
-.hero-stats{display:flex;gap:40px;position:relative;flex-wrap:wrap;}
-.hero-stat{font-family:'DM Mono',monospace;}
-.hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
-.hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
-.ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ref-bar.blue-bar{background:#1a1a2a;}
-.ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
-.ref-text{font-size:13px;}
-.breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.breadcrumb a{text-decoration:none;}
-.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:56px;z-index:20;overflow-x:auto;}
-.nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
-.nav-tab:hover{color:var(--accent);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
-.content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}.panel.active{display:block;}
-.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
-h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
-h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
-p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
-.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
-.callout strong{color:var(--gold-light);}
-.explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
-.card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
-.card.gold-top{border-top:3px solid var(--gold);}
-.card.blue-top{border-top:3px solid var(--accent);}
-.card.green-top{border-top:3px solid var(--green);}
-.card.red-top{border-top:3px solid var(--red);}
-.card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.card p{font-size:13px;margin:0;color:var(--muted);}
-.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 0;}
-.contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
-.cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
-.cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
-.cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
-.footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
-.footer-brand em{color:var(--gold-light);}
-.footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
-@media(max-width:700px){.hero{padding:40px 24px 36px;}.hero h1{font-size:30px;}.content{padding:32px 20px 60px;}.grid-2,.grid-3{grid-template-columns:1fr;}.breadcrumb{padding:10px 24px;}}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Module 07 &mdash; No-Free-Consulting in the Channel &mdash; Channel-Ready AE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--black:#0a0a0a;--ink:#111111;--surface:#161616;--border:#242424;--muted:#333333;--text-dim:#888888;--text:#d4d4d4;--white:#f5f5f5;--accent:#e8c547;--accent-dim:rgba(232,197,71,0.10);--accent-border:rgba(232,197,71,0.28);--font-head:'Cormorant Garamond',serif;--font-body:'Crimson Pro',serif}
+    html{scroll-behavior:smooth}body{background:var(--black);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px}
+    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-0.02em}.nav-logo em{color:var(--accent);font-style:normal}
+    .nav-links{display:flex;gap:28px;list-style:none}.nav-links a{font-size:13px;font-weight:500;color:var(--text-dim);text-decoration:none;letter-spacing:0.02em;transition:color 0.15s}.nav-links a:hover,.nav-links a.active{color:var(--white)}
+    .nav-cta{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:8px 18px;border-radius:3px;text-decoration:none}
+    .page-wrap{max-width:860px;margin:0 auto;padding:60px 40px 100px}
+    .breadcrumb{font-size:12px;color:var(--text-dim);margin-bottom:32px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color 0.15s}.breadcrumb a:hover{color:var(--accent)}.breadcrumb span{color:var(--muted)}
+    .eyebrow{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+    h1{font-family:var(--font-head);font-size:clamp(36px,5vw,54px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--white);margin-bottom:20px}h1 em{color:var(--accent);font-style:normal}
+    .module-sub{font-size:17px;color:var(--text-dim);max-width:640px;line-height:1.75;margin-bottom:36px}
+    .stats{display:flex;gap:0;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:36px}
+    .stat{flex:1;background:var(--surface);padding:20px 24px;border-right:1px solid var(--border)}.stat:last-child{border-right:none}
+    .stat-val{font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-0.03em;line-height:1;margin-bottom:4px}
+    .stat-lbl{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+    .mod-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:4px;margin-bottom:48px;font-size:12px}
+    .mod-nav a{color:var(--text-dim);text-decoration:none;font-weight:500;transition:color 0.15s}.mod-nav a:hover{color:var(--accent)}
+    .mod-nav-mid{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 12px;border-radius:2px}
+    .fw-badge{display:inline-flex;align-items:center;gap:10px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:3px;padding:10px 16px;margin-bottom:52px;font-size:12px;font-weight:600;color:var(--accent)}
+    .section{margin-bottom:60px;padding-bottom:60px;border-bottom:1px solid var(--border)}.section:last-of-type{border-bottom:none;padding-bottom:0}
+    h2{font-family:var(--font-head);font-size:clamp(22px,3vw,32px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:16px}h2 em{color:var(--accent);font-style:normal}
+    h3{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--white);margin:36px 0 12px;letter-spacing:-0.02em}
+    h4{font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--white);margin:24px 0 8px;letter-spacing:-0.01em}
+    p{font-size:15px;color:var(--text-dim);line-height:1.8;margin-bottom:18px}p:last-child{margin-bottom:0}
+    .insight{background:var(--surface);border-left:3px solid var(--accent);padding:20px 24px;border-radius:0 3px 3px 0;margin:24px 0}
+    .insight-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .insight p{font-size:14px;color:var(--text);font-style:italic;margin-bottom:0}
+    .script{background:var(--ink);border:1px solid var(--accent-border);border-radius:4px;padding:24px 28px;margin:24px 0}
+    .script-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    .script p{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:0;font-style:italic}
+    .warn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin:24px 0}
+    .warn-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+    .warn p{font-size:14px;color:var(--text-dim);margin-bottom:0;line-height:1.7}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .card{background:var(--surface);padding:24px}.card-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .card h4{margin:0 0 8px;font-size:14px}.card p{font-size:13px;margin-bottom:0;line-height:1.6}
+    .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .cards3 .card{background:var(--surface);padding:24px}
+    .consulting-strip{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:4px;padding:32px 36px;margin-top:72px;display:flex;align-items:flex-start;gap:28px}
+    .cs-badge{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:800;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .consulting-strip h3{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--white);margin:0 0 8px;letter-spacing:-0.01em}
+    .consulting-strip p{font-size:13px;color:var(--text-dim);margin-bottom:12px}
+    .consulting-strip a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-border);padding-bottom:2px}
+    .bottom-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid var(--border);margin-top:56px}
+    .bn-link{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text-dim);text-decoration:none;transition:color 0.15s}.bn-link:hover{color:var(--accent)}
+    .bn-cta a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:10px 20px;border-radius:3px;text-decoration:none}
+    footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-items:center;justify-content:space-between}
+    footer .brand{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--text-dim)}.brand em{color:var(--accent);font-style:normal}
+    footer .meta{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
+    @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.page-wrap{padding:40px 20px 80px}.stats{flex-wrap:wrap}.cards,.cards3{grid-template-columns:1fr}.consulting-strip{flex-direction:column}footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px}}
 </style>
 </head>
 <body>
-<nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
-
-<div class="hero">
-  <div class="hero-tag">Channel-Ready AE · Phase 2 · Module 07</div>
-  <h1>No-Free-Consulting:<br>Protect Your <em>Time and IP</em>.</h1>
-  <div class="hero-sub">How to stop giving away solution architecture, demos, proposals, and channel expertise for free — and how to establish a professional exchange of value before you invest a single hour of your time in a partner opportunity.</div>
-  <div class="hero-stats">
-    <div class="hero-stat"><strong>$0</strong><span>Value of Free Work</span></div>
-    <div class="hero-stat"><strong>Commit</strong><span>Before You Invest</span></div>
-    <div class="hero-stat"><strong>Time</strong><span>Is Your Inventory</span></div>
-    <div class="hero-stat"><strong>Exchange</strong><span>Required First</span></div>
+<nav>
+  <a href="/" class="nav-logo">Channel-<em>Ready</em> AE</a>
+  <ul class="nav-links">
+    <li><a href="/#who">Who It's For</a></li><li><a href="/#program">Program</a></li>
+    <li><a href="/#methodology">Methodology</a></li><li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#founders">Instructors</a></li><li><a href="/curriculum" class="active">Curriculum</a></li>
+    <li><a href="/business_plan">Business Plan</a></li>
+  </ul>
+  <a href="/#apply" class="nav-cta">Enroll Now</a>
+</nav>
+<div class="page-wrap">
+  <div class="breadcrumb"><a href="/">Channel-Ready AE</a><span>&rsaquo;</span><a href="/curriculum">Curriculum Binder</a><span>&rsaquo;</span><span>Module 07</span></div>
+  <div class="eyebrow">Channel-Ready AE &middot; Phase 2 &middot; Module 07</div>
+  <h1>No-Free-Consulting <em>in the Channel.</em></h1>
+  <p class="module-sub">Protecting your time, intellectual property, and deal margins. Defining what requires partner commitment before you engage. What to do when a partner takes your business plan, your architecture, and your proposal to a cheaper vendor.</p>
+  <div class="stats"><div class="stat"><div class="stat-val">IP</div><div class="stat-lbl">Protected</div></div><div class="stat"><div class="stat-val">Zero</div><div class="stat-lbl">Uncommitted Work</div></div><div class="stat"><div class="stat-val">Margin</div><div class="stat-lbl">Defended</div></div><div class="stat"><div class="stat-val">Commitment</div><div class="stat-lbl">First Always</div></div></div>
+  <div class="mod-nav">
+    <a href="/module_06">&larr; Module 06</a>
+    <span class="mod-nav-mid">Phase 2 &middot; No-Free-Consulting</span>
+    <a href="/module_08">Module 08 &rarr;</a>
+  </div>
+  <div class="fw-badge"><span>&or;</span><span>Channel Activation System&trade; &mdash; No-Free-Consulting</span></div>
+<div class="section"><h2>Every hour of free consulting you give away is margin you're paying <em>to a competitor.</em></h2>
+<p>The No-Free-Consulting framework is the operational expression of I/R Theory. When a channel AE has separated their identity from their role, they stop needing to prove their value through effort and generosity. That psychological shift makes the No-Free-Consulting conversation possible — because it comes from a place of strength, not deprivation.</p>
+<p>The framework defines three categories of channel work: what you do for free (relationship building, general education, qualification conversations), what requires a light commitment (product briefings, solution overviews, initial pain diagnosis), and what requires explicit partner commitment before you engage (solution architecture, custom proposals, proof-of-concept scoping, business plans). The goal is not to become transactional — it's to ensure that the investment of your expertise is matched by the partner's investment of their commitment.</p>
+<div class="insight"><div class="insight-lbl">The Core Insight</div><p><strong>The partner who gets your architecture, your proposal, and your business plan without committing to anything is the partner who takes all three to your cheapest competitor the next day. The No-Free-Consulting framework prevents this without ending the relationship.</strong></p></div>
+<div class="cards3">
+  <div class="card"><div class="card-lbl">What You'll Learn</div><p>The three-tier framework for categorizing channel work by commitment required. The IP protection conversation delivered with Sandler posture. What to do after a partner has already taken your work to a competitor.</p></div>
+  <div class="card"><div class="card-lbl">What You'll Practice</div><p>Setting the No-Free-Consulting expectation early in a new partner relationship. Running the commitment-before-engagement conversation without making it feel transactional. Responding to a partner who pushes back on the requirement.</p></div>
+  <div class="card"><div class="card-lbl">What Changes After</div><p>Partners who want your expertise earn it. Your time goes to qualified, committed relationships. Your win rate on proposals increases because you only write them for deals that have already been qualified.</p></div>
+</div></div>
+<div class="section"><h2>The three-tier framework &mdash; <em>what's free, what requires light commitment, and what requires explicit commitment.</em></h2>
+<div class="cards3">
+  <div class="card"><div class="card-lbl">Tier 1 — Free</div><h4>Relationship and education</h4><p>General product briefings, program overview conversations, industry education, relationship-building calls. No deal attached. No specific customer in scope. These are the conversations that build the relationship foundation — and they should be genuinely generous.</p></div>
+  <div class="card"><div class="card-lbl">Tier 2 — Light Commitment Required</div><h4>Qualified interest, named account</h4><p>Detailed solution overview for a named customer, competitive comparison for a specific opportunity, pain diagnosis for a deal that's been registered. Requires deal registration or a named account before the conversation starts.</p></div>
+  <div class="card"><div class="card-lbl">Tier 3 — Explicit Commitment Required</div><h4>Architecture, proposals, business plans</h4><p>Solution architecture, custom proposal writing, POC scoping, partner business plan development, pricing analysis. Requires an explicit written commitment from the partner before any work begins — what they're committing to in terms of timeline, exclusivity, and next step if the work produces what they need.</p></div>
+</div>
+<h3>The Commitment-Before-Engagement Conversation</h3>
+<div class="script"><div class="script-lbl">Setting the Expectation Early in a New Partner Relationship</div><p>"I want to be a great resource for you and your customers. The way I work is: for general questions and education, I'm always available. For anything that involves specific customer deals — architecture, proposals, business plans — I'll need you to have a registered opportunity or a named account before I invest time building something custom. That's not about being difficult — it's about making sure the work I do for you actually closes deals rather than sitting in a folder. Does that work for you?"</p></div></div>
+<div class="section"><h2>After a partner has taken your work to a competitor &mdash; <em>what to do next.</em></h2>
+<p>It happens. You've done the work — written the proposal, built the architecture, developed the business plan — and the partner has taken it to a cheaper vendor. How you respond to this moment determines whether it happens again.</p>
+<div class="script"><div class="script-lbl">The IP Protection Conversation After the Fact</div><p>"I heard you went with [competitor] on the [customer] deal. I want to be direct with you about something: the proposal and architecture we built together took significant time and expertise, and I'd invested it based on an understanding that we were working this deal together. I'm not going to pretend that didn't affect my trust in how we work together. Going forward, I'm going to need explicit commitment before I build anything custom — not because I don't want to work with you, but because I need to know that what I build is going toward a real opportunity. Can we reset on that basis?"</p></div>
+<h3>When the Partner Pushes Back on No-Free-Consulting</h3>
+<div class="script"><div class="script-lbl">NRS Applied to the Pushback</div><p>"I hear you — and I understand that's not how you've worked with other vendors. I want to make sure we're right for each other before we go further. Most vendors will build you proposals without commitment because they're fighting for your attention. I'm not doing that — not because I don't value the relationship, but because the work I do is worth the commitment I'm asking for. If that's not the right model for how you work, I completely understand."</p></div></div>
+<div class="section"><h2>No-Free-Consulting in practice &mdash; <em>what it protects beyond IP.</em></h2>
+<h3>It Protects the Partner Relationship Too</h3>
+<p>Counter-intuitively, the No-Free-Consulting framework protects the partner relationship as much as it protects your time. Partners who get custom work without committing to anything don't value the work — because they haven't invested anything in receiving it. Partners who've had to commit something before receiving your expertise treat the output differently. They've earned it, and that ownership changes how they sell with it.</p>
+<h3>The Long-Term Effect on Partner Behavior</h3>
+<p>After 6–12 months of consistent No-Free-Consulting, the partners in your portfolio change their behavior in a predictable way: the partners who were never going to commit stop asking for custom work, and the partners who are genuinely motivated become more efficient in how they request your support. Your time allocation shifts toward the relationships that produce revenue — without you having to explicitly manage anyone out.</p>
+<p class="instructor-line" style="font-size:12px;color:var(--text-dim);margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">&bull; Carl &mdash; IP protection in large VAR co-sell environments &middot; &bull; Natalie &mdash; No-Free-Consulting in MSSP and SI partner motions &middot; Sandler No-Free-Consulting framework</p></div>
+  <div class="consulting-strip">
+    <div class="cs-badge">Consulting Pathway</div>
+    <div>
+      <h3>How much IP have you given away in the last 90 days without a commitment in return?</h3>
+      <p>A Channel Strategy Audit surfaces your specific gaps and maps them to the modules that fix them. 2-hour session with Carl or Natalie. Flat fee: $2,500. Designed to feed directly into the curriculum.</p>
+      <a href="/#apply">Request a Channel Strategy Audit &rarr;</a>
+    </div>
+  </div>
+  <div class="bottom-nav">
+    <a href="/module_06" class="bn-link">&larr; Module 06</a>
+    <div class="bn-cta"><a href="/#apply">Enroll Now</a></div>
+    <a href="/module_08" class="bn-link">Module 08 &rarr;</a>
   </div>
 </div>
-
-<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Sandler No-Free-Consulting</span><span class="ref-text" style="color:#6a7a9a;">Applied before every demo, proposal, architecture session, and co-sell investment</span></div>
-
-<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
-  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
-  <span style="color:#2a3a2a;">›</span>
-  <span style="color:#6a9a6a;">Module 07 — No-Free-Consulting</span>
-  <span style="margin-left:auto;"><a href="module_06.html" style="color:#3a5a3a;">← Module 06</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="module_08.html" style="color:#5a7a9a;margin-left:12px;">Module 08 →</a></span>
-</div>
-
-<div class="nav-tabs">
-  <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
-  <button class="nav-tab" onclick="showPanel('framework')">Framework</button>
-  <button class="nav-tab" onclick="showPanel('practice')">In Practice</button>
-  <button class="nav-tab" onclick="showPanel('fieldnotes')">Field Notes</button>
-</div>
-
-<div class="content">
-
-<div class="panel active" id="panel-overview">
-<div class="section-label">Why This Module Exists</div>
-<h2>Every free demo, proposal, and architecture session you give away is a signal that your time has no value.</h2>
-<div class="explain">No-Free-Consulting is not about being difficult. It's about establishing that your expertise is worth something — and that partners who want it need to reciprocate with real commitment before you invest.</div>
-<p>The channel AE who says yes to every partner request becomes the partner's research department. Write the proposal. Build the architecture diagram. Run the demo for an unqualified customer. Write the executive summary. All unpaid. All without commitment. And when the deal goes to a different vendor, the AE wonders why they lost.</p>
-<p>The Sandler rule is simple: before you invest time in any activity that benefits the partner, get something real in return. Not a promise. Not enthusiasm. A concrete commitment — access to the decision-maker, a confirmed timeline, a registered deal, a meeting on the books. If the partner won't give you that, they're not qualified to receive your investment.</p>
-<div class="callout">
-  <div class="callout-tag">THE CORE INSIGHT</div>
-  <strong>Partners who receive free consulting have no incentive to commit.</strong> When you make your involvement contingent on partner commitment, you create a mutual accountability that didn't exist before — and you attract the partners who are actually serious.
-</div>
-<div class="grid-3">
-  <div class="card gold-top"><h4>What You'll Learn</h4><p>What counts as "free consulting" in a channel context. The exchange-before-investment framework. How to say no to a partner request without damaging the relationship.</p></div>
-  <div class="card gold-top"><h4>What You'll Practice</h4><p>Responding to partner requests with a commitment ask. Setting the expectation that your time has value before you invest it. Protecting your architecture and proposal work from extraction.</p></div>
-  <div class="card gold-top"><h4>What Changes After</h4><p>Your calendar clears of unqualified co-sell calls. Partners start showing up better prepared. Your win rate on proposals increases because you're only writing them for real opportunities.</p></div>
-</div>
-</div>
-
-<div class="panel" id="panel-framework">
-<div class="section-label">The NFC Framework</div>
-<h2>What counts as free consulting — and what to ask for before you give it.</h2>
-
-<h3>The Four Most Commonly Given Away</h3>
-<div class="grid-2">
-  <div class="card red-top"><h4>1. Demos for Unqualified Opportunities</h4><p>Running a demo before you've confirmed that the end customer has real pain, a real timeline, and real budget authority. A demo without qualification is a free product education session. The partner gets what they need for the next vendor conversation.</p></div>
-  <div class="card red-top"><h4>2. Proposals Before Commitment</h4><p>Writing a formal proposal — pricing, configuration, implementation scope — before the partner has committed to a deal reg and confirmed the customer is the economic buyer. Proposals are expensive to produce. They should only go to qualified, committed opportunities.</p></div>
-  <div class="card red-top"><h4>3. Architecture and Solution Design</h4><p>Building out a full solution architecture, integration map, or technical design before the customer has committed to evaluation. This is your intellectual property. Once you've given it to a partner, they can share it with your competitor's rep or use it to negotiate against you.</p></div>
-  <div class="card red-top"><h4>4. Ongoing Enablement for Non-Producing Partners</h4><p>Running training sessions, providing updated materials, attending partner events, and answering questions for partners who have not produced a deal in 90+ days. Enablement is an investment — it should be reserved for partners who reciprocate.</p></div>
-</div>
-
-<h3>The Exchange-Before-Investment Table</h3>
-<div class="callout">
-  <div class="callout-tag">WHAT TO ASK FOR BEFORE YOU GIVE</div>
-  Before a demo: confirmed economic buyer attending, deal registration submitted, timeline stated by the customer in writing.<br><br>
-  Before a proposal: pain confirmed at Level 3+, decision-maker identified, timeline confirmed, deal registered.<br><br>
-  Before solution architecture: customer has passed a formal technical qualification, formal evaluation kickoff meeting on the books with your pre-sales team.<br><br>
-  Before ongoing enablement: partner produced at least one deal in the last 90 days, or has named accounts actively in pipeline.
-</div>
-</div>
-
-<div class="panel" id="panel-practice">
-<div class="section-label">NFC in Action</div>
-<h2>How to protect your time without burning the partner relationship.</h2>
-<p>The fear of saying no to a partner request is the same fear that causes AEs to give everything away. The reality: partners who respect professional standards understand a value exchange. Partners who get angry when you require commitment before investment are telling you they weren't planning to reciprocate anyway.</p>
-
-<h3>When a Partner Asks for a Demo First</h3>
-<div class="explain">Most partners default to "can we get a demo?" as a first step. It feels easier than doing qualification work. Your job is to make qualification feel like a natural prerequisite.</div>
-<div class="callout">
-  <div class="callout-tag">RESPONSE TO "CAN WE GET A DEMO?"</div>
-  "Absolutely — I want to make sure the demo is as relevant as possible for your customer. Help me understand: has the customer confirmed they're evaluating this category? And who from their side will be on the call? I want to make sure we have the right people in the room so I can focus the demo on what matters most to them."<br><br>
-  This isn't a no. It's a qualification gate. If the partner can't answer these questions, the demo isn't ready.
-</div>
-
-<h3>When a Partner Asks for a Proposal "Just to Show the Customer a Number"</h3>
-<div class="callout">
-  <div class="callout-tag">RESPONSE TO "JUST A ROUGH NUMBER"</div>
-  "I can get you a ballpark range right now — it typically runs between $X and $Y depending on configuration. For an actual proposal, I need to make sure we're putting in the right configuration. Can you get me 20 minutes with the customer's IT lead before I build it out? I want the proposal to be right, not just close."<br><br>
-  Give the range verbally. Protect the formal proposal for qualified opportunities.
-</div>
-
-<h3>How to Say No Without Saying No</h3>
-<p>The most effective NFC response doesn't refuse — it redirects. Instead of "I can't do that without a deal reg," try "Let's make sure this is worth your customer's time before we bring in my pre-sales team. What do we know about their timeline and budget?" You're not withholding — you're protecting both parties' time from a conversation that isn't ready.</p>
-</div>
-
-<div class="panel" id="panel-fieldnotes">
-<div class="section-label">From the Field</div>
-<h2>The long-term effect of enforcing professional standards with partners.</h2>
-
-<h3>What Happens to Your Partnership Quality</h3>
-<p>When you consistently require commitment before investment, you attract a different quality of partner over time. Partners who have operated in a vendor relationship where everything was free will initially push back. Some will go to a competitor who will give them everything free. That's fine — those partners were costing you time without producing revenue. The partners who stay are the ones who were ready to operate like real business partners all along.</p>
-
-<h3>The Proposal Win Rate Effect</h3>
-<div class="callout">
-  <div class="callout-tag">FIELD OBSERVATION</div>
-  AEs who implement No-Free-Consulting typically see their proposal count drop by 40-60% in the first 90 days — and their proposal win rate increase by the same margin. They're writing fewer proposals but winning more of them, because they're only writing for real opportunities. The net revenue effect is positive within one quarter.
-</div>
-
-<h3>NFC and Partner Perception</h3>
-<p>Here's the counterintuitive part: partners who initially push back on your qualification requirements almost always develop more respect for you after you enforce them consistently. They learn that your time and expertise have real value. That perception is what makes them advocate for you internally when a customer asks for a recommendation — because they know you don't give your best work to everyone equally.</p>
-
-<div class="contrib-row">
-  <span class="contrib-pill cp-carl">● CARL — Architecture and proposal giveaway patterns</span>
-  <span class="contrib-pill cp-nat">● NATALIE — Partner behavior when vendor sets no standards</span>
-  <span class="contrib-pill cp-both">● Sandler No-Free-Consulting methodology</span>
-</div>
-
-<div class="footer">
-  <div>
-    <div class="footer-brand">Channel-<em>Ready</em> AE</div>
-    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 07 · NO-FREE-CONSULTING · MARCH 2026</div>
-  </div>
-  <div class="footer-meta">
-    <div>CONFIDENTIAL</div>
-    <div>CARL & NATALIE CLENDENIN</div>
-  </div>
-</div>
-</div>
-
-</div>
-
-<script>
-function showPanel(id) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
-  event.target.classList.add('active');
-}
-</script>
+<footer>
+  <div class="brand">Channel-<em>Ready</em> AE &middot; Module 07 &middot; No-Free-Consulting in the Channel</div>
+  <div class="meta">Carl &amp; Natalie Clendenin &middot; Partna Company LLC &middot; 2026</div>
+</footer>
 </body>
 </html>

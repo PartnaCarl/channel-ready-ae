@@ -1,276 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module 10 — Prospecting Through Partners — Channel-Ready AE</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-light:#e8f4ee;--red:#7a1e1e;--blue-pale:#e8f0f8;--nat:#5a3a7a;}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
-.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
-.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
-.hero h1 em{color:var(--gold-light);font-style:italic;}
-.hero-sub{font-size:17px;color:#6a7a8a;max-width:580px;position:relative;margin-bottom:32px;}
-.hero-stats{display:flex;gap:40px;position:relative;flex-wrap:wrap;}
-.hero-stat{font-family:'DM Mono',monospace;}
-.hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
-.hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
-.ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ref-bar.blue-bar{background:#1a1a2a;}
-.ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
-.ref-text{font-size:13px;}
-.breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.breadcrumb a{text-decoration:none;}
-.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:56px;z-index:20;overflow-x:auto;}
-.nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
-.nav-tab:hover{color:var(--accent);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
-.content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}.panel.active{display:block;}
-.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
-h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
-h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
-p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
-.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
-.callout strong{color:var(--gold-light);}
-.explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
-.pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:20px 0;}
-.pillar{border:1px solid var(--rule);background:var(--white);border-radius:4px;overflow:hidden;}
-.pillar-head{padding:14px 20px;display:flex;align-items:center;gap:10px;}
-.pillar-head.blue{background:var(--accent);color:white;}
-.pillar-head.green{background:var(--green);color:white;}
-.pillar-head.gold{background:var(--gold);color:var(--ink);}
-.pillar-icon{font-size:20px;}
-.pillar-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;font-weight:500;}
-.pillar-body{padding:16px 20px;}
-.pillar-body ul{list-style:none;margin:0;}
-.pillar-body li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:14px;color:#2e2820;display:flex;justify-content:space-between;align-items:start;gap:12px;}
-.pillar-body li:last-child{border-bottom:none;}
-.pillar-body li .tag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
-.tag-gold{background:var(--gold-pale);color:var(--gold);}
-.tag-blue{background:var(--blue-pale);color:var(--accent);}
-.tag-green{background:var(--green-light);color:var(--green);}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
-.card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
-.card.gold-top{border-top:3px solid var(--gold);}
-.card.blue-top{border-top:3px solid var(--accent);}
-.card.green-top{border-top:3px solid var(--green);}
-.card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.card p{font-size:13px;margin:0;color:var(--muted);}
-.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 0;}
-.contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
-.cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
-.cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
-.cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
-.footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
-.footer-brand em{color:var(--gold-light);}
-.footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
-@media(max-width:700px){.hero{padding:40px 24px 36px;}.hero h1{font-size:30px;}.content{padding:32px 20px 60px;}.pillars,.grid-2,.grid-3{grid-template-columns:1fr;}.breadcrumb{padding:10px 24px;}}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Module 10 &mdash; Prospecting Through Partners &mdash; Channel-Ready AE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--black:#0a0a0a;--ink:#111111;--surface:#161616;--border:#242424;--muted:#333333;--text-dim:#888888;--text:#d4d4d4;--white:#f5f5f5;--accent:#e8c547;--accent-dim:rgba(232,197,71,0.10);--accent-border:rgba(232,197,71,0.28);--font-head:'Cormorant Garamond',serif;--font-body:'Crimson Pro',serif}
+    html{scroll-behavior:smooth}body{background:var(--black);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px}
+    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-0.02em}.nav-logo em{color:var(--accent);font-style:normal}
+    .nav-links{display:flex;gap:28px;list-style:none}.nav-links a{font-size:13px;font-weight:500;color:var(--text-dim);text-decoration:none;letter-spacing:0.02em;transition:color 0.15s}.nav-links a:hover,.nav-links a.active{color:var(--white)}
+    .nav-cta{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:8px 18px;border-radius:3px;text-decoration:none}
+    .page-wrap{max-width:860px;margin:0 auto;padding:60px 40px 100px}
+    .breadcrumb{font-size:12px;color:var(--text-dim);margin-bottom:32px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color 0.15s}.breadcrumb a:hover{color:var(--accent)}.breadcrumb span{color:var(--muted)}
+    .eyebrow{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+    h1{font-family:var(--font-head);font-size:clamp(36px,5vw,54px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--white);margin-bottom:20px}h1 em{color:var(--accent);font-style:normal}
+    .module-sub{font-size:17px;color:var(--text-dim);max-width:640px;line-height:1.75;margin-bottom:36px}
+    .stats{display:flex;gap:0;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:36px}
+    .stat{flex:1;background:var(--surface);padding:20px 24px;border-right:1px solid var(--border)}.stat:last-child{border-right:none}
+    .stat-val{font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-0.03em;line-height:1;margin-bottom:4px}
+    .stat-lbl{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+    .mod-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:4px;margin-bottom:48px;font-size:12px}
+    .mod-nav a{color:var(--text-dim);text-decoration:none;font-weight:500;transition:color 0.15s}.mod-nav a:hover{color:var(--accent)}
+    .mod-nav-mid{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 12px;border-radius:2px}
+    .fw-badge{display:inline-flex;align-items:center;gap:10px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:3px;padding:10px 16px;margin-bottom:52px;font-size:12px;font-weight:600;color:var(--accent)}
+    .section{margin-bottom:60px;padding-bottom:60px;border-bottom:1px solid var(--border)}.section:last-of-type{border-bottom:none;padding-bottom:0}
+    h2{font-family:var(--font-head);font-size:clamp(22px,3vw,32px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:16px}h2 em{color:var(--accent);font-style:normal}
+    h3{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--white);margin:36px 0 12px;letter-spacing:-0.02em}
+    h4{font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--white);margin:24px 0 8px;letter-spacing:-0.01em}
+    p{font-size:15px;color:var(--text-dim);line-height:1.8;margin-bottom:18px}p:last-child{margin-bottom:0}
+    .insight{background:var(--surface);border-left:3px solid var(--accent);padding:20px 24px;border-radius:0 3px 3px 0;margin:24px 0}
+    .insight-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .insight p{font-size:14px;color:var(--text);font-style:italic;margin-bottom:0}
+    .script{background:var(--ink);border:1px solid var(--accent-border);border-radius:4px;padding:24px 28px;margin:24px 0}
+    .script-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    .script p{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:0;font-style:italic}
+    .warn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin:24px 0}
+    .warn-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+    .warn p{font-size:14px;color:var(--text-dim);margin-bottom:0;line-height:1.7}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .card{background:var(--surface);padding:24px}.card-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .card h4{margin:0 0 8px;font-size:14px}.card p{font-size:13px;margin-bottom:0;line-height:1.6}
+    .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .cards3 .card{background:var(--surface);padding:24px}
+    .consulting-strip{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:4px;padding:32px 36px;margin-top:72px;display:flex;align-items:flex-start;gap:28px}
+    .cs-badge{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:800;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .consulting-strip h3{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--white);margin:0 0 8px;letter-spacing:-0.01em}
+    .consulting-strip p{font-size:13px;color:var(--text-dim);margin-bottom:12px}
+    .consulting-strip a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-border);padding-bottom:2px}
+    .bottom-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid var(--border);margin-top:56px}
+    .bn-link{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text-dim);text-decoration:none;transition:color 0.15s}.bn-link:hover{color:var(--accent)}
+    .bn-cta a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:10px 20px;border-radius:3px;text-decoration:none}
+    footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-items:center;justify-content:space-between}
+    footer .brand{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--text-dim)}.brand em{color:var(--accent);font-style:normal}
+    footer .meta{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
+    @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.page-wrap{padding:40px 20px 80px}.stats{flex-wrap:wrap}.cards,.cards3{grid-template-columns:1fr}.consulting-strip{flex-direction:column}footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px}}
 </style>
 </head>
 <body>
-<nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
-
-<div class="hero">
-  <div class="hero-tag">Channel-Ready AE · Phase 3 · Module 10</div>
-  <h1>Prospecting<br><em>Through Partners</em>.</h1>
-  <div class="hero-sub">How to jointly prospect, co-source deals, and turn your partner network into an outbound engine — using Sandler principles to structure the prospecting motion so partners actually generate net-new pipeline instead of just passing warm referrals.</div>
-  <div class="hero-stats">
-    <div class="hero-stat"><strong>Joint</strong><span>Prospecting Model</span></div>
-    <div class="hero-stat"><strong>Co-Source</strong><span>Deal Generation</span></div>
-    <div class="hero-stat"><strong>Outbound</strong><span>Engine via Partners</span></div>
-    <div class="hero-stat"><strong>Named</strong><span>Accounts Required</span></div>
+<nav>
+  <a href="/" class="nav-logo">Channel-<em>Ready</em> AE</a>
+  <ul class="nav-links">
+    <li><a href="/#who">Who It's For</a></li><li><a href="/#program">Program</a></li>
+    <li><a href="/#methodology">Methodology</a></li><li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#founders">Instructors</a></li><li><a href="/curriculum" class="active">Curriculum</a></li>
+    <li><a href="/business_plan">Business Plan</a></li>
+  </ul>
+  <a href="/#apply" class="nav-cta">Enroll Now</a>
+</nav>
+<div class="page-wrap">
+  <div class="breadcrumb"><a href="/">Channel-Ready AE</a><span>&rsaquo;</span><a href="/curriculum">Curriculum Binder</a><span>&rsaquo;</span><span>Module 10</span></div>
+  <div class="eyebrow">Channel-Ready AE &middot; Phase 3 &middot; Module 10</div>
+  <h1>Prospecting <em>Through Partners.</em></h1>
+  <p class="module-sub">How to jointly prospect and source deals through the channel. The joint prospecting call structure. Getting partners to open their accounts to you. Using Pain Funnel language in joint prospecting so you're not just tagging along on calls.</p>
+  <div class="stats"><div class="stat"><div class="stat-val">Joint</div><div class="stat-lbl">Prospecting Structure</div></div><div class="stat"><div class="stat-val">Partner</div><div class="stat-lbl">Account Access</div></div><div class="stat"><div class="stat-val">Pain</div><div class="stat-lbl">Funnel in Outbound</div></div><div class="stat"><div class="stat-val">Zero</div><div class="stat-lbl">Tagging Along</div></div></div>
+  <div class="mod-nav">
+    <a href="/module_09">&larr; Module 09</a>
+    <span class="mod-nav-mid">Phase 3 &middot; Pain Funnel · Joint Prospecting</span>
+    <a href="/module_11">Module 11 &rarr;</a>
   </div>
-</div>
-
-<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Sandler Prospecting Applied</span><span class="ref-text" style="color:#6a7a9a;">Building partner-sourced pipeline with discipline and mutual commitment</span></div>
-
-<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
-  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
-  <span style="color:#2a3a2a;">›</span>
-  <span style="color:#6a9a6a;">Module 10 — Prospecting Through Partners</span>
-  <span style="margin-left:auto;"><a href="module_09.html" style="color:#3a5a3a;">← Module 09</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="module_11.html" style="color:#5a7a9a;margin-left:12px;">Module 11 →</a></span>
-</div>
-
-<div class="nav-tabs">
-  <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
-  <button class="nav-tab" onclick="showPanel('framework')">Framework</button>
-  <button class="nav-tab" onclick="showPanel('practice')">In Practice</button>
-  <button class="nav-tab" onclick="showPanel('fieldnotes')">Field Notes</button>
-</div>
-
-<div class="content">
-
-<div class="panel active" id="panel-overview">
-<div class="section-label">Why This Module Exists</div>
-<h2>Partners don't generate pipeline by accident. They do it when you build a joint prospecting motion with them.</h2>
-<div class="explain">The difference between a partner who passes you one deal per quarter and a partner who generates consistent new pipeline is almost always whether the AE has built a structured joint prospecting habit with them. This module shows you how.</div>
-<p>Most channel AEs wait for partners to bring them opportunities. The partner has 200 vendor relationships — if you're waiting passively, you're at the back of the line. The AEs who get consistent partner-sourced pipeline are the ones who actively build a joint prospecting motion: a regular cadence of prospecting activity where both parties are identifying accounts, reaching out together, and jointly qualifying before anyone invests time in a formal deal cycle.</p>
-<p>Sandler's prospecting principles apply here the same way they apply to direct sales: identify the pain pattern, target the accounts where that pain pattern is likely to exist, contact the right person with the right message, and qualify fast. The difference is that in channel, you're doing this in partnership — and you need to structure the partnership so the prospecting effort is mutual, not one-sided.</p>
-<div class="callout">
-  <div class="callout-tag">THE CORE INSIGHT</div>
-  <strong>Partners who prospect with you are partners who are invested in your success.</strong> Joint prospecting is the activity that converts a transactional partner relationship into a genuine co-sell partnership — and it's the fastest way to find out which partners are actually motivated.
-</div>
-<div class="grid-3">
-  <div class="card gold-top"><h4>What You'll Learn</h4><p>The joint prospecting framework. How to build a target account list with a partner. How to structure a weekly co-prospecting cadence that both parties show up to consistently.</p></div>
-  <div class="card gold-top"><h4>What You'll Practice</h4><p>Running a joint account planning session with a partner. Writing a co-sourced outreach sequence. Qualifying inbound partner referrals using Sandler pain questions.</p></div>
-  <div class="card gold-top"><h4>What Changes After</h4><p>Your partner-sourced pipeline grows. You stop being dependent on reactive referrals. Your best partners become genuine outbound engines for your product.</p></div>
-</div>
-</div>
-
-<div class="panel" id="panel-framework">
-<div class="section-label">The Joint Prospecting System</div>
-<h2>Three components that turn partners into an outbound engine.</h2>
-
-<div class="pillars">
-  <div class="pillar">
-    <div class="pillar-head blue"><div class="pillar-icon">📋</div><div class="pillar-title">Component 1 — Target Account List</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Build a shared list of 10–20 named target accounts <span class="tag tag-blue">Required</span></li>
-        <li>Each account must fit your ICP and the partner's book <span class="tag tag-blue">Required</span></li>
-        <li>Partner must have a relationship or access to each account <span class="tag tag-blue">Required</span></li>
-        <li>Each account gets a tier: hot, warm, cold <span class="tag tag-blue">Required</span></li>
-        <li>Reviewed and updated at every monthly sync <span class="tag tag-blue">Cadence</span></li>
-      </ul>
+  <div class="fw-badge"><span>&or;</span><span>Channel Activation System&trade; &mdash; Pain Funnel · Joint Prospecting</span></div>
+<div class="section"><h2>Partner-sourced pipeline doesn't appear on its own. <em>You have to prospect to create it.</em></h2>
+<p>The assumption that partners will proactively bring you deals is one of the most expensive beliefs in channel sales. Partners have dozens of vendors competing for their attention. Without a structured prospecting motion — one that makes it easy for partners to identify opportunities and brings you into the conversation early — the pipeline you get from partners is whatever they happen to think of when a deal randomly surfaces.</p>
+<p>Joint prospecting flips that equation. Instead of waiting for partners to bring you deals, you proactively work their account base to surface opportunities that neither of you would have identified alone. The partner brings the customer relationship. You bring the Pain Funnel diagnostic. Together, you find problems that your product solves — before the customer has started a formal evaluation, before they've issued an RFP, before a competitor has gotten there first.</p>
+<div class="insight"><div class="insight-lbl">The Core Insight</div><p><strong>The best co-sell deals don't come from partners responding to customer requests — they come from joint prospecting that uncovers customer pain before the customer has formalized it as an initiative. That's where you win before the competition starts.</strong></p></div></div>
+<div class="section"><h2>The joint prospecting framework &mdash; <em>from account selection through first call.</em></h2>
+<h3>Step 1 — Account Selection</h3>
+<p>Work with your partner to identify 10–20 customers in their existing base who match the profile of your best-fit buyers. The selection criteria should be specific: industry vertical, company size, technology stack, and ideally a known pain signal (recent compliance requirement, a public announcement about digital transformation, a competitor win they lost). Vague account selection produces vague conversations.</p>
+<div class="script"><div class="script-lbl">Account Selection Conversation With Partner</div><p>"I want to work your book of business with you — not wait for deals to come to us. Let's build a list of 15 accounts in your base that look like our best-fit customers. I'll tell you the profile, you tell me which of your accounts fit it, and we'll prioritize the top 10 to call together this month. Can we set aside 30 minutes this week to do that mapping?"</p></div>
+<h3>Step 2 — Pre-Call Preparation</h3>
+<p>Before any joint prospecting call, prepare the partner on how to open the conversation. The partner leads with the customer relationship. You lead with the Pain Funnel. The roles should be clear before the call starts, not negotiated on it.</p>
+<h3>Step 3 — The Joint Prospecting Call</h3>
+<div class="script"><div class="script-lbl">Joint Prospecting Call Structure</div><p><strong>Partner opens (2 min):</strong> "I wanted to bring [vendor AE] in today because we've been seeing a lot of companies like yours dealing with [specific challenge] — and I wanted to understand whether that's something you're experiencing."<br/><br/><strong>You run the Pain Funnel (15 min):</strong> Start with the surface problem, move to business impact, listen for Level 3 pain. Let the customer do the talking.<br/><br/><strong>Both align on next step (5 min):</strong> Set a UFC for the next conversation before you hang up.</p></div></div>
+<div class="section"><h2>Getting partners to open their accounts to you &mdash; <em>and keeping that access.</em></h2>
+<p>Partners are protective of their customer relationships — and for good reason. Every vendor AE who has come before you has made promises about not selling around them, not pulling deals direct, and not using their customer introductions to circumvent the partnership. Many of those promises have been broken. The access you get to a partner's account base is earned, not given.</p>
+<h3>Earning Account Access</h3>
+<div class="cards">
+  <div class="card"><div class="card-lbl">What Earns Access</div><h4>Demonstrating you make them better</h4><p>When a partner sees that your joint prospecting produces deals they couldn't have found alone, they open more accounts. Every successful joint call is an investment that pays interest in future access. Document the outcomes and reference them explicitly.</p></div>
+  <div class="card"><div class="card-lbl">What Loses Access</div><h4>Bypassing the partner</h4><p>Going direct to the customer without the partner's knowledge — for any reason — destroys the prospecting relationship permanently. If a customer reaches out to you directly on a partner account, the first call you make is to the partner, not back to the customer.</p></div>
+</div></div>
+<div class="section"><h2>Field notes: The prospecting behaviors that <em>compound over time.</em></h2>
+<h3>Joint Prospecting as a QBR Input</h3>
+<p>Every joint prospecting session should produce a named list of accounts with the pain signals identified and the next action agreed. This list becomes your QBR input: "Here are the accounts we prospected last quarter, here's what we found, here's what closed, and here's what's still in motion." This transforms the QBR from a retrospective into a forward-looking prospecting review — and gives the partner a reason to prioritize the next joint session.</p>
+<h3>Scaling the Motion</h3>
+<p>Once a joint prospecting rhythm is established with one rep at a partner, it becomes a playbook for the entire team. Document what's working — the account selection criteria, the call structure, the pain signals that convert — and share it with the partner's manager. Successful joint prospecting with one rep is the proof point for expanding the motion to the entire territory.</p>
+<p class="instructor-line" style="font-size:12px;color:var(--text-dim);margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">&bull; Carl &mdash; Joint prospecting across large VAR territories &middot; &bull; Natalie &mdash; Prospecting with MSSP and SI partner reps &middot; Sandler Pain Funnel applied to outbound prospecting</p></div>
+  <div class="consulting-strip">
+    <div class="cs-badge">Consulting Pathway</div>
+    <div>
+      <h3>Are your partners actively prospecting with you — or passively waiting for deals to surface?</h3>
+      <p>A Channel Strategy Audit surfaces your specific gaps and maps them to the modules that fix them. 2-hour session with Carl or Natalie. Flat fee: $2,500. Designed to feed directly into the curriculum.</p>
+      <a href="/#apply">Request a Channel Strategy Audit &rarr;</a>
     </div>
   </div>
-  <div class="pillar">
-    <div class="pillar-head green"><div class="pillar-icon">📅</div><div class="pillar-title">Component 2 — Weekly Co-Prospect Call</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>30-min weekly call: what went out, what came back <span class="tag tag-green">Required</span></li>
-        <li>Partner owns the relationship intro, you own the qualification <span class="tag tag-green">Role Split</span></li>
-        <li>UFC for each call — purpose and outcome stated upfront <span class="tag tag-green">Required</span></li>
-        <li>No call without a specific action item from the previous call <span class="tag tag-green">Required</span></li>
-        <li>Track: outreach sent, responses, meetings booked <span class="tag tag-green">Metrics</span></li>
-      </ul>
-    </div>
-  </div>
-  <div class="pillar">
-    <div class="pillar-head gold"><div class="pillar-icon">✉</div><div class="pillar-title">Component 3 — Co-Sourced Outreach</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Partner sends intro, you provide the email/script <span class="tag tag-gold">Model</span></li>
-        <li>Message anchors on the end customer's likely pain — not your product <span class="tag tag-gold">Required</span></li>
-        <li>Call to action: a brief conversation, not a demo <span class="tag tag-gold">Required</span></li>
-        <li>Follow-up sequence owned by partner, supported by you <span class="tag tag-gold">Model</span></li>
-        <li>All responses routed to weekly co-prospect call <span class="tag tag-gold">Cadence</span></li>
-      </ul>
-    </div>
+  <div class="bottom-nav">
+    <a href="/module_09" class="bn-link">&larr; Module 09</a>
+    <div class="bn-cta"><a href="/#apply">Enroll Now</a></div>
+    <a href="/module_11" class="bn-link">Module 11 &rarr;</a>
   </div>
 </div>
-
-<h3>The Pain-First Outreach Message</h3>
-<div class="callout">
-  <div class="callout-tag">CO-SOURCED OUTREACH TEMPLATE</div>
-  From: [Partner Rep Name]<br>
-  To: [Target Contact]<br><br>
-  "I've been working with [your company's] team on some situations in [vertical] where [specific pain pattern] is creating real pressure for operations and IT leadership. A few of my customers have run into this — specifically around [two-sentence problem description]. I thought it might be worth a quick 15-minute call to see if this is something you're dealing with, or not. Are you open to a brief conversation?"<br><br>
-  The message leads with pain, not product. The partner's credibility makes it land.
-</div>
-</div>
-
-<div class="panel" id="panel-practice">
-<div class="section-label">Building the Joint Prospecting Motion</div>
-<h2>From account list to first conversation — step by step.</h2>
-
-<h3>Step 1 — The Account Planning Session</h3>
-<p>Schedule a 60-minute account planning session with the partner. Purpose: build the target account list together. Bring a proposed list of accounts based on your ICP. Ask the partner to bring their top accounts in your target segment. Combine and tier the list. Assign ownership. This session typically surfaces 15-20 real targets in the first meeting.</p>
-
-<h3>Step 2 — Mapping the Pain Pattern</h3>
-<div class="explain">Before you reach out to any target account, agree on the pain pattern. What problem do these accounts likely have? Why would they be feeling it now? What is the cost of not solving it?</div>
-<div class="callout">
-  <div class="callout-tag">PAIN PATTERN MAPPING WITH THE PARTNER</div>
-  "Walk me through the last customer you sold this kind of solution to. What was their situation? What were they dealing with that made them ready to buy? What was the thing that finally triggered the decision?" Use the partner's real experience to build the outreach narrative. It's more compelling and more accurate than anything you could invent.
-</div>
-
-<h3>Step 3 — Launching the Outreach</h3>
-<p>Write the first outreach email together in the account planning session. Get the partner's voice into it — it should sound like them, not like a vendor template. Have the partner review it before it goes. Launch it to the top 5 accounts on the list. Review responses at the weekly co-prospect call.</p>
-
-<h3>Qualifying Inbound Partner Referrals</h3>
-<p>When a partner brings you an inbound referral, apply the Sandler Pain Funnel immediately — not to the end customer, but to the partner. "Before I reach out to this customer, help me understand what you know about their situation. What's the problem they're dealing with? How long have they had it? Why are they looking now?" If the partner can't answer these questions, the referral isn't qualified enough to pursue yet.</p>
-</div>
-
-<div class="panel" id="panel-fieldnotes">
-<div class="section-label">From the Field</div>
-<h2>What separates partners who generate pipeline from partners who pass leads.</h2>
-
-<h3>The Difference Between a Referral and a Lead</h3>
-<p>A referral is: "You should talk to [Company] — they might need something like this." A lead is: "I talked to [Name] at [Company] last week. They're dealing with [specific pain], they've been trying to solve it for six months, they have budget, and [Name] said they'd take a call from you this week." The joint prospecting motion produces leads, not referrals. Referrals require you to restart the qualification process. Leads are already partway through it.</p>
-
-<h3>Maintaining the Weekly Cadence</h3>
-<div class="callout">
-  <div class="callout-tag">CADENCE RULE</div>
-  The weekly co-prospect call is the most important meeting in a productive partner relationship. It is more important than the QBR. It is the place where pipeline actually gets created. Protect it. If a partner cancels more than twice in a row with no reschedule, apply NRS (Module 06). A partner who won't show up to the co-prospect call is a partner who isn't building pipeline with you — and that's a qualification failure, not a scheduling conflict.
-</div>
-
-<h3>When the Partner's Network Is Tapped Out</h3>
-<p>After 60-90 days of joint prospecting with the same partner, you may find you've exhausted the easy targets in their current book. This is the signal to discuss expansion: new verticals, new geographies, new account segments. The joint prospecting motion that built the first tier of pipeline is also the template for building the next one. But it requires a fresh account planning session and a new target list.</p>
-
-<h3>Real-World Example: Track 1 vs. Track 2 Co-Sell Spreadsheet</h3>
-<p>In a mature co-sell motion with a national reseller, the co-sell spreadsheet typically has two structural tracks — and confusing them is one of the most common mistakes AEs make. Here is how the split works in practice:</p>
-<div class="callout">
-  <div class="callout-tag">FIELD EXAMPLE — CDW CO-SELL STRUCTURE</div>
-  <strong>Track 1 — Vendor pipeline where the partner has an existing relationship.</strong> These are accounts the vendor (you) already knows about and is actively working. The partner's value is the customer relationship — access, trust, an intro. You manage this list; you review it at every co-sell session. The partner's AMs are asked to add their relationship layer on top of pipeline you've already qualified.<br><br>
-  <strong>Track 2 — Unattached prospects where the vendor has no partner assigned.</strong> These are new accounts — the partner's AMs own the relationship and the outreach. No deal registration from a competitor reseller exists. The vendor's value is the product expertise and SPIF incentive. The partner AMs own the motion.<br><br>
-  Why this matters: Track 1 is share consolidation. Track 2 is net-new logos. Large partners like CDW explicitly prefer Track 2 — they do not want to shift business they already touch; they want to open doors you don't have. <strong>If your co-sell spreadsheet is entirely Track 1, you are asking the partner to do your existing deal work for you, not to build new pipeline for both of you.</strong> Structure the list accordingly.
-</div>
-
-<h3>Ghost-Writing Partner Outreach — The Technique You Should Be Using</h3>
-<p>Component 3 of the joint prospecting framework (co-sourced outreach) works in theory. In practice, most AEs stop at "the partner sends an intro" and leave the partner to write the email themselves. This is where pipeline fails to get created. The correct technique is to ghost-write the outreach for the partner — draft the full email in their voice, with their name on it, and hand it to them to send verbatim or lightly adapt.</p>
-<div class="callout">
-  <div class="callout-tag">GHOST-WRITTEN OUTREACH — RETAIL POS EXAMPLE</div>
-  <strong>Subject:</strong> Planning ahead for POS refreshes<br><br>
-  "Hi [Name], as part of my regular account review, I wanted to reach out about something that's come up with a few of our retail customers lately — POS refresh planning. If your current POS systems are approaching the 5-year mark (or past it), now is actually a good time to start the conversation — hardware lead times and component pricing are creating some urgency for customers who want to plan ahead rather than react to failures. [Vendor] is a partner we've recently expanded our relationship with, and they have a strong story around standardization across store fleets, plus our own kitting, configuration, and rollout services that can simplify the deployment side considerably. Is a POS refresh on your roadmap for the next 12–24 months? Happy to set up a brief call with our retail specialist if so. [Partner AM Name]"<br><br>
-  Notice: the email is written in the partner AMs voice. It leads with a pain pattern (aging POS, pricing urgency) not a product pitch. The call to action is a conversation, not a demo. The partner's credibility (their existing account relationship) is what makes it land. Your job is to write this — not to ask the partner to write it themselves.
-</div>
-
-<h3>Understanding What Large Partners Actually Want from Co-Sell</h3>
-<p>Large resellers like national VAR/distributors go into a co-sell partnership with a specific motivation: net-new logos. They are not interested in shifting business from one of your other resellers to themselves — that creates internal conflict and doesn't grow their own book. They want to open accounts that don't currently buy from them. This shapes how you should frame Track 2 in every co-sell conversation.</p>
-<p>Many of these partners also have installed-base intelligence tools (asset tracking databases, renewal engines) that surface legacy product accounts automatically. When a partner tells you they have visibility into which of their 250,000+ accounts are running aging infrastructure, that is a demand generation engine you should be actively plugging your qualification criteria into — not waiting for them to bring you leads manually.</p>
-<div class="callout">
-  <div class="callout-tag">PARTNER MOTIVATION RULE</div>
-  Before your first co-sell session, ask your partner contact explicitly: "What does a successful first 90 days of this partnership look like for your team — is it net-new accounts, or expanding existing accounts where you already have a relationship?" The answer tells you how to structure the Track 1/Track 2 split and how to present the program to their AMs. Getting this wrong at the start means you spend 90 days asking the partner to do something they aren't motivated to do.
-</div>
-
-<h3>The Overlay Model in Co-Sell</h3>
-<p>In complex co-sell motions involving tiered products (entry-level vs. advanced platform), you will encounter accounts where the partner's generalist AM can handle the initial qualification but cannot handle the technical depth of the advanced solution. The correct structure is not to train the generalist AM on topics they won't retain — it's to build an overlay routing model.</p>
-<p>In practice: the partner generalist AM owns discovery and the customer relationship. When the discovery surfaces signals that indicate the complex solution (platform software, advanced services, multi-location deployment), the partner AM's scripted response is "I'd like to bring in a specialist — let me set that up." The overlay specialist (either a partner SE or the vendor's own overlay) steps in for that conversation. The generalist never has to become an expert in the advanced solution, and the advanced solution still gets properly qualified. Your job as the channel AE is to train the partner on the routing signal — not on the advanced product itself.</p>
-
-<div class="contrib-row">
-  <span class="contrib-pill cp-carl">● CARL — Partner-sourced pipeline patterns from vendor side</span>
-  <span class="contrib-pill cp-nat">● NATALIE — How resellers approach outbound with vendor support</span>
-  <span class="contrib-pill cp-both">● Sandler pain-first outreach methodology</span>
-</div>
-
-<div class="footer">
-  <div>
-    <div class="footer-brand">Channel-<em>Ready</em> AE</div>
-    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 10 · PROSPECTING THROUGH PARTNERS · MARCH 2026</div>
-  </div>
-  <div class="footer-meta">
-    <div>CONFIDENTIAL</div>
-    <div>CARL & NATALIE CLENDENIN</div>
-  </div>
-</div>
-</div>
-
-</div>
-
-<script>
-function showPanel(id) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
-  event.target.classList.add('active');
-}
-</script>
+<footer>
+  <div class="brand">Channel-<em>Ready</em> AE &middot; Module 10 &middot; Prospecting Through Partners</div>
+  <div class="meta">Carl &amp; Natalie Clendenin &middot; Partna Company LLC &middot; 2026</div>
+</footer>
 </body>
 </html>

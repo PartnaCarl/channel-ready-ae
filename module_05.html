@@ -1,256 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module 05 — DISC Profiling for Channel — Channel-Ready AE</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-light:#e8f4ee;--red:#7a1e1e;--blue-pale:#e8f0f8;--nat:#5a3a7a;}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
-.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
-.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
-.hero h1 em{color:var(--gold-light);font-style:italic;}
-.hero-sub{font-size:17px;color:#6a7a8a;max-width:580px;position:relative;margin-bottom:32px;}
-.hero-stats{display:flex;gap:40px;position:relative;flex-wrap:wrap;}
-.hero-stat{font-family:'DM Mono',monospace;}
-.hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
-.hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
-.ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ref-bar.blue-bar{background:#1a1a2a;}
-.ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
-.ref-text{font-size:13px;}
-.breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.breadcrumb a{text-decoration:none;}
-.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:56px;z-index:20;overflow-x:auto;}
-.nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
-.nav-tab:hover{color:var(--accent);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
-.content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}.panel.active{display:block;}
-.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
-h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
-h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
-p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
-.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
-.callout strong{color:var(--gold-light);}
-.explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
-.pillar{border:1px solid var(--rule);background:var(--white);border-radius:4px;overflow:hidden;}
-.pillar-head{padding:14px 20px;display:flex;align-items:center;gap:10px;}
-.pillar-head.blue{background:var(--accent);color:white;}
-.pillar-head.green{background:var(--green);color:white;}
-.pillar-head.gold{background:var(--gold);color:var(--ink);}
-.pillar-head.purple{background:var(--nat);color:white;}
-.pillar-icon{font-size:20px;}
-.pillar-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;font-weight:500;}
-.pillar-body{padding:16px 20px;}
-.pillar-body ul{list-style:none;margin:0;}
-.pillar-body li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:14px;color:#2e2820;display:flex;justify-content:space-between;align-items:start;gap:12px;}
-.pillar-body li:last-child{border-bottom:none;}
-.pillar-body li .tag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
-.tag-gold{background:var(--gold-pale);color:var(--gold);}
-.tag-blue{background:var(--blue-pale);color:var(--accent);}
-.tag-green{background:var(--green-light);color:var(--green);}
-.tag-purple{background:#f5f0fa;color:var(--nat);}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
-.card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
-.card.gold-top{border-top:3px solid var(--gold);}
-.card.blue-top{border-top:3px solid var(--accent);}
-.card.green-top{border-top:3px solid var(--green);}
-.card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.card p{font-size:13px;margin:0;color:var(--muted);}
-.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 0;}
-.contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
-.cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
-.cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
-.cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
-.footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
-.footer-brand em{color:var(--gold-light);}
-.footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
-@media(max-width:700px){.hero{padding:40px 24px 36px;}.hero h1{font-size:30px;}.content{padding:32px 20px 60px;}.pillars,.grid-2,.grid-3{grid-template-columns:1fr;}.breadcrumb{padding:10px 24px;}}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Module 05 &mdash; DISC for Channel — Reading Partner Personality Types &mdash; Channel-Ready AE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--black:#0a0a0a;--ink:#111111;--surface:#161616;--border:#242424;--muted:#333333;--text-dim:#888888;--text:#d4d4d4;--white:#f5f5f5;--accent:#e8c547;--accent-dim:rgba(232,197,71,0.10);--accent-border:rgba(232,197,71,0.28);--font-head:'Cormorant Garamond',serif;--font-body:'Crimson Pro',serif}
+    html{scroll-behavior:smooth}body{background:var(--black);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px}
+    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-0.02em}.nav-logo em{color:var(--accent);font-style:normal}
+    .nav-links{display:flex;gap:28px;list-style:none}.nav-links a{font-size:13px;font-weight:500;color:var(--text-dim);text-decoration:none;letter-spacing:0.02em;transition:color 0.15s}.nav-links a:hover,.nav-links a.active{color:var(--white)}
+    .nav-cta{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:8px 18px;border-radius:3px;text-decoration:none}
+    .page-wrap{max-width:860px;margin:0 auto;padding:60px 40px 100px}
+    .breadcrumb{font-size:12px;color:var(--text-dim);margin-bottom:32px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color 0.15s}.breadcrumb a:hover{color:var(--accent)}.breadcrumb span{color:var(--muted)}
+    .eyebrow{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+    h1{font-family:var(--font-head);font-size:clamp(36px,5vw,54px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--white);margin-bottom:20px}h1 em{color:var(--accent);font-style:normal}
+    .module-sub{font-size:17px;color:var(--text-dim);max-width:640px;line-height:1.75;margin-bottom:36px}
+    .stats{display:flex;gap:0;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:36px}
+    .stat{flex:1;background:var(--surface);padding:20px 24px;border-right:1px solid var(--border)}.stat:last-child{border-right:none}
+    .stat-val{font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-0.03em;line-height:1;margin-bottom:4px}
+    .stat-lbl{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+    .mod-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:4px;margin-bottom:48px;font-size:12px}
+    .mod-nav a{color:var(--text-dim);text-decoration:none;font-weight:500;transition:color 0.15s}.mod-nav a:hover{color:var(--accent)}
+    .mod-nav-mid{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 12px;border-radius:2px}
+    .fw-badge{display:inline-flex;align-items:center;gap:10px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:3px;padding:10px 16px;margin-bottom:52px;font-size:12px;font-weight:600;color:var(--accent)}
+    .section{margin-bottom:60px;padding-bottom:60px;border-bottom:1px solid var(--border)}.section:last-of-type{border-bottom:none;padding-bottom:0}
+    h2{font-family:var(--font-head);font-size:clamp(22px,3vw,32px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:16px}h2 em{color:var(--accent);font-style:normal}
+    h3{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--white);margin:36px 0 12px;letter-spacing:-0.02em}
+    h4{font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--white);margin:24px 0 8px;letter-spacing:-0.01em}
+    p{font-size:15px;color:var(--text-dim);line-height:1.8;margin-bottom:18px}p:last-child{margin-bottom:0}
+    .insight{background:var(--surface);border-left:3px solid var(--accent);padding:20px 24px;border-radius:0 3px 3px 0;margin:24px 0}
+    .insight-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .insight p{font-size:14px;color:var(--text);font-style:italic;margin-bottom:0}
+    .script{background:var(--ink);border:1px solid var(--accent-border);border-radius:4px;padding:24px 28px;margin:24px 0}
+    .script-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    .script p{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:0;font-style:italic}
+    .warn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin:24px 0}
+    .warn-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+    .warn p{font-size:14px;color:var(--text-dim);margin-bottom:0;line-height:1.7}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .card{background:var(--surface);padding:24px}.card-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .card h4{margin:0 0 8px;font-size:14px}.card p{font-size:13px;margin-bottom:0;line-height:1.6}
+    .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .cards3 .card{background:var(--surface);padding:24px}
+    .consulting-strip{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:4px;padding:32px 36px;margin-top:72px;display:flex;align-items:flex-start;gap:28px}
+    .cs-badge{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:800;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .consulting-strip h3{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--white);margin:0 0 8px;letter-spacing:-0.01em}
+    .consulting-strip p{font-size:13px;color:var(--text-dim);margin-bottom:12px}
+    .consulting-strip a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-border);padding-bottom:2px}
+    .bottom-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid var(--border);margin-top:56px}
+    .bn-link{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text-dim);text-decoration:none;transition:color 0.15s}.bn-link:hover{color:var(--accent)}
+    .bn-cta a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:10px 20px;border-radius:3px;text-decoration:none}
+    footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-items:center;justify-content:space-between}
+    footer .brand{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--text-dim)}.brand em{color:var(--accent);font-style:normal}
+    footer .meta{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
+    @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.page-wrap{padding:40px 20px 80px}.stats{flex-wrap:wrap}.cards,.cards3{grid-template-columns:1fr}.consulting-strip{flex-direction:column}footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px}}
 </style>
 </head>
 <body>
-<nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
-
-<div class="hero">
-  <div class="hero-tag">Channel-Ready AE · Phase 2 · Module 05</div>
-  <h1>DISC Profiling<br>for <em>Channel Sales</em>.</h1>
-  <div class="hero-sub">Reading partner and buyer personality types. How to adapt your communication, your discovery style, and your closing approach based on whether you're talking to a D, I, S, or C — and why this matters most in a channel context with layered stakeholders.</div>
-  <div class="hero-stats">
-    <div class="hero-stat"><strong>D</strong><span>Dominant</span></div>
-    <div class="hero-stat"><strong>I</strong><span>Influencing</span></div>
-    <div class="hero-stat"><strong>S</strong><span>Steady</span></div>
-    <div class="hero-stat"><strong>C</strong><span>Conscientious</span></div>
+<nav>
+  <a href="/" class="nav-logo">Channel-<em>Ready</em> AE</a>
+  <ul class="nav-links">
+    <li><a href="/#who">Who It's For</a></li><li><a href="/#program">Program</a></li>
+    <li><a href="/#methodology">Methodology</a></li><li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#founders">Instructors</a></li><li><a href="/curriculum" class="active">Curriculum</a></li>
+    <li><a href="/business_plan">Business Plan</a></li>
+  </ul>
+  <a href="/#apply" class="nav-cta">Enroll Now</a>
+</nav>
+<div class="page-wrap">
+  <div class="breadcrumb"><a href="/">Channel-Ready AE</a><span>&rsaquo;</span><a href="/curriculum">Curriculum Binder</a><span>&rsaquo;</span><span>Module 05</span></div>
+  <div class="eyebrow">Channel-Ready AE &middot; Phase 2 &middot; Module 05</div>
+  <h1>DISC Profiling for <em>Channel Sales.</em></h1>
+  <p class="module-sub">Reading partner and buyer personality types. How to adapt your communication, your discovery style, and your closing approach based on whether you're talking to a D, I, S, or C — and why it matters most when your biggest VAR partner is a C-type and you've been showing up with D-type energy for 18 months.</p>
+  <div class="stats"><div class="stat"><div class="stat-val">D</div><div class="stat-lbl">Dominant</div></div><div class="stat"><div class="stat-val">I</div><div class="stat-lbl">Influencing</div></div><div class="stat"><div class="stat-val">S</div><div class="stat-lbl">Steady</div></div><div class="stat"><div class="stat-val">C</div><div class="stat-lbl">Conscientious</div></div></div>
+  <div class="mod-nav">
+    <a href="/module_04">&larr; Module 04</a>
+    <span class="mod-nav-mid">Phase 2 &middot; DISC Profiling</span>
+    <a href="/module_06">Module 06 &rarr;</a>
   </div>
+  <div class="fw-badge"><span>&or;</span><span>Channel Activation System&trade; &mdash; DISC Profiling</span></div>
+<div class="section"><h2>You're not talking to one type of person. <em>Your approach has to flex.</em></h2>
+<p>Channel sales puts you in contact with more personality types per day than almost any other sales motion. Partner leaders, partner reps, end-customer executives, technical evaluators — each type requires a different approach. DISC gives you the language to adjust quickly.</p>
+<p>Most AEs have one default style. They're naturally direct, naturally relationship-driven, or naturally analytical. That style works well with partners who share it — and creates friction with everyone else. DISC isn't about changing who you are. It's about recognizing what the person in front of you needs from you in order to feel heard, understood, and ready to move forward.</p>
+<div class="insight"><div class="insight-lbl">The Core Insight</div><p><strong>Your biggest VAR partner is a C-type. You've been showing up with D-type energy for 18 months. This module explains why the relationship feels stuck — and exactly how to fix it.</strong></p></div>
+<div class="cards3">
+  <div class="card"><div class="card-lbl">What You'll Learn</div><p>The four DISC profiles and how to identify them quickly in a partner conversation. What each type needs from a vendor AE to feel comfortable moving forward.</p></div>
+  <div class="card"><div class="card-lbl">What You'll Practice</div><p>Identifying the DISC profile of your key partner contacts. Adapting your opening, discovery questions, and proposal delivery for each type in real conversations.</p></div>
+  <div class="card"><div class="card-lbl">What Changes After</div><p>Fewer "they just went quiet" situations. Faster trust-building with partner leaders. Better co-sell dynamics because you're meeting each contact where they are.</p></div>
+</div></div>
+<div class="section"><h2>D, I, S, C &mdash; what each type needs from you in <em>a channel conversation.</em></h2>
+<div class="cards">
+  <div class="card"><div class="card-lbl">D &mdash; Dominant</div><h4>Wants results, control, and direct answers</h4><p>Decides quickly — bottom line first, detail later. Fears loss of control and wasting time. Channel profile: VP of Sales, GM, aggressive partner owner. <strong>Your approach:</strong> be direct, skip the warm-up, lead with outcomes and revenue numbers. Two sentences max before you get to the point.</p></div>
+  <div class="card"><div class="card-lbl">I &mdash; Influencing</div><h4>Wants recognition, collaboration, and excitement</h4><p>Decides on relationships and vision, not data. Fears rejection and being ignored. Channel profile: partner AM, inside rep, business development rep. <strong>Your approach:</strong> match energy, tell stories, make them the hero of the deal. They sell with emotion — give them something to be excited about.</p></div>
+  <div class="card"><div class="card-lbl">S &mdash; Steady</div><h4>Wants stability, predictability, and harmony</h4><p>Decides slowly — needs to consult others, build consensus. Fears change and conflict. Channel profile: long-tenure partner rep, technical account manager. <strong>Your approach:</strong> be patient, prove track record, reduce perceived risk. Never push for a commitment they haven't built consensus around.</p></div>
+  <div class="card"><div class="card-lbl">C &mdash; Conscientious</div><h4>Wants accuracy, proof, and process compliance</h4><p>Decides on data, documentation, and validation. Fears being wrong and making mistakes. Channel profile: IT director, pre-sales engineer, technical evaluator. <strong>Your approach:</strong> provide specifics, send materials 48 hours in advance, let them ask every question without rushing. Never oversell with enthusiasm — it signals you're glossing over risks they've already thought of.</p></div>
 </div>
-
-<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">DISC + Sandler</span><span class="ref-text" style="color:#6a7a9a;">Applies to every partner rep, partner leader, and end-customer contact you engage</span></div>
-
-<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
-  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
-  <span style="color:#2a3a2a;">›</span>
-  <span style="color:#6a9a6a;">Module 05 — DISC Profiling for Channel</span>
-  <span style="margin-left:auto;"><a href="module_04.html" style="color:#3a5a3a;">← Module 04</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="module_06.html" style="color:#5a7a9a;margin-left:12px;">Module 06 →</a></span>
-</div>
-
-<div class="nav-tabs">
-  <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
-  <button class="nav-tab" onclick="showPanel('framework')">Framework</button>
-  <button class="nav-tab" onclick="showPanel('practice')">In Practice</button>
-  <button class="nav-tab" onclick="showPanel('fieldnotes')">Field Notes</button>
-</div>
-
-<div class="content">
-
-<div class="panel active" id="panel-overview">
-<div class="section-label">Why This Module Exists</div>
-<h2>You're not talking to one type of person. Your approach has to flex.</h2>
-<div class="explain">Channel sales puts you in contact with more personality types per day than almost any other sales motion. Partner leaders, partner reps, end-customer executives, technical evaluators — each type requires a different approach. DISC gives you the language to adjust quickly.</div>
-<p>Most AEs have one default style. They're naturally direct or naturally relationship-driven or naturally analytical. That style works well with partners who share it — and creates friction with everyone else. DISC isn't about changing who you are. It's about recognizing what the person in front of you needs from you in order to feel heard, understood, and ready to move forward.</p>
-<p>In a channel motion, DISC is especially powerful because you're often dealing with a layered cast of characters: the partner's VP who is a hard D, the partner's account manager who is a strong I, and the end customer's IT director who is a deep C. The Sandler AE who can flex across all three in a single co-sell meeting is the one who wins the deal and the long-term relationship.</p>
-<div class="callout">
-  <div class="callout-tag">THE CORE INSIGHT</div>
-  <strong>People don't resist products. They resist salespeople who communicate in a style that doesn't match their own.</strong> DISC lets you close that gap before resistance builds.
-</div>
-<div class="grid-3">
-  <div class="card gold-top"><h4>What You'll Learn</h4><p>The four DISC profiles and how to identify them quickly in a partner conversation. What each type needs from a vendor AE to feel comfortable moving forward.</p></div>
-  <div class="card gold-top"><h4>What You'll Practice</h4><p>Identifying the DISC profile of your key partner contacts. Adapting your opening, discovery questions, and proposal delivery for each type in real conversations.</p></div>
-  <div class="card gold-top"><h4>What Changes After</h4><p>Fewer "they just went quiet" situations. Faster trust-building with partner leaders. Better co-sell dynamics because you're meeting each contact where they are.</p></div>
-</div>
-</div>
-
-<div class="panel" id="panel-framework">
-<div class="section-label">The Four Profiles</div>
-<h2>D, I, S, C — what each type needs from you in a channel conversation.</h2>
-
-<div class="pillars">
-  <div class="pillar">
-    <div class="pillar-head blue"><div class="pillar-icon">D</div><div class="pillar-title">Dominant — The Driver</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Wants results, control, and direct answers <span class="tag tag-blue">Core Need</span></li>
-        <li>Fears loss of control and wasting time <span class="tag tag-blue">Fear</span></li>
-        <li>Decides quickly — bottom line first, detail later <span class="tag tag-blue">Decision</span></li>
-        <li>Channel profile: VP of Sales, GM, aggressive partner owner <span class="tag tag-blue">Who</span></li>
-        <li>Your approach: be direct, skip the warm-up, lead with outcomes <span class="tag tag-blue">How</span></li>
-      </ul>
-    </div>
-  </div>
-  <div class="pillar">
-    <div class="pillar-head gold"><div class="pillar-icon">I</div><div class="pillar-title">Influencing — The Enthusiast</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Wants recognition, collaboration, and excitement <span class="tag tag-gold">Core Need</span></li>
-        <li>Fears rejection and being ignored <span class="tag tag-gold">Fear</span></li>
-        <li>Decides on relationships and vision, not data <span class="tag tag-gold">Decision</span></li>
-        <li>Channel profile: partner AM, inside rep, business development rep <span class="tag tag-gold">Who</span></li>
-        <li>Your approach: match energy, tell stories, make them the hero <span class="tag tag-gold">How</span></li>
-      </ul>
-    </div>
-  </div>
-  <div class="pillar">
-    <div class="pillar-head green"><div class="pillar-icon">S</div><div class="pillar-title">Steady — The Loyalist</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Wants stability, predictability, and harmony <span class="tag tag-green">Core Need</span></li>
-        <li>Fears change and conflict <span class="tag tag-green">Fear</span></li>
-        <li>Decides slowly — needs to consult others, build consensus <span class="tag tag-green">Decision</span></li>
-        <li>Channel profile: long-tenure partner rep, technical account manager <span class="tag tag-green">Who</span></li>
-        <li>Your approach: be patient, prove track record, reduce perceived risk <span class="tag tag-green">How</span></li>
-      </ul>
-    </div>
-  </div>
-  <div class="pillar">
-    <div class="pillar-head purple"><div class="pillar-icon">C</div><div class="pillar-title">Conscientious — The Analyst</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Wants accuracy, proof, and process compliance <span class="tag tag-purple">Core Need</span></li>
-        <li>Fears being wrong and making mistakes <span class="tag tag-purple">Fear</span></li>
-        <li>Decides on data, documentation, and validation <span class="tag tag-purple">Decision</span></li>
-        <li>Channel profile: IT director, pre-sales engineer, technical evaluator <span class="tag tag-purple">Who</span></li>
-        <li>Your approach: provide specifics, show data, let them ask every question <span class="tag tag-purple">How</span></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
 <h3>DISC in a Three-Layer Channel Deal</h3>
-<div class="callout">
-  <div class="callout-tag">LAYERED DEAL EXAMPLE</div>
-  <strong>Partner VP (D):</strong> Open with the revenue outcome. "Last quarter, partners who activated this product averaged $X in attached margin per deal. I want that for your team." Two sentences. Done.<br><br>
-  <strong>Partner AM (I):</strong> "You're going to be the one who brings this to your customers first. Your customers will remember you for it." Make it a story they can tell.<br><br>
-  <strong>End-Customer IT Director (C):</strong> Send the architecture diagram, security documentation, and integration specs 48 hours before the call. Let them read it. Answer their questions with data, not enthusiasm.
-</div>
-</div>
-
-<div class="panel" id="panel-practice">
-<div class="section-label">DISC in Action</div>
-<h2>Reading the room quickly and adjusting in real time.</h2>
+<div class="script"><div class="script-lbl">Layered Deal — Three Types, One Co-Sell Meeting</div><p><strong>Partner VP (D):</strong> "Last quarter, partners who activated this product averaged $X in attached margin per deal. That's what I want for your team." Two sentences. Done.<br/><br/><strong>Partner AM (I):</strong> "You're going to be the one who brings this to your customers first. They'll remember you for it." Make it a story they can tell.<br/><br/><strong>End-Customer IT Director (C):</strong> Send the architecture diagram, security documentation, and integration specs 48 hours before the call. Let them read it. Answer their questions with data, not enthusiasm.</p></div></div>
+<div class="section"><h2>Reading the room quickly and <em>adjusting in real time.</em></h2>
 <p>You often don't have the luxury of profiling a partner contact before the first call. DISC is most valuable as a real-time diagnostic — reading signals in the first five minutes and adjusting accordingly.</p>
-
-<h3>Quick Identification Signals</h3>
-<div class="grid-2">
-  <div class="card blue-top"><h4>D Signals</h4><p>Speaks fast, interrupts, skips pleasantries, asks "what's the bottom line," checks phone during small talk. Gets impatient with anything that doesn't get to the point immediately.</p></div>
-  <div class="card gold-top"><h4>I Signals</h4><p>Lots of personal stories, uses your name frequently, asks about your background, jokes early, references other people's opinions. Wants to know you before they hear you.</p></div>
-  <div class="card green-top"><h4>S Signals</h4><p>Asks about your existing customers, wants references, moves slowly, defers to teammates, avoids conflict. Asks "how does this usually work?" and "what do other partners do?"</p></div>
-  <div class="card blue-top" style="border-top-color:var(--nat);"><h4>C Signals</h4><p>Has notes, asks detailed technical questions, wants to see documentation before the demo, corrects minor inaccuracies, silent during presentations — processing, not checked out.</p></div>
+<div class="cards">
+  <div class="card"><div class="card-lbl">D Signals</div><h4>Speed, control, impatience</h4><p>Speaks fast, interrupts, skips pleasantries, asks "what's the bottom line," checks phone during small talk. Gets impatient with anything that doesn't get to the point immediately.</p></div>
+  <div class="card"><div class="card-lbl">I Signals</div><h4>Stories, warmth, energy</h4><p>Lots of personal stories, uses your name frequently, asks about your background, jokes early, references other people's opinions. Wants to know you before they hear you.</p></div>
+  <div class="card"><div class="card-lbl">S Signals</div><h4>Caution, consensus, references</h4><p>Asks about your existing customers, wants references, moves slowly, defers to teammates, avoids conflict. Asks "how does this usually work?" and "what do other partners do?"</p></div>
+  <div class="card"><div class="card-lbl">C Signals</div><h4>Notes, details, silence</h4><p>Has notes, asks detailed technical questions, wants documentation before the demo, corrects minor inaccuracies, silent during presentations — processing, not checked out.</p></div>
 </div>
-
-<h3>The Mistake of Over-Adjusting</h3>
-<div class="explain">DISC is not a performance. Partners can tell when you're code-switching in an obvious way. The goal is subtle calibration — adjusting your pace, your level of detail, and your emotional temperature — not adopting a persona.</div>
-
-<h3>When Your Natural Style Creates Friction</h3>
-<div class="callout">
-  <div class="callout-tag">SELF-AWARENESS CHECK</div>
-  If you're a strong D dealing with an S partner rep: slow down, ask more questions, don't push for commitment too fast. The S reads your urgency as pressure — and pressure makes them retreat to "I need to think about it."<br><br>
-  If you're a strong I dealing with a C IT director: bring data, send materials in advance, don't oversell with enthusiasm. The C reads your excitement as evidence that you're glossing over risks they haven't considered yet.
-</div>
-</div>
-
-<div class="panel" id="panel-fieldnotes">
-<div class="section-label">From the Field</div>
-<h2>DISC in channel is a multiplier — it accelerates every other skill you have.</h2>
-
+<div class="warn"><div class="warn-lbl">The Mistake of Over-Adjusting</div><p>DISC is not a performance. Partners can tell when you're code-switching in an obvious way. The goal is subtle calibration — adjusting your pace, your level of detail, and your emotional temperature — not adopting a persona. If a C-type partner notices you've suddenly become very data-heavy and formal, they'll wonder what changed. Apply DISC as a quiet dial, not a costume change.</p></div></div>
+<div class="section"><h2>DISC in channel is a multiplier &mdash; <em>it accelerates every other skill you have.</em></h2>
 <h3>DISC and the Pain Funnel</h3>
-<p>The Pain Funnel questions stay the same across profiles, but how you ask them changes significantly. With a D, ask pain questions directly and accept short answers — then probe only if they open up. With a C, expect long answers with qualifying language — let them finish, don't rush. With an I, expect emotional answers at Level 3 before you even get there — they go there themselves. With an S, ask indirectly: "How does the team respond when this happens?" They find it easier to describe group impact than personal pain.</p>
-
+<p>The Pain Funnel questions stay the same across profiles, but how you ask them changes significantly. With a D, ask pain questions directly and accept short answers. With a C, expect long answers with qualifying language — let them finish, don't rush. With an I, expect emotional answers at Level 3 before you even get there — they go there themselves. With an S, ask indirectly: "How does the team respond when this happens?" They find it easier to describe group impact than personal pain.</p>
 <h3>DISC and Up-Front Contracts</h3>
-<p>The UFC structure works across all profiles but needs adjustment in delivery. D: "Here's the agenda. We have 30 minutes. I want a decision by the end." I: "I've got a few things I want to make sure we cover — but tell me what's most important to you first." S: "I'll structure this so we have plenty of time for questions and no pressure to decide anything today." C: "I'll send you a pre-read before the call so you can review the details and come in with specific questions."</p>
-
-<div class="contrib-row">
-  <span class="contrib-pill cp-carl">● CARL — DISC applied to vendor-partner dynamics</span>
-  <span class="contrib-pill cp-nat">● NATALIE — DISC in reseller-side customer relationships</span>
-  <span class="contrib-pill cp-both">● Sandler DISC methodology</span>
-</div>
-
-<div class="footer">
-  <div>
-    <div class="footer-brand">Channel-<em>Ready</em> AE</div>
-    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 05 · DISC PROFILING FOR CHANNEL · MARCH 2026</div>
+<p>The UFC structure works across all profiles but needs adjustment in delivery.</p>
+<div class="script"><div class="script-lbl">UFC Adapted by DISC Profile</div><p><strong>D:</strong> "Here's the agenda. 30 minutes. I want a decision by the end."<br/><strong>I:</strong> "I've got a few things I want to make sure we cover — but tell me what's most important to you first."<br/><strong>S:</strong> "I'll structure this so we have plenty of time for questions and no pressure to decide anything today."<br/><strong>C:</strong> "I'll send you a pre-read before the call so you can review the details and come in with specific questions."</p></div>
+<h3>When Your Natural Style Creates Friction</h3>
+<p>If you're a strong D dealing with an S partner rep: slow down, ask more questions, don't push for commitment too fast. The S reads your urgency as pressure — and pressure makes them retreat to "I need to think about it." If you're a strong I dealing with a C IT director: bring data, send materials in advance, don't oversell with enthusiasm. The C reads your excitement as evidence that you're glossing over risks they've already catalogued.</p>
+<p class="instructor-line" style="font-size:12px;color:var(--text-dim);margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">&bull; Carl &mdash; DISC applied to vendor-partner dynamics across 9 major VARs &middot; &bull; Natalie &mdash; DISC in reseller-side customer relationships &middot; Sandler DISC methodology</p></div>
+  <div class="consulting-strip">
+    <div class="cs-badge">Consulting Pathway</div>
+    <div>
+      <h3>Which of your key partner contacts are you misreading — and what's it costing you?</h3>
+      <p>A Channel Strategy Audit surfaces your specific gaps and maps them to the modules that fix them. 2-hour session with Carl or Natalie. Flat fee: $2,500. Designed to feed directly into the curriculum.</p>
+      <a href="/#apply">Request a Channel Strategy Audit &rarr;</a>
+    </div>
   </div>
-  <div class="footer-meta">
-    <div>CONFIDENTIAL</div>
-    <div>CARL & NATALIE CLENDENIN</div>
+  <div class="bottom-nav">
+    <a href="/module_04" class="bn-link">&larr; Module 04</a>
+    <div class="bn-cta"><a href="/#apply">Enroll Now</a></div>
+    <a href="/module_06" class="bn-link">Module 06 &rarr;</a>
   </div>
 </div>
-</div>
-
-</div>
-
-<script>
-function showPanel(id) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
-  event.target.classList.add('active');
-}
-</script>
+<footer>
+  <div class="brand">Channel-<em>Ready</em> AE &middot; Module 05 &middot; DISC for Channel — Reading Partner Personality Types</div>
+  <div class="meta">Carl &amp; Natalie Clendenin &middot; Partna Company LLC &middot; 2026</div>
+</footer>
 </body>
 </html>

@@ -1,311 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module 12 — Building the Repeatable Channel Motion — Channel-Ready AE</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-light:#e8f4ee;--red:#7a1e1e;--blue-pale:#e8f0f8;--nat:#5a3a7a;}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
-.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
-.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
-.hero h1 em{color:var(--gold-light);font-style:italic;}
-.hero-sub{font-size:17px;color:#6a7a8a;max-width:580px;position:relative;margin-bottom:32px;}
-.hero-stats{display:flex;gap:40px;position:relative;flex-wrap:wrap;}
-.hero-stat{font-family:'DM Mono',monospace;}
-.hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
-.hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
-.ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ref-bar.blue-bar{background:#1a1a2a;}
-.ref-bar.gold-bar{background:#2a1a00;}
-.ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
-.ref-text{font-size:13px;}
-.breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.breadcrumb a{text-decoration:none;}
-.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:56px;z-index:20;overflow-x:auto;}
-.nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
-.nav-tab:hover{color:var(--accent);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
-.content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}.panel.active{display:block;}
-.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
-h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
-h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
-p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
-.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
-.callout strong{color:var(--gold-light);}
-.explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
-.pillar{border:1px solid var(--rule);background:var(--white);border-radius:4px;overflow:hidden;}
-.pillar-head{padding:14px 20px;display:flex;align-items:center;gap:10px;}
-.pillar-head.blue{background:var(--accent);color:white;}
-.pillar-head.green{background:var(--green);color:white;}
-.pillar-head.gold{background:var(--gold);color:var(--ink);}
-.pillar-head.dark{background:#2a2020;color:#f0e8d8;}
-.pillar-icon{font-size:20px;}
-.pillar-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;font-weight:500;}
-.pillar-body{padding:16px 20px;}
-.pillar-body ul{list-style:none;margin:0;}
-.pillar-body li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:14px;color:#2e2820;}
-.pillar-body li:last-child{border-bottom:none;}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
-.card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
-.card.gold-top{border-top:3px solid var(--gold);}
-.card.blue-top{border-top:3px solid var(--accent);}
-.card.green-top{border-top:3px solid var(--green);}
-.card.red-top{border-top:3px solid var(--red);}
-.card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.card p{font-size:13px;margin:0;color:var(--muted);}
-.blitz-box{background:#1a1a00;border:1px solid var(--gold);border-radius:4px;padding:28px 32px;margin:24px 0;}
-.blitz-box h3{color:var(--gold-light);margin-top:0;}
-.blitz-box p{color:#c8b880;}
-.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 0;}
-.contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
-.cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
-.cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
-.cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
-.footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
-.footer-brand em{color:var(--gold-light);}
-.footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
-@media(max-width:700px){.hero{padding:40px 24px 36px;}.hero h1{font-size:30px;}.content{padding:32px 20px 60px;}.pillars,.grid-2,.grid-3{grid-template-columns:1fr;}.breadcrumb{padding:10px 24px;}}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Module 12 &mdash; Building the Repeatable Channel Motion &mdash; Channel-Ready AE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--black:#0a0a0a;--ink:#111111;--surface:#161616;--border:#242424;--muted:#333333;--text-dim:#888888;--text:#d4d4d4;--white:#f5f5f5;--accent:#e8c547;--accent-dim:rgba(232,197,71,0.10);--accent-border:rgba(232,197,71,0.28);--font-head:'Cormorant Garamond',serif;--font-body:'Crimson Pro',serif}
+    html{scroll-behavior:smooth}body{background:var(--black);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px}
+    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-0.02em}.nav-logo em{color:var(--accent);font-style:normal}
+    .nav-links{display:flex;gap:28px;list-style:none}.nav-links a{font-size:13px;font-weight:500;color:var(--text-dim);text-decoration:none;letter-spacing:0.02em;transition:color 0.15s}.nav-links a:hover,.nav-links a.active{color:var(--white)}
+    .nav-cta{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:8px 18px;border-radius:3px;text-decoration:none}
+    .page-wrap{max-width:860px;margin:0 auto;padding:60px 40px 100px}
+    .breadcrumb{font-size:12px;color:var(--text-dim);margin-bottom:32px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color 0.15s}.breadcrumb a:hover{color:var(--accent)}.breadcrumb span{color:var(--muted)}
+    .eyebrow{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+    h1{font-family:var(--font-head);font-size:clamp(36px,5vw,54px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--white);margin-bottom:20px}h1 em{color:var(--accent);font-style:normal}
+    .module-sub{font-size:17px;color:var(--text-dim);max-width:640px;line-height:1.75;margin-bottom:36px}
+    .stats{display:flex;gap:0;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:36px}
+    .stat{flex:1;background:var(--surface);padding:20px 24px;border-right:1px solid var(--border)}.stat:last-child{border-right:none}
+    .stat-val{font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-0.03em;line-height:1;margin-bottom:4px}
+    .stat-lbl{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+    .mod-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:4px;margin-bottom:48px;font-size:12px}
+    .mod-nav a{color:var(--text-dim);text-decoration:none;font-weight:500;transition:color 0.15s}.mod-nav a:hover{color:var(--accent)}
+    .mod-nav-mid{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 12px;border-radius:2px}
+    .fw-badge{display:inline-flex;align-items:center;gap:10px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:3px;padding:10px 16px;margin-bottom:52px;font-size:12px;font-weight:600;color:var(--accent)}
+    .section{margin-bottom:60px;padding-bottom:60px;border-bottom:1px solid var(--border)}.section:last-of-type{border-bottom:none;padding-bottom:0}
+    h2{font-family:var(--font-head);font-size:clamp(22px,3vw,32px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:16px}h2 em{color:var(--accent);font-style:normal}
+    h3{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--white);margin:36px 0 12px;letter-spacing:-0.02em}
+    h4{font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--white);margin:24px 0 8px;letter-spacing:-0.01em}
+    p{font-size:15px;color:var(--text-dim);line-height:1.8;margin-bottom:18px}p:last-child{margin-bottom:0}
+    .insight{background:var(--surface);border-left:3px solid var(--accent);padding:20px 24px;border-radius:0 3px 3px 0;margin:24px 0}
+    .insight-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .insight p{font-size:14px;color:var(--text);font-style:italic;margin-bottom:0}
+    .script{background:var(--ink);border:1px solid var(--accent-border);border-radius:4px;padding:24px 28px;margin:24px 0}
+    .script-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    .script p{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:0;font-style:italic}
+    .warn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin:24px 0}
+    .warn-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+    .warn p{font-size:14px;color:var(--text-dim);margin-bottom:0;line-height:1.7}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .card{background:var(--surface);padding:24px}.card-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .card h4{margin:0 0 8px;font-size:14px}.card p{font-size:13px;margin-bottom:0;line-height:1.6}
+    .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .cards3 .card{background:var(--surface);padding:24px}
+    .consulting-strip{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:4px;padding:32px 36px;margin-top:72px;display:flex;align-items:flex-start;gap:28px}
+    .cs-badge{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:800;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .consulting-strip h3{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--white);margin:0 0 8px;letter-spacing:-0.01em}
+    .consulting-strip p{font-size:13px;color:var(--text-dim);margin-bottom:12px}
+    .consulting-strip a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-border);padding-bottom:2px}
+    .bottom-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid var(--border);margin-top:56px}
+    .bn-link{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text-dim);text-decoration:none;transition:color 0.15s}.bn-link:hover{color:var(--accent)}
+    .bn-cta a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:10px 20px;border-radius:3px;text-decoration:none}
+    footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-items:center;justify-content:space-between}
+    footer .brand{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--text-dim)}.brand em{color:var(--accent);font-style:normal}
+    footer .meta{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
+    @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.page-wrap{padding:40px 20px 80px}.stats{flex-wrap:wrap}.cards,.cards3{grid-template-columns:1fr}.consulting-strip{flex-direction:column}footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px}}
 </style>
 </head>
 <body>
-<nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
-
-<div class="hero">
-  <div class="hero-tag">Channel-Ready AE · Phase 3 · Module 12</div>
-  <h1>Building the Repeatable<br><em>Channel Motion</em>.</h1>
-  <div class="hero-sub">Systematizing all 11 modules into daily Sandler habits, a partner pipeline cadence, and a scalable channel revenue system. The integration module that converts individual skills into a professional operating system — and introduces Blitz Masters, the companion outbound program.</div>
-  <div class="hero-stats">
-    <div class="hero-stat"><strong>11</strong><span>Modules Integrated</span></div>
-    <div class="hero-stat"><strong>Daily</strong><span>Sandler Habits</span></div>
-    <div class="hero-stat"><strong>Weekly</strong><span>Pipeline Cadence</span></div>
-    <div class="hero-stat"><strong>Blitz</strong><span>Masters: Next Program</span></div>
+<nav>
+  <a href="/" class="nav-logo">Channel-<em>Ready</em> AE</a>
+  <ul class="nav-links">
+    <li><a href="/#who">Who It's For</a></li><li><a href="/#program">Program</a></li>
+    <li><a href="/#methodology">Methodology</a></li><li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#founders">Instructors</a></li><li><a href="/curriculum" class="active">Curriculum</a></li>
+    <li><a href="/business_plan">Business Plan</a></li>
+  </ul>
+  <a href="/#apply" class="nav-cta">Enroll Now</a>
+</nav>
+<div class="page-wrap">
+  <div class="breadcrumb"><a href="/">Channel-Ready AE</a><span>&rsaquo;</span><a href="/curriculum">Curriculum Binder</a><span>&rsaquo;</span><span>Module 12</span></div>
+  <div class="eyebrow">Channel-Ready AE &middot; Phase 3 &middot; Module 12</div>
+  <h1>Building the <em>Repeatable Channel Motion.</em></h1>
+  <p class="module-sub">Systematizing Sandler habits so the Channel Activation System runs on autopilot. Weekly, monthly, and quarterly rhythms. Partner tiering through Sandler qualification criteria. Building the operating system that works without willpower. Final self-assessment and certification.</p>
+  <div class="stats"><div class="stat"><div class="stat-val">All 6</div><div class="stat-lbl">Sandler Frameworks</div></div><div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Operating Rhythms</div></div><div class="stat"><div class="stat-val">1</div><div class="stat-lbl">Certification</div></div><div class="stat"><div class="stat-val">System</div><div class="stat-lbl">Not Willpower</div></div></div>
+  <div class="mod-nav">
+    <a href="/module_11">&larr; Module 11</a>
+    <span class="mod-nav-mid">Phase 3 &middot; Channel Activation System™ — All Frameworks</span>
+    <a href="/curriculum">Curriculum Binder &rarr;</a>
   </div>
+  <div class="fw-badge"><span>&or;</span><span>Channel Activation System&trade; &mdash; Channel Activation System™ — All Frameworks</span></div>
+<div class="section"><h2>A system you run once a week is worth more than a technique <em>you reach for when things get hard.</em></h2>
+<p>Every framework in the Channel Activation System™ works in isolation. I/R Theory helps you stay composed in a tough partner negotiation. The UFC produces clarity in a QBR that was drifting. NRS cleans up a stalled partner relationship. But the real leverage comes when all six frameworks are running simultaneously, as a system — where the UFC opens every partner conversation automatically, the Pain Funnel runs in every co-sell call by default, and the No-Free-Consulting standard is so clear that partners never test it.</p>
+<p>This module is about moving from deliberate application to automatic execution. That shift requires three things: a weekly operating rhythm that embeds the frameworks into your existing workflow, a partner tiering system built on Sandler qualification criteria, and a quarterly self-assessment that catches drift before it becomes habit.</p>
+<div class="insight"><div class="insight-lbl">The Core Insight</div><p><strong>You cannot apply Sandler methodology in a difficult partner conversation if you haven't been practicing it in easy ones. The system builds the habit. The habit builds the composure. The composure produces the results.</strong></p></div></div>
+<div class="section"><h2>Three operating rhythms. <em>Weekly, monthly, quarterly.</em></h2>
+<div class="cards3">
+  <div class="card"><div class="card-lbl">Weekly Rhythm</div><h4>Pipeline review + UFC prep</h4><p>Every Friday: review every deal in your pipeline against the Anatomy of a Partner Deal checklist. For every deal not past its Stage checkpoint, set a UFC for the following week's partner conversation. UFC prep takes 5 minutes per deal and saves hours of unproductive follow-up.</p></div>
+  <div class="card"><div class="card-lbl">Monthly Rhythm</div><h4>Partner portfolio scorecard</h4><p>First Monday of each month: score every active partner on four criteria — deals registered in the last 30 days, UFC completion rate, Pain Funnel diagnosis documented, No-Free-Consulting compliance. Partners who score below threshold get a NRS conversation before the next month's check-in.</p></div>
+  <div class="card"><div class="card-lbl">Quarterly Rhythm</div><h4>Sandler QBR + self-assessment</h4><p>Run the Sandler QBR framework with every partner. And run it on yourself: where did I give away free consulting this quarter? Where did I skip the UFC because it felt unnecessary? Where did I let a partner stall without running NRS? The self-assessment is the most important QBR you'll run.</p></div>
+</div></div>
+<div class="section"><h2>Partner tiering through Sandler qualification criteria.</h2>
+<p>Traditional partner tiering uses revenue as the primary criterion: Gold, Silver, Bronze — ranked by how much they've sold. Sandler partner tiering uses qualification as the primary criterion: how well has this partner been qualified against must-have criteria, and how consistently are they demonstrating commitment behaviors?</p>
+<div class="cards">
+  <div class="card"><div class="card-lbl">Tier 1 — Qualified and Active</div><h4>Full Sandler engagement</h4><p>Has cleared the Pain Funnel qualification. Consistently uses UFCs before partner calls. Registers deals before requesting co-sell support. Attends QBRs prepared and leaves with a commitment list. These are your 20% who produce 80% of your partner revenue.</p></div>
+  <div class="card"><div class="card-lbl">Tier 2 — Qualified but Inconsistent</div><h4>Partial Sandler engagement</h4><p>Has the right customer base and demonstrated some wins. Inconsistent on deal registration and UFC compliance. Not yet in the No-Free-Consulting discipline. Investment: 1-2 NRS conversations and a tighter co-sell support standard.</p></div>
+  <div class="card"><div class="card-lbl">Tier 3 — Unqualified or Passive</div><h4>No Sandler engagement</h4><p>Has not cleared qualification criteria or has been active for 90+ days without producing a qualified deal. Investment: one NRS conversation. Outcome: re-engage with commitment or exit cleanly.</p></div>
 </div>
-
-<div class="ref-bar gold-bar"><span class="ref-tag" style="color:#c49020;">Capstone Module</span><span class="ref-text" style="color:#a87820;">Integrates all Channel-Ready AE skills into a single repeatable operating system</span></div>
-
-<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
-  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
-  <span style="color:#2a3a2a;">›</span>
-  <span style="color:#6a9a6a;">Module 12 — Building the Repeatable Channel Motion</span>
-  <span style="margin-left:auto;"><a href="module_11.html" style="color:#3a5a3a;">← Module 11</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="curriculum.html" style="color:#5a7a9a;margin-left:12px;">Curriculum →</a></span>
-</div>
-
-<div class="nav-tabs">
-  <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
-  <button class="nav-tab" onclick="showPanel('framework')">Framework</button>
-  <button class="nav-tab" onclick="showPanel('practice')">In Practice</button>
-  <button class="nav-tab" onclick="showPanel('fieldnotes')">Field Notes</button>
-</div>
-
-<div class="content">
-
-<div class="panel active" id="panel-overview">
-<div class="section-label">The Capstone</div>
-<h2>Eleven modules. One operating system. Repeatable revenue.</h2>
-<div class="explain">This module doesn't introduce new techniques. It integrates the eleven modules you've completed into a daily, weekly, and quarterly system — one that compounds over time instead of fading after the training ends.</div>
-<p>Most sales training produces a temporary performance spike followed by reversion to old habits. The skills feel powerful in the classroom and awkward in the field. Two months later, the old behaviors are back. This happens because the training was never converted into a system — a repeatable set of habits and cadences that run automatically, without requiring conscious effort every time.</p>
-<p>The Sandler system is designed for exactly this kind of institutionalization. The UFC, the Pain Funnel, the stage-gate deal model, the weekly co-prospecting cadence, the Sandler QBR — each one is a discipline that becomes a habit through repetition. This module maps out the daily, weekly, and quarterly cadence that converts everything you've learned into a professional channel operating system.</p>
-<div class="callout">
-  <div class="callout-tag">THE CORE INSIGHT</div>
-  <strong>A skill practiced occasionally is a technique. A skill practiced daily becomes a habit. A habit built into a system becomes a competitive advantage that compounds quarterly.</strong> The goal of this program is not to teach you eleven techniques — it's to install eleven habits.
-</div>
-<div class="grid-3">
-  <div class="card gold-top"><h4>What You'll Learn</h4><p>The daily Sandler habit stack for channel AEs. The weekly partner cadence that keeps pipeline moving. The quarterly system that drives compounding revenue growth through Sandler-disciplined partner management.</p></div>
-  <div class="card gold-top"><h4>What You'll Practice</h4><p>Building your personal channel operating system. Setting up your weekly cadence with your top partners. Designing your quarterly partner review cycle using the Sandler QBR framework from Module 09.</p></div>
-  <div class="card gold-top"><h4>What Changes After</h4><p>You stop improvising. You stop losing deals to partners who drifted. You stop forgetting to use the UFC. The system runs — and revenue becomes predictable instead of lumpy.</p></div>
-</div>
-</div>
-
-<div class="panel" id="panel-framework">
-<div class="section-label">The Sandler Channel Operating System</div>
-<h2>Daily, weekly, and quarterly cadence that systematizes all 11 modules.</h2>
-
-<h3>Daily Habits — The Sandler Channel AE Morning Stack</h3>
-<div class="callout">
-  <div class="callout-tag">DAILY HABIT STACK</div>
-  <strong>Before your first partner call:</strong> I/R check (Module 01) — "What am I afraid of today? Name it. Separate it from my identity."<br><br>
-  <strong>For every partner meeting:</strong> Open with a UFC (Module 03). No exceptions. Even a 10-minute call gets a stated purpose and outcome.<br><br>
-  <strong>For every deal conversation:</strong> Check the stage gate (Module 08). What stage is this deal in? What is the checkpoint? What is missing?<br><br>
-  <strong>For every inbound request from a partner:</strong> Apply No-Free-Consulting (Module 07). What are they asking for? What am I asking in return?<br><br>
-  <strong>End of day:</strong> Log any new competitive intelligence heard (Module 11). One sentence per insight. Builds into your quarterly competitive brief.
-</div>
-
-<h3>Weekly Cadence — The Partner Pipeline Rhythm</h3>
-<div class="pillars">
-  <div class="pillar">
-    <div class="pillar-head blue"><div class="pillar-icon">MON</div><div class="pillar-title">Monday — Pipeline Review</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Review all active deals against stage-gate criteria</li>
-        <li>Flag anything that hasn't moved in 10+ days</li>
-        <li>Apply NRS or diagnostic question to stalled deals</li>
-        <li>Confirm next step exists for every deal in pipeline</li>
-      </ul>
+<div class="script"><div class="script-lbl">The Quarterly Self-Assessment — Six Questions</div><p>1. Did I establish a UFC before every partner QBR this quarter?<br/>2. Did I run the Pain Funnel before investing time in any co-sell engagement?<br/>3. Did I enforce No-Free-Consulting on every Tier 2 and 3 partner?<br/>4. Did I run NRS on every partner who stalled for more than 30 days?<br/>5. Did I apply DISC profiling in my top five partner relationships?<br/>6. Did I leave every QBR with a named commitment list?</p></div></div>
+<div class="section"><h2>Channel-Ready AE Certification &mdash; <em>what it means and what it earns you.</em></h2>
+<p>Completing all 12 modules and passing the Sandler Posture Score assessment qualifies you for the Channel-Ready AE certificate — a practitioner credential demonstrating fluency in six Sandler frameworks as applied to the indirect channel.</p>
+<p>The certificate is not a participation trophy. It represents a documented baseline: you have been exposed to each framework, practiced each application scenario, and self-assessed your posture against each Sandler discipline. That baseline is what makes the credential meaningful as a differentiator — and what makes the biennial renewal requirement defensible. The channel changes. The frameworks stay the same. Your fluency needs maintenance.</p>
+<div class="insight"><div class="insight-lbl">What the Certification Represents</div><p>An AE who holds the Channel-Ready AE certificate can answer this question in any partner conversation: "Which Sandler framework applies right now, and what does applying it look like in this specific situation?" That capability — methodological fluency under pressure — is what separates a channel AE with a system from one who is improvising.</p></div>
+<h3>What to Do Next</h3>
+<p>Complete the Sandler Posture Score self-assessment linked below. Submit your certification application. Share your credential with your manager, your partner contacts, and your LinkedIn profile. And start using the three operating rhythms — weekly pipeline review, monthly partner scorecard, quarterly Sandler QBR — starting this week. The system only works if you run it.</p>
+<p class="instructor-line" style="font-size:12px;color:var(--text-dim);margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">&bull; Carl &amp; Natalie &mdash; All six Sandler frameworks, applied &middot; Channel Activation System&trade; &middot; Partna Company LLC &middot; 2026</p></div>
+  <div class="consulting-strip">
+    <div class="cs-badge">Consulting Pathway</div>
+    <div>
+      <h3>Ready to make the Channel Activation System run automatically — not just when things get hard?</h3>
+      <p>A Channel Strategy Audit surfaces your specific gaps and maps them to the modules that fix them. 2-hour session with Carl or Natalie. Flat fee: $2,500. Designed to feed directly into the curriculum.</p>
+      <a href="/#apply">Request a Channel Strategy Audit &rarr;</a>
     </div>
   </div>
-  <div class="pillar">
-    <div class="pillar-head green"><div class="pillar-icon">WED</div><div class="pillar-title">Wednesday — Co-Prospect Calls</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>30-min co-prospect call with each active partner</li>
-        <li>Review target account list: what went out, what came back</li>
-        <li>Agree on next outreach actions and owner</li>
-        <li>Flag any partner going passive — apply NRS if needed</li>
-      </ul>
-    </div>
-  </div>
-  <div class="pillar">
-    <div class="pillar-head gold"><div class="pillar-icon">FRI</div><div class="pillar-title">Friday — Forecast Hygiene</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Update deal stages based on the week's activity</li>
-        <li>Remove any deals that failed the stage-gate diagnostic</li>
-        <li>Confirm QBR schedule and pre-send materials for upcoming reviews</li>
-        <li>Log week's competitive intelligence observations</li>
-      </ul>
-    </div>
+  <div class="bottom-nav">
+    <a href="/module_11" class="bn-link">&larr; Module 11</a>
+    <div class="bn-cta"><a href="/#apply">Enroll Now</a></div>
+    <a href="/curriculum" class="bn-link">Curriculum Binder &rarr;</a>
   </div>
 </div>
-
-<h3>Quarterly System — The Sandler Channel Cycle</h3>
-<div class="grid-2">
-  <div class="card blue-top"><h4>Quarter Start (Week 1–2)</h4><p>Run QBRs with top partners using Module 09 framework. Build commitment lists. Update target account lists with partners using Module 10 joint prospecting model. Review competitive brief using Module 11 framework.</p></div>
-  <div class="card blue-top"><h4>Quarter Mid-Point (Week 6–7)</h4><p>Run monthly syncs with partners. Review commitment list from QBR. Apply NRS to any partner who has drifted (Module 06). Run Pain Funnel on any stalled deals (Module 04). Add new targets to joint prospecting list.</p></div>
-  <div class="card green-top"><h4>Quarter End (Week 11–12)</h4><p>Prepare QBR data for upcoming quarter review. Close or remove all pipeline that doesn't meet stage-gate criteria. Run DISC review of key partner contacts — has anything changed? Update partner qualification status for any partner who has gone inactive 90+ days.</p></div>
-  <div class="card green-top"><h4>Between Quarters</h4><p>Review which modules produced the most behavioral change. Identify which habits have become automatic and which still require conscious effort. Set a focus module for the next quarter — the one where you still default to old behavior under pressure.</p></div>
-</div>
-</div>
-
-<div class="panel" id="panel-practice">
-<div class="section-label">Building Your Personal Channel OS</div>
-<h2>The configuration decisions that make the system yours — not generic.</h2>
-<p>A system that isn't personalized won't get used. The Sandler Channel Operating System needs to be configured to your specific territory: your partner mix, your deal cycle length, your product's typical pain pattern, and your natural DISC style. This section walks you through the four configuration decisions that make the system fit your reality.</p>
-
-<h3>Configuration 1 — Partner Tier Assignment</h3>
-<div class="explain">Not every partner gets the same level of system investment. Tier your partners based on their production potential and current activity level, then match the cadence intensity to the tier.</div>
-<div class="grid-3">
-  <div class="card gold-top"><h4>Tier 1 — Strategic Partners</h4><p>Full weekly co-prospect cadence. Formal QBR every quarter. Monthly sync. Named accounts list actively managed. NFC enforced. All 11 module skills applied in full.</p></div>
-  <div class="card blue-top"><h4>Tier 2 — Active Partners</h4><p>Bi-weekly co-prospect touch. Informal QBR quarterly. Stage-gate review monthly. Target account list reviewed quarterly. Core Sandler skills applied but lighter cadence.</p></div>
-  <div class="card green-top"><h4>Tier 3 — Developing Partners</h4><p>Monthly check-in. Pipeline reviewed when deals are active. UFC applied in all meetings. Qualification gate enforced — if no pipeline by 90 days, downgrade or exit using Module 02 disqualification framework.</p></div>
-</div>
-
-<h3>Configuration 2 — Your Natural DISC Style Applied</h3>
-<p>Knowing your own DISC profile (Module 05) tells you where the system will run easily and where you'll need to push against your defaults. If you're a natural D, the Pain Funnel (Module 04) will feel uncomfortably slow — build in reminders to hold the silence and stay curious. If you're a natural I, the stage-gate discipline (Module 08) will feel bureaucratic — build in a pipeline review with a colleague to keep you honest. Build your personal system around your natural weaknesses, not just your strengths.</p>
-
-<h3>Configuration 3 — The Sandler Trigger List</h3>
-<div class="callout">
-  <div class="callout-tag">YOUR PERSONAL TRIGGER LIST</div>
-  Document the situations where you most often default to old, non-Sandler behavior. Examples:<br><br>
-  "When a partner goes quiet for 10+ days, I [used to] follow up with a discount offer. Now I [apply NRS from Module 06]."<br><br>
-  "When a partner asks me to write a proposal before qualifying the customer, I [used to] write the proposal. Now I [apply NFC from Module 07 and require the economic buyer to attend the proposal meeting]."<br><br>
-  "When I feel like a partner is losing interest, I [used to] add more value for free. Now I [recognize the Not-OK signal from Module 01 and pause my investment]."<br><br>
-  This list becomes your personal Sandler manual. Review it before every partner call in your first 90 days.
-</div>
-</div>
-
-<div class="panel" id="panel-fieldnotes">
-<div class="section-label">What Comes Next</div>
-<h2>Blitz Masters — the companion outbound program for channel AEs who are ready to accelerate.</h2>
-
-<p>You've completed Channel-Ready AE. You have the Sandler foundation, the qualification system, the deal lifecycle model, the QBR structure, the joint prospecting motion, and the competitive intelligence practice. At $400/seat/month, this program delivered a return on every one of those investments.</p>
-
-<p>The next question is: what do you do when your partner network is producing pipeline but you need more volume? When your best partners are maxed out on your target accounts and you need to go deeper into your market? When you're ready to build a personal outbound motion that generates pipeline independent of partner-sourced deals?</p>
-
-<div class="blitz-box">
-  <h3>Blitz Masters — The Outbound Companion Program</h3>
-  <p>Blitz Masters is the companion program to Channel-Ready AE. Where Channel-Ready AE teaches you how to maximize your partner network, Blitz Masters teaches you how to prospect directly — using Sandler's 30-day outbound system, the Sandler pain-first cold call framework, and the outreach sequence that turns cold contacts into warm pipeline without the quota pressure that destroys most outbound efforts.</p>
-  <p style="margin-top:16px;">Blitz Masters is designed for the channel AE who has completed this program and is ready to run both motions in parallel: partner-sourced pipeline from Channel-Ready AE, and direct-sourced pipeline from Blitz Masters. Together, they create a dual-engine revenue system that doesn't depend on any single source.</p>
-  <p style="margin-top:16px;color:var(--gold-light);font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;">Blitz Masters — Coming Q3 2026. Ask your Channel-Ready AE coach for early access.</p>
-</div>
-
-<h3>Real-World Example: Building a Tiered Qualification Framework for Partner AMs</h3>
-<p>One of the most leveraged things a channel AE can build is a qualification framework that partner AMs can use without the vendor present. The goal is to answer the question: "How does a generalist partner AM, on a first customer call, figure out which tier of our solution fits this account?" Here is how that framework looks in a real deployment:</p>
-<div class="callout">
-  <div class="callout-tag">FIELD EXAMPLE — 3-TIER QUALIFICATION MATRIX (RETAIL POS)</div>
-  <strong>Tier 1 — Refresh:</strong> Qualify here if POS hardware is more than 5 years old, OR the account is a net-new logo. Target: IT-led, approved budget, minimal operational complexity. Revenue: $1K–$3K per store. The partner AM can close this without an overlay.<br><br>
-  <strong>Tier 2 — Modernize:</strong> Qualify here if the account has an active shrink problem, self-checkout fraud signals, or inconsistent experiences across multiple locations. Target: joint IT + Operations ownership. Revenue: $5K–$12K per store. Triggers an overlay — the partner AM routes to a specialist.<br><br>
-  <strong>Tier 3 — Transform:</strong> Qualify here if there is executive sponsorship for a multi-year store modernization initiative with centralized funding. Target: enterprise, 3–5 year digital strategy horizon. Revenue: $15K–$30K+ per store annually. Requires a dedicated enterprise engagement.<br><br>
-  <strong>The critical design principle:</strong> The partner AM does NOT need to know the full product line for every tier. They need to know three qualifying questions and one routing action per tier. Everything else is the overlay's job. This is the difference between enabling a generalist to qualify accurately and trying to turn a generalist into a specialist — which doesn't work.
-</div>
-<p>The tier expansion motion is also built into the framework: a Tier 1 Refresh win automatically re-enters the co-sell spreadsheet as a Tier 2 Modernize prospect at 90 days post-install. The system creates its own next stage of pipeline without requiring the partner AM to invent the expansion motion on their own.</p>
-<p>When building this kind of framework for your own partnership, start with two or three qualifying signals per tier — not ten. Partner AMs are generalists with dozens of vendor lines. The framework that gets used is the simplest one that produces accurate qualification, not the most comprehensive one that sits in a training deck.</p>
-
-<h3>Sell-and-Get SPIF Mechanics — How the Money Actually Works</h3>
-<p>SPIFs (Sales Performance Incentive Funds) are the financial lever that drives partner AM behavior in the absence of mindshare. Most AEs know SPIFs exist. Far fewer understand the operational mechanics — which is exactly where most SPIF programs fail to generate the intended behavior.</p>
-<div class="callout">
-  <div class="callout-tag">FIELD EXAMPLE — SELL-AND-GET RATE CARD MECHANICS</div>
-  A well-designed sell-and-get program replaces deal registration SPIFs (which reward registration, not revenue) with per-unit payouts on closed/shipped units. Example rate card structure:<br><br>
-  — Entry-level hardware unit: $150–$200/unit<br>
-  — Mid-range hardware unit: $200–$300/unit<br>
-  — High-value system (e.g., self-checkout): $1,000/system<br>
-  — Platform software, first attach per account: $500/deal<br>
-  — Peripheral bundle (3+ accessories): $75/bundle<br>
-  — Competitive displacement bonus: +$300/unit on top of base (confirmed replacements of named competitors only)<br><br>
-  <strong>Pool cap mechanics:</strong> The total payout pool is fixed for the program window (e.g., $50,000 for a 90-day period). This is communicated to partner AMs at launch so early movers have an incentive to act before the pool is exhausted. First-come-first-served within the window.<br><br>
-  <strong>Submission mechanics:</strong> Partner AMs submit via the vendor's partner portal with the purchase order number attached. No PO, no payout — this is the enforcement mechanism that ensures the SPIF pays on actual revenue, not on deal registrations or forecasted business.<br><br>
-  <strong>Payout SLA:</strong> 30 days from the ship date of the PO. Communicating the SLA at launch sets expectations and prevents the partner AM complaints that kill SPIF engagement in the second month.
-</div>
-<p>The failure mode to avoid: launching a SPIF with a complex rate card, no pool cap communication, and no clear submission process. Partner AMs will register once, not hear back within a reasonable time, and stop participating. The SPIF becomes a line item that got spent without generating the behavior change you paid for.</p>
-<p>Design principle: the simpler the rate card and the faster the payout, the more the SPIF drives behavior. A $200 payout that arrives in 30 days is more motivating to a partner AM than a $500 payout that arrives in 90 days after a multi-step approval process.</p>
-
-<h3>MDF Portal Mechanics — How Partner Marketing Funding Actually Gets Spent</h3>
-<p>Market Development Funds (MDF) are one of the most valuable and most wasted resources in channel programs. The gap between the MDF that vendors commit and the MDF that actually gets spent on effective activity is enormous — and most of it is lost to administrative friction, not lack of interest.</p>
-<div class="callout">
-  <div class="callout-tag">FIELD EXAMPLE — QUARTZ-STYLE MDF PORTAL WORKFLOW</div>
-  Large resellers use dedicated partner funding portals (CDW uses a platform called Quartz) to manage vendor MDF and co-op funds. Here is the operational workflow a channel AE needs to understand:<br><br>
-  <strong>Step 1 — Marketing plan submission:</strong> The channel AE submits a marketing plan to the portal at the start of the program period. This plan outlines planned activities (email campaigns, events, webinars, sell-and-get launches), estimated spend per activity, and the target metrics. The plan must be approved before any funds can be accessed.<br><br>
-  <strong>Step 2 — Activity execution:</strong> Co-branded marketing activities run during the approved period. The vendor provides content; the partner provides the distribution and customer database access.<br><br>
-  <strong>Step 3 — Claim submission:</strong> After an activity completes, the channel AE (or partner marketing team) submits a claim through the portal with proof of execution (send reports, event attendance, receipts). For sell-and-get payouts specifically, the claim requires a PO number attached to each unit claimed.<br><br>
-  <strong>Step 4 — Payout:</strong> The portal processes the claim against the approved plan and releases funds on the agreed SLA (typically 30 days from claim approval).<br><br>
-  <strong>The operational risk:</strong> Activities that were not included in the original approved plan cannot be claimed retroactively. This means the channel AE must plan the MDF budget at the start of the quarter — not react to opportunities as they come up. Front-load your planning. Include buffer line items for unplanned co-sell activities.
-</div>
-<p>A practical rule: build your MDF plan so that at least 60% of the budget is allocated to activities with measurable revenue outcomes (sell-and-get pool, demand gen campaigns tied to account lists) and no more than 40% to awareness activities (events, webinars, content). You will be asked to justify MDF ROI — activities tied directly to the co-sell pipeline are the easiest to defend.</p>
-
-<h3>The 90-Day Post-Program Commitment</h3>
-<p>The skills from this program will compound or they will fade. The difference is whether you commit to the system for 90 days after completion. Specifically: use the UFC in every partner meeting for 90 days. Run the weekly co-prospect cadence with at least two partners for 90 days. Apply the stage-gate diagnostic to your pipeline every Monday for 90 days. At the 90-day mark, measure: how has your pipeline quality changed? How has your partner engagement changed? How has your forecast accuracy changed? The answers will tell you whether the habits have taken hold.</p>
-
-<div class="callout">
-  <div class="callout-tag">CLOSING THOUGHT</div>
-  The Sandler system is not a closing technique. It's not a script. It's a way of operating in every professional relationship — as a peer, with a secure identity, with clear mutual agreements, with genuine curiosity about pain, and with the discipline to walk away when the fit isn't right. That operating posture, applied consistently in channel sales, is what separates the AEs who get mindshare from the ones who beg for it.
-</div>
-
-<div class="contrib-row">
-  <span class="contrib-pill cp-carl">● CARL — Channel-Ready AE co-founder, Toshiba channel sales</span>
-  <span class="contrib-pill cp-nat">● NATALIE — Channel-Ready AE co-founder, Channel AE program architect</span>
-  <span class="contrib-pill cp-both">● Sandler Sales System — 12-module channel adaptation</span>
-</div>
-
-<div class="footer">
-  <div>
-    <div class="footer-brand">Channel-<em>Ready</em> AE</div>
-    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 12 · BUILDING THE REPEATABLE CHANNEL MOTION · MARCH 2026</div>
-  </div>
-  <div class="footer-meta">
-    <div>CONFIDENTIAL</div>
-    <div>CARL & NATALIE CLENDENIN</div>
-  </div>
-</div>
-</div>
-
-</div>
-
-<script>
-function showPanel(id) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
-  event.target.classList.add('active');
-}
-</script>
+<footer>
+  <div class="brand">Channel-<em>Ready</em> AE &middot; Module 12 &middot; Building the Repeatable Channel Motion</div>
+  <div class="meta">Carl &amp; Natalie Clendenin &middot; Partna Company LLC &middot; 2026</div>
+</footer>
 </body>
 </html>

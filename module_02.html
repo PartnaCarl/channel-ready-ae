@@ -1,247 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module 02 — Partner Qualification — Channel-Ready AE</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-light:#e8f4ee;--red:#7a1e1e;--blue-pale:#e8f0f8;--nat:#5a3a7a;}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
-.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
-.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
-.hero h1 em{color:var(--gold-light);font-style:italic;}
-.hero-sub{font-size:17px;color:#6a7a8a;max-width:580px;position:relative;margin-bottom:32px;}
-.hero-stats{display:flex;gap:40px;position:relative;flex-wrap:wrap;}
-.hero-stat{font-family:'DM Mono',monospace;}
-.hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
-.hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
-.ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ref-bar.blue-bar{background:#1a1a2a;}
-.ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
-.ref-text{font-size:13px;}
-.breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.breadcrumb a{text-decoration:none;}
-.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:56px;z-index:20;overflow-x:auto;}
-.nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
-.nav-tab:hover{color:var(--accent);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
-.content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}.panel.active{display:block;}
-.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
-h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
-h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
-p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
-.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
-.callout strong{color:var(--gold-light);}
-.explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
-.pillar{border:1px solid var(--rule);background:var(--white);border-radius:4px;overflow:hidden;}
-.pillar-head{padding:14px 20px;display:flex;align-items:center;gap:10px;}
-.pillar-head.blue{background:var(--accent);color:white;}
-.pillar-head.green{background:var(--green);color:white;}
-.pillar-head.dark{background:#2a2020;color:#f0e8d8;}
-.pillar-icon{font-size:20px;}
-.pillar-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;font-weight:500;}
-.pillar-body{padding:16px 20px;}
-.pillar-body ul{list-style:none;margin:0;}
-.pillar-body li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:14px;color:#2e2820;display:flex;justify-content:space-between;align-items:start;gap:12px;}
-.pillar-body li:last-child{border-bottom:none;}
-.pillar-body li .tag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
-.tag-gold{background:var(--gold-pale);color:var(--gold);}
-.tag-blue{background:var(--blue-pale);color:var(--accent);}
-.tag-green{background:var(--green-light);color:var(--green);}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
-.card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
-.card.gold-top{border-top:3px solid var(--gold);}
-.card.green-top{border-top:3px solid var(--green);}
-.card.red-top{border-top:3px solid var(--red);}
-.card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.card p{font-size:13px;margin:0;color:var(--muted);}
-.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 0;}
-.contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
-.cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
-.cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
-.cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
-.footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
-.footer-brand em{color:var(--gold-light);}
-.footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
-@media(max-width:700px){.hero{padding:40px 24px 36px;}.hero h1{font-size:30px;}.content{padding:32px 20px 60px;}.pillars,.grid-2,.grid-3{grid-template-columns:1fr;}.breadcrumb{padding:10px 24px;}}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Module 02 &mdash; Partner Qualification — Pain Funnel Applied &mdash; Channel-Ready AE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--black:#0a0a0a;--ink:#111111;--surface:#161616;--border:#242424;--muted:#333333;--text-dim:#888888;--text:#d4d4d4;--white:#f5f5f5;--accent:#e8c547;--accent-dim:rgba(232,197,71,0.10);--accent-border:rgba(232,197,71,0.28);--font-head:'Cormorant Garamond',serif;--font-body:'Crimson Pro',serif}
+    html{scroll-behavior:smooth}body{background:var(--black);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px}
+    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-0.02em}.nav-logo em{color:var(--accent);font-style:normal}
+    .nav-links{display:flex;gap:28px;list-style:none}.nav-links a{font-size:13px;font-weight:500;color:var(--text-dim);text-decoration:none;letter-spacing:0.02em;transition:color 0.15s}.nav-links a:hover,.nav-links a.active{color:var(--white)}
+    .nav-cta{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:8px 18px;border-radius:3px;text-decoration:none}
+    .page-wrap{max-width:860px;margin:0 auto;padding:60px 40px 100px}
+    .breadcrumb{font-size:12px;color:var(--text-dim);margin-bottom:32px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color 0.15s}.breadcrumb a:hover{color:var(--accent)}.breadcrumb span{color:var(--muted)}
+    .eyebrow{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+    h1{font-family:var(--font-head);font-size:clamp(36px,5vw,54px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--white);margin-bottom:20px}h1 em{color:var(--accent);font-style:normal}
+    .module-sub{font-size:17px;color:var(--text-dim);max-width:640px;line-height:1.75;margin-bottom:36px}
+    .stats{display:flex;gap:0;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:36px}
+    .stat{flex:1;background:var(--surface);padding:20px 24px;border-right:1px solid var(--border)}.stat:last-child{border-right:none}
+    .stat-val{font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-0.03em;line-height:1;margin-bottom:4px}
+    .stat-lbl{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+    .mod-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:4px;margin-bottom:48px;font-size:12px}
+    .mod-nav a{color:var(--text-dim);text-decoration:none;font-weight:500;transition:color 0.15s}.mod-nav a:hover{color:var(--accent)}
+    .mod-nav-mid{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 12px;border-radius:2px}
+    .fw-badge{display:inline-flex;align-items:center;gap:10px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:3px;padding:10px 16px;margin-bottom:52px;font-size:12px;font-weight:600;color:var(--accent)}
+    .section{margin-bottom:60px;padding-bottom:60px;border-bottom:1px solid var(--border)}.section:last-of-type{border-bottom:none;padding-bottom:0}
+    h2{font-family:var(--font-head);font-size:clamp(22px,3vw,32px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:16px}h2 em{color:var(--accent);font-style:normal}
+    h3{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--white);margin:36px 0 12px;letter-spacing:-0.02em}
+    h4{font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--white);margin:24px 0 8px;letter-spacing:-0.01em}
+    p{font-size:15px;color:var(--text-dim);line-height:1.8;margin-bottom:18px}p:last-child{margin-bottom:0}
+    .insight{background:var(--surface);border-left:3px solid var(--accent);padding:20px 24px;border-radius:0 3px 3px 0;margin:24px 0}
+    .insight-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .insight p{font-size:14px;color:var(--text);font-style:italic;margin-bottom:0}
+    .script{background:var(--ink);border:1px solid var(--accent-border);border-radius:4px;padding:24px 28px;margin:24px 0}
+    .script-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    .script p{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:0;font-style:italic}
+    .warn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin:24px 0}
+    .warn-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+    .warn p{font-size:14px;color:var(--text-dim);margin-bottom:0;line-height:1.7}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .card{background:var(--surface);padding:24px}.card-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .card h4{margin:0 0 8px;font-size:14px}.card p{font-size:13px;margin-bottom:0;line-height:1.6}
+    .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .cards3 .card{background:var(--surface);padding:24px}
+    .consulting-strip{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:4px;padding:32px 36px;margin-top:72px;display:flex;align-items:flex-start;gap:28px}
+    .cs-badge{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:800;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .consulting-strip h3{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--white);margin:0 0 8px;letter-spacing:-0.01em}
+    .consulting-strip p{font-size:13px;color:var(--text-dim);margin-bottom:12px}
+    .consulting-strip a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-border);padding-bottom:2px}
+    .bottom-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid var(--border);margin-top:56px}
+    .bn-link{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text-dim);text-decoration:none;transition:color 0.15s}.bn-link:hover{color:var(--accent)}
+    .bn-cta a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:10px 20px;border-radius:3px;text-decoration:none}
+    footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-items:center;justify-content:space-between}
+    footer .brand{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--text-dim)}.brand em{color:var(--accent);font-style:normal}
+    footer .meta{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
+    @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.page-wrap{padding:40px 20px 80px}.stats{flex-wrap:wrap}.cards,.cards3{grid-template-columns:1fr}.consulting-strip{flex-direction:column}footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px}}
 </style>
 </head>
 <body>
-<nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
-
-<div class="hero">
-  <div class="hero-tag">Channel-Ready AE · Phase 1 · Module 02</div>
-  <h1>Partner Qualification:<br><em>Disqualify Fast</em>.</h1>
-  <div class="hero-sub">The Pain Funnel applied to partner onboarding. Must-have vs. nice-to-have partner profiles, how to find real pain in a partner conversation, and how to exit bad-fit relationships before they consume your calendar.</div>
-  <div class="hero-stats">
-    <div class="hero-stat"><strong>20%</strong><span>Partners Drive 80% Revenue</span></div>
-    <div class="hero-stat"><strong>4</strong><span>Funnel Levels</span></div>
-    <div class="hero-stat"><strong>Must/Nice</strong><span>Profile Framework</span></div>
-    <div class="hero-stat"><strong>Fast</strong><span>Disqualification Target</span></div>
+<nav>
+  <a href="/" class="nav-logo">Channel-<em>Ready</em> AE</a>
+  <ul class="nav-links">
+    <li><a href="/#who">Who It's For</a></li><li><a href="/#program">Program</a></li>
+    <li><a href="/#methodology">Methodology</a></li><li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#founders">Instructors</a></li><li><a href="/curriculum" class="active">Curriculum</a></li>
+    <li><a href="/business_plan">Business Plan</a></li>
+  </ul>
+  <a href="/#apply" class="nav-cta">Enroll Now</a>
+</nav>
+<div class="page-wrap">
+  <div class="breadcrumb"><a href="/">Channel-Ready AE</a><span>&rsaquo;</span><a href="/curriculum">Curriculum Binder</a><span>&rsaquo;</span><span>Module 02</span></div>
+  <div class="eyebrow">Channel-Ready AE &middot; Phase 1 &middot; Module 02</div>
+  <h1>Partner Qualification &mdash; <em>Pain Funnel Applied.</em></h1>
+  <p class="module-sub">Using the Pain Funnel to qualify partners before you invest a single hour of time, one line of a proposal, or a dollar of deal registration credit. The partner onboarding conversation reframed as a Sandler qualifying call.</p>
+  <div class="stats"><div class="stat"><div class="stat-val">Pain</div><div class="stat-lbl">Funnel Applied</div></div><div class="stat"><div class="stat-val">Must-Have</div><div class="stat-lbl">Criteria</div></div><div class="stat"><div class="stat-val">Disqualify</div><div class="stat-lbl">Early or Late</div></div><div class="stat"><div class="stat-val">Zero</div><div class="stat-lbl">Wasted Calls</div></div></div>
+  <div class="mod-nav">
+    <a href="/module_01">&larr; Module 01</a>
+    <span class="mod-nav-mid">Phase 1 &middot; Pain Funnel · Qualification</span>
+    <a href="/module_03">Module 03 &rarr;</a>
   </div>
+  <div class="fw-badge"><span>&or;</span><span>Channel Activation System&trade; &mdash; Pain Funnel · Qualification</span></div>
+<div class="section"><h2>Most channel AEs qualify partners the way bad salespeople qualify <em>deals — they don't.</em></h2>
+<p>They take every partner call. They onboard every company that fills out the partner application. They invest business planning, co-sell support, and marketing resources into relationships that were never going to produce revenue. The Pain Funnel fixes this.</p>
+<p>The Pain Funnel was built to uncover whether a prospect has real pain before you invest time selling to them. Applied to partner qualification, it answers the question your partner application form never asks: does this partner have a real problem that your product solves, real customers who need it, and real motivation to sell it? If the answer to any of those is no, you're looking at a partner who will consume your time and produce nothing.</p>
+<div class="insight"><div class="insight-lbl">The Core Insight</div><p><strong>Qualifying partners the same way you qualify customers is not optional — it's the only way to build a channel that produces revenue.</strong> Every hour you spend on an unqualified partner is an hour you didn't spend on one who would close.</p></div>
+<div class="cards3">
+  <div class="card"><div class="card-lbl">What You'll Learn</div><p>The Pain Funnel applied to partner qualification. Must-have vs. nice-to-have partner criteria. What to listen for in the first partner conversation that tells you whether this relationship has a future.</p></div>
+  <div class="card"><div class="card-lbl">What You'll Practice</div><p>Running the partner onboarding conversation as a Sandler qualifying call. Asking Pain Funnel questions without sounding like you're interrogating a prospect. Getting to a disqualification decision without burning the relationship.</p></div>
+  <div class="card"><div class="card-lbl">What Changes After</div><p>You spend 80% of your partner time on the 20% of partners who produce revenue. Your partner pipeline gets smaller and better. Your forecast accuracy improves because every partner in it has been qualified.</p></div>
+</div></div>
+<div class="section"><h2>The Pain Funnel applied to <em>partner qualification.</em></h2>
+<p>Sandler's Pain Funnel moves from surface-level problem to real business pain through a structured sequence of questions. In a direct-sales context, you're diagnosing a buyer's pain. In a channel context, you're diagnosing the partner's pain around their existing vendor relationships and their customers' pain that your product solves.</p>
+<h3>Must-Have Partner Criteria — Qualify On These First</h3>
+<div class="cards">
+  <div class="card"><div class="card-lbl">Customer Fit</div><h4>Do they have the right customers?</h4><p>Does the partner's existing customer base match the profile of companies that buy your product? If you sell mid-market cybersecurity and the partner only has SMB healthcare clients, the customer fit is poor regardless of their enthusiasm.</p></div>
+  <div class="card"><div class="card-lbl">Motivation to Sell</div><h4>Why would they choose your product over alternatives?</h4><p>Is your product meaningfully better for their customers than what they already sell? Do they have economic motivation — is there margin, MDF, or compensation attached? Enthusiasm without economics doesn't close deals.</p></div>
+  <div class="card"><div class="card-lbl">Capacity to Execute</div><h4>Can they actually sell and support it?</h4><p>Do they have trained reps? Do they have a pre-sales or technical resource? A partner who can sell but not support will create customer escalations that damage your brand alongside theirs.</p></div>
+  <div class="card"><div class="card-lbl">Commitment Level</div><h4>Are they willing to invest before you do?</h4><p>Will they attend enablement? Will they register a deal before you do co-sell work? Will they name specific customers they're targeting? A partner who won't commit before the sale won't commit after it either.</p></div>
 </div>
-
-<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Sandler Qualification</span><span class="ref-text" style="color:#6a7a9a;">Use at every new partner onboarding conversation and annual partner review</span></div>
-
-<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
-  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
-  <span style="color:#2a3a2a;">›</span>
-  <span style="color:#6a9a6a;">Module 02 — Partner Qualification</span>
-  <span style="margin-left:auto;"><a href="module_01.html" style="color:#3a5a3a;">← Module 01</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="module_03.html" style="color:#5a7a9a;margin-left:12px;">Module 03 →</a></span>
-</div>
-
-<div class="nav-tabs">
-  <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
-  <button class="nav-tab" onclick="showPanel('framework')">Framework</button>
-  <button class="nav-tab" onclick="showPanel('practice')">In Practice</button>
-  <button class="nav-tab" onclick="showPanel('fieldnotes')">Field Notes</button>
-</div>
-
-<div class="content">
-
-<div class="panel active" id="panel-overview">
-<div class="section-label">Why This Module Exists</div>
-<h2>Most channel AEs never disqualify a partner. That's why their territory is full of noise.</h2>
-<div class="explain">A partner who is enthusiastic but misaligned with your product is worse than no partner at all. They consume your time, expect support, and produce nothing. Qualification cuts through this fast.</div>
-<p>The channel orthodoxy says more partners means more coverage means more revenue. The reality is the opposite. Every partner you onboard improperly is a commitment you've made — to training, to enablement, to QBRs, to co-sell calls. Bad-fit partners crowd out the partners who could actually produce.</p>
-<p>Sandler's qualification approach starts with pain. If a partner doesn't feel real pain with their current vendor situation — if switching to your product doesn't solve a genuine problem in their business — they will not prioritize you. No amount of SPIF money or deal reg margin changes that. This module teaches you to find the pain, evaluate the profile, and exit fast when neither exists.</p>
-<div class="callout">
-  <div class="callout-tag">THE CORE INSIGHT</div>
-  <strong>Qualification is a gift you give both parties.</strong> The partner who isn't a fit doesn't want to waste their time on your product either. Fast, clear disqualification leaves both of you free to find relationships that actually work.
-</div>
-<div class="grid-3">
-  <div class="card gold-top"><h4>What You'll Learn</h4><p>The Pain Funnel applied to partner onboarding. How to build a must-have vs. nice-to-have partner profile. The three disqualification triggers that should end a partner conversation immediately.</p></div>
-  <div class="card gold-top"><h4>What You'll Practice</h4><p>Running a partner qualification call using Pain Funnel questions. Scoring a partner against your profile. Writing a clean, professional exit when a partner isn't the right fit.</p></div>
-  <div class="card gold-top"><h4>What Changes After</h4><p>Your partner list gets smaller and your revenue per partner goes up. You stop attending enablement calls with people who will never sell your product.</p></div>
-</div>
-</div>
-
-<div class="panel" id="panel-framework">
-<div class="section-label">The Qualification System</div>
-<h2>Must-have profile + Pain Funnel = fast, defensible qualification decisions.</h2>
-
-<h3>Step 1 — Build Your Must-Have Partner Profile</h3>
-<p>Before you can qualify a partner, you need a clear profile of what a good partner looks like. This is not aspirational — it is a minimum bar. Partners who don't meet must-have criteria should be disqualified regardless of their enthusiasm.</p>
-<div class="pillars">
-  <div class="pillar">
-    <div class="pillar-head blue"><div class="pillar-icon">✓</div><div class="pillar-title">Must-Have Criteria</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Sells into your target verticals or segments <span class="tag tag-blue">Non-Negotiable</span></li>
-        <li>At least one rep with relevant technical knowledge <span class="tag tag-blue">Non-Negotiable</span></li>
-        <li>Three or more active accounts in your product sweet spot <span class="tag tag-blue">Non-Negotiable</span></li>
-        <li>Leadership willing to participate in a QBR within 90 days <span class="tag tag-blue">Non-Negotiable</span></li>
-        <li>Can commit a named rep to co-sell engagements <span class="tag tag-blue">Non-Negotiable</span></li>
-      </ul>
+<h3>The Disqualification Framework</h3>
+<p>Disqualification is not rejection — it's clarity. A partner who doesn't meet must-have criteria is not a bad company. They're just not the right partner for your product right now. The clean exit preserves the relationship for a future where the fit might improve.</p>
+<div class="script"><div class="script-lbl">Clean Disqualification Script</div><p>"Based on what we've talked about, I don't think the timing is right for us to invest in a formal partnership right now. Your customers are [profile] and our best-fit customers are [profile] — and I don't think we'd be setting each other up for success. I'd rather tell you that now than waste both of our time onboarding and then watching nothing close. Can we revisit this in six months if your customer base shifts?"</p></div></div>
+<div class="section"><h2>Running the first partner call as a <em>qualifying conversation.</em></h2>
+<p>The standard first partner call runs like this: the vendor AE presents the product, the partner asks a few questions, both parties agree it sounds promising, and the partner is onboarded. Nothing is qualified. Nothing is committed. The relationship starts on a foundation of mutual enthusiasm instead of mutual understanding.</p>
+<p>The Sandler partner qualification call runs differently. The AE leads with questions, not with a pitch. The goal is diagnosis, not persuasion. By the end of the call, both parties know whether there is a real business reason to move forward — or not.</p>
+<h3>Pain Funnel Questions for Partner Qualification</h3>
+<div class="script"><div class="script-lbl">Level 1 — Surface Problem</div><p>"Tell me about the vendors you're currently selling in this space. How's that going?" (What's the stated problem with their current vendor mix?)</p></div>
+<div class="script"><div class="script-lbl">Level 2 — Impact</div><p>"What does that cost you in terms of deals lost, customer escalations, or margin pressure?" (What's the business impact of the problem?)</p></div>
+<div class="script"><div class="script-lbl">Level 3 — Real Pain</div><p>"How long has this been an issue? Have you tried to solve it before?" (What's the depth and history of the pain? Is it real or theoretical?)</p></div>
+<div class="script"><div class="script-lbl">Commitment Test</div><p>"If we moved forward, what would you be willing to commit to in the first 90 days — in terms of rep enablement time, deal registration, and joint prospecting?" (Can they make a specific commitment before any investment is made?)</p></div></div>
+<div class="section"><h2>What the best channel AEs know about <em>qualification that others miss.</em></h2>
+<h3>Enthusiasm Is Not Qualification</h3>
+<p>The most dangerous partner is the one who is genuinely excited about your product. They attend every webinar, they introduce you to their leadership, they talk about all the customers they're going to bring you. And then they register zero deals in six months. Enthusiasm without customer fit and economic motivation is a distraction dressed up as opportunity.</p>
+<div class="warn"><div class="warn-lbl">The Pattern to Watch For</div><p>Partners who are very enthusiastic in onboarding but non-committal when you ask for specific customer names or deal registrations. This pattern almost always means the partner sees value in the relationship for reasons other than selling your product — referral fees, industry access, or just vendor relationship building. Qualify for actual deal production, not enthusiasm level.</p></div>
+<h3>Qualifying Is an Ongoing Process</h3>
+<p>Partner qualification doesn't end at onboarding. It's an ongoing assessment that runs through every QBR, every co-sell engagement, and every deal registration review. A partner who was qualified 18 months ago may no longer be qualified today if their business has changed, their team has turned over, or their customer base has shifted. The Pain Funnel questions apply at re-qualification just as they do at initial qualification.</p>
+<p class="instructor-line" style="font-size:12px;color:var(--text-dim);margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">&bull; Carl &mdash; VAR qualification from the vendor side &middot; &bull; Natalie &mdash; Qualification from the reseller perspective &middot; Sandler Pain Funnel methodology</p></div>
+  <div class="consulting-strip">
+    <div class="cs-badge">Consulting Pathway</div>
+    <div>
+      <h3>Are you qualifying partners or just onboarding everyone who applies?</h3>
+      <p>A Channel Strategy Audit surfaces your specific gaps and maps them to the modules that fix them. 2-hour session with Carl or Natalie. Flat fee: $2,500. Designed to feed directly into the curriculum.</p>
+      <a href="/#apply">Request a Channel Strategy Audit &rarr;</a>
     </div>
   </div>
-  <div class="pillar">
-    <div class="pillar-head dark"><div class="pillar-icon">○</div><div class="pillar-title">Nice-to-Have Criteria</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Existing relationship with a complementary vendor <span class="tag tag-gold">Helpful</span></li>
-        <li>Dedicated pre-sales engineering team <span class="tag tag-gold">Helpful</span></li>
-        <li>MDF-eligible and willing to invest in demand gen <span class="tag tag-gold">Helpful</span></li>
-        <li>Previous experience with your product category <span class="tag tag-gold">Helpful</span></li>
-        <li>Geographic coverage in a strategic market for you <span class="tag tag-gold">Helpful</span></li>
-      </ul>
-    </div>
+  <div class="bottom-nav">
+    <a href="/module_01" class="bn-link">&larr; Module 01</a>
+    <div class="bn-cta"><a href="/#apply">Enroll Now</a></div>
+    <a href="/module_03" class="bn-link">Module 03 &rarr;</a>
   </div>
 </div>
-
-<h3>Step 2 — Run the Pain Funnel</h3>
-<p>The Pain Funnel is a Sandler technique for moving from surface-level interest to genuine business pain. In a partner context, you're probing the partner's own pain with their current situation — not their end-customer's pain. That comes later, in the deal cycle.</p>
-<div class="callout">
-  <div class="callout-tag">PARTNER PAIN FUNNEL QUESTIONS</div>
-  <strong>Level 1 — Surface:</strong> "Tell me about your current vendor lineup in this category."<br><br>
-  <strong>Level 2 — Specifics:</strong> "Where are the gaps? What do your reps say most often when customers ask about this space?"<br><br>
-  <strong>Level 3 — Emotional Impact:</strong> "What does it cost you when you can't satisfy a customer in this category? Does it affect other deals?"<br><br>
-  <strong>Level 4 — Cost of Status Quo:</strong> "If nothing changes — you keep working with your current vendor — what does that look like in 12 months?"
-</div>
-
-<h3>Step 3 — Score and Decide</h3>
-<div class="grid-2">
-  <div class="card green-top"><h4>Qualify — All of These True</h4><p>Partner meets all must-have criteria. They articulate real pain at Level 3 or deeper in the funnel. They can name specific accounts and a timeline. Leadership is accessible and interested.</p></div>
-  <div class="card red-top"><h4>Disqualify — Any of These True</h4><p>Missing a must-have criterion. Pain is vague or hypothetical. No named rep available. Leadership has no interest in a QBR. Partner asks for concessions before committing to anything.</p></div>
-</div>
-</div>
-
-<div class="panel" id="panel-practice">
-<div class="section-label">Qualification in Action</div>
-<h2>How a partner qualification call actually runs.</h2>
-<p>Most channel AEs treat a partner onboarding call as a product pitch. That's backwards. The goal of the first call is to determine whether a deeper relationship is worth your time — not to convince the partner to sign up. If you're doing most of the talking, you're pitching, not qualifying.</p>
-
-<h3>Opening — Set the Purpose</h3>
-<div class="explain">This is a form of Up-Front Contract (covered in Module 03). Before you go anywhere, establish what the call is for and what both parties need to walk away with to make it worthwhile.</div>
-<div class="callout">
-  <div class="callout-tag">OPENING SCRIPT</div>
-  "I want to be upfront about what I'm hoping to accomplish today. I'm not here to sign you up — I want to figure out whether there's a real fit between what we're doing and what you're trying to accomplish. I'll ask you some questions about your current business, and I'd ask you to do the same for me. If it makes sense to go further, we'll know by the end of this call. Does that work?"
-</div>
-
-<h3>The Middle — Pain Funnel Sequence</h3>
-<p>Run the four-level Pain Funnel questions in order. Don't rush to Level 4. Partners who feel pushed will give surface answers. Let silence work. Ask one question, then wait. The discomfort of silence often produces the most honest answers you'll get in the entire relationship.</p>
-
-<h3>Closing — Binary Decision</h3>
-<div class="callout">
-  <div class="callout-tag">CLOSING SCRIPT</div>
-  "Based on what we've discussed, I think there's a real opportunity here / I'm not sure this is the right time for us to work together. Here's my honest read: [your assessment]. What's yours?" Make the partner co-own the decision. If they're not sure either, that's a disqualify.
-</div>
-
-<h3>The Fast Exit When It Doesn't Fit</h3>
-<p>A clean no is one of the most professional things you can deliver. Partners respect AEs who don't waste time. "Based on where you are today, I don't think we're the right fit right now. Let me know if that changes — I'd rather come back when the timing is right than force something that isn't." Then stop following up.</p>
-</div>
-
-<div class="panel" id="panel-fieldnotes">
-<div class="section-label">From the Field</div>
-<h2>The patterns that separate productive partner portfolios from bloated ones.</h2>
-
-<h3>The Most Common Qualification Mistake</h3>
-<p>Allowing enthusiasm to substitute for pain. A partner who says "we love this product, we have tons of customers who need this" is not qualified — they're excited. Excitement without named accounts, named pain, and a committed rep is not a qualified partner. Push through the enthusiasm to the specifics. Enthusiasm is not pipeline.</p>
-
-<h3>How to Handle the Pushy Partner Who Wants In Without Qualifying</h3>
-<div class="callout">
-  <div class="callout-tag">FIELD SCENARIO</div>
-  A partner contacts you wanting to sign the agreement today. They attended your webinar, they like the product, they want in. They haven't answered a single qualification question. The Sandler response: "I'm glad you're interested. Before we sign anything, I want to make sure we can actually deliver value to each other — I've seen too many partners sign up and then not produce because the fit wasn't right. Can we spend 30 minutes on the phone first?" Partners who refuse this step are not ready to be partners.
-</div>
-
-<h3>Revisiting Disqualified Partners</h3>
-<p>A disqualification is not permanent. Keep a short list of partners who showed genuine interest but weren't ready. Reach out every six months with a single question: "Has anything changed on your end that might make this a better time to talk?" If yes, re-run the qualification process from scratch. Don't skip steps because you've talked to them before.</p>
-
-<div class="contrib-row">
-  <span class="contrib-pill cp-carl">● CARL — Partner onboarding patterns from HPE/Toshiba channel</span>
-  <span class="contrib-pill cp-nat">● NATALIE — Reseller perspective on vendor qualification calls</span>
-  <span class="contrib-pill cp-both">● Sandler Pain Funnel methodology</span>
-</div>
-
-<div class="footer">
-  <div>
-    <div class="footer-brand">Channel-<em>Ready</em> AE</div>
-    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 02 · PARTNER QUALIFICATION · MARCH 2026</div>
-  </div>
-  <div class="footer-meta">
-    <div>CONFIDENTIAL</div>
-    <div>CARL & NATALIE CLENDENIN</div>
-  </div>
-</div>
-</div>
-
-</div>
-
-<script>
-function showPanel(id) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
-  event.target.classList.add('active');
-}
-</script>
+<footer>
+  <div class="brand">Channel-<em>Ready</em> AE &middot; Module 02 &middot; Partner Qualification — Pain Funnel Applied</div>
+  <div class="meta">Carl &amp; Natalie Clendenin &middot; Partna Company LLC &middot; 2026</div>
+</footer>
 </body>
 </html>

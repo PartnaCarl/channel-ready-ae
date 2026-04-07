@@ -1,271 +1,636 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Channel-Ready AE — Curriculum Binder</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-bg:#eaf4ee;--purple:#4a2a6a;--purple-bg:#f3eef8;--purple-light:#d8c8e8;--red:#7a1e1e;--red-bg:#fde8e8;--amber:#7a4a00;--amber-bg:#fff8ec;--nat:#5a3a7a;--nat-bg:#f5f0fa;--nat-bdr:#c8a8e8;--carl:#1a3d5c;--carl-bg:#edf3f8;--carl-bdr:#a0c0d8;--teal:#0a5a5a;--teal-bg:#e8f5f5;}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-.hero{background:var(--ink);padding:56px 64px 48px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 60px,rgba(184,134,11,0.03) 60px,rgba(184,134,11,0.03) 61px);}
-.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:14px;position:relative;}
-.hero h1{font-family:'Libre Baskerville',serif;font-size:42px;font-weight:700;color:#f0e8d8;line-height:1.08;letter-spacing:-1px;margin-bottom:12px;position:relative;}
-.hero h1 em{color:var(--gold-light);font-style:italic;}
-.hero-sub{font-size:15.5px;color:#5a6878;max-width:660px;position:relative;margin-bottom:28px;line-height:1.7;}
-.hero-meta{display:flex;gap:28px;flex-wrap:wrap;position:relative;}
-.hero-stat{font-family:'DM Mono',monospace;}.hero-stat strong{display:block;font-size:20px;color:var(--gold-light);line-height:1;}.hero-stat span{font-size:8px;color:#8090a8;letter-spacing:2px;text-transform:uppercase;margin-top:3px;display:block;}
-.pbar{background:#e8e2d8;padding:12px 64px;display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--rule);}
-.pbar-w{flex:1;height:4px;background:#ccc6ba;border-radius:2px;}.pbar-f{height:100%;background:var(--gold);border-radius:2px;width:100%;}.pbar-l{font-family:'DM Mono',monospace;font-size:10px;color:#6a5e4f;letter-spacing:1px;}
-.container{max-width:1040px;margin:0 auto;padding:40px 40px 80px;}
-h2{font-family:'Libre Baskerville',serif;font-size:24px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.2;}
-p{color:#2e2820;font-size:14.5px;margin-bottom:12px;line-height:1.75;}
-.cb{padding:18px 22px;margin:16px 0;border-radius:0 6px 6px 0;position:relative;font-size:13px;line-height:1.65;}
-.cb::before{position:absolute;top:-10px;left:16px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;padding:2px 10px;border-radius:2px;font-weight:500;}
-.cb p{margin:0;}.cb p+p{margin-top:8px;}
-.cb-method{background:#f0f0f8;border:1px solid #c8c8d8;border-left:4px solid #4a4a6a;color:#2a2a4a;}.cb-method::before{content:'METHODOLOGY';background:#4a4a6a;color:#d8d8f0;}
-.cb-honest{background:var(--red-bg);border:1px solid #e8c0c0;border-left:4px solid var(--red);color:#4a2020;}.cb-honest::before{content:'HONEST STATUS';background:var(--red);color:#f0d8d8;}
-.cb-value{background:var(--teal-bg);border:1px solid #a0d0d0;border-left:4px solid var(--teal);color:#1a3a3a;}.cb-value::before{content:'CORE PRINCIPLE';background:var(--teal);color:#d0f0f0;}
-.cb-insight{background:#faf6f0;border:1px solid #e8d8b8;border-left:4px solid var(--gold);color:#4a3e28;}.cb-insight::before{content:'SANDLER INSIGHT';background:var(--gold);color:var(--ink);}
-.cb-transfer{background:var(--purple-bg);border:1px solid var(--purple-light);border-left:4px solid var(--purple);color:#3a2a4a;}.cb-transfer::before{content:'TRANSFERABILITY';background:var(--purple);color:#e8d8f8;}
-.arch{background:#edf3f8;border:1px solid #c0d4e8;border-left:4px solid var(--accent);color:#1a2e40;padding:22px 26px;border-radius:0 6px 6px 0;margin:0 0 16px;font-size:13.5px;line-height:1.7;position:relative;}
-.arch strong{color:var(--accent);}
-.arch-tag{position:absolute;top:-10px;left:20px;background:var(--accent);color:#d0e0f0;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
-.legend{display:flex;gap:14px;flex-wrap:wrap;padding:12px 18px;border:1px solid var(--rule);border-radius:6px;margin-bottom:12px;align-items:center;font-size:12px;}
-.legend-t{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-right:4px;}
-.dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:4px;}
-.vtag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:2px 7px;border-radius:20px;display:inline-block;}
-.v-r{background:#fdf3d8;color:#7a5a00;}.v-c{background:#e8f0f8;color:#1a3d5c;}.v-i{background:var(--nat-bg);color:var(--nat);}.v-f{background:var(--green-bg);color:var(--green);}.v-u{background:var(--warm);color:var(--muted);}
-.phase{margin:40px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--ink);}
-.phase-ey{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:3px;}
-.phase-t{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:2px;}
-.phase-d{font-size:13px;color:var(--muted);}
-.mg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px;}
-.mc{border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:var(--white);transition:box-shadow .2s,transform .15s;display:flex;flex-direction:column;}
-.mc:hover{box-shadow:0 3px 14px rgba(0,0,0,.07);transform:translateY(-1px);}
-.mc.built{border-color:#a8c8b0;}.mc.built .mc-h{background:var(--green-bg);}
-.mc.priority{border-color:var(--nat-bdr);}.mc.priority .mc-h{background:var(--nat-bg);}
-.mc-h{padding:12px 16px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;gap:8px;}
-.mc-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:1px;}
-.mc-st{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;padding:3px 8px;border-radius:20px;white-space:nowrap;}
-.st-built{background:var(--green);color:#d0e8d8;}.st-priority{background:var(--nat);color:#e8d8f8;}.st-planned{background:#f0f0f0;color:#888;border:1px solid #ddd;}
-.mc-b{padding:12px 16px;flex:1;}
-.mc-title{font-family:'Libre Baskerville',serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;line-height:1.3;}
-.mc-desc{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:6px;}
-.mc-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px;}
-.cp{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.5px;padding:2px 6px;border-radius:20px;}
-.cp-c{background:var(--carl-bg);color:var(--carl);border:1px solid var(--carl-bdr);}
-.cp-n{background:var(--nat-bg);color:var(--nat);border:1px solid var(--nat-bdr);}
-.cp-b{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
-.mc-f{padding:8px 16px;border-top:1px solid var(--rule);background:#fafaf8;display:flex;justify-content:space-between;align-items:center;}
-.mc-bots{font-size:11px;color:var(--muted);}
-.mc-bots strong{color:var(--accent);}
-.btn{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:4px;font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;text-decoration:none;border:none;cursor:pointer;transition:all .15s;}
-.btn-go{background:var(--green);color:#d0e8d8;}.btn-go:hover{background:#162e22;}
-.btn-pri{background:var(--nat);color:#e8d8f8;}.btn-pri:hover{background:#3a1a5a;}
-.btn-plan{background:var(--accent);color:#d0e0f0;}.btn-plan:hover{background:#0a2a4a;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curriculum Binder — Channel-Ready AE</title>
+  <meta name="description" content="All 12 modules of the Channel-Ready AE Sandler-based channel sales training curriculum. Every module built, every framework adapted for the indirect channel." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-.sl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
-.sl::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
-.og{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:12px 0;}
-.oc{border:1px solid var(--rule);border-radius:4px;padding:12px;background:var(--white);border-top:3px solid var(--accent);}
-.oc-l{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:2px;}
-.oc-t{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:2px;}
-.oc-d{font-size:11px;color:var(--muted);line-height:1.4;}
-.faq{border:1px solid var(--rule);border-radius:6px;padding:16px 20px;margin-bottom:8px;background:var(--white);}
-.faq-q{font-family:'Libre Baskerville',serif;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:5px;line-height:1.35;}
-.faq-a{font-size:12.5px;color:var(--muted);line-height:1.6;}
-.rg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;}
-.rc{border:1px solid var(--rule);border-radius:6px;padding:16px;background:var(--white);}
-.rc h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:6px;}
-.rc p{font-size:12px;color:var(--muted);margin:0;line-height:1.5;}
-.rs{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 8px;border-radius:20px;margin-bottom:6px;}
-.rs-d{background:var(--green-bg);color:var(--green);}.rs-p{background:var(--amber-bg);color:var(--amber);}.rs-b{background:var(--red-bg);color:var(--red);}
-.footer{border-top:2px solid var(--ink);margin-top:52px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
-.footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}.footer-brand em{color:var(--gold-light);}
-.footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
-@media(max-width:700px){.hero{padding:36px 24px 32px;}.hero h1{font-size:28px;}.container{padding:24px 18px 60px;}.mg,.og,.rg{grid-template-columns:1fr;}.pbar{padding:10px 24px;}}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}</style>
+    :root {
+      --black: #0a0a0a;
+      --ink: #111111;
+      --surface: #161616;
+      --border: #242424;
+      --muted: #333333;
+      --text-dim: #888888;
+      --text: #d4d4d4;
+      --white: #f5f5f5;
+      --accent: #e8c547;
+      --accent-dim: rgba(232,197,71,0.10);
+      --accent-border: rgba(232,197,71,0.28);
+      --font-head: 'Cormorant Garamond', serif;
+      --font-body: 'Crimson Pro', serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo em { color: var(--accent); font-style: normal; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta { background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 18px; border-radius: 3px; text-decoration: none; transition: opacity 0.15s; }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* PAGE HEADER */
+    .page-header {
+      border-bottom: 1px solid var(--border);
+      padding: 72px 40px 56px;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .breadcrumb {
+      font-size: 12px; color: var(--text-dim);
+      margin-bottom: 24px; display: flex; align-items: center; gap: 8px;
+    }
+    .breadcrumb a { color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--muted); }
+    .page-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .page-title { font-family: var(--font-head); font-size: clamp(40px, 5vw, 60px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: var(--white); margin-bottom: 20px; }
+    .page-title em { color: var(--accent); font-style: normal; }
+    .page-sub { font-size: 17px; color: var(--text-dim); max-width: 640px; line-height: 1.75; margin-bottom: 36px; }
+    .page-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+    .page-stat-value { font-family: var(--font-head); font-size: 28px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
+    .page-stat-label { font-size: 12px; color: var(--text-dim); letter-spacing: 0.04em; }
+
+    /* MAIN LAYOUT */
+    .main { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
+
+    /* CONSULTING AUDIT PATHWAY */
+    .audit-pathway {
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: 4px; padding: 36px 40px;
+      margin-bottom: 60px;
+      display: flex; align-items: flex-start; gap: 32px;
+    }
+    .audit-pathway-badge {
+      background: var(--accent); color: var(--black);
+      font-family: var(--font-head); font-weight: 800;
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 6px 12px; border-radius: 2px; white-space: nowrap;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .audit-pathway-body h3 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -0.02em; }
+    .audit-pathway-body p { font-size: 14px; color: var(--text-dim); line-height: 1.7; margin-bottom: 16px; }
+    .audit-pathway-body a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-border); padding-bottom: 2px; transition: border-color 0.15s; }
+    .audit-pathway-body a:hover { border-color: var(--accent); }
+
+    /* PROGRESS BAR */
+    .progress-bar {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 4px; padding: 20px 28px;
+      display: flex; align-items: center; gap: 20px;
+      margin-bottom: 48px;
+    }
+    .progress-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
+    .progress-track { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; width: 100%; }
+    .progress-count { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+    /* INTRO BLOCKS */
+    .intro-blocks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 56px; }
+    .intro-block { background: var(--surface); padding: 28px 28px; }
+    .intro-block-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .intro-block p { font-size: 13px; color: var(--text-dim); line-height: 1.7; }
+
+    /* PHASE HEADER */
+    .phase-header {
+      display: flex; align-items: baseline; gap: 16px;
+      padding: 20px 0; border-bottom: 1px solid var(--border);
+      margin-bottom: 24px; margin-top: 56px;
+    }
+    .phase-header:first-of-type { margin-top: 0; }
+    .phase-tag { font-family: var(--font-head); font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); background: var(--accent); padding: 4px 10px; border-radius: 2px; }
+    .phase-name { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: -0.02em; }
+    .phase-transfer { font-size: 12px; color: var(--text-dim); margin-left: auto; font-style: italic; }
+
+    /* MODULE GRID */
+    .module-grid { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
+    .module-card {
+      background: var(--surface); padding: 28px 32px;
+      display: grid; grid-template-columns: 120px 1fr auto;
+      gap: 28px; align-items: start;
+      transition: background 0.15s;
+    }
+    .module-card:hover { background: var(--ink); }
+    .module-meta {}
+    .module-num { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
+    .module-status { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 3px 8px; border-radius: 2px; display: inline-block; }
+    .module-body {}
+    .module-title { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; letter-spacing: -0.01em; }
+    .module-desc { font-size: 13px; color: var(--text-dim); line-height: 1.7; margin-bottom: 14px; }
+    .module-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: 11px; font-weight: 500; border: 1px solid var(--border); color: var(--text-dim); padding: 4px 10px; border-radius: 2px; }
+    .tag-accent { border-color: var(--accent-border); color: var(--accent); background: var(--accent-dim); }
+    .module-instructors { font-size: 11px; color: var(--text-dim); margin-top: 10px; }
+    .module-link { display: flex; align-items: center; }
+    .module-link a {
+      font-family: var(--font-head); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--accent); text-decoration: none;
+      border: 1px solid var(--accent-border); padding: 10px 18px; border-radius: 3px;
+      transition: background 0.15s, color 0.15s; white-space: nowrap;
+    }
+    .module-link a:hover { background: var(--accent); color: var(--black); }
+
+    /* METRICS */
+    .metrics-section { margin-top: 72px; }
+    .metrics-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
+    .metrics-title { font-family: var(--font-head); font-size: 32px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 12px; }
+    .metrics-title em { color: var(--accent); font-style: normal; }
+    .metrics-sub { font-size: 15px; color: var(--text-dim); margin-bottom: 40px; max-width: 520px; line-height: 1.7; }
+    .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .metric-card { background: var(--surface); padding: 32px 28px; }
+    .metric-type { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .metric-name { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em; }
+    .metric-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+    /* FAQ */
+    .faq-section { margin-top: 72px; }
+    .faq-grid { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .faq-item { background: var(--surface); padding: 28px 32px; }
+    .faq-q { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em; }
+    .faq-a { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+
+    /* READINESS */
+    .readiness-section { margin-top: 72px; }
+    .readiness-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .readiness-card { background: var(--surface); padding: 32px 28px; }
+    .readiness-status { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; display: inline-block; padding: 4px 10px; border-radius: 2px; }
+    .status-complete { color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); }
+    .status-progress { color: #60a5fa; background: rgba(96,165,250,0.1); border: 1px solid rgba(96,165,250,0.25); }
+    .status-blocking { color: #f87171; background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.25); }
+    .readiness-card h4 { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 8px; letter-spacing: -0.01em; }
+    .readiness-card p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+    /* FOOTER */
+    .page-footer { border-top: 1px solid var(--border); padding: 40px; max-width: 1100px; margin: 60px auto 0; display: flex; align-items: center; justify-content: space-between; }
+    .footer-brand { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--text-dim); }
+    .footer-brand em { color: var(--accent); font-style: normal; }
+    .footer-meta { font-size: 11px; color: var(--text-dim); text-align: center; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--white); }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-header, .main { padding-left: 20px; padding-right: 20px; }
+      .module-card { grid-template-columns: 1fr; gap: 16px; }
+      .module-link { justify-content: flex-start; }
+      .intro-blocks, .metrics-grid, .readiness-grid { grid-template-columns: 1fr; }
+      .audit-pathway { flex-direction: column; }
+      .page-footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
 </head>
-<body><nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#who">Who It's For</a></li><li><a href="index.html#program">Program</a></li><li><a href="index.html#methodology">Methodology</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Instructors</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="business_plan.html">Business Plan</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Enroll Now</a></nav>
+<body>
 
-<div class="hero">
-  <div class="hero-tag">Curriculum Binder · Sandler Channel Edition · March 2026 · All 12 Modules Built</div>
-  <h1>Channel-<em>Ready</em> AE</h1>
-  <div class="hero-sub">Complete 12-module Sandler-based training program for channel Account Executives. Every module covers a specific Sandler framework adapted for the indirect channel — partner qualification, Up-Front Contracts, Pain Funnel, Negative Reverse Selling, DISC, and No-Free-Consulting. Built from practitioner IP, not theory.</div>
-  <div class="hero-meta">
-    <div class="hero-stat"><strong>12</strong><span>Modules</span></div>
-    <div class="hero-stat"><strong>6</strong><span>Sandler Frameworks</span></div>
-    <div class="hero-stat"><strong>3</strong><span>Phases</span></div>
-    <div class="hero-stat"><strong>$400</strong><span>Per Seat / Month</span></div>
-    <div class="hero-stat"><strong>20+</strong><span>Partner Scenarios</span></div>
-    <div class="hero-stat"><strong>2</strong><span>Practitioner Instructors</span></div>
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Channel-<em>Ready</em> AE</a>
+  <ul class="nav-links">
+    <li><a href="/#who">Who It's For</a></li>
+    <li><a href="/#program">Program</a></li>
+    <li><a href="/#methodology">Methodology</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#founders">Instructors</a></li>
+    <li><a href="/curriculum" class="active">Curriculum</a></li>
+    <li><a href="/business_plan">Business Plan</a></li>
+  </ul>
+  <a href="/#apply" class="nav-cta">Enroll Now</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="page-header">
+    <div class="breadcrumb">
+      <a href="/">Channel-Ready AE</a>
+      <span>›</span>
+      <span>Curriculum Binder</span>
+    </div>
+    <div class="page-eyebrow">Curriculum Binder · Sandler Channel Edition · March 2026 · All 12 Modules Built</div>
+    <h1 class="page-title">Channel-<em>Ready</em> AE</h1>
+    <p class="page-sub">Complete 12-module Sandler-based training program for channel Account Executives. Every module covers a specific Sandler framework adapted for the indirect channel — built from practitioner IP, not theory.</p>
+    <div class="page-stats">
+      <div><div class="page-stat-value">12</div><div class="page-stat-label">Modules</div></div>
+      <div><div class="page-stat-value">6</div><div class="page-stat-label">Sandler Frameworks</div></div>
+      <div><div class="page-stat-value">3</div><div class="page-stat-label">Phases</div></div>
+      <div><div class="page-stat-value">$400</div><div class="page-stat-label">Per Seat / Month</div></div>
+      <div><div class="page-stat-value">20+</div><div class="page-stat-label">Partner Scenarios</div></div>
+      <div><div class="page-stat-value">2</div><div class="page-stat-label">Practitioner Instructors</div></div>
+    </div>
   </div>
 </div>
 
-<div class="pbar">
-  <div class="pbar-l">ALL MODULES COMPLETE</div>
-  <div class="pbar-w"><div class="pbar-f"></div></div>
-  <div class="pbar-l">12 / 12</div>
-  <a href="business_plan.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--accent);text-decoration:none;border:1px solid var(--carl-bdr);padding:4px 12px;border-radius:3px;white-space:nowrap;transition:all 0.15s;" onmouseover="this.style.background='var(--accent)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--accent)'">Business Plan →</a>
+<!-- MAIN -->
+<div class="main">
+
+  <!-- CONSULTING AUDIT PATHWAY -->
+  <div class="audit-pathway">
+    <div class="audit-pathway-badge">Consulting Pathway</div>
+    <div class="audit-pathway-body">
+      <h3>Not ready for the full program? Start with a Channel Readiness Audit.</h3>
+      <p>A 2-hour working session with Carl or Natalie that diagnoses your partner motion and delivers a prioritized written action plan. Flat fee: <strong style="color:var(--white)">$2,500</strong>. The audit is designed to naturally feed into the curriculum for teams that want to go deeper — you'll see exactly which modules address the gaps we surface. Fractional VP of Channel retainers also available for teams not ready to hire full-time.</p>
+      <a href="/#apply">Request a Channel Strategy Audit →</a>
+    </div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-bar">
+    <div class="progress-label">All Modules Complete</div>
+    <div class="progress-track"><div class="progress-fill"></div></div>
+    <div class="progress-count">12 / 12</div>
+  </div>
+
+  <!-- INTRO BLOCKS -->
+  <div class="intro-blocks">
+    <div class="intro-block">
+      <div class="intro-block-label">How This Is Structured</div>
+      <p>Each module addresses one dimension of the Sandler Sales System adapted for the indirect channel. Modules build sequentially — the mindset shift comes first, then the specific frameworks, then the repeatable systems. Click any module to open the full interactive version: tabbed panels, role-play scenarios, Sandler frameworks, partner scripts, and checklists.</p>
+    </div>
+    <div class="intro-block">
+      <div class="intro-block-label">The Sandler Channel Principle</div>
+      <p>Every Sandler framework — Pain Funnel, Up-Front Contract, Negative Reverse, DISC, I/R Theory, No-Free-Consulting — applies directly to the indirect channel. The buyer is a partner rep, not an end customer. The consultative posture is the same. The stakes for giving away IP are higher. This program teaches you to treat partner conversations with the same Sandler discipline as a direct enterprise deal.</p>
+    </div>
+    <div class="intro-block">
+      <div class="intro-block-label">The Blitz Masters Connection</div>
+      <p>Channel-Ready AE students are encouraged to complete or enroll in Blitz Masters first. Blitz Masters builds the outbound muscle — call blitz discipline, prospecting volume, accountability habits — that makes Sandler methodology land. You cannot run the Pain Funnel on a partner you haven't reached. Both programs are offered through Partna Company.</p>
+    </div>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase-header">
+    <span class="phase-tag">Phase 1 · Modules 1–4</span>
+    <span class="phase-name">Sandler Mindset for Channel</span>
+    <span class="phase-transfer">Product-agnostic. Applies across VAR, MSP, ISV, distributor.</span>
+  </div>
+
+  <div class="module-grid">
+    <div class="module-card">
+      <div class="module-meta">
+        <div class="module-num">Module 01</div>
+        <div class="module-status">Built</div>
+      </div>
+      <div class="module-body">
+        <div class="module-title">The Sandler Mindset for Channel</div>
+        <div class="module-desc">Identity vs. Role theory — and why channel AEs who over-invest emotionally give away the most. The emotional investment trap explained. What the Sandler posture looks like in a partner conversation before you've established a UFC. Includes a self-diagnostic: 10 signs you're consulting for free right now.</div>
+        <div class="module-tags">
+          <span class="tag tag-accent">I/R Theory</span>
+          <span class="tag tag-accent">Posture</span>
+          <span class="tag">Free Consulting Diagnostic</span>
+        </div>
+        <div class="module-instructors">Carl · Natalie</div>
+      </div>
+      <div class="module-link"><a href="/module_01">Open Module →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-meta">
+        <div class="module-num">Module 02</div>
+        <div class="module-status">Built</div>
+      </div>
+      <div class="module-body">
+        <div class="module-title">Partner Qualification — Pain Funnel Applied</div>
+        <div class="module-desc">Using the Pain Funnel to qualify partners before investing time, resources, or business plans. Must-have vs. nice-to-have partner criteria. The partner onboarding conversation reframed as a Sandler qualifying call. Includes a disqualification framework so you exit cleanly without burning the relationship.</div>
+        <div class="module-tags">
+          <span class="tag tag-accent">Pain Funnel</span>
+          <span class="tag tag-accent">Qualification</span>
+          <span class="tag">Partner Disqualification</span>
+        </div>
+        <div class="module-instructors">Carl · Natalie</div>
+      </div>
+      <div class="module-link"><a href="/module_02">Open Module →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-meta">
+        <div class="module-num">Module 03</div>
+        <div class="module-status">Built</div>
+      </div>
+      <div class="module-body">
+        <div class="module-title">Up-Front Contracts with Partners</div>
+        <div class="module-desc">Setting expectations on deals, timelines, roles, and commitments before any work begins. The UFC applied to partner onboarding, QBRs, joint calls, and co-sell commitments. Four complete UFC scripts for the most common partner situations — including the one where the partner wants your business plan before they've committed to anything.</div>
+        <div class="module-tags">
+          <span class="tag tag-accent">Up-Front Contract</span>
+          <span class="tag">Partner Onboarding</span>
+          <span class="tag">QBR Setup</span>
+        </div>
+        <div class="module-instructors">Carl · Natalie</div>
+      </div>
+      <div class="module-link"><a href="/module_03">Open Module →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-meta">
+        <div class="module-num">Module 04</div>
+        <div class="module-status">Built</div>
+      </div>
+      <div class="module-body">
+        <div class="module-title">The Pain Funnel in Channel Conversations</div>
+        <div class="module-desc">Uncovering real partner pain and end-customer pain — not feature interest. The Pain Funnel as a diagnostic tool for both partner qualification and joint sales conversations. What partners say vs. what they actually mean. Practice scenarios across three partner types: VAR, MSP, and distributor.</div>
+        <div class="module-tags">
+          <span class="tag tag-accent">Pain Funnel</span>
+          <span class="tag tag-accent">Diagnosis</span>
+          <span class="tag">Partner Pain vs. Customer Pain</span>
+        </div>
+        <div class="module-instructors">Carl · Natalie</div>
+      </div>
+      <div class="module-link"><a href="/module_04">Open Module →</a></div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-header">
+    <span class="phase-tag">Phase 2 · Modules 5–8</span>
+    <span class="phase-name">The Sandler Selling System in Channel</span>
+    <span class="phase-transfer">Real-world VAR, MSP, ISV, and distributor scenarios included.</span>
+  </div>
+
+  <div class="module-grid">
+    <div class="module-card">
+      <div class="module-meta">
+        <div class="module-num">Module 05</div>
+        <div class="module-status">Built</div>
+      </div>
+      <div class="module-body">
+        <div class="module-title">DISC for Channel — Reading Partner Personality Types</div>
+        <div class="module-desc">Your biggest VAR partner is a C-type. You've been showing up with D-type energy for 18 months. This module explains why the relationship feels stuck — and exactly how to fix it. Identifying D, I, S, C profiles in partner reps and leadership. Adapting your communication style in calls, email, and QBRs. The cost of the wrong approach with the right partner.</div>
+        <div class="module-tags">
+          <span class="tag tag-accent">DISC Profiling</span>
+          <span class="tag">Communication Adaptation</span>
+          <span class="tag">Partner Relationship Repair</span>
+        </div>
+        <div class="module-instructors">Carl · Natalie</div>
+      </div>
+      <div class="module-link"><a href="/module_05">Open Module →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-meta">
+        <div class="module-num">Module 06</div>
+        <div class="module-status">Built</div>
+      </div>
+      <div class="module-body">
+        <div class="module-title">Negative Reverse Selling in Channel</div>
+        <div class="module-desc">Getting partners to sell themselves on working deals with you — by using NRS when they stall, go dark, or request more resources without commitment. The "maybe we're not the right fit" conversation that surfaces the real objection or disqualifies the partner cleanly. Includes scripts for the three most common stall patterns.</div>
+        <div class="module-tags">
+          <span class="tag tag-accent">Negative Reverse Selling</span>
+          <span class="tag">Partner Stalls</span>
+          <span class="tag">Go-Dark Recovery</span>
+        </div>
+        <div class="module-instructors">Carl · Natalie</div>
+      </div>
+      <div class="module-link"><a href="/module_06">Open Module →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-meta">
+        <div class="module-num">Module 07</div>
+        <div class="module-status">Built</div>
+      </div>
+      <div class="module-body">
+        <div class="module-title">No-Free-Consulting in the Channel</div>
+        <div class="module-desc">Protecting your time, intellectual property, and deal margins. Defining exactly what requires partner commitment before you engage — and what happens when a partner takes your business plan to a cheaper vendor. The IP protection conversation, run with Sandler posture so it strengthens the relationship instead of damaging it.</div>
+        <div class="module-tags">
+          <span class="tag tag-accent">No-Free-Consulting</span>
+          <span class="tag">IP Protection</span>
+          <span class="tag">Margin Defense</span>
+        </div>
+        <div class="module-instructors">Carl · Natalie</div>
+      </div>
+      <div class="module-link"><a href="/module_07">Open Module →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-meta">
+        <div class="module-num">Module 08</div>
+        <div class="module-status">Built</div>
+      </div>
+      <div class="module-body">
+        <div class="module-title">Anatomy of a Partner Deal</div>
+        <div class="module-desc">Mapping the full channel deal lifecycle from partner interest through close — with Sandler checkpoints at every stage: qualification, pain, budget, decision, fulfillment. Where channel deals die and exactly why. Includes a deal review framework you can use in your weekly pipeline meeting starting this week.</div>
+        <div class="module-tags">
+          <span class="tag tag-accent">Deal Lifecycle</span>
+          <span class="tag tag-accent">Sandler System</span>
+          <span class="tag">Pipeline Review Framework</span>
+        </div>
+        <div class="module-instructors">Carl · Natalie</div>
+      </div>
+      <div class="module-link"><a href="/module_08">Open Module →</a></div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-header">
+    <span class="phase-tag">Phase 3 · Modules 9–12</span>
+    <span class="phase-name">Building the Repeatable Channel Motion</span>
+    <span class="phase-transfer">Systems and habits. Sandler as your default, not your fallback.</span>
+  </div>
+
+  <div class="module-grid">
+    <div class="module-card">
+      <div class="module-meta">
+        <div class="module-num">Module 09</div>
+        <div class="module-status">Built</div>
+      </div>
+      <div class="module-body">
+        <div class="module-title">Partner Business Review (QBR) — Sandler Style</div>
+        <div class="module-desc">Running QBRs that create commitment instead of reporting on the past. The Sandler QBR agenda: Up-Front Contract, pain review, pipeline diagnosis, next-quarter commitments established before the meeting ends. What to do when the partner shows up with nothing — and how to run that conversation without losing the relationship.</div>
+        <div class="module-tags">
+          <span class="tag tag-accent">Sandler QBR</span>
+          <span class="tag tag-accent">Up-Front Contract</span>
+          <span class="tag">Commitment vs. Reporting</span>
+        </div>
+        <div class="module-instructors">Carl · Natalie</div>
+      </div>
+      <div class="module-link"><a href="/module_09">Open Module →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-meta">
+        <div class="module-num">Module 10</div>
+        <div class="module-status">Built</div>
+      </div>
+      <div class="module-body">
+        <div class="module-title">Prospecting Through Partners</div>
+        <div class="module-desc">How to jointly prospect and source deals through the channel — including the joint prospecting call structure, how to get partners to open their accounts to you, and how to use Pain Funnel language in joint prospecting conversations so you're not just tagging along on calls.</div>
+        <div class="module-tags">
+          <span class="tag tag-accent">Pain Funnel</span>
+          <span class="tag tag-accent">Joint Prospecting</span>
+          <span class="tag">Account Access</span>
+        </div>
+        <div class="module-instructors">Carl · Natalie</div>
+      </div>
+      <div class="module-link"><a href="/module_10">Open Module →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-meta">
+        <div class="module-num">Module 11</div>
+        <div class="module-status">Built</div>
+      </div>
+      <div class="module-body">
+        <div class="module-title">Competitive Intelligence in Channel</div>
+        <div class="module-desc">Understanding your channel motion vs. direct vs. competitor motions. How partners actually compare vendors — and what they tell you vs. what they're thinking. The competitive conversation framework using Sandler posture so you're gathering intelligence without sounding desperate or defensive.</div>
+        <div class="module-tags">
+          <span class="tag tag-accent">Competitive Intelligence</span>
+          <span class="tag tag-accent">NRS</span>
+          <span class="tag">Partner Decision Psychology</span>
+        </div>
+        <div class="module-instructors">Carl · Natalie</div>
+      </div>
+      <div class="module-link"><a href="/module_11">Open Module →</a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-meta">
+        <div class="module-num">Module 12</div>
+        <div class="module-status">Built</div>
+      </div>
+      <div class="module-body">
+        <div class="module-title">Building the Repeatable Channel Motion</div>
+        <div class="module-desc">Systematizing Sandler habits so they run on autopilot. Weekly, monthly, and quarterly rhythms. Partner tiering through Sandler qualification criteria. Building the operating system that works without willpower — so the method is your default, not something you reach for when a conversation gets hard. Includes final self-assessment and certification.</div>
+        <div class="module-tags">
+          <span class="tag tag-accent">All 6 Sandler Frameworks</span>
+          <span class="tag">Partner Tiering</span>
+          <span class="tag">Certification</span>
+        </div>
+        <div class="module-instructors">Carl · Natalie</div>
+      </div>
+      <div class="module-link"><a href="/module_12">Open Module →</a></div>
+    </div>
+  </div>
+
+  <!-- METRICS -->
+  <div class="metrics-section">
+    <div class="metrics-label">Pilot Outcomes</div>
+    <h2 class="metrics-title">What <em>moves</em> if this works.</h2>
+    <p class="metrics-sub">Behavior change is the leading indicator. Revenue is the lagging one. We measure both — starting from day one of the pilot cohort.</p>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-type">Behavior</div>
+        <div class="metric-name">Up-Front Contract Usage</div>
+        <div class="metric-desc">% of partner conversations starting with a UFC. Baseline captured before Module 1. Remeasured at 30, 60, and 90 days. Target: 80%+ by day 60.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-type">Behavior</div>
+        <div class="metric-name">Qualification Rate</div>
+        <div class="metric-desc">Partners disqualified early using Pain Funnel vs. time wasted on partners who were never going to close. Tracked against pre-enrollment baseline.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-type">Behavior</div>
+        <div class="metric-name">No-Free-Consulting Incidents</div>
+        <div class="metric-desc">Reduction in IP given before commitment. Tracked via deal notes and manager review. The single metric that correlates most directly with margin protection.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-type">Pipeline</div>
+        <div class="metric-name">Partner-Sourced Pipeline Generated</div>
+        <div class="metric-desc">New pipeline sourced through partner conversations at 30, 60, and 90 days. Compared to pre-enrollment baseline. Leading indicator before revenue closes.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-type">Lagging</div>
+        <div class="metric-name">Partner-Sourced Revenue</div>
+        <div class="metric-desc">Revenue closed through the channel at 6 months vs. pre-enrollment baseline. The ultimate proof metric. Reported in aggregate across the cohort.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-type">Engagement</div>
+        <div class="metric-name">Completion Rate + Sandler Posture Score</div>
+        <div class="metric-desc">% completing all 12 modules (target: 70%+). Pre/post self-assessment on Sandler framework fluency. Expected: 3–4 point increase on posture score.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <div class="metrics-label">Buyer FAQ</div>
+    <h2 class="metrics-title">Questions a <em>buyer would ask.</em></h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">Is this a Sandler-licensed program?</div>
+        <div class="faq-a">No. We've adapted Sandler's publicly documented methodology — Pain Funnel, UFC, NRS, DISC, I/R Theory, No-Free-Consulting — specifically for the indirect channel. The frameworks are Sandler's. The channel application, scenarios, and curriculum are ours. Reviewed by legal counsel.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">My partner is Optiv, not CDW. Does this transfer?</div>
+        <div class="faq-a">The Sandler frameworks are structurally identical across partner types. Whether you work with VARs, MSPs, distributors, or ISVs — the Pain Funnel qualifies the same way, the UFC runs the same way. Scenarios are drawn from multiple partner types, including MSSP, SI, national VAR, and regional reseller.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do my AEs need Sandler training first?</div>
+        <div class="faq-a">No prior Sandler training required. Each framework is introduced from first principles and applied immediately to partner situations. Direct-sales Sandler experience is helpful but not a prerequisite. The program is designed to be the first place your AEs encounter Sandler methodology.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What is the Channel Strategy Audit and how does it connect to the curriculum?</div>
+        <div class="faq-a">The audit is a 2-hour working session ($2,500 flat) where Carl or Natalie diagnoses your partner motion and delivers a written action plan. The action plan maps directly to curriculum modules — so teams that go through an audit know exactly which Phase and Module addresses each gap. It's designed as the top of the funnel, not a standalone product.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What does the certificate mean?</div>
+        <div class="faq-a">The Channel-Ready AE certificate demonstrates practitioner-level fluency in six Sandler frameworks as applied to the indirect channel. It's a credential that differentiates AEs who can articulate their channel methodology from those who can't — useful in performance reviews, job searches, and conversations with partner leadership about program maturity.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- READINESS -->
+  <div class="readiness-section">
+    <div class="metrics-label">Program Status</div>
+    <h2 class="metrics-title">What's built. What's <em>in progress.</em></h2>
+    <div class="readiness-grid">
+      <div class="readiness-card">
+        <div class="readiness-status status-complete">Complete</div>
+        <h4>All 12 Modules Built</h4>
+        <p>Every module complete with tabbed content, scenarios, frameworks, partner scripts, and role-play exercises.</p>
+      </div>
+      <div class="readiness-card">
+        <div class="readiness-status status-complete">Complete</div>
+        <h4>Six Sandler Frameworks Adapted</h4>
+        <p>I/R Theory, Pain Funnel, UFC, NRS, DISC, and No-Free-Consulting — all mapped to the indirect channel and wrapped in The Channel Activation System™.</p>
+      </div>
+      <div class="readiness-card">
+        <div class="readiness-status status-complete">Complete</div>
+        <h4>Business Plan v1</h4>
+        <p>Revenue model, pricing, risk analysis, and 24-month projections. $400/seat/month. Break-even Month 8 from first sale.</p>
+      </div>
+      <div class="readiness-card">
+        <div class="readiness-status status-progress">In Progress</div>
+        <h4>Blitz Masters Integration</h4>
+        <p>Bundle enrollment pathway and pre-work recommendations. Target: May 2026.</p>
+      </div>
+      <div class="readiness-card">
+        <div class="readiness-status status-blocking">Blocking</div>
+        <h4>Non-Compete Legal Review</h4>
+        <p>Highest priority. No customer contact until legal clears. Must cover both training delivery and consulting engagements. Budget: $1,500–$2,500.</p>
+      </div>
+      <div class="readiness-card">
+        <div class="readiness-status status-blocking">Blocking</div>
+        <h4>LLC Formation</h4>
+        <p>New Illinois LLC under Partna Company. Must be filed before any revenue is collected. Target: April 2026.</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<div class="container">
+<!-- FOOTER -->
+<footer style="border-top: 1px solid var(--border); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto;">
+  <div style="font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--text-dim);">Channel-<span style="color:var(--accent)">Ready</span> AE · Curriculum Binder · Sandler Channel Edition · March 2026</div>
+  <div style="display:flex; gap:24px;">
+    <a href="/business_plan" style="font-size:12px; color: var(--text-dim); text-decoration: none;">View Business Plan →</a>
+    <a href="/#apply" style="font-size:12px; color: var(--accent); text-decoration: none;">Enroll Now →</a>
+  </div>
+</footer>
 
-<div class="cb cb-method"><p><strong>How this curriculum is structured:</strong> Each module addresses one dimension of the Sandler Sales System adapted for the indirect channel. Modules build sequentially — the mindset shift comes first, then the specific frameworks, then the repeatable systems. The Blitz Masters outbound program is recommended as pre-work for students who need to build their prospecting volume before applying Sandler methodology to partner conversations.</p></div>
-
-<div class="arch"><div class="arch-tag">HOW THIS WORKS</div>
-<strong>Click any module to open the full interactive version</strong> — tabbed panels, role-play scenarios, Sandler frameworks, partner scripts, and checklists. Each module is standalone and links to its own dedicated page.</div>
-
-<div class="cb cb-insight"><p><strong>The Sandler Channel Principle:</strong> Every Sandler framework — Pain Funnel, Up-Front Contract, Negative Reverse, DISC, I/R Theory, No-Free-Consulting — applies directly to the indirect channel. The buyer is a partner rep, not an end customer. The consultative posture is the same. The stakes for giving away IP are higher. This program teaches you to treat partner conversations with the same Sandler discipline as a direct enterprise deal.</p></div>
-
-<div class="cb cb-value"><p><strong>The Blitz Masters connection:</strong> Channel-Ready AE students are encouraged to complete or enroll in Blitz Masters first. Blitz Masters builds the outbound muscle — call blitz discipline, prospecting volume, accountability habits — that makes Sandler methodology land. You cannot run the Pain Funnel on a partner you haven't reached. Both programs are offered through Partna Company.</p></div>
-
-<div class="legend" style="background:var(--warm);">
-  <span class="legend-t">Sandler Frameworks</span>
-  <span class="vtag v-c">I/R Theory</span>
-  <span class="vtag v-r">Pain Funnel</span>
-  <span class="vtag v-i">Up-Front Contract</span>
-  <span class="vtag v-f">Negative Reverse</span>
-  <span class="vtag v-u">DISC</span>
-</div>
-
-<!-- ===== PHASE 1 ===== -->
-<div class="phase">
-  <div class="phase-ey">Phase 1 · Modules 1–4</div>
-  <div class="phase-t">Sandler Mindset for Channel</div>
-  <div class="phase-d">The mental framework shift. Identity/Role theory, partner qualification using the Pain Funnel, Up-Front Contracts as a partner management tool, and DISC profiling for partner types.</div>
-</div>
-<div class="cb cb-transfer"><p><strong>Transferability:</strong> Phase 1 frameworks are product-agnostic. They apply identically whether you sell cybersecurity, infrastructure, SaaS, hardware, or services through VARs, MSPs, distributors, or ISVs.</p></div>
-
-<div class="mg">
-  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 01</div><span class="mc-st st-built">BUILT</span></div>
-    <div class="mc-b"><div class="mc-title">The Sandler Mindset for Channel</div><div class="mc-desc">Identity vs. Role theory. Why channel AEs fail — they give away IP before commitment. The emotional investment trap. Building the Sandler posture for partner conversations. Checklist: 10 signs you're consulting for free.</div>
-    <div class="mc-tags"><span class="vtag v-u">I/R Theory</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>I/R Theory, Posture</strong></div><a href="module_01.html" class="btn btn-go">Open Module →</a></div></div>
-
-  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 02</div><span class="mc-st st-built">BUILT</span></div>
-    <div class="mc-b"><div class="mc-title">Partner Qualification — Pain Funnel Applied</div><div class="mc-desc">Using the Pain Funnel to qualify partners before investing time. Must-have vs. nice-to-have partner criteria. The partner onboarding conversation as a Sandler qualifying call. Disqualification framework.</div>
-    <div class="mc-tags"><span class="vtag v-r">Pain Funnel</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Pain Funnel, Qualification</strong></div><a href="module_02.html" class="btn btn-go">Open Module →</a></div></div>
-
-  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 03</div><span class="mc-st st-built">BUILT</span></div>
-    <div class="mc-b"><div class="mc-title">Up-Front Contracts with Partners</div><div class="mc-desc">Setting expectations on deals, timelines, roles, and commitments before any work begins. The UFC applied to partner onboarding, QBRs, joint calls, and co-sell commitments. Scripts for four partner situations.</div>
-    <div class="mc-tags"><span class="vtag v-i">Up-Front Contract</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Up-Front Contract</strong></div><a href="module_03.html" class="btn btn-go">Open Module →</a></div></div>
-
-  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 04</div><span class="mc-st st-built">BUILT</span></div>
-    <div class="mc-b"><div class="mc-title">The Pain Funnel in Channel Conversations</div><div class="mc-desc">Uncovering real partner pain and end-customer pain — not feature interest. The Pain Funnel as a diagnostic tool for partner and joint sales conversations. What partners say vs. what they mean. Practice scenarios.</div>
-    <div class="mc-tags"><span class="vtag v-r">Pain Funnel</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Pain Funnel, Diagnosis</strong></div><a href="module_04.html" class="btn btn-go">Open Module →</a></div></div>
-</div>
-
-<!-- ===== PHASE 2 ===== -->
-<div class="phase">
-  <div class="phase-ey">Phase 2 · Modules 5–8</div>
-  <div class="phase-t">The Sandler Selling System in Channel</div>
-  <div class="phase-d">DISC profiling for partner types. Negative Reverse Selling for stalled partners. No-Free-Consulting to protect your time and IP. The full anatomy of a channel deal with Sandler checkpoints.</div>
-</div>
-<div class="cb cb-transfer"><p><strong>Transferability:</strong> Phase 2 uses real-world partner scenarios — VAR, MSP, ISV, distributor. Every module includes a role-play section you can adapt to your specific product and partner ecosystem.</p></div>
-
-<div class="mg">
-  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 05</div><span class="mc-st st-built">BUILT</span></div>
-    <div class="mc-b"><div class="mc-title">DISC for Channel — Reading Partner Personality Types</div><div class="mc-desc">Identifying D, I, S, C personality types in partner reps and partner leadership. Adapting communication style in partner calls, email, and QBRs. The cost of misreading a C-type partner with D-type energy.</div>
-    <div class="mc-tags"><span class="vtag v-u">DISC</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>DISC Profiling</strong></div><a href="module_05.html" class="btn btn-go">Open Module →</a></div></div>
-
-  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 06</div><span class="mc-st st-built">BUILT</span></div>
-    <div class="mc-b"><div class="mc-title">Negative Reverse Selling in Channel</div><div class="mc-desc">Getting partners to sell themselves on working deals with you. NRS applied to partner stalls, go-dark situations, and resource requests without commitment. The "maybe we're not the right fit" conversation.</div>
-    <div class="mc-tags"><span class="vtag v-f">Negative Reverse</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Negative Reverse Selling</strong></div><a href="module_06.html" class="btn btn-go">Open Module →</a></div></div>
-
-  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 07</div><span class="mc-st st-built">BUILT</span></div>
-    <div class="mc-b"><div class="mc-title">No-Free-Consulting in the Channel</div><div class="mc-desc">Protecting your time, intellectual property, and deal margins. Defining what requires partner commitment before you engage. What to do when partners take your work to a cheaper vendor. The IP protection conversation.</div>
-    <div class="mc-tags"><span class="vtag v-u">No-Free-Consulting</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>No-Free-Consulting</strong></div><a href="module_07.html" class="btn btn-go">Open Module →</a></div></div>
-
-  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 08</div><span class="mc-st st-built">BUILT</span></div>
-    <div class="mc-b"><div class="mc-title">Anatomy of a Partner Deal</div><div class="mc-desc">Mapping the full channel deal lifecycle from partner interest through close. Sandler checkpoints at each stage: qualification, pain, budget, decision, fulfillment. Where deals die in channel and why. Deal review framework.</div>
-    <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Deal Lifecycle, Sandler System</strong></div><a href="module_08.html" class="btn btn-go">Open Module →</a></div></div>
-</div>
-
-<!-- ===== PHASE 3 ===== -->
-<div class="phase">
-  <div class="phase-ey">Phase 3 · Modules 9–12</div>
-  <div class="phase-t">Building the Repeatable Channel Motion</div>
-  <div class="phase-d">Sandler-based QBRs. Joint prospecting through partners. Competitive intelligence in the channel. Building the system so Sandler methodology becomes the default, not the exception.</div>
-</div>
-
-<div class="mg">
-  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 09</div><span class="mc-st st-built">BUILT</span></div>
-    <div class="mc-b"><div class="mc-title">Partner Business Review (QBR) — Sandler Style</div><div class="mc-desc">Running QBRs that create commitment, not reports. The Sandler QBR agenda: Up-Front Contract, pain review, pipeline diagnosis, next-quarter commitments. What to do when the partner has nothing to show.</div>
-    <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Sandler QBR, UFC</strong></div><a href="module_09.html" class="btn btn-go">Open Module →</a></div></div>
-
-  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 10</div><span class="mc-st st-built">BUILT</span></div>
-    <div class="mc-b"><div class="mc-title">Prospecting Through Partners</div><div class="mc-desc">How to jointly prospect and source deals through the channel. The joint prospecting call structure. Getting partners to open their accounts to you. Using Pain Funnel language in joint prospecting conversations.</div>
-    <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Pain Funnel, Joint Prospecting</strong></div><a href="module_10.html" class="btn btn-go">Open Module →</a></div></div>
-
-  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 11</div><span class="mc-st st-built">BUILT</span></div>
-    <div class="mc-b"><div class="mc-title">Competitive Intelligence in Channel</div><div class="mc-desc">Knowing your channel motion vs. direct vs. competitor motions. How partners compare vendors — and what they tell you vs. what they actually think. The competitive conversation framework using Sandler posture.</div>
-    <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-c">Carl</span> <span class="cp cp-n">Natalie</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>Competitive Intelligence, NRS</strong></div><a href="module_11.html" class="btn btn-go">Open Module →</a></div></div>
-
-  <div class="mc built"><div class="mc-h"><div class="mc-num">MODULE 12</div><span class="mc-st st-built">BUILT</span></div>
-    <div class="mc-b"><div class="mc-title">Building the Repeatable Channel Motion</div><div class="mc-desc">Systematizing Sandler habits for scale. Weekly, monthly, and quarterly rhythms. Partner tiering through Sandler qualification criteria. Building the operating system that works without willpower. Self-assessment and certification.</div>
-    <div class="mc-tags"><span class="vtag v-u">Universal</span> <span class="cp cp-b">Both</span></div></div>
-    <div class="mc-f"><div class="mc-bots">Frameworks: <strong>All 6 Sandler Frameworks</strong></div><a href="module_12.html" class="btn btn-go">Open Module →</a></div></div>
-</div>
-
-<!-- ===== OUTCOMES ===== -->
-<div style="margin-top:44px;padding-top:36px;border-top:2px solid var(--ink);">
-<div class="sl">Pilot Outcomes — Measured from Day 1</div>
-<h2>What We're Measuring</h2>
-<div class="og">
-  <div class="oc"><div class="oc-l">Behavior</div><div class="oc-t">Up-Front Contract Usage</div><div class="oc-d">% of partner conversations starting with a UFC. Baseline vs. 30/60/90 days.</div></div>
-  <div class="oc"><div class="oc-l">Behavior</div><div class="oc-t">Qualification Rate</div><div class="oc-d">Partners disqualified early using Pain Funnel vs. time wasted on unqualified partners.</div></div>
-  <div class="oc"><div class="oc-l">Behavior</div><div class="oc-t">No-Free-Consulting Incidents</div><div class="oc-d">Reduction in IP given before commitment. Tracked via deal notes and manager review.</div></div>
-  <div class="oc"><div class="oc-l">Lagging</div><div class="oc-t">Partner-Sourced Revenue</div><div class="oc-d">Revenue at 6 months vs. pre-enrollment baseline.</div></div>
-  <div class="oc"><div class="oc-l">Engagement</div><div class="oc-t">Completion Rate</div><div class="oc-d">% completing all 12 modules. Target: 70%+.</div></div>
-  <div class="oc"><div class="oc-l">Confidence</div><div class="oc-t">Sandler Posture Score</div><div class="oc-d">Pre/post self-assessment on Sandler framework fluency. Expected: 3–4 point increase.</div></div>
-</div>
-</div>
-
-<!-- ===== FAQ ===== -->
-<div style="margin-top:36px;padding-top:32px;border-top:1px solid var(--rule);">
-<div class="sl">Buyer FAQ</div>
-<h2>The Questions a Buyer Would Ask</h2>
-<div class="faq"><div class="faq-q">"Is this a Sandler-licensed program?"</div><div class="faq-a">No. We've adapted Sandler's publicly documented methodology — Pain Funnel, UFC, NRS, DISC, I/R Theory, No-Free-Consulting — specifically for the indirect channel. The frameworks are Sandler's. The channel application is ours.</div></div>
-<div class="faq"><div class="faq-q">"My partner is Optiv, not CDW. Does this transfer?"</div><div class="faq-a">The Sandler frameworks are structurally identical across partner types. Whether you work with VARs, MSPs, distributors, or ISVs, the Pain Funnel qualifies the same way. Scenarios are drawn from multiple partner types.</div></div>
-<div class="faq"><div class="faq-q">"Do my AEs need Sandler training first?"</div><div class="faq-a">No prior Sandler training required. The program introduces each framework from first principles and applies it immediately to partner situations. Direct-sales Sandler experience is helpful but not a prerequisite.</div></div>
-<div class="faq"><div class="faq-q">"What is Blitz Masters and do we need it?"</div><div class="faq-a">Blitz Masters is a separate Partna Company program focused on high-intensity outbound prospecting — call blitzes, accountability sprints, volume habits. It's recommended pre-work. If your AEs are already generating sufficient partner conversations, Channel-Ready AE alone is sufficient.</div></div>
-<div class="faq"><div class="faq-q">"What does the certificate mean?"</div><div class="faq-a">The Channel-Ready AE certificate demonstrates practitioner-level fluency in six Sandler frameworks as applied to the indirect channel. It's a credential that differentiates AEs who can quantify their channel methodology from those who cannot.</div></div>
-</div>
-
-<!-- ===== READINESS ===== -->
-<div style="margin-top:36px;padding-top:32px;border-top:1px solid var(--rule);">
-<div class="sl">Program Readiness</div>
-<h2>What's Built and What's In Progress</h2>
-<div class="rg">
-  <div class="rc"><div class="rs rs-d">COMPLETE</div><h4>All 12 Modules Built</h4><p>Every module complete with tabbed content, scenarios, frameworks, and scripts.</p></div>
-  <div class="rc"><div class="rs rs-d">COMPLETE</div><h4>Six Sandler Frameworks Adapted</h4><p>I/R Theory, Pain Funnel, UFC, NRS, DISC, No-Free-Consulting — all mapped to channel.</p></div>
-  <div class="rc"><div class="rs rs-d">COMPLETE</div><h4>Business Plan v1</div><p>Revenue model, pricing, risk analysis. $400/seat/month. Break-even Month 8.</p></div>
-  <div class="rc"><div class="rs rs-p">IN PROGRESS</div><h4>Blitz Masters Integration</h4><p>Bundle enrollment pathway and pre-work recommendations. Target: May 2026.</p></div>
-  <div class="rc"><div class="rs rs-b">BLOCKING</div><h4>Non-Compete Legal Review</h4><p>Highest priority. No customer contact until clear. Budget: $1,500–$2,500.</p></div>
-  <div class="rc"><div class="rs rs-b">BLOCKING</div><h4>LLC Formation</h4><p>New Illinois LLC under Partna Company. Target: April 2026.</p></div>
-</div>
-</div>
-
-<div class="footer">
-  <div><div class="footer-brand">Channel-<em>Ready</em> AE</div>
-  <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">CURRICULUM BINDER · SANDLER CHANNEL EDITION · MARCH 2026</div></div>
-  <div class="footer-meta"><div><a href="business_plan.html" style="color:var(--gold);text-decoration:none;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;">View Business Plan →</a></div><div>CARL &amp; NATALIE CLENDENIN</div><div>12 MODULES · 6 SANDLER FRAMEWORKS · PARTNA COMPANY</div></div>
-</div>
-
-</div>
 </body>
 </html>

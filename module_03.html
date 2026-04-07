@@ -1,258 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module 03 — Up-Front Contracts with Partners — Channel-Ready AE</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-light:#e8f4ee;--red:#7a1e1e;--blue-pale:#e8f0f8;--nat:#5a3a7a;}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
-.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
-.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
-.hero h1 em{color:var(--gold-light);font-style:italic;}
-.hero-sub{font-size:17px;color:#6a7a8a;max-width:580px;position:relative;margin-bottom:32px;}
-.hero-stats{display:flex;gap:40px;position:relative;flex-wrap:wrap;}
-.hero-stat{font-family:'DM Mono',monospace;}
-.hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
-.hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
-.ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ref-bar.blue-bar{background:#1a1a2a;}
-.ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
-.ref-text{font-size:13px;}
-.breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.breadcrumb a{text-decoration:none;}
-.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:56px;z-index:20;overflow-x:auto;}
-.nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
-.nav-tab:hover{color:var(--accent);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
-.content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}.panel.active{display:block;}
-.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
-h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
-h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
-p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
-.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
-.callout strong{color:var(--gold-light);}
-.explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
-.pillar{border:1px solid var(--rule);background:var(--white);border-radius:4px;overflow:hidden;}
-.pillar-head{padding:14px 20px;display:flex;align-items:center;gap:10px;}
-.pillar-head.blue{background:var(--accent);color:white;}
-.pillar-head.green{background:var(--green);color:white;}
-.pillar-head.dark{background:#2a2020;color:#f0e8d8;}
-.pillar-icon{font-size:20px;}
-.pillar-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;font-weight:500;}
-.pillar-body{padding:16px 20px;}
-.pillar-body ul{list-style:none;margin:0;}
-.pillar-body li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:14px;color:#2e2820;display:flex;justify-content:space-between;align-items:start;gap:12px;}
-.pillar-body li:last-child{border-bottom:none;}
-.pillar-body li .tag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
-.tag-gold{background:var(--gold-pale);color:var(--gold);}
-.tag-blue{background:var(--blue-pale);color:var(--accent);}
-.tag-green{background:var(--green-light);color:var(--green);}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
-.card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
-.card.gold-top{border-top:3px solid var(--gold);}
-.card.blue-top{border-top:3px solid var(--accent);}
-.card.green-top{border-top:3px solid var(--green);}
-.card.red-top{border-top:3px solid var(--red);}
-.card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.card p{font-size:13px;margin:0;color:var(--muted);}
-.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 0;}
-.contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
-.cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
-.cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
-.cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
-.footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
-.footer-brand em{color:var(--gold-light);}
-.footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
-@media(max-width:700px){.hero{padding:40px 24px 36px;}.hero h1{font-size:30px;}.content{padding:32px 20px 60px;}.pillars,.grid-2,.grid-3{grid-template-columns:1fr;}.breadcrumb{padding:10px 24px;}}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Module 03 &mdash; Up-Front Contracts with Partners &mdash; Channel-Ready AE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--black:#0a0a0a;--ink:#111111;--surface:#161616;--border:#242424;--muted:#333333;--text-dim:#888888;--text:#d4d4d4;--white:#f5f5f5;--accent:#e8c547;--accent-dim:rgba(232,197,71,0.10);--accent-border:rgba(232,197,71,0.28);--font-head:'Cormorant Garamond',serif;--font-body:'Crimson Pro',serif}
+    html{scroll-behavior:smooth}body{background:var(--black);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px}
+    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-0.02em}.nav-logo em{color:var(--accent);font-style:normal}
+    .nav-links{display:flex;gap:28px;list-style:none}.nav-links a{font-size:13px;font-weight:500;color:var(--text-dim);text-decoration:none;letter-spacing:0.02em;transition:color 0.15s}.nav-links a:hover,.nav-links a.active{color:var(--white)}
+    .nav-cta{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:8px 18px;border-radius:3px;text-decoration:none}
+    .page-wrap{max-width:860px;margin:0 auto;padding:60px 40px 100px}
+    .breadcrumb{font-size:12px;color:var(--text-dim);margin-bottom:32px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color 0.15s}.breadcrumb a:hover{color:var(--accent)}.breadcrumb span{color:var(--muted)}
+    .eyebrow{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+    h1{font-family:var(--font-head);font-size:clamp(36px,5vw,54px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--white);margin-bottom:20px}h1 em{color:var(--accent);font-style:normal}
+    .module-sub{font-size:17px;color:var(--text-dim);max-width:640px;line-height:1.75;margin-bottom:36px}
+    .stats{display:flex;gap:0;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:36px}
+    .stat{flex:1;background:var(--surface);padding:20px 24px;border-right:1px solid var(--border)}.stat:last-child{border-right:none}
+    .stat-val{font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-0.03em;line-height:1;margin-bottom:4px}
+    .stat-lbl{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+    .mod-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:4px;margin-bottom:48px;font-size:12px}
+    .mod-nav a{color:var(--text-dim);text-decoration:none;font-weight:500;transition:color 0.15s}.mod-nav a:hover{color:var(--accent)}
+    .mod-nav-mid{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 12px;border-radius:2px}
+    .fw-badge{display:inline-flex;align-items:center;gap:10px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:3px;padding:10px 16px;margin-bottom:52px;font-size:12px;font-weight:600;color:var(--accent)}
+    .section{margin-bottom:60px;padding-bottom:60px;border-bottom:1px solid var(--border)}.section:last-of-type{border-bottom:none;padding-bottom:0}
+    h2{font-family:var(--font-head);font-size:clamp(22px,3vw,32px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:16px}h2 em{color:var(--accent);font-style:normal}
+    h3{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--white);margin:36px 0 12px;letter-spacing:-0.02em}
+    h4{font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--white);margin:24px 0 8px;letter-spacing:-0.01em}
+    p{font-size:15px;color:var(--text-dim);line-height:1.8;margin-bottom:18px}p:last-child{margin-bottom:0}
+    .insight{background:var(--surface);border-left:3px solid var(--accent);padding:20px 24px;border-radius:0 3px 3px 0;margin:24px 0}
+    .insight-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .insight p{font-size:14px;color:var(--text);font-style:italic;margin-bottom:0}
+    .script{background:var(--ink);border:1px solid var(--accent-border);border-radius:4px;padding:24px 28px;margin:24px 0}
+    .script-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    .script p{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:0;font-style:italic}
+    .warn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin:24px 0}
+    .warn-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+    .warn p{font-size:14px;color:var(--text-dim);margin-bottom:0;line-height:1.7}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .card{background:var(--surface);padding:24px}.card-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .card h4{margin:0 0 8px;font-size:14px}.card p{font-size:13px;margin-bottom:0;line-height:1.6}
+    .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .cards3 .card{background:var(--surface);padding:24px}
+    .consulting-strip{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:4px;padding:32px 36px;margin-top:72px;display:flex;align-items:flex-start;gap:28px}
+    .cs-badge{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:800;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .consulting-strip h3{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--white);margin:0 0 8px;letter-spacing:-0.01em}
+    .consulting-strip p{font-size:13px;color:var(--text-dim);margin-bottom:12px}
+    .consulting-strip a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-border);padding-bottom:2px}
+    .bottom-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid var(--border);margin-top:56px}
+    .bn-link{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text-dim);text-decoration:none;transition:color 0.15s}.bn-link:hover{color:var(--accent)}
+    .bn-cta a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:10px 20px;border-radius:3px;text-decoration:none}
+    footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-items:center;justify-content:space-between}
+    footer .brand{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--text-dim)}.brand em{color:var(--accent);font-style:normal}
+    footer .meta{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
+    @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.page-wrap{padding:40px 20px 80px}.stats{flex-wrap:wrap}.cards,.cards3{grid-template-columns:1fr}.consulting-strip{flex-direction:column}footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px}}
 </style>
 </head>
 <body>
-<nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
-
-<div class="hero">
-  <div class="hero-tag">Channel-Ready AE · Phase 1 · Module 03</div>
-  <h1>Up-Front Contracts<br>with <em>Partners</em>.</h1>
-  <div class="hero-sub">Setting mutual agreements on timelines, deal roles, and commit expectations before any work starts. The technique that eliminates wasted effort and the ambiguous "we're working on it" deal that never closes.</div>
-  <div class="hero-stats">
-    <div class="hero-stat"><strong>UFC</strong><span>Up-Front Contract</span></div>
-    <div class="hero-stat"><strong>Mutual</strong><span>Agreement Required</span></div>
-    <div class="hero-stat"><strong>Before</strong><span>Work Starts</span></div>
-    <div class="hero-stat"><strong>Zero</strong><span>Ambiguous Commitments</span></div>
+<nav>
+  <a href="/" class="nav-logo">Channel-<em>Ready</em> AE</a>
+  <ul class="nav-links">
+    <li><a href="/#who">Who It's For</a></li><li><a href="/#program">Program</a></li>
+    <li><a href="/#methodology">Methodology</a></li><li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#founders">Instructors</a></li><li><a href="/curriculum" class="active">Curriculum</a></li>
+    <li><a href="/business_plan">Business Plan</a></li>
+  </ul>
+  <a href="/#apply" class="nav-cta">Enroll Now</a>
+</nav>
+<div class="page-wrap">
+  <div class="breadcrumb"><a href="/">Channel-Ready AE</a><span>&rsaquo;</span><a href="/curriculum">Curriculum Binder</a><span>&rsaquo;</span><span>Module 03</span></div>
+  <div class="eyebrow">Channel-Ready AE &middot; Phase 1 &middot; Module 03</div>
+  <h1>Up-Front Contracts <em>with Partners.</em></h1>
+  <p class="module-sub">Setting expectations on deals, timelines, roles, and commitments before any work begins. The UFC applied to partner onboarding, QBRs, joint calls, and co-sell commitments. Four complete scripts for the most common partner situations.</p>
+  <div class="stats"><div class="stat"><div class="stat-val">UFC</div><div class="stat-lbl">Every Conversation</div></div><div class="stat"><div class="stat-val">4</div><div class="stat-lbl">Scripts Included</div></div><div class="stat"><div class="stat-val">Zero</div><div class="stat-lbl">Ambiguous Calls</div></div><div class="stat"><div class="stat-val">100%</div><div class="stat-lbl">Pre-Set Agenda</div></div></div>
+  <div class="mod-nav">
+    <a href="/module_02">&larr; Module 02</a>
+    <span class="mod-nav-mid">Phase 1 &middot; Up-Front Contract</span>
+    <a href="/module_04">Module 04 &rarr;</a>
   </div>
-</div>
-
-<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Sandler Up-Front Contract</span><span class="ref-text" style="color:#6a7a9a;">Use at the start of every meeting, engagement, and deal cycle with a partner</span></div>
-
-<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
-  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
-  <span style="color:#2a3a2a;">›</span>
-  <span style="color:#6a9a6a;">Module 03 — Up-Front Contracts with Partners</span>
-  <span style="margin-left:auto;"><a href="module_02.html" style="color:#3a5a3a;">← Module 02</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="module_04.html" style="color:#5a7a9a;margin-left:12px;">Module 04 →</a></span>
-</div>
-
-<div class="nav-tabs">
-  <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
-  <button class="nav-tab" onclick="showPanel('framework')">Framework</button>
-  <button class="nav-tab" onclick="showPanel('practice')">In Practice</button>
-  <button class="nav-tab" onclick="showPanel('fieldnotes')">Field Notes</button>
-</div>
-
-<div class="content">
-
-<div class="panel active" id="panel-overview">
-<div class="section-label">Why This Module Exists</div>
-<h2>Most channel relationships drift because no one ever says what they expect.</h2>
-<div class="explain">Ambiguity is the enemy of channel productivity. When both parties aren't clear on what they're committing to, the default outcome is inaction — and the AE always loses more than the partner.</div>
-<p>Channel partnerships fail in slow motion. The partner doesn't reject you outright — they just deprioritize. They miss meetings. They show up unprepared to QBRs. They let pipeline rot. The root cause is almost always the same: neither party was ever explicit about what they expected from each other. The relationship is built on vague goodwill instead of clear agreements.</p>
-<p>Sandler's Up-Front Contract (UFC) is the antidote. Before any meeting, call, engagement, or deal cycle starts, you establish — out loud, with the partner's explicit agreement — what you're both there to accomplish, what you each need from the other, and what a successful outcome looks like. This changes the dynamic from passive goodwill to active, mutual accountability.</p>
-<div class="callout">
-  <div class="callout-tag">THE CORE INSIGHT</div>
-  <strong>Partners respect vendors who are clear about expectations.</strong> The partner who treats you as a peer sets clear expectations of their own. When you arrive with a UFC, you signal that you operate the same way — and that signal builds more credibility than any product pitch.
-</div>
-<div class="grid-3">
-  <div class="card gold-top"><h4>What You'll Learn</h4><p>The five components of a Sandler Up-Front Contract. How to adapt the UFC for partner meetings, co-sell engagements, deal cycles, and QBRs.</p></div>
-  <div class="card gold-top"><h4>What You'll Practice</h4><p>Opening every partner interaction with a clear UFC. Handling partner pushback on the UFC. Closing the loop at the end of every meeting with a confirmed next step.</p></div>
-  <div class="card gold-top"><h4>What Changes After</h4><p>You stop leaving meetings wondering what happens next. Partners show up prepared because they know what's expected. Deal cycles accelerate because ambiguity is eliminated early.</p></div>
-</div>
-</div>
-
-<div class="panel" id="panel-framework">
-<div class="section-label">The UFC Structure</div>
-<h2>Five components. Every one of them required.</h2>
-<p>An Up-Front Contract has five elements. Skip any one of them and you have a weaker agreement — one that a partner can slide out of when it becomes inconvenient. All five must be established explicitly.</p>
-
-<div class="pillars">
-  <div class="pillar">
-    <div class="pillar-head blue"><div class="pillar-icon">1</div><div class="pillar-title">Purpose — Why We're Here</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>State the purpose of this specific interaction <span class="tag tag-blue">Required</span></li>
-        <li>Be direct — not "to touch base" but "to agree on which accounts we're co-selling this quarter" <span class="tag tag-blue">Required</span></li>
-        <li>Ask the partner to confirm or add to the purpose <span class="tag tag-blue">Required</span></li>
-      </ul>
+  <div class="fw-badge"><span>&or;</span><span>Channel Activation System&trade; &mdash; Up-Front Contract</span></div>
+<div class="section"><h2>Every misaligned partner meeting starts the same way — <em>without a UFC.</em></h2>
+<p>The Up-Front Contract is Sandler's tool for eliminating ambiguity before a conversation begins. It establishes the agenda, the purpose, the expected outcomes, and the next step — mutually agreed, before the meeting starts. It turns every partner interaction from a status update into a structured conversation with a defined destination.</p>
+<p>In direct sales, the UFC manages the buyer-seller dynamic. In channel sales, it manages a more complex web: vendor AE, partner rep, partner leadership, and often end-customer contacts simultaneously. Without a UFC, every participant has a different expectation of what the meeting is for — and when it ends without a clear outcome, everyone blames someone else.</p>
+<div class="insight"><div class="insight-lbl">The Core Insight</div><p><strong>Partners don't respect your time by default. You teach them to respect it by setting expectations before every conversation — and holding to them.</strong> The UFC is how you teach that lesson without making it feel like a lesson.</p></div>
+<div class="cards3">
+  <div class="card"><div class="card-lbl">What You'll Learn</div><p>The full UFC structure and how to adapt it for partner onboarding, QBRs, joint sales calls, and co-sell commitment conversations. Why UFCs strengthen partner relationships instead of making them feel transactional.</p></div>
+  <div class="card"><div class="card-lbl">What You'll Practice</div><p>Opening four types of partner conversations with a UFC. Responding when partners try to skip the agenda. Adapting the UFC for asynchronous communication — email and Slack.</p></div>
+  <div class="card"><div class="card-lbl">What Changes After</div><p>Fewer meetings that end with "I'll get back to you." More conversations that produce decisions. Partners begin to prepare for your calls instead of treating them as interruptions.</p></div>
+</div></div>
+<div class="section"><h2>The four-part UFC structure — <em>and how it maps to channel.</em></h2>
+<p>Every UFC has four components: Purpose (why we're talking), Agenda (what we'll cover), Outcome (what success looks like at the end), and Next Step (what happens after we hang up). The UFC is not a monologue — it's a mutual agreement. The partner must confirm each component before the conversation begins.</p>
+<div class="script"><div class="script-lbl">UFC Script — Partner Onboarding Call</div><p>"I want to make sure this call is useful for both of us. My goal is to understand your customer base and current vendor mix well enough to know whether there's a real opportunity for us to work together — and if there is, what the first 90 days should look like. By the end, I'd like us to agree on whether to move forward or whether this isn't the right fit right now. Does that work for you?"</p></div>
+<div class="script"><div class="script-lbl">UFC Script — Quarterly Business Review</div><p>"Before we get into the numbers, I want to set up what I'm hoping we accomplish today. I want to look at last quarter honestly, understand what drove the results we got, and leave with a specific plan for next quarter that we're both committed to — including named action items and owners. Is that the kind of QBR you're prepared for?"</p></div>
+<div class="script"><div class="script-lbl">UFC Script — Joint Sales Call</div><p>"Before we jump on with the customer, let's align on our roles. I'll take the lead on the technical questions since you know this customer's environment. You open with the relationship context. By the end, we both want a clear next step agreed with the customer — ideally a POC approval or a date for the decision conversation. Agreed?"</p></div>
+<div class="script"><div class="script-lbl">UFC Script — Co-Sell Commitment Conversation</div><p>"I want to ask you to commit to something specific on this deal before I invest more time. I'm going to tell you what I need from you, and I need you to tell me honestly whether you can deliver it — or whether this is a deal I should work with a different partner. Fair?"</p></div></div>
+<div class="section"><h2>When partners try to skip the UFC &mdash; <em>and what to do about it.</em></h2>
+<p>Some partners will push back on the UFC structure — not explicitly, but by trying to jump straight into the content without agreeing to the agenda. They'll open with "so what have you got for me?" or "let's just see what you're working on." This is the moment you hold the UFC.</p>
+<h3>The Partner Who Rushes Past the Agenda</h3>
+<div class="script"><div class="script-lbl">Response</div><p>"I'll absolutely get there — before I do, I want to make sure we're aligned on what we're trying to accomplish today so we don't waste each other's time. Two minutes on setup and then we'll get into it." Then deliver the UFC. Don't skip it because a partner is impatient — that impatience is a personality signal (DISC D-type), not a reason to abandon structure.</p></div>
+<h3>The UFC in Asynchronous Communication</h3>
+<p>The UFC adapts to written communication. Before sending a proposal, a business plan, or a co-sell support package, set the UFC in the covering email: "I'm attaching the analysis you requested. Before you share it with your customer, I need us to agree on a next step — specifically, when you'll schedule the customer presentation and what your preferred close timeline is. Can you confirm that before we move forward?"</p>
+<div class="warn"><div class="warn-lbl">The Most Common UFC Mistake</div><p>Asking for confirmation at the end of the meeting instead of at the beginning. "Does that make sense?" at the end of a presentation is not a UFC. A UFC is the agreement established before you invest your time — not the confirmation you seek after you've already given it away.</p></div></div>
+<div class="section"><h2>What changes when the UFC becomes <em>your default opening move.</em></h2>
+<h3>Partners Who Prepare for Calls With You</h3>
+<p>When partners know you'll open with a UFC and hold them to the agenda, they start preparing for your calls differently. They pull their pipeline data before the QBR instead of during it. They have an answer to "what are you committed to this quarter?" instead of a vague response about trying harder. The UFC trains partners to treat your time as valuable — because you've demonstrated that you do.</p>
+<h3>The UFC and Deal Velocity</h3>
+<p>Deals that begin with a UFC close faster. The reason is structural: when both parties agree on the next step before the meeting ends, there's no ambiguity about what happens next. No "I'll think about it" — because the outcome was agreed at the start. The UFC compresses the time between conversations by eliminating the renegotiation of next steps that happens when no UFC was set.</p>
+<p class="instructor-line" style="font-size:12px;color:var(--text-dim);margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">&bull; Carl &mdash; UFC applied to VAR QBRs and co-sell motions &middot; &bull; Natalie &mdash; UFC from the AE managing both partners and direct deals &middot; Sandler Up-Front Contract methodology</p></div>
+  <div class="consulting-strip">
+    <div class="cs-badge">Consulting Pathway</div>
+    <div>
+      <h3>Are your partner meetings ending with clear commitments or vague next steps?</h3>
+      <p>A Channel Strategy Audit surfaces your specific gaps and maps them to the modules that fix them. 2-hour session with Carl or Natalie. Flat fee: $2,500. Designed to feed directly into the curriculum.</p>
+      <a href="/#apply">Request a Channel Strategy Audit &rarr;</a>
     </div>
   </div>
-  <div class="pillar">
-    <div class="pillar-head green"><div class="pillar-icon">2</div><div class="pillar-title">Time — How Long We Have</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Agree on the time available upfront, not at the end <span class="tag tag-green">Required</span></li>
-        <li>Confirm both parties have the full time blocked <span class="tag tag-green">Required</span></li>
-        <li>Establishes accountability if someone cuts it short <span class="tag tag-green">Required</span></li>
-      </ul>
-    </div>
-  </div>
-  <div class="pillar">
-    <div class="pillar-head blue"><div class="pillar-icon">3</div><div class="pillar-title">Agenda — What We'll Cover</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>State your agenda items and ask for theirs <span class="tag tag-blue">Required</span></li>
-        <li>Combine into a shared agenda before you start <span class="tag tag-blue">Required</span></li>
-        <li>Creates shared ownership of the conversation <span class="tag tag-blue">Required</span></li>
-      </ul>
-    </div>
-  </div>
-  <div class="pillar">
-    <div class="pillar-head green"><div class="pillar-icon">4</div><div class="pillar-title">Outcome — What a Win Looks Like</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>State explicitly what success looks like by end of call <span class="tag tag-green">Required</span></li>
-        <li>"I want us to leave with three named accounts and a committed timeline" <span class="tag tag-green">Example</span></li>
-        <li>Partner must agree — vague agreement is not agreement <span class="tag tag-green">Required</span></li>
-      </ul>
-    </div>
+  <div class="bottom-nav">
+    <a href="/module_02" class="bn-link">&larr; Module 02</a>
+    <div class="bn-cta"><a href="/#apply">Enroll Now</a></div>
+    <a href="/module_04" class="bn-link">Module 04 &rarr;</a>
   </div>
 </div>
-
-<div class="callout">
-  <div class="callout-tag">THE FIFTH COMPONENT — PERMISSION TO SAY NO</div>
-  The most underused part of the UFC: explicitly give the partner permission to say no at any point. "If at any point this stops making sense for you, I want you to tell me — don't just go quiet. I'd rather know now than find out at the end of the quarter." This disarms defensiveness and produces more honest conversations.
-</div>
-
-<h3>UFC Templates by Interaction Type</h3>
-<div class="grid-2">
-  <div class="card blue-top"><h4>First Partner Meeting UFC</h4><p>"Today I want to understand your business well enough to know if we're a real fit — and I'd like you to do the same for us. If it makes sense to go further, we'll agree on next steps before we hang up. If it doesn't, I'd rather know that today. We have 45 minutes. Does that work?"</p></div>
-  <div class="card blue-top"><h4>Co-Sell Deal Kickoff UFC</h4><p>"I want to walk through this opportunity, agree on our roles, set a timeline to the close, and make sure we're both committed before either of us invests more time. We have 30 minutes. By the end, I want us to have a deal plan or a mutual decision to walk away."</p></div>
-  <div class="card green-top"><h4>QBR Opening UFC</h4><p>"The goal today is to look at last quarter's results honestly, agree on where we missed and why, and commit to a specific action plan for next quarter. I'm not here to present slides — I'm here to have a real conversation. We have 90 minutes. Agreed?"</p></div>
-  <div class="card green-top"><h4>Tough Conversation UFC</h4><p>"I want to talk about [issue] directly — I think we both need to say some things that might be uncomfortable. I'd rather do this now than let it fester. I'll be straight with you, and I'm asking you to do the same. Twenty minutes."</p></div>
-</div>
-</div>
-
-<div class="panel" id="panel-practice">
-<div class="section-label">UFC in Action</div>
-<h2>What happens when you actually open with a UFC.</h2>
-<p>Most partner meetings start with pleasantries, then drift into a product update, then end with "let's stay in touch." The UFC changes the architecture of the conversation from the first sentence.</p>
-
-<h3>The Partner Who Wants to Wing It</h3>
-<div class="explain">Some partners push back on structure. "Let's just see where the conversation goes." This is usually a sign that they don't want to be held accountable to anything specific. The UFC is exactly what this relationship needs.</div>
-<div class="callout">
-  <div class="callout-tag">HANDLING THE PUSHBACK</div>
-  "I'm fine with a relaxed conversation — I just want to make sure we both walk away with something useful. Can we at least agree on what useful looks like for each of us by the end?" This is low-resistance and gets the same result as a formal UFC.
-</div>
-
-<h3>Setting Commit Expectations on Timelines</h3>
-<p>The most valuable UFC in channel sales is the one you set around deal timelines. Before you do any co-sell work on an opportunity, establish with the partner: What is the end-customer's decision timeline? What does the partner commit to doing, and by when? What do you commit to doing, and by when? What happens if either party misses their commitment?</p>
-<div class="callout">
-  <div class="callout-tag">DEAL TIMELINE UFC EXAMPLE</div>
-  "Before I invest time on this opportunity, I want to agree on the deal structure. You said the customer is deciding by end of Q2. I'll commit to the demo and technical support if you commit to getting me in front of the economic buyer by [date]. If that meeting doesn't happen, we need to reassess whether this is real. Does that work for you?"
-</div>
-
-<h3>Closing Every Meeting with a UFC on Next Steps</h3>
-<p>End every meeting the same way you started — with a clear agreement. What is each party doing next? By when? When do you talk again? Do not leave a meeting without a confirmed next step that both parties have explicitly agreed to. "I'll follow up" is not a next step. "I'll send you the proposal by Thursday and you'll confirm you can present it to the decision-maker by Friday" is a next step.</p>
-</div>
-
-<div class="panel" id="panel-fieldnotes">
-<div class="section-label">From the Field</div>
-<h2>Why UFCs feel awkward at first and essential after the first month.</h2>
-
-<h3>The Learning Curve</h3>
-<p>The first time you open a partner call with a formal UFC, it feels over-structured. The partner may seem surprised. Push through it. After a few repetitions, partners come to expect it — and they start showing up to your calls better prepared than to any other vendor's calls. The structure becomes a signal of professionalism.</p>
-
-<h3>What UFCs Expose</h3>
-<div class="callout">
-  <div class="callout-tag">DIAGNOSTIC VALUE</div>
-  A partner who resists every UFC is telling you something important: they don't want to be held accountable to specific outcomes. That is a disqualification signal. Partners who produce are almost always willing to commit to clear agreements. Partners who consistently dodge commitment produce accordingly.
-</div>
-
-<h3>UFCs in Partner Emails</h3>
-<p>The UFC framework works in writing too. When you send a meeting request, include the purpose, expected duration, your agenda items, and the outcome you're working toward. Ask the partner to confirm or modify. This simple practice eliminates the "what is this call about?" confusion that causes partners to show up unprepared or cancel last-minute.</p>
-
-<div class="contrib-row">
-  <span class="contrib-pill cp-carl">● CARL — Vendor-side experience with partner ambiguity</span>
-  <span class="contrib-pill cp-nat">● NATALIE — Reseller perspective on vendor accountability</span>
-  <span class="contrib-pill cp-both">● Sandler Up-Front Contract methodology</span>
-</div>
-
-<div class="footer">
-  <div>
-    <div class="footer-brand">Channel-<em>Ready</em> AE</div>
-    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 03 · UP-FRONT CONTRACTS WITH PARTNERS · MARCH 2026</div>
-  </div>
-  <div class="footer-meta">
-    <div>CONFIDENTIAL</div>
-    <div>CARL & NATALIE CLENDENIN</div>
-  </div>
-</div>
-</div>
-
-</div>
-
-<script>
-function showPanel(id) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
-  event.target.classList.add('active');
-}
-</script>
+<footer>
+  <div class="brand">Channel-<em>Ready</em> AE &middot; Module 03 &middot; Up-Front Contracts with Partners</div>
+  <div class="meta">Carl &amp; Natalie Clendenin &middot; Partna Company LLC &middot; 2026</div>
+</footer>
 </body>
 </html>

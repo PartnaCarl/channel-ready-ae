@@ -1,216 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module 06 — Negative Reverse Selling — Channel-Ready AE</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;--gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;--rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;--green:#1e3a2f;--green-light:#e8f4ee;--red:#7a1e1e;--blue-pale:#e8f0f8;--nat:#5a3a7a;}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
-.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
-.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
-.hero h1 em{color:var(--gold-light);font-style:italic;}
-.hero-sub{font-size:17px;color:#6a7a8a;max-width:580px;position:relative;margin-bottom:32px;}
-.hero-stats{display:flex;gap:40px;position:relative;flex-wrap:wrap;}
-.hero-stat{font-family:'DM Mono',monospace;}
-.hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
-.hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
-.ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ref-bar.blue-bar{background:#1a1a2a;}
-.ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
-.ref-text{font-size:13px;}
-.breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.breadcrumb a{text-decoration:none;}
-.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:56px;z-index:20;overflow-x:auto;}
-.nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
-.nav-tab:hover{color:var(--accent);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
-.content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}.panel.active{display:block;}
-.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
-h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
-h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
-p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
-.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
-.callout strong{color:var(--gold-light);}
-.explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
-.card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
-.card.gold-top{border-top:3px solid var(--gold);}
-.card.blue-top{border-top:3px solid var(--accent);}
-.card.green-top{border-top:3px solid var(--green);}
-.card.red-top{border-top:3px solid var(--red);}
-.card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.card p{font-size:13px;margin:0;color:var(--muted);}
-.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 0;}
-.contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
-.cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
-.cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
-.cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
-.footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
-.footer-brand em{color:var(--gold-light);}
-.footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
-@media(max-width:700px){.hero{padding:40px 24px 36px;}.hero h1{font-size:30px;}.content{padding:32px 20px 60px;}.grid-2,.grid-3{grid-template-columns:1fr;}.breadcrumb{padding:10px 24px;}}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Module 06 &mdash; Negative Reverse Selling in Channel &mdash; Channel-Ready AE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--black:#0a0a0a;--ink:#111111;--surface:#161616;--border:#242424;--muted:#333333;--text-dim:#888888;--text:#d4d4d4;--white:#f5f5f5;--accent:#e8c547;--accent-dim:rgba(232,197,71,0.10);--accent-border:rgba(232,197,71,0.28);--font-head:'Cormorant Garamond',serif;--font-body:'Crimson Pro',serif}
+    html{scroll-behavior:smooth}body{background:var(--black);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px}
+    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-0.02em}.nav-logo em{color:var(--accent);font-style:normal}
+    .nav-links{display:flex;gap:28px;list-style:none}.nav-links a{font-size:13px;font-weight:500;color:var(--text-dim);text-decoration:none;letter-spacing:0.02em;transition:color 0.15s}.nav-links a:hover,.nav-links a.active{color:var(--white)}
+    .nav-cta{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:8px 18px;border-radius:3px;text-decoration:none}
+    .page-wrap{max-width:860px;margin:0 auto;padding:60px 40px 100px}
+    .breadcrumb{font-size:12px;color:var(--text-dim);margin-bottom:32px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color 0.15s}.breadcrumb a:hover{color:var(--accent)}.breadcrumb span{color:var(--muted)}
+    .eyebrow{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+    h1{font-family:var(--font-head);font-size:clamp(36px,5vw,54px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--white);margin-bottom:20px}h1 em{color:var(--accent);font-style:normal}
+    .module-sub{font-size:17px;color:var(--text-dim);max-width:640px;line-height:1.75;margin-bottom:36px}
+    .stats{display:flex;gap:0;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:36px}
+    .stat{flex:1;background:var(--surface);padding:20px 24px;border-right:1px solid var(--border)}.stat:last-child{border-right:none}
+    .stat-val{font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-0.03em;line-height:1;margin-bottom:4px}
+    .stat-lbl{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+    .mod-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:4px;margin-bottom:48px;font-size:12px}
+    .mod-nav a{color:var(--text-dim);text-decoration:none;font-weight:500;transition:color 0.15s}.mod-nav a:hover{color:var(--accent)}
+    .mod-nav-mid{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 12px;border-radius:2px}
+    .fw-badge{display:inline-flex;align-items:center;gap:10px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:3px;padding:10px 16px;margin-bottom:52px;font-size:12px;font-weight:600;color:var(--accent)}
+    .section{margin-bottom:60px;padding-bottom:60px;border-bottom:1px solid var(--border)}.section:last-of-type{border-bottom:none;padding-bottom:0}
+    h2{font-family:var(--font-head);font-size:clamp(22px,3vw,32px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:16px}h2 em{color:var(--accent);font-style:normal}
+    h3{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--white);margin:36px 0 12px;letter-spacing:-0.02em}
+    h4{font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--white);margin:24px 0 8px;letter-spacing:-0.01em}
+    p{font-size:15px;color:var(--text-dim);line-height:1.8;margin-bottom:18px}p:last-child{margin-bottom:0}
+    .insight{background:var(--surface);border-left:3px solid var(--accent);padding:20px 24px;border-radius:0 3px 3px 0;margin:24px 0}
+    .insight-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .insight p{font-size:14px;color:var(--text);font-style:italic;margin-bottom:0}
+    .script{background:var(--ink);border:1px solid var(--accent-border);border-radius:4px;padding:24px 28px;margin:24px 0}
+    .script-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    .script p{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:0;font-style:italic}
+    .warn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin:24px 0}
+    .warn-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+    .warn p{font-size:14px;color:var(--text-dim);margin-bottom:0;line-height:1.7}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .card{background:var(--surface);padding:24px}.card-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .card h4{margin:0 0 8px;font-size:14px}.card p{font-size:13px;margin-bottom:0;line-height:1.6}
+    .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .cards3 .card{background:var(--surface);padding:24px}
+    .consulting-strip{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:4px;padding:32px 36px;margin-top:72px;display:flex;align-items:flex-start;gap:28px}
+    .cs-badge{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:800;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .consulting-strip h3{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--white);margin:0 0 8px;letter-spacing:-0.01em}
+    .consulting-strip p{font-size:13px;color:var(--text-dim);margin-bottom:12px}
+    .consulting-strip a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-border);padding-bottom:2px}
+    .bottom-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid var(--border);margin-top:56px}
+    .bn-link{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text-dim);text-decoration:none;transition:color 0.15s}.bn-link:hover{color:var(--accent)}
+    .bn-cta a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:10px 20px;border-radius:3px;text-decoration:none}
+    footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-items:center;justify-content:space-between}
+    footer .brand{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--text-dim)}.brand em{color:var(--accent);font-style:normal}
+    footer .meta{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
+    @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.page-wrap{padding:40px 20px 80px}.stats{flex-wrap:wrap}.cards,.cards3{grid-template-columns:1fr}.consulting-strip{flex-direction:column}footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px}}
 </style>
 </head>
 <body>
-<nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
-
-<div class="hero">
-  <div class="hero-tag">Channel-Ready AE · Phase 2 · Module 06</div>
-  <h1>Negative Reverse<br><em>Selling</em> for Channel.</h1>
-  <div class="hero-sub">Using reverse psychology to get partners to sell themselves on working deals with you. The most counterintuitive — and most powerful — Sandler technique for channel relationships that have stalled, drifted, or lost urgency.</div>
-  <div class="hero-stats">
-    <div class="hero-stat"><strong>NRS</strong><span>Negative Reverse</span></div>
-    <div class="hero-stat"><strong>Pull</strong><span>Not Push</span></div>
-    <div class="hero-stat"><strong>Reverse</strong><span>Psychology Method</span></div>
-    <div class="hero-stat"><strong>Partner</strong><span>Sells Themselves</span></div>
+<nav>
+  <a href="/" class="nav-logo">Channel-<em>Ready</em> AE</a>
+  <ul class="nav-links">
+    <li><a href="/#who">Who It's For</a></li><li><a href="/#program">Program</a></li>
+    <li><a href="/#methodology">Methodology</a></li><li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#founders">Instructors</a></li><li><a href="/curriculum" class="active">Curriculum</a></li>
+    <li><a href="/business_plan">Business Plan</a></li>
+  </ul>
+  <a href="/#apply" class="nav-cta">Enroll Now</a>
+</nav>
+<div class="page-wrap">
+  <div class="breadcrumb"><a href="/">Channel-Ready AE</a><span>&rsaquo;</span><a href="/curriculum">Curriculum Binder</a><span>&rsaquo;</span><span>Module 06</span></div>
+  <div class="eyebrow">Channel-Ready AE &middot; Phase 2 &middot; Module 06</div>
+  <h1>Negative Reverse Selling <em>in Channel.</em></h1>
+  <p class="module-sub">Getting partners to sell themselves on working deals with you. NRS applied to partner stalls, go-dark situations, and resource requests without commitment. The 'maybe we're not the right fit' conversation that surfaces the real objection — or cleans up your pipeline.</p>
+  <div class="stats"><div class="stat"><div class="stat-val">NRS</div><div class="stat-lbl">The Pattern Interrupt</div></div><div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Stall Patterns Covered</div></div><div class="stat"><div class="stat-val">Zero</div><div class="stat-lbl">Desperate Follow-Ups</div></div><div class="stat"><div class="stat-val">Yes</div><div class="stat-lbl">Partners Close Themselves</div></div></div>
+  <div class="mod-nav">
+    <a href="/module_05">&larr; Module 05</a>
+    <span class="mod-nav-mid">Phase 2 &middot; Negative Reverse Selling</span>
+    <a href="/module_07">Module 07 &rarr;</a>
+  </div>
+  <div class="fw-badge"><span>&or;</span><span>Channel Activation System&trade; &mdash; Negative Reverse Selling</span></div>
+<div class="section"><h2>Partners stall. NRS is the only tool that makes them <em>move or admit why they won't.</em></h2>
+<p>Negative Reverse Selling is Sandler's counter-intuitive response to stalls, objections, and ambiguity. Instead of pushing harder when a partner goes quiet or asks for more resources without commitment, you pull back. You create space. You suggest that maybe this isn't the right fit — and you mean it. The NRS only works when you're genuinely willing to walk away.</p>
+<p>In channel sales, stalling is a structural problem. Partners have too many vendors competing for their time and attention. Saying yes costs them nothing. Doing nothing costs them nothing. The only way to create urgency in a relationship where the partner bears no short-term cost of inaction is to introduce the possibility that your offer might disappear — and mean it when you do.</p>
+<div class="insight"><div class="insight-lbl">The Core Insight</div><p><strong>The partner who asks for more resources without committing to a specific deal is not a serious partner. NRS surfaces that truth in a way that either accelerates the relationship or ends it cleanly — both outcomes are better than the indefinite stall.</strong></p></div>
+<div class="cards3">
+  <div class="card"><div class="card-lbl">What You'll Learn</div><p>The mechanics of NRS and why it works psychologically. The three most common partner stall patterns and the NRS response for each. How to distinguish genuine hesitation from delay tactics.</p></div>
+  <div class="card"><div class="card-lbl">What You'll Practice</div><p>Delivering NRS in a partner conversation without sounding passive-aggressive or manufactured. Running the "maybe we're not the right fit" conversation through to a clear outcome. Using NRS in email when the partner goes dark.</p></div>
+  <div class="card"><div class="card-lbl">What Changes After</div><p>Your pipeline gets cleaner. Partners who aren't serious exit faster. Partners who are serious accelerate. Your forecasting accuracy improves because every partner in your active pipeline has survived a NRS challenge.</p></div>
+</div></div>
+<div class="section"><h2>The three partner stall patterns &mdash; <em>and the NRS response for each.</em></h2>
+<h3>Stall Pattern 1 — The Perpetual "We're Interested"</h3>
+<p>The partner attends every call, responds to every email positively, expresses enthusiasm for the product — and registers zero deals in four months. They're interested. They're just not doing anything.</p>
+<div class="script"><div class="script-lbl">NRS Response</div><p>"I've appreciated the conversations we've had, but I'm not seeing the deal activity that would tell me this partnership is working. I'm wondering if the timing is just off right now — or if there's something about the program that isn't working for you. Either way, I'd rather know. Should we put this on pause and revisit in a quarter when you have something specific to work on together?"</p></div>
+<h3>Stall Pattern 2 — The Resource Request Without Commitment</h3>
+<p>The partner asks for a demo, a custom proposal, an architecture review, a customer case study — and gives nothing in return. No deal name, no customer, no commitment to next steps. They want your IP without skin in the game.</p>
+<div class="script"><div class="script-lbl">NRS Response</div><p>"I want to make sure I'm investing our resources where they'll actually move a deal forward. Before I put together the architecture review, can you tell me specifically which customer this is for and what their decision timeline looks like? If there's no specific deal attached, I'm not sure this is the best use of our time together right now."</p></div>
+<h3>Stall Pattern 3 — The Go-Dark After a Strong Meeting</h3>
+<p>You had a great call. Strong energy, mutual excitement, clear next steps agreed. Then nothing. Two weeks of silence despite follow-up emails.</p>
+<div class="script"><div class="script-lbl">NRS Response — The One Email That Works</div><p>Subject: "Okay to close this out?" Body: "I haven't heard back, and I don't want to keep following up if the timing has shifted. If this isn't the right time for us to work together, just say so — I'll close the file and we can revisit down the road. If you do want to move forward, let me know and we'll pick up where we left off."</p></div></div>
+<div class="section"><h2>NRS in practice &mdash; <em>what it feels like to run it live.</em></h2>
+<p>The most common mistake with NRS is delivering it as a script instead of a genuine position. Partners can hear the difference between "I'm reading a technique" and "I actually mean what I'm saying." NRS only creates urgency when the AE is genuinely willing to accept the outcome that this isn't the right fit.</p>
+<h3>The Internal Check Before Running NRS</h3>
+<div class="warn"><div class="warn-lbl">Before You Run NRS, Ask Yourself This</div><p>Am I genuinely willing to walk away from this partner if they confirm this isn't the right time? If the answer is no — if you'll follow up anyway regardless of their response — don't run NRS. You'll get a one-time acceleration and then the partner will learn that your "maybe this isn't right" means nothing. NRS only works as a repeatable tool when your follow-through is consistent with what you say.</p></div>
+<h3>NRS in a Live Conversation</h3>
+<div class="script"><div class="script-lbl">Mid-Conversation NRS — Partner Asking for More Demos Without Committing</div><p>"You know, I'm starting to wonder if our product is actually the right fit for your customers right now. I've been hearing a lot of interest but I'm not seeing the deal registrations that would tell me there's a real opportunity here. Maybe we should step back and figure out whether we're the right vendor for you to be leading with — or whether there's a different way to work together."</p></div></div>
+<div class="section"><h2>Field notes: What NRS reveals about your <em>partner portfolio.</em></h2>
+<h3>NRS as a Portfolio Diagnostic</h3>
+<p>Run NRS on every partner in your portfolio who has been "active" for 90+ days without registering a qualified deal. The results will tell you the truth about your pipeline faster than any other diagnostic. Some partners will re-engage with urgency — those are the real ones. Some will confirm that the timing isn't right. A few will disappear entirely. All three outcomes improve your portfolio quality.</p>
+<h3>What Happens After a Successful NRS</h3>
+<p>When NRS surfaces real engagement — when the partner responds with a specific customer, a deal registration, or a concrete next step — something important has happened: the partner has now demonstrated commitment. They've earned the co-sell investment that you were being asked to make for free. That's the shift NRS is designed to create.</p>
+<p class="instructor-line" style="font-size:12px;color:var(--text-dim);margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">&bull; Carl &mdash; NRS in VAR portfolio management &middot; &bull; Natalie &mdash; NRS in reseller and MSSP partner relationships &middot; Sandler Negative Reverse Selling methodology</p></div>
+  <div class="consulting-strip">
+    <div class="cs-badge">Consulting Pathway</div>
+    <div>
+      <h3>How many partners in your active portfolio have never survived a NRS challenge?</h3>
+      <p>A Channel Strategy Audit surfaces your specific gaps and maps them to the modules that fix them. 2-hour session with Carl or Natalie. Flat fee: $2,500. Designed to feed directly into the curriculum.</p>
+      <a href="/#apply">Request a Channel Strategy Audit &rarr;</a>
+    </div>
+  </div>
+  <div class="bottom-nav">
+    <a href="/module_05" class="bn-link">&larr; Module 05</a>
+    <div class="bn-cta"><a href="/#apply">Enroll Now</a></div>
+    <a href="/module_07" class="bn-link">Module 07 &rarr;</a>
   </div>
 </div>
-
-<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Sandler NRS</span><span class="ref-text" style="color:#6a7a9a;">Most effective with stalled partners, lukewarm commitments, and passive pipeline</span></div>
-
-<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
-  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
-  <span style="color:#2a3a2a;">›</span>
-  <span style="color:#6a9a6a;">Module 06 — Negative Reverse Selling</span>
-  <span style="margin-left:auto;"><a href="module_05.html" style="color:#3a5a3a;">← Module 05</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="module_07.html" style="color:#5a7a9a;margin-left:12px;">Module 07 →</a></span>
-</div>
-
-<div class="nav-tabs">
-  <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
-  <button class="nav-tab" onclick="showPanel('framework')">Framework</button>
-  <button class="nav-tab" onclick="showPanel('practice')">In Practice</button>
-  <button class="nav-tab" onclick="showPanel('fieldnotes')">Field Notes</button>
-</div>
-
-<div class="content">
-
-<div class="panel active" id="panel-overview">
-<div class="section-label">Why This Module Exists</div>
-<h2>The harder you push a partner, the further they retreat. NRS reverses this dynamic.</h2>
-<div class="explain">Negative Reverse Selling is the most counterintuitive tool in the Sandler system. Instead of pushing harder when a partner is passive, you pull back — and let them fill the void. Partners who were going through the motions suddenly start advocating for themselves.</div>
-<p>Here's what most AEs do when a partner goes passive: they follow up more frequently, offer more incentives, write the proposal for them, volunteer more time. Every one of these actions signals desperation — and desperation confirms the partner's intuition that they can keep stalling and you'll keep giving.</p>
-<p>Negative Reverse Selling works on a simple psychological principle: people want what they might not be able to have. When you express doubt about whether the partnership makes sense, you trigger the partner's natural resistance to being told no. They start arguing for the relationship instead of you arguing for it. You stop chasing. They start leading.</p>
-<div class="callout">
-  <div class="callout-tag">THE CORE INSIGHT</div>
-  <strong>The partner who is chasing you is the partner who is committed.</strong> NRS is the technique that reverses the direction of the chase — without manipulation, and without damaging the relationship.
-</div>
-<div class="grid-3">
-  <div class="card gold-top"><h4>What You'll Learn</h4><p>The mechanics of Negative Reverse Selling. When to use it and when not to. The specific phrasing patterns that trigger the reverse without feeling scripted.</p></div>
-  <div class="card gold-top"><h4>What You'll Practice</h4><p>Using NRS with a partner who has gone passive on a deal. Using NRS with a partner who keeps saying "we're working on it." The reversal phrase that reactivates stalled pipeline.</p></div>
-  <div class="card gold-top"><h4>What Changes After</h4><p>You stop doing all the work in partner relationships. Partners show up with urgency instead of waiting for your follow-up. Your ratio of inbound partner activity increases.</p></div>
-</div>
-</div>
-
-<div class="panel" id="panel-framework">
-<div class="section-label">How NRS Works</div>
-<h2>The mechanics of Negative Reverse Selling in a channel context.</h2>
-<p>NRS operates on the same principle as Sandler's I/R Theory: when you're not dependent on the partner's approval, you can express genuine uncertainty about the relationship — and that uncertainty triggers the partner's natural motivation to resolve it. This is not a manipulation tactic. It's a diagnostic: partners who respond by arguing for the relationship were motivated all along. Partners who shrug were not.</p>
-
-<h3>The Three NRS Moves</h3>
-<div class="grid-3">
-  <div class="card blue-top"><h4>Move 1 — The Doubt</h4><p>Express genuine uncertainty about whether the partnership is working. "I'm starting to wonder if this is the right fit for both of us." Not aggressive — genuinely reflective. Let it land without filling the silence.</p></div>
-  <div class="card blue-top"><h4>Move 2 — The Reverse</h4><p>When the partner objects to something, instead of defending your position, agree with and amplify their concern. "You're right — maybe this isn't the right time." Watch them push back instinctively.</p></div>
-  <div class="card blue-top"><h4>Move 3 — The Pull Back</h4><p>Reduce your pursuit. Stop following up daily. Let silence work. The partner who was taking your attention for granted suddenly notices its absence — and often initiates contact.</p></div>
-</div>
-
-<h3>NRS Phrase Patterns</h3>
-<div class="callout">
-  <div class="callout-tag">TESTED NRS PHRASES FOR CHANNEL</div>
-  When partner is passive on a deal:<br>
-  "I've been following this for a few weeks and I'm not seeing the urgency from your end. Maybe we should put a pin in it until the timing is better?"<br><br>
-  When partner says it's not a priority:<br>
-  "That's fair. I don't want to keep asking you to prioritize something that isn't ready. Should we agree to revisit next quarter?"<br><br>
-  When partner is being vague about commitment:<br>
-  "I'm getting the sense you're not sure this is the right product for your customers. Honestly — is that where you are?"<br><br>
-  When a partner has gone dark:<br>
-  Subject: "Should I close your file?" Body: "Haven't heard from you and I don't want to keep following up on something that's run its course. If it's not the right time, just say the word."
-</div>
-
-<h3>When NOT to Use NRS</h3>
-<div class="grid-2">
-  <div class="card green-top"><h4>Use NRS When</h4><p>The partner is going through the motions. The partner has stopped responding with urgency. You're doing all the work. The relationship feels one-sided. Pipeline has been stalled for more than two weeks.</p></div>
-  <div class="card red-top"><h4>Do Not Use NRS When</h4><p>The partner is already committed and moving. The partner has a genuine external blocker (budget cycle, reorg). You haven't established a foundation yet — NRS requires some relationship to work.</p></div>
-</div>
-</div>
-
-<div class="panel" id="panel-practice">
-<div class="section-label">NRS in Action</div>
-<h2>Real scenarios where Negative Reverse Selling changes the outcome.</h2>
-
-<h3>Scenario 1 — The Partner Who's "Working On It"</h3>
-<p>You've had three calls. The partner keeps saying "we have a few accounts in mind, we're going to move on this." Nothing happens. You've sent resources, offered to help write the proposal, run a demo. Still nothing.</p>
-<div class="explain">Traditional response: follow up again, offer more. NRS response: pull back and express doubt.</div>
-<div class="callout">
-  <div class="callout-tag">NRS RESPONSE</div>
-  "I want to check in with you on something. We've had a few conversations and I can see you're interested, but I'm not seeing the urgency that tells me this is a real priority for your team right now. I don't want to keep pushing if the timing isn't right. What's your honest read — is this something we should be actively working on, or should we table it until things change?"
-</div>
-
-<h3>Scenario 2 — The Partner Who Wants a Better Deal</h3>
-<p>Your partner has been negotiating on margin for three weeks. Every time you give a little, they come back for more. They're testing how much desperation you'll reveal through concessions.</p>
-<div class="callout">
-  <div class="callout-tag">NRS RESPONSE</div>
-  "I hear you on the margin. Honestly — if the economics don't work for your business model, I don't want to force a deal that makes you feel underpaid. It might be that a different product category is a better fit. What do you think?"<br><br>
-  Most partners will immediately pivot from negotiating to reassuring you that the product works for them — which is the conversation you actually wanted to have.
-</div>
-
-<h3>Scenario 3 — Reactivating a Cold Partner</h3>
-<p>A partner you onboarded six months ago has produced nothing. They're enrolled, attended training, but no deals. Standard follow-up isn't working.</p>
-<div class="callout">
-  <div class="callout-tag">NRS RESPONSE</div>
-  "I've been thinking about our partnership and I want to be honest with you. We've invested six months and I'm not seeing the traction that tells me this is working for both of us. I'd rather have that conversation now than keep going through the motions. What happened — is this still a priority or should we close out the formal engagement?"
-</div>
-</div>
-
-<div class="panel" id="panel-fieldnotes">
-<div class="section-label">From the Field</div>
-<h2>Why NRS feels wrong at first — and becomes essential after you see it work once.</h2>
-
-<h3>The Fear of Losing the Partner</h3>
-<p>The first time you use NRS, you'll be afraid the partner will just say "okay, let's put it on hold." Some of them will. Those partners were never going to produce anyway. The partners who respond by arguing for the relationship — "no, we want to keep working together, let me get the decision-maker on a call this week" — reveal the motivation that was there all along. You just didn't know it because your constant follow-up was letting them stay passive.</p>
-
-<h3>NRS and the I/R Framework</h3>
-<p>Negative Reverse Selling is only possible from a secure identity. If your self-worth is attached to whether this partner stays active, you can't deliver the pull-back convincingly. NRS requires that you mean it: you genuinely are okay if this particular partner decides to step back. When you actually mean it, the partner feels it — and it changes the dynamic immediately.</p>
-
-<div class="callout">
-  <div class="callout-tag">FIELD RULE</div>
-  Use NRS no more than once per situation. If you pull back and the partner doesn't engage — accept it and move on. NRS is not a loop. It's a single, clean test of whether the partner has real motivation. One test per relationship per issue. Then move forward with or without them.
-</div>
-
-<div class="contrib-row">
-  <span class="contrib-pill cp-carl">● CARL — Passive partner patterns from vendor side</span>
-  <span class="contrib-pill cp-nat">● NATALIE — How partner reps respond to vendor desperation</span>
-  <span class="contrib-pill cp-both">● Sandler Negative Reverse methodology</span>
-</div>
-
-<div class="footer">
-  <div>
-    <div class="footer-brand">Channel-<em>Ready</em> AE</div>
-    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 06 · NEGATIVE REVERSE SELLING · MARCH 2026</div>
-  </div>
-  <div class="footer-meta">
-    <div>CONFIDENTIAL</div>
-    <div>CARL & NATALIE CLENDENIN</div>
-  </div>
-</div>
-</div>
-
-</div>
-
-<script>
-function showPanel(id) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
-  event.target.classList.add('active');
-}
-</script>
+<footer>
+  <div class="brand">Channel-<em>Ready</em> AE &middot; Module 06 &middot; Negative Reverse Selling in Channel</div>
+  <div class="meta">Carl &amp; Natalie Clendenin &middot; Partna Company LLC &middot; 2026</div>
+</footer>
 </body>
 </html>

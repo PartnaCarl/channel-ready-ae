@@ -1,258 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module 01 — The Sandler Mindset for Channel — Channel-Ready AE</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#0f1117;--paper:#f8f7f4;--warm:#f0ebe0;--white:#fff;
-  --gold:#b8860b;--gold-light:#d4a820;--gold-pale:#fdf3d8;
-  --rule:#ddd5c0;--muted:#7a6e5f;--accent:#1a3d5c;
-  --green:#1e3a2f;--green-light:#e8f4ee;
-  --red:#7a1e1e;--blue-pale:#e8f0f8;
-  --nat:#5a3a7a;--nat-bg:#f5f0fa;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;font-size:15px;line-height:1.7;}
-.hero{background:var(--ink);padding:60px 72px 52px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 50px,rgba(184,134,11,0.04) 50px,rgba(184,134,11,0.04) 51px);}
-.hero-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;position:relative;}
-.hero h1{font-family:'Libre Baskerville',serif;font-size:46px;font-weight:700;color:#f0e8d8;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative;}
-.hero h1 em{color:var(--gold-light);font-style:italic;}
-.hero-sub{font-size:17px;color:#6a7a8a;max-width:580px;position:relative;margin-bottom:32px;}
-.hero-stats{display:flex;gap:40px;position:relative;flex-wrap:wrap;}
-.hero-stat{font-family:'DM Mono',monospace;}
-.hero-stat strong{display:block;font-size:22px;color:var(--gold-light);letter-spacing:-0.5px;}
-.hero-stat span{font-size:9px;color:#3a4050;letter-spacing:2px;text-transform:uppercase;}
-.ref-bar{padding:12px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ref-bar.green-bar{background:#1a2a1a;}
-.ref-bar.blue-bar{background:#1a1a2a;}
-.ref-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;}
-.ref-text{font-size:13px;}
-.breadcrumb{padding:10px 72px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.breadcrumb a{text-decoration:none;}
-.nav-tabs{display:flex;border-bottom:2px solid var(--rule);background:var(--white);position:sticky;top:56px;z-index:20;overflow-x:auto;}
-.nav-tab{padding:14px 24px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all 0.15s;border-top:none;border-left:none;border-right:none;background:none;}
-.nav-tab:hover{color:var(--accent);}
-.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
-.content{max-width:980px;margin:0 auto;padding:48px 40px 80px;}
-.panel{display:none;}
-.panel.active{display:block;}
-.section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.section-label::after{content:'';flex:1;height:1px;background:var(--gold-pale);}
-h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
-h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--accent);margin:28px 0 10px;}
-p{color:#2e2820;font-size:15px;margin-bottom:12px;line-height:1.75;}
-.callout{background:var(--ink);color:#c8c0b0;padding:22px 28px;margin:20px 0;border-radius:4px;position:relative;font-size:15px;line-height:1.7;}
-.callout-tag{position:absolute;top:-10px;left:20px;background:var(--gold-light);color:var(--ink);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 10px;font-weight:500;}
-.callout strong{color:var(--gold-light);}
-.explain{background:var(--warm);border-left:3px solid var(--gold-light);padding:12px 18px;margin:10px 0 18px;font-size:14px;color:var(--muted);font-style:italic;border-radius:0 4px 4px 0;}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
-.pillar{border:1px solid var(--rule);background:var(--white);border-radius:4px;overflow:hidden;}
-.pillar-head{padding:14px 20px;display:flex;align-items:center;gap:10px;}
-.pillar-head.blue{background:var(--accent);color:white;}
-.pillar-head.green{background:var(--green);color:white;}
-.pillar-head.gold{background:var(--gold);color:var(--ink);}
-.pillar-head.dark{background:#2a2020;color:#f0e8d8;}
-.pillar-head.purple{background:var(--nat);color:white;}
-.pillar-icon{font-size:20px;}
-.pillar-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;font-weight:500;}
-.pillar-body{padding:16px 20px;}
-.pillar-body ul{list-style:none;margin:0;}
-.pillar-body li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:14px;color:#2e2820;display:flex;justify-content:space-between;align-items:start;gap:12px;}
-.pillar-body li:last-child{border-bottom:none;}
-.pillar-body li .tag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
-.tag-gold{background:var(--gold-pale);color:var(--gold);}
-.tag-blue{background:var(--blue-pale);color:var(--accent);}
-.tag-green{background:var(--green-light);color:var(--green);}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
-.card{border:1px solid var(--rule);padding:18px;background:var(--white);border-radius:4px;}
-.card.gold-top{border-top:3px solid var(--gold);}
-.card.blue-top{border-top:3px solid var(--accent);}
-.card.green-top{border-top:3px solid var(--green);}
-.card.red-top{border-top:3px solid var(--red);}
-.card h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
-.card p{font-size:13px;margin:0;color:var(--muted);}
-.contrib-row{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 0;}
-.contrib-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;}
-.cp-carl{background:#edf3f8;color:#1a3d5c;border:1px solid #a0c0d8;}
-.cp-nat{background:#f5f0fa;color:#5a3a7a;border:1px solid #c8a8e8;}
-.cp-both{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);}
-.footer{border-top:2px solid var(--ink);margin-top:60px;padding:28px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.footer-brand{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;}
-.footer-brand em{color:var(--gold-light);}
-.footer-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;line-height:2;text-align:right;}
-@media(max-width:700px){.hero{padding:40px 24px 36px;}.hero h1{font-size:30px;}.content{padding:32px 20px 60px;}.pillars,.grid-2,.grid-3{grid-template-columns:1fr;}.breadcrumb{padding:10px 24px;}}
-.cr-nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #2a2520;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;}.cr-nav-logo{font-family:"Libre Baskerville",serif;font-size:16px;font-weight:700;color:#f0e8d8;text-decoration:none;letter-spacing:-0.3px;}.cr-nav-logo em{color:#c49020;font-style:italic;}.cr-nav-links{display:flex;gap:24px;list-style:none;}.cr-nav-links a{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#6a5e4f;text-decoration:none;text-transform:uppercase;transition:color 0.15s;}.cr-nav-links a:hover{color:#c49020;}.cr-nav-cta{background:#c49020;color:#0f1117;padding:7px 18px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:500;transition:background 0.15s;}.cr-nav-cta:hover{background:#e8c96a;}@media(max-width:700px){.cr-nav{padding:0 20px;}.cr-nav-links{display:none;}}
-</style>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Module 01 — The Sandler Mindset for Channel — Channel-Ready AE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--black:#0a0a0a;--ink:#111111;--surface:#161616;--border:#242424;--muted:#333333;--text-dim:#888888;--text:#d4d4d4;--white:#f5f5f5;--accent:#e8c547;--accent-dim:rgba(232,197,71,0.10);--accent-border:rgba(232,197,71,0.28);--font-head:'Cormorant Garamond',serif;--font-body:'Crimson Pro',serif}
+    html{scroll-behavior:smooth}body{background:var(--black);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px}
+    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-0.02em}.nav-logo em{color:var(--accent);font-style:normal}
+    .nav-links{display:flex;gap:28px;list-style:none}.nav-links a{font-size:13px;font-weight:500;color:var(--text-dim);text-decoration:none;letter-spacing:0.02em;transition:color 0.15s}.nav-links a:hover,.nav-links a.active{color:var(--white)}
+    .nav-cta{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:8px 18px;border-radius:3px;text-decoration:none}
+    .page-wrap{max-width:860px;margin:0 auto;padding:60px 40px 100px}
+    .breadcrumb{font-size:12px;color:var(--text-dim);margin-bottom:32px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color 0.15s}.breadcrumb a:hover{color:var(--accent)}.breadcrumb span{color:var(--muted)}
+    .eyebrow{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+    h1{font-family:var(--font-head);font-size:clamp(36px,5vw,54px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--white);margin-bottom:20px}h1 em{color:var(--accent);font-style:normal}
+    .module-sub{font-size:17px;color:var(--text-dim);max-width:640px;line-height:1.75;margin-bottom:36px}
+    .stats{display:flex;gap:0;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:36px}
+    .stat{flex:1;background:var(--surface);padding:20px 24px;border-right:1px solid var(--border)}.stat:last-child{border-right:none}
+    .stat-val{font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-0.03em;line-height:1;margin-bottom:4px}
+    .stat-lbl{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+    .mod-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:4px;margin-bottom:48px;font-size:12px}
+    .mod-nav a{color:var(--text-dim);text-decoration:none;font-weight:500;transition:color 0.15s}.mod-nav a:hover{color:var(--accent)}
+    .mod-nav-mid{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 12px;border-radius:2px}
+    .framework-badge{display:inline-flex;align-items:center;gap:10px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:3px;padding:10px 16px;margin-bottom:52px;font-size:12px;font-weight:600;color:var(--accent)}
+    .section{margin-bottom:60px;padding-bottom:60px;border-bottom:1px solid var(--border)}.section:last-of-type{border-bottom:none;padding-bottom:0}
+    h2{font-family:var(--font-head);font-size:clamp(22px,3vw,32px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:16px}h2 em{color:var(--accent);font-style:normal}
+    h3{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--white);margin:36px 0 12px;letter-spacing:-0.02em}
+    h4{font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--white);margin:24px 0 8px;letter-spacing:-0.01em}
+    p{font-size:15px;color:var(--text-dim);line-height:1.8;margin-bottom:18px}p:last-child{margin-bottom:0}
+    .insight{background:var(--surface);border-left:3px solid var(--accent);padding:20px 24px;border-radius:0 3px 3px 0;margin:24px 0}
+    .insight-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .insight p{font-size:14px;color:var(--text);font-style:italic;margin-bottom:0}
+    .script{background:var(--ink);border:1px solid var(--accent-border);border-radius:4px;padding:24px 28px;margin:24px 0}
+    .script-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    .script p{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:0;font-style:italic}
+    .warn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin:24px 0}
+    .warn-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+    .warn p{font-size:14px;color:var(--text-dim);margin-bottom:0;line-height:1.7}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .card{background:var(--surface);padding:24px}.card-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .card h4{margin:0 0 8px;font-size:14px}.card p{font-size:13px;margin-bottom:0}
+    .what-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0}
+    .what-card{background:var(--surface);padding:24px}.what-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .what-card p{font-size:13px;color:var(--text-dim);margin-bottom:0;line-height:1.6}
+    .consulting-strip{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:4px;padding:32px 36px;margin-top:72px;display:flex;align-items:flex-start;gap:28px}
+    .cs-badge{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:800;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .consulting-strip h3{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--white);margin:0 0 8px;letter-spacing:-0.01em}
+    .consulting-strip p{font-size:13px;color:var(--text-dim);margin-bottom:12px}
+    .consulting-strip a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-border);padding-bottom:2px}
+    .bottom-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid var(--border);margin-top:56px}
+    .bn-link{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text-dim);text-decoration:none;transition:color 0.15s}.bn-link:hover{color:var(--accent)}
+    .bn-cta a{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:10px 20px;border-radius:3px;text-decoration:none}
+    footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-items:center;justify-content:space-between}
+    footer .brand{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--text-dim)}.brand em{color:var(--accent);font-style:normal}
+    footer .meta{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
+    @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.page-wrap{padding:40px 20px 80px}.stats{flex-wrap:wrap}.what-grid,.cards{grid-template-columns:1fr}.consulting-strip{flex-direction:column}footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px}}
+  </style>
 </head>
 <body>
-<nav class="cr-nav"><a class="cr-nav-logo" href="index.html">Channel-<em>Ready</em> AE</a><ul class="cr-nav-links"><li><a href="index.html#program">Program</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#founders">Founders</a></li><li><a href="curriculum.html">Curriculum</a></li></ul><a class="cr-nav-cta" href="index.html#apply">Apply Now</a></nav>
-
-<div class="hero">
-  <div class="hero-tag">Channel-Ready AE · Phase 1 · Module 01</div>
-  <h1>The Sandler Mindset<br>for <em>Channel Sales</em>.</h1>
-  <div class="hero-sub">Why channel AEs fail — and why it almost always comes back to Identity vs. Role. The psychological foundation every effective channel seller needs before their first partner call.</div>
-  <div class="hero-stats">
-    <div class="hero-stat"><strong>I/R</strong><span>Identity vs Role</span></div>
-    <div class="hero-stat"><strong>OK/OK</strong><span>Transactional Position</span></div>
-    <div class="hero-stat"><strong>70%</strong><span>AEs Give It Away</span></div>
-    <div class="hero-stat"><strong>1</strong><span>Mindset to Master First</span></div>
+<nav>
+  <a href="/" class="nav-logo">Channel-<em>Ready</em> AE</a>
+  <ul class="nav-links">
+    <li><a href="/#who">Who It's For</a></li><li><a href="/#program">Program</a></li>
+    <li><a href="/#methodology">Methodology</a></li><li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#founders">Instructors</a></li><li><a href="/curriculum" class="active">Curriculum</a></li>
+    <li><a href="/business_plan">Business Plan</a></li>
+  </ul>
+  <a href="/#apply" class="nav-cta">Enroll Now</a>
+</nav>
+<div class="page-wrap">
+  <div class="breadcrumb"><a href="/">Channel-Ready AE</a><span>›</span><a href="/curriculum">Curriculum Binder</a><span>›</span><span>Module 01</span></div>
+  <div class="eyebrow">Channel-Ready AE · Phase 1 · Module 01</div>
+  <h1>The Sandler Mindset for <em>Channel Sales.</em></h1>
+  <p class="module-sub">Why channel AEs fail — and why it almost always comes back to Identity vs. Role. The psychological foundation every effective channel seller needs before their first partner call.</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-val">I/R</div><div class="stat-lbl">Identity vs Role</div></div>
+    <div class="stat"><div class="stat-val">OK/OK</div><div class="stat-lbl">Transactional Position</div></div>
+    <div class="stat"><div class="stat-val">70%</div><div class="stat-lbl">AEs Give It Away</div></div>
+    <div class="stat"><div class="stat-val">1</div><div class="stat-lbl">Mindset to Master First</div></div>
   </div>
-</div>
+  <div class="mod-nav">
+    <a href="/curriculum">← Curriculum Binder</a>
+    <span class="mod-nav-mid">Phase 1 · Sandler Foundation</span>
+    <a href="/module_02">Module 02 →</a>
+  </div>
+  <div class="framework-badge"><span>⬡</span><span>Channel Activation System™ — Framework: I/R Theory · Applies before every partner call, QBR, co-sell meeting, and deal negotiation</span></div>
 
-<div class="ref-bar blue-bar"><span class="ref-tag" style="color:#4a5a7a;">Sandler Foundation</span><span class="ref-text" style="color:#6a7a9a;">Applies before every partner call, QBR, co-sell meeting, and deal negotiation</span></div>
-
-<div class="breadcrumb" style="background:#1a2a1a;color:#3a4a3a;">
-  <a href="curriculum.html" style="color:#4a6a4a;">Curriculum Binder</a>
-  <span style="color:#2a3a2a;">›</span>
-  <span style="color:#6a9a6a;">Module 01 — The Sandler Mindset for Channel</span>
-  <span style="margin-left:auto;"><a href="curriculum.html" style="color:#3a5a3a;">Back to Binder</a> <span style="color:#2a3a2a;margin-left:12px;">·</span> <a href="module_02.html" style="color:#5a7a9a;margin-left:12px;">Module 02 →</a></span>
-</div>
-
-<div class="nav-tabs">
-  <button class="nav-tab active" onclick="showPanel('overview')">Overview</button>
-  <button class="nav-tab" onclick="showPanel('framework')">Framework</button>
-  <button class="nav-tab" onclick="showPanel('practice')">In Practice</button>
-  <button class="nav-tab" onclick="showPanel('fieldnotes')">Field Notes</button>
-</div>
-
-<div class="content">
-
-<div class="panel active" id="panel-overview">
-<div class="section-label">Why This Module Exists</div>
-<h2>Channel AEs fail because they never separate who they are from what they do.</h2>
-<div class="explain">Sandler calls this Identity vs. Role. It is the single most important concept in this program. Everything else builds on it.</div>
-<p>Most channel AEs walk into partner meetings with their ego attached to their product. When the partner says "we're going with someone else" or "your pricing is too high," they collapse — they discount, they over-promise, they give away demos and architecture and proposals to prove their worth. That behavior comes from a broken identity, not a broken product.</p>
-<p>Sandler's I/R Theory says your Identity — your sense of self-worth — must be completely separate from your Role as a sales professional. A rejection of your proposal is not a rejection of you. A partner who doesn't prioritize your product is not evidence that you're failing. When you internalize this, you stop acting from fear and start acting from strength.</p>
-<div class="callout">
-  <div class="callout-tag">THE CORE INSIGHT</div>
-  <strong>Channel sales rewards the AE who can walk away.</strong> The partner who senses you need this deal more than they need you will extract every concession available. The AE with a secure identity doesn't flinch — and paradoxically, that composure is what earns partner trust.
-</div>
-<div class="grid-3">
-  <div class="card gold-top"><h4>What You'll Learn</h4><p>The I/R Theory framework, the OK/Not-OK concept in a channel context, and why most channel AE failure modes trace back to identity — not skill or product.</p></div>
-  <div class="card gold-top"><h4>What You'll Practice</h4><p>Identifying your own emotional triggers in partner conversations. Recognizing when you're selling from fear. Reframing rejection as information, not verdict.</p></div>
-  <div class="card gold-top"><h4>What Changes After</h4><p>You stop needing partner approval to feel competent. Your posture shifts. Partners notice — and they start treating you like a peer instead of a vendor rep begging for mindshare.</p></div>
-</div>
-</div>
-
-<div class="panel" id="panel-framework">
-<div class="section-label">Sandler I/R Theory</div>
-<h2>Identity vs. Role — the foundation everything else is built on.</h2>
-<p>David Sandler identified a pattern in failed salespeople: they fused their personal identity to their sales role. Every lost deal felt like a personal failure. Every tough partner meeting felt like an attack. This fusion produces the behaviors that destroy channel relationships.</p>
-<div class="pillars">
-  <div class="pillar">
-    <div class="pillar-head blue"><div class="pillar-icon">🧠</div><div class="pillar-title">Identity (I) — Who You Are</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Constant, stable, not for sale <span class="tag tag-blue">Fixed</span></li>
-        <li>Not defined by quota attainment <span class="tag tag-blue">Core</span></li>
-        <li>Not defined by partner approval <span class="tag tag-blue">Core</span></li>
-        <li>Not threatened by a "no" or a "not yet" <span class="tag tag-blue">Strength</span></li>
-        <li>The source of your composure under pressure <span class="tag tag-blue">Outcome</span></li>
-      </ul>
+  <!-- OVERVIEW -->
+  <div class="section">
+    <h2>Channel AEs fail because they never separate who they are from <em>what they do.</em></h2>
+    <p>Sandler calls this Identity vs. Role. It is the single most important concept in this program. Everything else in the Channel Activation System™ builds on it.</p>
+    <p>Most channel AEs walk into partner meetings with their ego attached to their product. When the partner says "we're going with someone else" or "your pricing is too high," they collapse — they discount, they over-promise, they give away demos and architecture and proposals to prove their worth. That behavior comes from a broken identity, not a broken product.</p>
+    <p>Sandler's I/R Theory says your Identity — your sense of self-worth — must be completely separate from your Role as a sales professional. A rejection of your proposal is not a rejection of you. A partner who doesn't prioritize your product is not evidence that you're failing. When you internalize this, you stop acting from fear and start acting from strength.</p>
+    <div class="insight"><div class="insight-lbl">The Core Insight</div><p><strong>Channel sales rewards the AE who can walk away.</strong> The partner who senses you need this deal more than they need you will extract every concession available. The AE with a secure identity doesn't flinch — and paradoxically, that composure is what earns partner trust.</p></div>
+    <div class="what-grid">
+      <div class="what-card"><div class="what-lbl">What You'll Learn</div><p>The I/R Theory framework, the OK/Not-OK concept in a channel context, and why most channel AE failure modes trace back to identity — not skill or product.</p></div>
+      <div class="what-card"><div class="what-lbl">What You'll Practice</div><p>Identifying your own emotional triggers in partner conversations. Recognizing when you're selling from fear. Reframing rejection as information, not verdict.</p></div>
+      <div class="what-card"><div class="what-lbl">What Changes After</div><p>You stop needing partner approval to feel competent. Your posture shifts. Partners notice — and they start treating you like a peer instead of a vendor rep begging for mindshare.</p></div>
     </div>
   </div>
-  <div class="pillar">
-    <div class="pillar-head green"><div class="pillar-icon">💼</div><div class="pillar-title">Role (R) — What You Do</div></div>
-    <div class="pillar-body">
-      <ul>
-        <li>Channel AE, vendor rep, co-sell partner <span class="tag tag-green">Variable</span></li>
-        <li>Subject to wins, losses, partner feedback <span class="tag tag-green">Dynamic</span></li>
-        <li>Can be evaluated, improved, and changed <span class="tag tag-green">Skill</span></li>
-        <li>Where you apply technique and process <span class="tag tag-green">Method</span></li>
-        <li>Performance in Role does not define Identity <span class="tag tag-green">Rule</span></li>
-      </ul>
+
+  <!-- FRAMEWORK -->
+  <div class="section">
+    <h2>Identity vs. Role — the foundation <em>everything else is built on.</em></h2>
+    <p>David Sandler identified a pattern in failed salespeople: they fused their personal identity to their sales role. Every lost deal felt like a personal failure. Every tough partner meeting felt like an attack. This fusion produces the behaviors that destroy channel relationships.</p>
+    <div class="cards">
+      <div class="card"><div class="card-lbl">Identity (I) — Who You Are</div><h4>Constant. Stable. Not for sale.</h4><p>Not defined by quota attainment. Not defined by partner approval. Not threatened by a "no" or a "not yet." The source of your composure under pressure.</p></div>
+      <div class="card"><div class="card-lbl">Role (R) — What You Do</div><h4>Variable. Dynamic. Improvable.</h4><p>Subject to wins, losses, and partner feedback. Can be evaluated and changed. Performance in Role does not define Identity — that's the rule.</p></div>
+    </div>
+    <h3>The OK/Not-OK Concept in Channel</h3>
+    <p>Sandler builds on transactional analysis: healthy salespeople operate from an I'm OK — You're OK position. They don't need to beat the partner (I'm OK, You're Not-OK), and they don't need the partner's approval to feel OK (I'm Not-OK, You're OK). The OK/OK position is the only one that produces genuine peer-level relationships with partners.</p>
+    <div class="insight"><div class="insight-lbl">Channel Application</div><p>When a partner says your product is too expensive, you don't immediately justify or discount. You get curious. <em>"What are you comparing it against?"</em> You treat the partner as a capable adult — and yourself as a capable AE whose product has real value. Both things can be true simultaneously.</p></div>
+    <h3>Why Channel AEs Give It Away</h3>
+    <p>The single most common channel AE failure mode: giving away time, expertise, demos, proposals, and solution architecture in exchange for partner attention or approval. This happens because the AE is operating from a Not-OK identity — they need to prove their worth through effort and generosity.</p>
+    <div class="cards">
+      <div class="card"><div class="card-lbl">Not-OK Behaviors — Stop These</div><h4>Fear-driven giving</h4><p>Discounting without asking for anything in return. Writing proposals before the partner commits. Running demos for unqualified end customers. Letting partners ghost you without consequence.</p></div>
+      <div class="card"><div class="card-lbl">OK/OK Behaviors — Build These</div><h4>Strength-driven earning</h4><p>Asking what the partner is willing to commit before you invest time. Qualifying partners the same way you'd qualify a customer. Setting mutual expectations. Walking away from partners who don't reciprocate.</p></div>
     </div>
   </div>
-</div>
-<h3>The OK/Not-OK Concept in Channel</h3>
-<p>Sandler builds on transactional analysis: healthy salespeople operate from an I'm OK — You're OK position. They don't need to beat the partner (I'm OK, You're Not-OK), and they don't need the partner's approval to feel OK themselves (I'm Not-OK, You're OK). The OK/OK position is the only one that produces genuine peer-level relationships with partners.</p>
-<div class="callout">
-  <div class="callout-tag">CHANNEL APPLICATION</div>
-  <strong>I'm OK / You're OK in practice:</strong> When a partner says your product is too expensive, you don't immediately justify or discount (Not-OK response). You get curious. "What are you comparing it against?" You treat the partner as a capable adult who has a real concern worth understanding — and you treat yourself as a capable AE whose product has real value. Both things can be true simultaneously.
-</div>
-<h3>Why Channel AEs Give It Away</h3>
-<p>The single most common channel AE failure mode: giving away time, expertise, demos, proposals, and solution architecture in exchange for partner attention or approval. This happens because the AE is operating from a Not-OK identity — they need to prove their worth through effort and generosity. Sandler calls this "unpaid consulting," and Module 07 covers it in full. But the root cause starts here, in an insecure identity.</p>
-<div class="grid-2">
-  <div class="card red-top"><h4>Not-OK Behaviors (Stop These)</h4><p>Discounting without asking for anything in return. Writing proposals before the partner commits to a qualified opportunity. Running demos for unqualified end customers. Letting partners ghost you without consequence.</p></div>
-  <div class="card green-top"><h4>OK/OK Behaviors (Build These)</h4><p>Asking the partner what they're willing to commit before you invest time. Qualifying partners the same way you'd qualify a customer. Setting mutual expectations at the start of every engagement. Walking away from partners who don't reciprocate.</p></div>
-</div>
-</div>
 
-<div class="panel" id="panel-practice">
-<div class="section-label">Applying the Mindset</div>
-<h2>What I/R Theory looks like in a real partner conversation.</h2>
-<p>Mindset without application is philosophy. Here is how the I/R framework changes your behavior in the three most common channel AE situations where identity breaks down.</p>
-<h3>Situation 1 — The Partner Who Won't Commit</h3>
-<p>You've presented your product, offered support, and asked for commitment. The partner keeps saying "we're interested, let me check with my team." This cycle repeats for weeks.</p>
-<div class="explain">The Not-OK response: keep following up, offer more demos, offer to write the proposal yourself, lower the price. Each action signals that you need the commitment more than they do.</div>
-<div class="callout">
-  <div class="callout-tag">OK/OK RESPONSE</div>
-  "I want to make sure we're a good fit for each other before either of us invests more time. What would need to be true for you to decide one way or the other by end of month?" Then stop doing anything until they answer.
-</div>
-<h3>Situation 2 — The Partner Who Challenges Your Price</h3>
-<p>Your partner tells you another vendor is 20% cheaper and asks you to match. Your identity is on trial — if you fold immediately, you've established that your pricing has no integrity.</p>
-<div class="explain">The Not-OK response: immediately offer a discount to save the deal and the relationship. This trains partners to open every negotiation with a price challenge.</div>
-<div class="callout">
-  <div class="callout-tag">OK/OK RESPONSE</div>
-  "I appreciate you telling me that. Help me understand — is the other product solving the same problem for your customer, or are you comparing on price alone?" Get to the real issue before you move a dollar.
-</div>
-<h3>Situation 3 — The Partner Who Goes Dark</h3>
-<p>You had a great meeting. You sent the follow-up. Nothing. Two weeks of silence. Your Not-OK identity tells you to keep emailing, to apologize, to wonder what you did wrong.</p>
-<div class="explain">The OK/OK truth: partners go dark for a hundred reasons, most of which have nothing to do with you. Your job is to make re-engagement easy without begging.</div>
-<div class="callout">
-  <div class="callout-tag">OK/OK RESPONSE</div>
-  One more email. Subject: "Should I close your file?" Body: "I haven't heard back and I don't want to keep pushing if priorities have shifted. If this isn't the right time, just say so — no hard feelings. If it is the right time, I'm here." Then stop. Let them own the next move.
-</div>
-</div>
-
-<div class="panel" id="panel-fieldnotes">
-<div class="section-label">From the Field</div>
-<h2>What the I/R mindset actually changes — and what it doesn't.</h2>
-<h3>What Changes Immediately</h3>
-<p>Your posture in partner meetings. Partners can feel when you need them. When you stop needing their approval, your questions get sharper, your pauses get longer, and your willingness to challenge their assumptions increases. These are all signals of a peer, not a vendor rep. Partners upgrade their perception of you within the first few exchanges.</p>
-<h3>What Takes Time</h3>
-<p>Eliminating the automatic apologetic response to pushback. Most AEs have been trained by quota pressure and manager oversight to treat every partner objection as an emergency. Replacing that reflex with genuine curiosity takes repetition. Don't expect to get this right in the first ten partner conversations. Expect to catch yourself after the fact — and that catching is the learning.</p>
-<h3>The Misconception to Avoid</h3>
-<div class="callout">
-  <div class="callout-tag">IMPORTANT DISTINCTION</div>
-  I/R Theory does not mean being cold, arrogant, or indifferent to partners. It means your self-worth isn't on the table in the negotiation. You can be warm, curious, and genuinely invested in the partner's success while maintaining a secure identity. In fact, the warmth is more credible when it doesn't come with desperation attached.
-</div>
-<h3>The Daily Practice</h3>
-<p>Before every partner call, ask yourself one question: "What am I afraid of in this conversation?" Name it explicitly. Afraid they'll say no? Afraid they'll say the product is too expensive? Afraid they'll cancel the QBR? When you name the fear, it loses power. You walk in prepared — not because you've eliminated the possibility of bad news, but because you've already separated your identity from whatever happens next.</p>
-
-<div class="contrib-row">
-  <span class="contrib-pill cp-carl">● CARL — Vendor-side channel experience</span>
-  <span class="contrib-pill cp-nat">● NATALIE — Reseller-side perspective, CDW alumni</span>
-  <span class="contrib-pill cp-both">● Sandler Sales System methodology</span>
-</div>
-
-<div class="footer">
-  <div>
-    <div class="footer-brand">Channel-<em>Ready</em> AE</div>
-    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">MODULE 01 · THE SANDLER MINDSET FOR CHANNEL · MARCH 2026</div>
+  <!-- IN PRACTICE -->
+  <div class="section">
+    <h2>What I/R Theory looks like in a <em>real partner conversation.</em></h2>
+    <p>Mindset without application is philosophy. Here is how the I/R framework changes your behavior in the three most common situations where channel AE identity breaks down.</p>
+    <h3>Situation 1 — The Partner Who Won't Commit</h3>
+    <p>You've presented your product, offered support, and asked for commitment. The partner keeps saying "we're interested, let me check with my team." This cycle repeats for weeks. The Not-OK response: keep following up, offer more demos, lower the price. Each action signals that you need the commitment more than they do.</p>
+    <div class="script"><div class="script-lbl">OK/OK Response</div><p>"I want to make sure we're a good fit for each other before either of us invests more time. What would need to be true for you to decide one way or the other by end of month?" Then stop doing anything until they answer.</p></div>
+    <h3>Situation 2 — The Partner Who Challenges Your Price</h3>
+    <p>Your partner tells you another vendor is 20% cheaper and asks you to match. Your identity is on trial — if you fold immediately, you've established that your pricing has no integrity. The Not-OK response: immediately offer a discount to save the deal. This trains partners to open every negotiation with a price challenge.</p>
+    <div class="script"><div class="script-lbl">OK/OK Response</div><p>"I appreciate you telling me that. Help me understand — is the other product solving the same problem for your customer, or are you comparing on price alone?" Get to the real issue before you move a dollar.</p></div>
+    <h3>Situation 3 — The Partner Who Goes Dark</h3>
+    <p>You had a great meeting. You sent the follow-up. Nothing. Two weeks of silence. Your Not-OK identity tells you to keep emailing, to apologize, to wonder what you did wrong. Partners go dark for a hundred reasons — most of which have nothing to do with you.</p>
+    <div class="script"><div class="script-lbl">OK/OK Response — One Final Email</div><p>Subject: "Should I close your file?" Body: "I haven't heard back and I don't want to keep pushing if priorities have shifted. If this isn't the right time, just say so — no hard feelings. If it is the right time, I'm here." Then stop. Let them own the next move.</p></div>
   </div>
-  <div class="footer-meta">
-    <div>CONFIDENTIAL</div>
-    <div>CARL & NATALIE CLENDENIN</div>
+
+  <!-- FIELD NOTES -->
+  <div class="section">
+    <h2>What the I/R mindset actually changes — <em>and what it doesn't.</em></h2>
+    <h3>What Changes Immediately</h3>
+    <p>Your posture in partner meetings. Partners can feel when you need them. When you stop needing their approval, your questions get sharper, your pauses get longer, and your willingness to challenge their assumptions increases. These are signals of a peer, not a vendor rep. Partners upgrade their perception of you within the first few exchanges.</p>
+    <h3>What Takes Time</h3>
+    <p>Eliminating the automatic apologetic response to pushback. Most AEs have been trained by quota pressure to treat every partner objection as an emergency. Replacing that reflex with genuine curiosity takes repetition. Expect to catch yourself after the fact — and that catching is the learning.</p>
+    <div class="warn"><div class="warn-lbl">The Misconception to Avoid</div><p>I/R Theory does not mean being cold, arrogant, or indifferent to partners. It means your self-worth isn't on the table in the negotiation. You can be warm, curious, and genuinely invested in the partner's success while maintaining a secure identity. The warmth is more credible when it doesn't come with desperation attached.</p></div>
+    <h3>The Daily Practice</h3>
+    <p>Before every partner call, ask yourself one question: "What am I afraid of in this conversation?" Name it explicitly. Afraid they'll say no? Afraid they'll say the product is too expensive? When you name the fear, it loses power. You walk in prepared — not because you've eliminated the possibility of bad news, but because you've already separated your identity from whatever happens next.</p>
+    <p class="instructor-line" style="font-size:12px;color:var(--text-dim);margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">● Carl — Vendor-side channel experience · ● Natalie — Reseller-side perspective, CDW alumni · Sandler Sales System I/R Theory</p>
+  </div>
+
+  <!-- CONSULTING STRIP -->
+  <div class="consulting-strip">
+    <div class="cs-badge">Consulting Pathway</div>
+    <div>
+      <h3>See exactly where your team's identity is costing you margin.</h3>
+      <p>A Channel Strategy Audit surfaces the specific behaviors — free consulting, discount reflexes, non-committal QBRs — that trace back to I/R issues. Flat fee: $2,500. The audit maps findings directly to the modules that fix them.</p>
+      <a href="/#apply">Request a Channel Strategy Audit →</a>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="/curriculum" class="bn-link">← Curriculum Binder</a>
+    <div class="bn-cta"><a href="/#apply">Enroll Now</a></div>
+    <a href="/module_02" class="bn-link">Module 02 →</a>
   </div>
 </div>
-</div>
-
-</div>
-
-<script>
-function showPanel(id) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
-  event.target.classList.add('active');
-}
-</script>
+<footer>
+  <div class="brand">Channel-<em>Ready</em> AE · Module 01 · The Sandler Mindset for Channel</div>
+  <div class="meta">Carl &amp; Natalie Clendenin · Partna Company LLC · 2026</div>
+</footer>
 </body>
 </html>
