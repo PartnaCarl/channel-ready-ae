@@ -1,132 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Module 10 &mdash; Prospecting Through Partners &mdash; The Multiplier Method</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 10 — The Multiplier Method</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--black:#0a0a0a;--ink:#171717;--surface:#1c1c1c;--border:#242424;--muted:#333333;--text-dim:#a8a8a8;--text:#d4d4d4;--white:#f5f5f5;--accent:#e8c547;--accent-dim:rgba(232,197,71,0.10);--accent-border:rgba(232,197,71,0.28);--font-head:'Cormorant Garamond',serif;--font-body:'Crimson Pro',serif}
-    html{scroll-behavior:smooth}body{background:var(--black);color:var(--text);font-family:var(--font-body);font-size:18px;line-height:1.75;-webkit-font-smoothing:antialiased}
-    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px}
-    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-0.02em}.nav-logo em{color:var(--accent);font-style:normal}
-    .nav-links{display:flex;gap:28px;list-style:none}.nav-links a{font-size:14px;font-weight:500;color:var(--text-dim);text-decoration:none;letter-spacing:0.02em;transition:color 0.15s}.nav-links a:hover,.nav-links a.active{color:var(--white)}
-    .nav-cta{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:8px 18px;border-radius:3px;text-decoration:none}
-    .page-wrap{max-width:860px;margin:0 auto;padding:60px 52px 100px;background:#1c1c1c;border-radius:8px;box-shadow:0 0 0 1px var(--border)}
-    .breadcrumb{font-size:13px;color:var(--text-dim);margin-bottom:40px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color 0.15s}.breadcrumb a:hover{color:var(--accent)}.breadcrumb span{color:var(--muted)}
-    .eyebrow{font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-    h1{font-family:var(--font-head);font-size:clamp(36px,5vw,54px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--white);margin-bottom:32px}h1 em{color:var(--accent);font-style:normal}
-    .module-sub{font-size:20px;color:var(--text-dim);max-width:640px;line-height:1.8;margin-bottom:48px}
-    .stats{display:flex;gap:0;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:44px}
-    .stat{flex:1;background:var(--surface);padding:20px 24px;border-right:1px solid var(--border)}.stat:last-child{border-right:none}
-    .stat-val{font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-0.03em;line-height:1;margin-bottom:4px}
-    .stat-lbl{font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
-    .mod-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:4px;margin-bottom:48px;font-size:13px}
-    .mod-nav a{color:var(--text-dim);text-decoration:none;font-weight:500;transition:color 0.15s}.mod-nav a:hover{color:var(--accent)}
-    .mod-nav-mid{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 12px;border-radius:2px}
-    .fw-badge{display:inline-flex;align-items:center;gap:10px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:3px;padding:10px 16px;margin-bottom:64px;font-size:13px;font-weight:600;color:var(--accent)}
-    .section{margin-bottom:72px;padding-bottom:72px;border-bottom:1px solid var(--border)}.section:last-of-type{border-bottom:none;padding-bottom:0}
-    h2{font-family:var(--font-head);font-size:clamp(22px,3vw,32px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:24px}h2 em{color:var(--accent);font-style:normal}
-    h3{font-family:var(--font-head);font-size:24px;font-weight:700;color:var(--white);margin:44px 0 14px;letter-spacing:-0.02em}
-    h4{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--white);margin:28px 0 10px;letter-spacing:-0.01em}
-    p{font-size:17px;color:var(--text-dim);line-height:1.9;margin-bottom:22px}p:last-child{margin-bottom:0}
-    .insight{background:var(--surface);border-left:3px solid var(--accent);padding:24px 28px;border-radius:0 3px 3px 0;margin:32px 0}
-    .insight-lbl{font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-    .insight p{font-size:16px;color:var(--text);font-style:italic;line-height:1.85;margin-bottom:0}
-    .script{background:var(--ink);border:1px solid var(--accent-border);border-radius:4px;padding:28px 32px;margin:32px 0}
-    .script-lbl{font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
-    .script p{font-size:16px;color:var(--text);line-height:1.85;margin-bottom:0;font-style:italic}
-    .warn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:24px 28px;margin:32px 0}
-    .warn-lbl{font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
-    .warn p{font-size:16px;color:var(--text-dim);margin-bottom:0;line-height:1.85}
-    .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:32px 0}
-    .card{background:var(--surface);padding:28px}.card-lbl{font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-    .card h4{margin:0 0 8px;font-size:14px}.card p{font-size:15px;margin-bottom:0;line-height:1.75}
-    .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:32px 0}
-    .cards3 .card{background:var(--surface);padding:28px}
-    .consulting-strip{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:4px;padding:32px 36px;margin-top:72px;display:flex;align-items:flex-start;gap:28px}
-    .cs-badge{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:800;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px}
-    .consulting-strip h3{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--white);margin:0 0 8px;letter-spacing:-0.01em}
-    .consulting-strip p{font-size:13px;color:var(--text-dim);margin-bottom:12px}
-    .consulting-strip a{font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-border);padding-bottom:2px}
-    .bottom-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid var(--border);margin-top:56px}
-    .bn-link{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text-dim);text-decoration:none;transition:color 0.15s}.bn-link:hover{color:var(--accent)}
-    .bn-cta a{font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:10px 20px;border-radius:3px;text-decoration:none}
-    footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-items:center;justify-content:space-between}
-    footer .brand{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text-dim)}.brand em{color:var(--accent);font-style:normal}
-    footer .meta{font-size:12px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
-    @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.page-wrap{padding:40px 20px 80px}.stats{flex-wrap:wrap}.cards,.cards3{grid-template-columns:1fr}.consulting-strip{flex-direction:column}footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px}}
+<style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a; --ink: #171717; --surface: #1c1c1c;
+      --border: #242424; --muted: #333333;
+      --text-dim: #a8a8a8; --text: #d4d4d4; --white: #f5f5f5;
+      --accent: #e8c547;
+      --accent-dim: rgba(232,197,71,0.12);
+      --accent-border: rgba(232,197,71,0.3);
+      --font-head: 'Cormorant Garamond', serif;
+      --font-body: 'Crimson Pro', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--text); font-family: var(--font-body); font-size: 18px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
 
-    .subnav{display:flex;gap:6px;flex-wrap:wrap;padding:14px 0;margin-bottom:36px;border-bottom:1px solid var(--border)}
-    .subnav a{font-family:var(--font-head);font-size:12px;font-weight:600;letter-spacing:0.04em;color:var(--text-dim);text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:2px;transition:color 0.15s,border-color 0.15s,background 0.15s;white-space:nowrap}
-    .subnav a:hover{color:var(--accent);border-color:var(--accent-border);background:var(--accent-dim)}
-    .section{display:none}
-    .section.active{display:block}
-    .subnav a.active{color:var(--accent);border-color:var(--accent-border);background:var(--accent-dim)}
-</style>
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; align-items: center; gap: 32px; height: 60px; }
+    .nav-logo { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo em { color: var(--accent); font-style: normal; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta { margin-left: auto; background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 18px; border-radius: 3px; text-decoration: none; transition: opacity 0.15s; }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* PAGE HEADER */
+    .page-header { border-bottom: 1px solid var(--border); padding: 72px 80px 56px; max-width: 1400px; margin: 0 auto; }
+    .breadcrumb { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--muted); }
+    .page-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .page-title { font-family: var(--font-head); font-size: clamp(36px, 5vw, 54px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: var(--white); margin-bottom: 28px; }
+    .page-title em { color: var(--accent); font-style: normal; }
+    .page-sub { font-size: 18px; color: var(--text-dim); max-width: 640px; line-height: 1.8; margin-bottom: 36px; }
+    .page-stats { display: flex; gap: 0; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .page-stat { flex: 1; background: var(--surface); padding: 20px 24px; border-right: 1px solid var(--border); }
+    .page-stat:last-child { border-right: none; }
+    .page-stat-value { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; }
+    .page-stat-label { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); }
+
+    /* LAYOUT WITH SIDEBAR */
+    .content-layout { max-width: 1400px; margin: 0 auto; padding: 60px 80px; display: grid; grid-template-columns: 200px 1fr; gap: 64px; align-items: start; }
+    .sidebar { position: sticky; top: 80px; }
+    .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .sidebar-nav a { font-size: 13px; color: var(--text-dim); text-decoration: none; padding: 8px 12px; border-radius: 3px; display: block; transition: color 0.15s, background 0.15s; border-left: 2px solid transparent; }
+    .sidebar-nav a.active { color: var(--accent) !important; border-left-color: var(--accent); background: var(--surface); }
+    .sidebar-nav a:hover { color: var(--white); background: var(--surface); border-left-color: var(--accent); }
+
+    /* CONTENT (no sidebar) */
+    .main { max-width: 1400px; margin: 0 auto; padding: 60px 80px; }
+    .content { min-width: 0; }
+
+    /* TYPOGRAPHY */
+    h2, .section-title { font-family: var(--font-head); font-size: clamp(22px, 3vw, 32px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--white); margin-bottom: 24px; }
+    h2 em, .section-title em { color: var(--accent); font-style: normal; }
+    h3 { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: var(--white); margin: 44px 0 14px; letter-spacing: -0.02em; }
+    h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin: 28px 0 10px; letter-spacing: -0.01em; }
+    p { font-size: 17px; color: var(--text-dim); line-height: 1.9; margin-bottom: 22px; }
+    p:last-child { margin-bottom: 0; }
+    .section-body { font-size: 16px; color: var(--text-dim); line-height: 1.85; margin-bottom: 32px; max-width: 660px; }
+    .section-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+    hr.rule { border: none; border-top: 1px solid var(--border); margin: 72px 0; }
+
+    /* CALLOUTS */
+    .insight { background: var(--surface); border-left: 3px solid var(--accent); padding: 24px 28px; border-radius: 0 3px 3px 0; margin: 32px 0; }
+    .insight-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .insight p { font-size: 16px; color: var(--text); font-style: italic; line-height: 1.85; margin-bottom: 0; }
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); padding: 20px 24px; border-radius: 0 3px 3px 0; margin: 24px 0; }
+    .callout p { font-size: 17px; color: var(--text); font-style: italic; line-height: 1.7; }
+    .script { background: var(--ink); border: 1px solid var(--accent-border); border-radius: 4px; padding: 28px 32px; margin: 32px 0; }
+    .script-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .script p { font-size: 16px; color: var(--text); line-height: 1.85; margin-bottom: 0; font-style: italic; }
+    .warn { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 24px 28px; margin: 32px 0; }
+    .warn-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+    .warn p { font-size: 16px; color: var(--text-dim); margin-bottom: 0; line-height: 1.85; }
+
+    /* CARDS */
+    .cards, .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 32px 0; }
+    .cards3, .card-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 32px 0; }
+    .card { background: var(--surface); padding: 28px; }
+    .card-lbl, .card-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .card h4 { margin: 0 0 8px; font-size: 14px; }
+    .card p { font-size: 15px; margin-bottom: 0; line-height: 1.75; }
+    .card-new { border-top: 2px solid var(--accent); }
+    .what-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 24px 0; }
+    .what-card { background: var(--surface); padding: 24px; }
+    .what-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .what-card p { font-size: 14px; color: var(--text-dim); margin-bottom: 0; line-height: 1.6; }
+
+    /* TAGS */
+    .tag { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; border: 1px solid var(--border); color: var(--text-dim); padding: 5px 12px; border-radius: 2px; }
+    .tag-accent { border-color: var(--accent-border); color: var(--accent); background: var(--accent-dim); }
+
+    /* TABLES */
+    table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+    thead { background: var(--ink); }
+    th { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    td { padding: 13px 16px; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--ink); }
+    .td-accent { color: var(--accent); font-family: var(--font-head); font-weight: 700; }
+    .td-white { color: var(--white); font-weight: 500; }
+
+    /* MARKET / SCENARIO / ROADMAP / COMPETITIVE */
+    .market-grid, .scenario-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 32px; }
+    .market-card, .scenario { background: var(--surface); padding: 32px 28px; }
+    .market-number, .scenario-value { font-family: var(--font-head); font-size: 36px; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; margin-bottom: 4px; }
+    .market-label, .scenario-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+    .market-card p, .scenario p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .roadmap { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .roadmap-item { background: var(--surface); padding: 24px 28px; display: grid; grid-template-columns: 80px 1fr; gap: 24px; align-items: start; }
+    .roadmap-date { font-family: var(--font-head); font-size: 13px; font-weight: 800; color: var(--accent); }
+    .roadmap-title { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .roadmap-desc { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .competitive-grid, .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+    .comp-card, .founder { background: var(--surface); padding: 28px; }
+    .comp-vs { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #f87171; margin-bottom: 8px; }
+    .comp-card h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .comp-card p { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+    .comp-our { border-top: 2px solid var(--accent); }
+    .comp-our .comp-vs { color: var(--accent); }
+    .founder-name { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 4px; }
+    .founder-role { font-size: 13px; color: var(--accent); margin-bottom: 20px; }
+    .founder-bio { font-size: 15px; color: var(--text-dim); line-height: 1.7; margin-bottom: 20px; }
+    .founder-list { list-style: none; }
+    .founder-list li { font-size: 13px; color: var(--text-dim); padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; gap: 10px; }
+    .founder-list li:last-child { border-bottom: none; }
+    .founder-list li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
+
+    /* RISK BADGES */
+    .risk-low { color: #4ade80; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(74,222,128,0.10); border: 1px solid rgba(74,222,128,0.25); padding: 2px 7px; border-radius: 2px; }
+    .risk-med { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 2px 7px; border-radius: 2px; }
+    .risk-high { color: #f87171; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(248,113,113,0.10); border: 1px solid rgba(248,113,113,0.25); padding: 2px 7px; border-radius: 2px; }
+    .td-new { color: #60a5fa; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(96,165,250,0.10); border: 1px solid rgba(96,165,250,0.25); padding: 2px 7px; border-radius: 2px; display: inline-block; vertical-align: middle; margin-left: 8px; }
+    .roadmap-new { border-left: 3px solid #60a5fa; }
+    .kpi-value { font-family: var(--font-head); font-size: 28px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
+    .kpi-value.accent { color: var(--accent); }
+    .kpi-label { font-size: 12px; color: var(--text-dim); letter-spacing: 0.04em; }
+    .kpi-row { display: flex; gap: 40px; flex-wrap: wrap; padding-top: 4px; }
+
+    /* SECTION */
+    .section { margin-bottom: 72px; }
+
+    /* MODULE TABS */
+    .subnav { display: flex; gap: 6px; flex-wrap: wrap; padding: 14px 0; margin-bottom: 36px; border-bottom: 1px solid var(--border); }
+    .subnav a { font-family: var(--font-head); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; padding: 6px 14px; border: 1px solid var(--border); border-radius: 2px; transition: color 0.15s, border-color 0.15s, background 0.15s; white-space: nowrap; }
+    .subnav a:hover, .subnav a.active { color: var(--accent); border-color: var(--accent-border); background: var(--accent-dim); }
+    .tab-section { display: none; }
+    .tab-section.active { display: block; }
+    .framework-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 3px; padding: 10px 16px; margin-bottom: 52px; font-size: 12px; font-weight: 600; color: var(--accent); }
+
+    /* MOD NAV */
+    .mod-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 48px; font-size: 13px; }
+    .mod-nav a { color: var(--text-dim); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+    .mod-nav a:hover { color: var(--accent); }
+    .mod-nav-mid { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 4px 12px; border-radius: 2px; }
+
+    /* CONSULTING CTA */
+    .consulting-strip { background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 4px; padding: 32px 36px; margin-top: 72px; display: flex; align-items: flex-start; gap: 28px; }
+    .cs-badge { background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .consulting-strip h3 { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--white); margin: 0 0 8px; letter-spacing: -0.01em; }
+    .consulting-strip p { font-size: 15px; color: var(--text-dim); margin-bottom: 12px; }
+    .consulting-strip a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-border); padding-bottom: 2px; }
+
+    /* BOTTOM NAV */
+    .bottom-nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-top: 1px solid var(--border); margin-top: 56px; }
+    .bn-link { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .bn-link:hover { color: var(--accent); }
+    .bn-cta a { font-family: var(--font-head); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--accent); color: var(--black); padding: 10px 20px; border-radius: 3px; text-decoration: none; }
+
+    /* CURRICULUM-SPECIFIC */
+    .audit-pathway { background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 4px; padding: 36px 40px; margin-bottom: 60px; display: flex; align-items: flex-start; gap: 32px; }
+    .audit-pathway-badge { background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .audit-pathway-body h3 { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .audit-pathway-body p { font-size: 15px; color: var(--text-dim); line-height: 1.85; margin-bottom: 16px; }
+    .audit-pathway-body a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-border); padding-bottom: 2px; }
+    .progress-bar { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 20px 28px; display: flex; align-items: center; gap: 20px; margin-bottom: 48px; }
+    .progress-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
+    .progress-track { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; width: 100%; }
+    .progress-count { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+    .intro-blocks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 56px; }
+    .intro-block { background: var(--surface); padding: 28px; }
+    .intro-block-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .intro-block p { font-size: 14px; color: var(--text-dim); line-height: 1.85; }
+    .phase-header { display: flex; align-items: baseline; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; margin-top: 56px; }
+    .phase-header:first-of-type { margin-top: 0; }
+    .phase-tag { font-family: var(--font-head); font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); background: var(--accent); padding: 4px 10px; border-radius: 2px; }
+    .phase-name { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: -0.02em; }
+    .phase-transfer { font-size: 12px; color: var(--text-dim); margin-left: auto; font-style: italic; }
+    .module-grid { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
+    .module-card { background: var(--surface); padding: 28px 32px; display: grid; grid-template-columns: 120px 1fr auto; gap: 28px; align-items: start; transition: background 0.15s; }
+    .module-card:hover { background: var(--ink); }
+    .module-num { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
+    .module-status { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 3px 8px; border-radius: 2px; display: inline-block; }
+    .module-title { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .module-desc { font-size: 15px; color: var(--text-dim); line-height: 1.7; margin-bottom: 14px; }
+    .module-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .module-instructors { font-size: 12px; color: var(--text-dim); margin-top: 10px; }
+    .module-link a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border: 1px solid var(--accent-border); padding: 10px 18px; border-radius: 3px; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+    .module-link a:hover { background: var(--accent); color: var(--black); }
+    .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .metric-card { background: var(--surface); padding: 32px 28px; }
+    .metric-type { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .metric-name { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .metric-desc { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .faq-grid { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .faq-item { background: var(--surface); padding: 28px 32px; }
+    .faq-q { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .faq-a { font-size: 15px; color: var(--text-dim); line-height: 1.7; }
+    .readiness-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .readiness-card { background: var(--surface); padding: 32px 28px; }
+    .readiness-status { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; display: inline-block; padding: 4px 10px; border-radius: 2px; }
+    .status-complete { color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); }
+    .status-progress { color: #60a5fa; background: rgba(96,165,250,0.1); border: 1px solid rgba(96,165,250,0.25); }
+    .status-blocking { color: #f87171; background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.25); }
+    .readiness-card h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .readiness-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .metrics-label { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
+    .metrics-title { font-family: var(--font-head); font-size: 32px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 12px; }
+    .metrics-title em { color: var(--accent); font-style: normal; }
+    .metrics-sub { font-size: 15px; color: var(--text-dim); margin-bottom: 40px; max-width: 520px; line-height: 1.7; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 32px 80px; display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; }
+    .footer-brand { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--text-dim); }
+    .footer-brand em { color: var(--accent); font-style: normal; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-meta { font-size: 12px; color: var(--text-dim); }
+
+    .vp-context { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 3px 3px 0; padding: 18px 24px; margin: 24px 0 0; }
+    .vp-context-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .vp-context p { font-size: 15px; color: var(--text-dim); line-height: 1.75; margin-bottom: 0; }
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-header { padding: 48px 20px 36px; }
+      .main { padding: 40px 20px; }
+      .content-layout { grid-template-columns: 1fr; padding: 40px 20px; }
+      .sidebar { display: none; }
+      .page-stats { flex-wrap: wrap; }
+      .what-grid, .cards, .cards3, .card-grid, .card-grid-3, .intro-blocks, .metrics-grid, .readiness-grid, .market-grid, .scenario-row, .founder-grid, .competitive-grid { grid-template-columns: 1fr; }
+      .module-card { grid-template-columns: 1fr; gap: 16px; }
+      .consulting-strip, .audit-pathway { flex-direction: column; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
+    }
+  
+    /* ============================================
+       SCROLL ENTRY ANIMATIONS
+    ============================================ */
+    .anim-fade {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.58s ease, transform 0.58s ease;
+    }
+    .anim-fade.visible { opacity: 1; transform: translateY(0); }
+
+    .anim-stagger > .anim-child {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.52s ease, transform 0.52s ease;
+    }
+    .anim-stagger.visible > .anim-child { opacity: 1; transform: translateY(0); }
+
+    .anim-slide {
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: opacity 0.48s ease, transform 0.48s ease;
+    }
+    .anim-slide.visible { opacity: 1; transform: translateX(0); }
+
+    /* Nav link underline sweep */
+    .nav-links a { position: relative; }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Button shimmer */
+    .btn-primary, .nav-cta {
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::after, .nav-cta::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+    .btn-primary:hover::after, .nav-cta:hover::after { transform: translateX(100%); }
+
+    /* Page header on-load animation */
+    @keyframes mHeroUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+    .page-eyebrow  { animation: mHeroUp 0.55s ease 0.05s both; }
+    .page-title    { animation: mHeroUp 0.6s  ease 0.15s both; }
+    .page-sub      { animation: mHeroUp 0.6s  ease 0.27s both; }
+    .page-stats    { animation: mHeroUp 0.65s ease 0.22s both; }
+    .breadcrumb    { animation: mHeroUp 0.5s  ease 0s    both; }
+
+    /* Card hover */
+    .card {
+      transition: background 0.2s, transform 0.22s;
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.28s ease;
+    }
+    .card:hover::before { transform: scaleX(1); }
+    .card:hover { background: #202020; transform: translateY(-3px); }
+
+    /* Insight / callout hover */
+    .insight, .callout {
+      transition: background 0.2s;
+    }
+    .insight:hover, .callout:hover { background: #1e1e1e; }
+
+    /* Consulting strip hover */
+    .consulting-strip { transition: background 0.2s; }
+    .consulting-strip:hover { background: rgba(232,197,71,0.16); }
+
+    /* Page stat hover */
+    .page-stat { transition: background 0.2s; }
+    .page-stat:hover { background: #1e1e1e; }
+
+    /* Bottom nav hover */
+    .bn-link { transition: background 0.2s, color 0.2s; }
+    .bn-link:hover { background: #1e1e1e; }
+
+  </style>
 </head>
 <body>
+
 <nav>
   <a href="index.html" class="nav-logo">The Multiplier Method<em>™</em></a>
   <ul class="nav-links">
-    <li><a href="index.html#who">Who It's For</a></li><li><a href="index.html#program">Program</a></li>
-    <li><a href="index.html#methodology">Methodology</a></li><li><a href="index.html#pricing">Pricing</a></li>
-    <li><a href="index.html#founders">Instructors</a></li><li><a href="curriculum.html" class="active">Curriculum</a></li>
+    <li><a href="index.html#who">Who It's For</a></li>
+    <li><a href="index.html#program">The Program</a></li>
+    <li><a href="index.html#methodology">Methodology</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="index.html#founders">Instructors</a></li>
+    <li><a href="curriculum.html">Curriculum</a></li>
     <li><a href="business_plan.html">Business Plan</a></li>
   </ul>
   <a href="index.html#apply" class="nav-cta">Enroll Now</a>
 </nav>
-<div class="page-wrap">
-  <div class="breadcrumb"><a href="index.html">The Multiplier Method</a><span>&rsaquo;</span><a href="curriculum.html">Curriculum Binder</a><span>&rsaquo;</span><span>Module 10</span></div>
-  <div class="eyebrow">The Multiplier Method &middot; Phase 3 &middot; Module 10</div>
-  <h1>Prospecting <em>Through Partners.</em></h1>
-  <p class="module-sub">How to jointly prospect and source deals through the channel. The joint prospecting call structure. Getting partners to open their accounts to you. Using Partner Fit Filter language in joint prospecting so you're not just tagging along on calls.</p>
-  <div class="stats"><div class="stat"><div class="stat-val">Joint</div><div class="stat-lbl">Prospecting Structure</div></div><div class="stat"><div class="stat-val">Partner</div><div class="stat-lbl">Account Access</div></div><div class="stat"><div class="stat-val">Pain</div><div class="stat-lbl">Funnel in Outbound</div></div><div class="stat"><div class="stat-val">Zero</div><div class="stat-lbl">Tagging Along</div></div></div>
-  <div class="mod-nav">
-    <a href="module_09.html">&larr; Module 09</a>
-    <span class="mod-nav-mid">Phase 3 &middot; Partner Fit Filter · Joint Prospecting</span>
-    <a href="module_11.html">Module 11 &rarr;</a>
-  </div>
 
-  <nav class="subnav">
-    <a href="#" data-target="partner-sourced-pipeline-doesn-t-appear">Creating Partner Pipeline</a>
-    <a href="#" data-target="the-joint-prospecting-framework-from-acc">The Prospecting Framework</a>
-    <a href="#" data-target="getting-partners-to-open-their-accounts">Earning Account Access</a>
-    <a href="#" data-target="field-notes-the-prospecting-behaviors-th">Habits That Compound</a>
-  </nav>
-  <div class="fw-badge"><span>&or;</span><span>The RELAY Framework&trade; &mdash; Partner Fit Filter · Joint Prospecting</span></div>
-<div class="section" id="partner-sourced-pipeline-doesn-t-appear"><h2>Partner-sourced pipeline doesn't appear on its own. <em>You have to prospect to create it.</em></h2>
-<p>The assumption that partners will proactively bring you deals is one of the most expensive beliefs in channel sales. Partners have dozens of vendors competing for their attention. Without a structured prospecting motion — one that makes it easy for partners to identify opportunities and brings you into the conversation early — the pipeline you get from partners is whatever they happen to think of when a deal randomly surfaces.</p>
-<p>Joint prospecting flips that equation. Instead of waiting for partners to bring you deals, you proactively work their account base to surface opportunities that neither of you would have identified alone. The partner brings the customer relationship. You bring the Partner Fit Filter diagnostic. Together, you find problems that your product solves — before the customer has started a formal evaluation, before they've issued an RFP, before a competitor has gotten there first.</p>
-<div class="insight"><div class="insight-lbl">The Core Insight</div><p><strong>The best co-sell deals don't come from partners responding to customer requests — they come from joint prospecting that uncovers customer pain before the customer has formalized it as an initiative. That's where you win before the competition starts.</strong></p></div></div>
-<div class="section" id="the-joint-prospecting-framework-from-acc"><h2>The joint prospecting framework &mdash; <em>from account selection through first call.</em></h2>
-<h3>Step 1 — Account Selection</h3>
-<p>Work with your partner to identify 10–20 customers in their existing base who match the profile of your best-fit buyers. The selection criteria should be specific: industry vertical, company size, technology stack, and ideally a known pain signal (recent compliance requirement, a public announcement about digital transformation, a competitor win they lost). Vague account selection produces vague conversations.</p>
-<div class="script"><div class="script-lbl">Account Selection Conversation With Partner</div><p>"I want to work your book of business with you — not wait for deals to come to us. Let's build a list of 15 accounts in your base that look like our best-fit customers. I'll tell you the profile, you tell me which of your accounts fit it, and we'll prioritize the top 10 to call together this month. Can we set aside 30 minutes this week to do that mapping?"</p></div>
-<h3>Step 2 — Pre-Call Preparation</h3>
-<p>Before any joint prospecting call, prepare the partner on how to open the conversation. The partner leads with the customer relationship. You lead with the Partner Fit Filter. The roles should be clear before the call starts, not negotiated on it.</p>
-<h3>Step 3 — The Joint Prospecting Call</h3>
-<div class="script"><div class="script-lbl">Joint Prospecting Call Structure</div><p><strong>Partner opens (2 min):</strong> "I wanted to bring [vendor AE] in today because we've been seeing a lot of companies like yours dealing with [specific challenge] — and I wanted to understand whether that's something you're experiencing."<br/><br/><strong>You run the Partner Fit Filter (15 min):</strong> Start with the surface problem, move to business impact, listen for Level 3 pain. Let the customer do the talking.<br/><br/><strong>Both align on next step (5 min):</strong> Set a CAA for the next conversation before you hang up.</p></div></div>
-<div class="section" id="getting-partners-to-open-their-accounts"><h2>Getting partners to open their accounts to you &mdash; <em>and keeping that access.</em></h2>
-<p>Partners are protective of their customer relationships — and for good reason. Every vendor AE who has come before you has made promises about not selling around them, not pulling deals direct, and not using their customer introductions to circumvent the partnership. Many of those promises have been broken. The access you get to a partner's account base is earned, not given.</p>
-<h3>Earning Account Access</h3>
-<div class="cards">
-  <div class="card"><div class="card-lbl">What Earns Access</div><h4>Demonstrating you make them better</h4><p>When a partner sees that your joint prospecting produces deals they couldn't have found alone, they open more accounts. Every successful joint call is an investment that pays interest in future access. Document the outcomes and reference them explicitly.</p></div>
-  <div class="card"><div class="card-lbl">What Loses Access</div><h4>Bypassing the partner</h4><p>Going direct to the customer without the partner's knowledge — for any reason — destroys the prospecting relationship permanently. If a customer reaches out to you directly on a partner account, the first call you make is to the partner, not back to the customer.</p></div>
+<!-- PAGE HEADER -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="page-header">
+<div class="breadcrumb"><a href="index.html">The Multiplier Method</a><span>&rsaquo;</span><a href="curriculum.html">Curriculum Binder</a><span>&rsaquo;</span><span>Module 10</span></div>
+  <div class="page-eyebrow">The Multiplier Method &middot; Phase 3 &middot; Module 10</div>
+  <h1 class="page-title">Partner QBR Mastery: <em>Real Commitments.</em></h1>
+  <p class="page-sub">Running RELAY-based quarterly business reviews that produce specific, named commitments — not slide decks that get filed and forgotten. The QBR structure that makes partners accountable and makes you the vendor they actually prepare for.</p>
+  <div class="page-stats"><div class="page-stat"><div class="page-stat-value">QBR</div><div class="page-stat-label">Opens With CAA</div></div><div class="page-stat"><div class="page-stat-value">Named</div><div class="page-stat-label">Commitments Required</div></div><div class="page-stat"><div class="page-stat-value">Zero</div><div class="page-stat-label">Slide-Deck Theater</div></div><div class="page-stat"><div class="page-stat-value">24hr</div><div class="page-stat-label">Post-QBR Follow-Up</div></div></div>
+  
+
+  
+  <div class="vp-context">
+    <div class="vp-context-label">For the VP of Channel</div>
+    <p>This module replaces the slide-deck QBR with a working session that produces named commitments. After this module, your AEs' QBRs generate action items with owner names and deadlines — and you have a documented accountability loop you can reference at every monthly sync.</p>
+  </div>
+  <div class="fw-badge"><span>&or;</span><span>The RELAY Framework&trade; &mdash; The Multiplier Method QBR · Co-Sell Alignment Agreement</span></div>
+  </div>
+</div>
+
+<!-- MODULE INTRO VIDEO -->
+<div style="background:#111; border-bottom:1px solid var(--border); padding:48px 80px;">
+  <div style="max-width:860px; margin:0 auto;">
+    <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:12px;">Module 10 · Intro Video</div>
+    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:4px; background:#0a0a0a; border:1px solid var(--border);">
+      <!-- PASTE HEYGEN EMBED CODE HERE when video is recorded -->
+      <!-- Speaker: Natalie | Script in: facilitator/video_scripts_intros_c.html | ~2 min 35 sec -->
+      <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;">
+        <div style="font-family:'Crimson Pro',serif; font-size:11px; text-transform:uppercase; letter-spacing:0.16em; color:#444;">Recording in Progress</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:800; color:#333; letter-spacing:-0.02em;">Module 10 · Natalie</div>
+        <div style="font-family:'Crimson Pro',serif; font-size:13px; color:#3a3a3a;">Partner QBR Mastery · ~2 min 35 sec</div>
+      </div>
+    </div>
+    <p style="font-family:'Crimson Pro',serif; font-size:13px; color:var(--text-dim); margin-top:12px; line-height:1.6;">2–3 minute intro. Delivered by Natalie via HeyGen AI avatar. Sets the frame before the live session begins.</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="content-layout">
+<aside class="sidebar">
+  <ul class="sidebar-nav">
+    <li><a href="#" data-sidebar="most-qbrs-are-expensive-slide-presentati">Why QBRs Fail</a></li>
+    <li><a href="#" data-sidebar="a-
+<h3>Pre-QBR Diagnostic: The Regional Heatmap</h3>
+<p><em>Carl brings the retail VAR perspective — running QBRs with CDW, SHI, and Insight at Toshiba. Natalie brings the security channel perspective — building QBR cadences at Expel, Mimecast, and Okta. This framework works in both worlds because the underlying structure is the same: diagnose before you prescribe.</em></p>
+<p>Every QBR should open with a heatmap review before you look at a single revenue number. Color-code every region and every named partner rep into three categories:</p>
+<div class="cards3">
+  <div class="card"><div class="card-lbl">GREEN — Invest</div><h4>Champion regions</h4><p>Active pipeline, engaged reps, deals progressing through stages. Double down here. These are your proof points for expanding the partnership.</p></div>
+  <div class="card"><div class="card-lbl">YELLOW — Seed</div><h4>Watch closely</h4><p>Some activity but inconsistent. Needs targeted enablement or a specific co-sell win to tip into green. Set a 60-day checkpoint.</p></div>
+  <div class="card"><div class="card-lbl">RED — Exit</div><h4>Fail fast</h4><p>No activity, no engagement, no pipeline. Stop investing here. Reallocate the time and resources to green and yellow regions.</p></div>
+</div>
+<div class="script" style="margin-top:24px"><div class="script-lbl">QBR Opening with Heatmap</div><p>"Before we look at revenue, I want to walk through the regional heatmap. Here's where we're investing, here's where we're seeding, and here's where we're not seeing return. I want your input on whether these assessments match what you're seeing on the ground — because that determines where we focus next quarter."</p></div>
+<h3>The Top 20 — Where 80% of Revenue Lives</h3>
+<p>Within your top 5–10 partners, identify the 20 individual partner reps driving 80% of your revenue. These are the people who actually sell your product — not the partner organization, not the executive sponsor, but the reps who put your SKU on a quote. Your QBR should reference these people by name.</p>
+<div class="script"><div class="script-lbl">QBR Agenda Item: The Top 20 Review</div><p>"Let's look at our Top 20 reps by revenue this quarter. Who's moved up? Who's dropped off? What changed? And for the reps who went dark — do we know why, and what's the recovery plan?"</p></div>
+
+90-minute-qbr-that-produces-accountabi">The 90-Minute Structure</a></li>
+    <li><a href="#" data-sidebar="the-qbr-conversations-most-channel-aes-a">Conversations AEs Avoid</a></li>
+    <li><a href="#" data-sidebar="the-pre-qbr-and-post-qbr-moves-that-make">Before and After the QBR</a></li>
+    <li style="padding-top:12px; border-top:1px solid var(--border); margin-top:12px;">
+    <a href="module_09.html">← Module 09</a>
+    <a href="curriculum.html">Curriculum →</a>
+    <a href="module_11.html">Module 11 →</a>
+    </li>
+  </ul>
+</aside>
+<div class="content">
+
+<div class="tab-section" id="most-qbrs-are-expensive-slide-presentati"><h2>Most QBRs are expensive slide presentations <em>that produce no accountability.</em></h2>
+<p>The average channel QBR follows the same pattern: AE presents numbers, partner nods, both parties agree things will be better next quarter, no specific commitments are made, nothing changes. The Multiplier Method QBR breaks this pattern at every step.</p>
+<p>The problem with the traditional QBR format is structural: it's designed for presentation, not accountability. The AE presents their slides. The partner presents theirs. Everyone is polite. Difficult conversations are avoided. No one commits to anything specific enough to be measured. Three months later, the same conversation happens again.</p>
+<div class="insight"><div class="insight-lbl">The Core Insight</div><p><strong>A QBR that doesn't produce named commitments is a status update with overhead. If you leave without knowing exactly who is doing what by when, you didn't run a QBR — you ran a meeting.</strong></p></div>
+<div class="cards3">
+  <div class="card"><div class="card-lbl">What You'll Learn</div><p>The Multiplier Method QBR structure from CAA open through commitment close. How to have the honest conversation about why last quarter missed. How to get real commitments without threatening the relationship.</p></div>
+  <div class="card"><div class="card-lbl">What You'll Practice</div><p>Opening a QBR with a CAA. Running an honest last-quarter debrief. Driving to specific, named action items with dates and owners. Closing the QBR with a confirmed next step.</p></div>
+  <div class="card"><div class="card-lbl">What Changes After</div><p>Your QBRs become the partner meeting they actually prepare for. Partner accountability increases because commitments are explicit. Your forecast accuracy improves because you're hearing honest assessments instead of aspirational ones.</p></div>
 </div></div>
-<div class="section" id="field-notes-the-prospecting-behaviors-th"><h2>Field notes: The prospecting behaviors that <em>compound over time.</em></h2>
-<h3>Joint Prospecting as a QBR Input</h3>
-<p>Every joint prospecting session should produce a named list of accounts with the pain signals identified and the next action agreed. This list becomes your QBR input: "Here are the accounts we prospected last quarter, here's what we found, here's what closed, and here's what's still in motion." This transforms the QBR from a retrospective into a forward-looking prospecting review — and gives the partner a reason to prioritize the next joint session.</p>
-<h3>Scaling the Motion</h3>
-<p>Once a joint prospecting rhythm is established with one rep at a partner, it becomes a playbook for the entire team. Document what's working — the account selection criteria, the call structure, the pain signals that convert — and share it with the partner's manager. Successful joint prospecting with one rep is the proof point for expanding the motion to the entire territory.</p>
-<p class="instructor-line" style="font-size:12px;color:var(--text-dim);margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">&bull; Carl &mdash; Joint prospecting across large VAR territories &middot; &bull; Natalie &mdash; Prospecting with MSSP and SI partner reps &middot; The Multiplier Method Partner Fit Filter applied to outbound prospecting</p></div>
+<div class="tab-section" id="a-90-minute-qbr-that-produces-accountabi"><h2>A 90-minute QBR that produces <em>accountability instead of theater.</em></h2>
+<div class="script"><div class="script-lbl">Section 1 — CAA Open (10 min)</div><p>"Before we get into the data, I want to set up what I'm hoping we accomplish today. I want to look at last quarter honestly — not defensively, just accurately — and I want us to leave with a specific plan for next quarter that we're both committed to. That means named action items with dates and owners. By the end, I want a commitment list we both sign off on. Is that the kind of QBR you're prepared for today?"</p></div>
+<h3>Section 2 — Last Quarter Debrief (30 min)</h3>
+<p>Review the numbers without spin. If you missed, say you missed. Then ask why — and let the partner answer first. Present the data and ask the partner to diagnose before you offer your own assessment. "Here's what we agreed on last quarter. Here's what happened. What's your read on the gap?"</p>
+<p>Pull up the commitment list from the last QBR. Read each item aloud. Was it completed, partially completed, or missed? No editorializing — just the facts. For each miss, ask: "What was the root cause?" You're building a shared understanding of the friction, not assigning blame.</p>
+<h3>Section 3 — Next Quarter Planning (30 min)</h3>
+<p>Based on the debrief diagnosis, build a plan that addresses the actual root causes. Each action item must have a name, a date, and a success criterion. "We'll try to do more joint calls" is not an action item. "We'll schedule two joint customer calls per week starting the first week of the quarter, with [rep name] as the owner" is an action item.</p>
+<div class="script"><div class="script-lbl">Section 4 — Commitment Close (10 min)</div><p>"Before we finish, I want to read back what we've committed to and make sure we're both clear. [Read each item.] Are you comfortable committing to these specifically? I'll send you this list today and I'll reference it at every monthly sync and at our next QBR. And from my side, I'm committing to [your items]. Does that work?"</p></div></div>
+<div class="tab-section" id="the-qbr-conversations-most-channel-aes-a"><h2>The QBR conversations most channel AEs avoid &mdash; <em>and why you shouldn't.</em></h2>
+<h3>The Partner Who Wants to Skip the Debrief</h3>
+<p>Some partners try to jump straight to "so what are we doing next quarter?" They don't want to look at last quarter's misses in detail. This is a red flag — and a reason to stay with the debrief, not skip it.</p>
+<div class="script"><div class="script-lbl">Response to "Let's Just Focus Forward"</div><p>"I hear you — and I want to focus forward too. But I've found that when we skip the honest look at what happened, we end up planning the same thing and getting the same result. Can we spend just 15 minutes on the diagnosis? I think we'll plan much better after."</p></div>
+<h3>The Partner Who Won't Commit to Specifics</h3>
+<div class="script"><div class="script-lbl">Driving to Specifics</div><p>When a partner says "we'll try to bring in more opportunities": "I appreciate that — let's make it more specific so we can both track it. If we were going to say that in a way I could measure at the next QBR, what would that look like exactly? Is it number of deals registered? Number of joint calls? A specific revenue number?" Keep asking until you have something measurable.</p></div></div>
+<div class="tab-section" id="the-pre-qbr-and-post-qbr-moves-that-make"><h2>The pre-QBR and post-QBR moves that <em>make the meeting matter.</em></h2>
+<h3>The Pre-QBR Send</h3>
+<p>Send the data package at least 48 hours before the QBR: last quarter's commitment list, pipeline summary, revenue and deal metrics, and the proposed agenda with your CAA stated in writing. Partners who show up to a Multiplier Method QBR prepared are more willing to have honest conversations.</p>
+<h3>The Post-QBR Follow-Through</h3>
+<p>Within 24 hours of the QBR, send a written summary of every commitment made — who owns it, what it is, and when it's due. Reference this document at every monthly sync between now and the next QBR. Partners who know you track commitments start taking them more seriously in the moment they make them.</p>
+<div class="insight"><div class="insight-lbl">The Accountability Loop</div><p>QBR commitments reviewed at monthly syncs. Monthly syncs reference QBR commitments. Next QBR opens with the previous QBR's commitment list. This loop turns a once-a-quarter conversation into a continuous accountability system. Partners who experience this loop for two consecutive quarters almost always produce more than partners in a traditional QBR program.</p></div>
+<p class="instructor-line" style="font-size:12px;color:var(--text-dim);margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">&bull; Carl &mdash; QBR patterns from the vendor side across 9 major VARs &middot; &bull; Natalie &mdash; What makes a QBR worth a reseller's time &middot; The Multiplier Method CAA and accountability methodology</p></div>
   <div class="consulting-strip">
-    <div class="cs-badge">Consulting Pathway</div>
+    <div class="cs-badge">Channel Audit</div>
     <div>
-      <h3>Are your partners actively prospecting with you — or passively waiting for deals to surface?</h3>
-      <p>A Channel Strategy Audit surfaces your specific gaps and maps them to the modules that fix them. 2-hour session with Carl or Natalie. Flat fee: $2,500. Designed to feed directly into the curriculum.</p>
-      <a href="index.html#apply">Request a Channel Strategy Audit &rarr;</a>
+      <h3>Want a QBR template built for your partner ecosystem?</h3>
+      <p>The Channel Strategy Audit delivers a ready-to-run QBR agenda with your regional heatmap, Top 20 framework, and commitment tracking built in.</p>
+      <a href="index.html#apply">Request a Channel Strategy Audit — $2,500 →</a>
     </div>
   </div>
   <div class="bottom-nav">
@@ -134,34 +475,94 @@
     <div class="bn-cta"><a href="index.html#apply">Enroll Now</a></div>
     <a href="module_11.html" class="bn-link">Module 11 &rarr;</a>
   </div>
+
 </div>
+</div>
+
 <footer>
-  <div class="brand">The Multiplier Method<em>™</em> &middot; Module 10 &middot; Prospecting Through Partners</div>
-  <div class="meta">Carl &amp; Natalie Clendenin &middot; Partna Company LLC &middot; 2026</div>
+  <div class="footer-brand">The Multiplier Method<em>™</em></div>
+  <div class="footer-links">
+    <a href="curriculum.html">Curriculum</a>
+    <a href="business_plan.html">Business Plan</a>
+    <a href="index.html#apply">Enroll</a>
+  </div>
+  <div class="footer-meta">© 2026 Partna Company LLC · Grayslake, IL</div>
 </footer>
-  <script>
-    const tabs = document.querySelectorAll('.subnav a');
-    const sections = document.querySelectorAll('.section');
+
+<script>
+    const sections = document.querySelectorAll('.tab-section');
+    const sidebarLinks = document.querySelectorAll('.sidebar-nav a[data-sidebar]');
 
     function showSection(id) {
       sections.forEach(s => s.classList.remove('active'));
-      tabs.forEach(t => t.classList.remove('active'));
+      sidebarLinks.forEach(l => l.classList.remove('active'));
       const target = document.getElementById(id);
       if (target) target.classList.add('active');
-      const activeTab = document.querySelector(`.subnav a[data-target="${id}"]`);
-      if (activeTab) activeTab.classList.add('active');
+      const activeLink = document.querySelector(`.sidebar-nav a[data-sidebar="${id}"]`);
+      if (activeLink) activeLink.classList.add('active');
     }
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', e => {
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', e => {
         e.preventDefault();
-        showSection(tab.dataset.target);
+        showSection(link.dataset.sidebar);
       });
     });
 
-    // Show first section on load
-    const firstTab = document.querySelector('.subnav a');
-    if (firstTab) showSection(firstTab.dataset.target);
+    if (sidebarLinks.length > 0) {
+      showSection(sidebarLinks[0].dataset.sidebar);
+    }
   </script>
+
+<script>
+(function() {
+  var FADE    = ['.section-label', '.consulting-strip', '.callout', '.insight', '.instructor-line', '.script', '.bottom-nav'];
+  var STAGGER = ['.cards', '.cards3', '.card-grid', '.card-grid-3', '.page-stats'];
+  var SLIDE   = ['.phase'];
+
+  function q(sel) { return Array.from(document.querySelectorAll(sel)); }
+
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // Fade
+    FADE.forEach(function(sel) {
+      q(sel).forEach(function(el) { el.classList.add('anim-fade'); });
+    });
+
+    // Stagger containers
+    STAGGER.forEach(function(sel) {
+      q(sel).forEach(function(container) {
+        container.classList.add('anim-stagger');
+        Array.from(container.children).forEach(function(child, i) {
+          child.classList.add('anim-child');
+          child.style.transitionDelay = (i * 0.1) + 's';
+        });
+      });
+    });
+
+    // Slide
+    q('.phases').forEach(function(phases) {
+      Array.from(phases.querySelectorAll(SLIDE.join(','))).forEach(function(el, i) {
+        el.classList.add('anim-slide');
+        el.style.transitionDelay = (i * 0.08) + 's';
+      });
+    });
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+    document.querySelectorAll('.anim-fade, .anim-stagger, .anim-slide').forEach(function(el) {
+      observer.observe(el);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>

@@ -4,225 +4,356 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Curriculum Binder — The Multiplier Method</title>
-  <meta name="description" content="All 12 modules of the The Multiplier Method RELAY-based channel sales training curriculum. Every module built, every framework adapted for the indirect channel." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --black: #0a0a0a;
-      --ink: #171717;
-      --surface: #1c1c1c;
-      --border: #242424;
-      --muted: #333333;
-      --text-dim: #a8a8a8;
-      --text: #d4d4d4;
-      --white: #f5f5f5;
+      --black: #0a0a0a; --ink: #171717; --surface: #1c1c1c;
+      --border: #242424; --muted: #333333;
+      --text-dim: #a8a8a8; --text: #d4d4d4; --white: #f5f5f5;
       --accent: #e8c547;
-      --accent-dim: rgba(232,197,71,0.10);
-      --accent-border: rgba(232,197,71,0.28);
+      --accent-dim: rgba(232,197,71,0.12);
+      --accent-border: rgba(232,197,71,0.3);
       --font-head: 'Cormorant Garamond', serif;
       --font-body: 'Crimson Pro', serif;
     }
-
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--black);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size:18px; line-height:1.75;
-      -webkit-font-smoothing: antialiased;
-    }
+    body { background: var(--black); color: var(--text); font-family: var(--font-body); font-size: 18px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
 
     /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(10,10,10,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 40px;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 60px;
-    }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; align-items: center; gap: 32px; height: 60px; }
     .nav-logo { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
     .nav-logo em { color: var(--accent); font-style: normal; }
     .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a { font-size:14px; font-weight: 500; color: var(--text-dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.15s; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.15s; }
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
-    .nav-cta { background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 18px; border-radius: 3px; text-decoration: none; transition: opacity 0.15s; }
+    .nav-cta { margin-left: auto; background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 18px; border-radius: 3px; text-decoration: none; transition: opacity 0.15s; }
     .nav-cta:hover { opacity: 0.85; }
 
     /* PAGE HEADER */
-    .page-header {
-      border-bottom: 1px solid var(--border);
-      padding: 72px 40px 56px;
-      max-width: 1100px; margin: 0 auto;
-    }
-    .breadcrumb {
-      font-size:13px; color: var(--text-dim);
-      margin-bottom: 24px; display: flex; align-items: center; gap: 8px;
-    }
+    .page-header { border-bottom: 1px solid var(--border); padding: 72px 80px 56px; max-width: 1400px; margin: 0 auto; }
+    .breadcrumb { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
     .breadcrumb a { color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
     .breadcrumb a:hover { color: var(--accent); }
     .breadcrumb span { color: var(--muted); }
-    .page-eyebrow { font-size:12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
-    .page-title { font-family: var(--font-head); font-size: clamp(40px, 5vw, 60px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: var(--white); margin-bottom:28px; }
+    .page-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .page-title { font-family: var(--font-head); font-size: clamp(36px, 5vw, 54px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: var(--white); margin-bottom: 28px; }
     .page-title em { color: var(--accent); font-style: normal; }
-    .page-sub { font-size: 17px; color: var(--text-dim); max-width: 640px; line-height:1.9; margin-bottom: 36px; }
-    .page-stats { display: flex; gap: 40px; flex-wrap: wrap; }
-    .page-stat-value { font-family: var(--font-head); font-size: 28px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
-    .page-stat-label { font-size: 12px; color: var(--text-dim); letter-spacing: 0.04em; }
+    .page-sub { font-size: 18px; color: var(--text-dim); max-width: 640px; line-height: 1.8; margin-bottom: 36px; }
+    .page-stats { display: flex; gap: 0; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .page-stat { flex: 1; background: var(--surface); padding: 20px 24px; border-right: 1px solid var(--border); }
+    .page-stat:last-child { border-right: none; }
+    .page-stat-value { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; }
+    .page-stat-label { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); }
 
-    /* MAIN LAYOUT */
-    .main { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
+    /* LAYOUT WITH SIDEBAR */
+    .content-layout { max-width: 1400px; margin: 0 auto; padding: 60px 80px; display: grid; grid-template-columns: 200px 1fr; gap: 64px; align-items: start; }
+    .sidebar { position: sticky; top: 80px; }
+    .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .sidebar-nav a { font-size: 13px; color: var(--text-dim); text-decoration: none; padding: 8px 12px; border-radius: 3px; display: block; transition: color 0.15s, background 0.15s; border-left: 2px solid transparent; }
+    .sidebar-nav a:hover { color: var(--white); background: var(--surface); border-left-color: var(--accent); }
 
-    /* CONSULTING AUDIT PATHWAY */
-    .audit-pathway {
-      background: var(--accent-dim);
-      border: 1px solid var(--accent-border);
-      border-radius: 4px; padding: 36px 40px;
-      margin-bottom: 60px;
-      display: flex; align-items: flex-start; gap: 32px;
-    }
-    .audit-pathway-badge {
-      background: var(--accent); color: var(--black);
-      font-family: var(--font-head); font-weight: 800;
-      font-size:12px; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 6px 12px; border-radius: 2px; white-space: nowrap;
-      flex-shrink: 0; margin-top: 2px;
-    }
-    .audit-pathway-body h3 { font-family: var(--font-head); font-size:24px; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -0.02em; }
-    .audit-pathway-body p { font-size: 14px; color: var(--text-dim); line-height:1.85; margin-bottom: 16px; }
-    .audit-pathway-body a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-border); padding-bottom: 2px; transition: border-color 0.15s; }
-    .audit-pathway-body a:hover { border-color: var(--accent); }
+    /* CONTENT (no sidebar) */
+    .main { max-width: 1400px; margin: 0 auto; padding: 60px 80px; }
+    .content { min-width: 0; }
 
-    /* PROGRESS BAR */
-    .progress-bar {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 4px; padding: 20px 28px;
-      display: flex; align-items: center; gap: 20px;
-      margin-bottom: 48px;
-    }
-    .progress-label { font-size:12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
+    /* TYPOGRAPHY */
+    h2, .section-title { font-family: var(--font-head); font-size: clamp(22px, 3vw, 32px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--white); margin-bottom: 24px; }
+    h2 em, .section-title em { color: var(--accent); font-style: normal; }
+    h3 { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: var(--white); margin: 44px 0 14px; letter-spacing: -0.02em; }
+    h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin: 28px 0 10px; letter-spacing: -0.01em; }
+    p { font-size: 17px; color: var(--text-dim); line-height: 1.9; margin-bottom: 22px; }
+    p:last-child { margin-bottom: 0; }
+    .section-body { font-size: 16px; color: var(--text-dim); line-height: 1.85; margin-bottom: 32px; max-width: 660px; }
+    .section-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+    hr.rule { border: none; border-top: 1px solid var(--border); margin: 72px 0; }
+
+    /* CALLOUTS */
+    .insight { background: var(--surface); border-left: 3px solid var(--accent); padding: 24px 28px; border-radius: 0 3px 3px 0; margin: 32px 0; }
+    .insight-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .insight p { font-size: 16px; color: var(--text); font-style: italic; line-height: 1.85; margin-bottom: 0; }
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); padding: 20px 24px; border-radius: 0 3px 3px 0; margin: 24px 0; }
+    .callout p { font-size: 17px; color: var(--text); font-style: italic; line-height: 1.7; }
+    .script { background: var(--ink); border: 1px solid var(--accent-border); border-radius: 4px; padding: 28px 32px; margin: 32px 0; }
+    .script-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .script p { font-size: 16px; color: var(--text); line-height: 1.85; margin-bottom: 0; font-style: italic; }
+    .warn { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 24px 28px; margin: 32px 0; }
+    .warn-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+    .warn p { font-size: 16px; color: var(--text-dim); margin-bottom: 0; line-height: 1.85; }
+
+    /* CARDS */
+    .cards, .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 32px 0; }
+    .cards3, .card-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 32px 0; }
+    .card { background: var(--surface); padding: 28px; }
+    .card-lbl, .card-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .card h4 { margin: 0 0 8px; font-size: 14px; }
+    .card p { font-size: 15px; margin-bottom: 0; line-height: 1.75; }
+    .card-new { border-top: 2px solid var(--accent); }
+    .what-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 24px 0; }
+    .what-card { background: var(--surface); padding: 24px; }
+    .what-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .what-card p { font-size: 14px; color: var(--text-dim); margin-bottom: 0; line-height: 1.6; }
+
+    /* TAGS */
+    .tag { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; border: 1px solid var(--border); color: var(--text-dim); padding: 5px 12px; border-radius: 2px; }
+    .tag-accent { border-color: var(--accent-border); color: var(--accent); background: var(--accent-dim); }
+
+    /* TABLES */
+    table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+    thead { background: var(--ink); }
+    th { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    td { padding: 13px 16px; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--ink); }
+    .td-accent { color: var(--accent); font-family: var(--font-head); font-weight: 700; }
+    .td-white { color: var(--white); font-weight: 500; }
+
+    /* MARKET / SCENARIO / ROADMAP / COMPETITIVE */
+    .market-grid, .scenario-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 32px; }
+    .market-card, .scenario { background: var(--surface); padding: 32px 28px; }
+    .market-number, .scenario-value { font-family: var(--font-head); font-size: 36px; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; margin-bottom: 4px; }
+    .market-label, .scenario-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+    .market-card p, .scenario p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .roadmap { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .roadmap-item { background: var(--surface); padding: 24px 28px; display: grid; grid-template-columns: 80px 1fr; gap: 24px; align-items: start; }
+    .roadmap-date { font-family: var(--font-head); font-size: 13px; font-weight: 800; color: var(--accent); }
+    .roadmap-title { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .roadmap-desc { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .competitive-grid, .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+    .comp-card, .founder { background: var(--surface); padding: 28px; }
+    .comp-vs { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #f87171; margin-bottom: 8px; }
+    .comp-card h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .comp-card p { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+    .comp-our { border-top: 2px solid var(--accent); }
+    .comp-our .comp-vs { color: var(--accent); }
+    .founder-name { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 4px; }
+    .founder-role { font-size: 13px; color: var(--accent); margin-bottom: 20px; }
+    .founder-bio { font-size: 15px; color: var(--text-dim); line-height: 1.7; margin-bottom: 20px; }
+    .founder-list { list-style: none; }
+    .founder-list li { font-size: 13px; color: var(--text-dim); padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; gap: 10px; }
+    .founder-list li:last-child { border-bottom: none; }
+    .founder-list li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
+
+    /* RISK BADGES */
+    .risk-low { color: #4ade80; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(74,222,128,0.10); border: 1px solid rgba(74,222,128,0.25); padding: 2px 7px; border-radius: 2px; }
+    .risk-med { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 2px 7px; border-radius: 2px; }
+    .risk-high { color: #f87171; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(248,113,113,0.10); border: 1px solid rgba(248,113,113,0.25); padding: 2px 7px; border-radius: 2px; }
+    .td-new { color: #60a5fa; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(96,165,250,0.10); border: 1px solid rgba(96,165,250,0.25); padding: 2px 7px; border-radius: 2px; display: inline-block; vertical-align: middle; margin-left: 8px; }
+    .roadmap-new { border-left: 3px solid #60a5fa; }
+    .kpi-value { font-family: var(--font-head); font-size: 28px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
+    .kpi-value.accent { color: var(--accent); }
+    .kpi-label { font-size: 12px; color: var(--text-dim); letter-spacing: 0.04em; }
+    .kpi-row { display: flex; gap: 40px; flex-wrap: wrap; padding-top: 4px; }
+
+    /* SECTION */
+    .section { margin-bottom: 72px; }
+
+    /* MODULE TABS */
+    .subnav { display: flex; gap: 6px; flex-wrap: wrap; padding: 14px 0; margin-bottom: 36px; border-bottom: 1px solid var(--border); }
+    .subnav a { font-family: var(--font-head); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; padding: 6px 14px; border: 1px solid var(--border); border-radius: 2px; transition: color 0.15s, border-color 0.15s, background 0.15s; white-space: nowrap; }
+    .subnav a:hover, .subnav a.active { color: var(--accent); border-color: var(--accent-border); background: var(--accent-dim); }
+    .tab-section { display: none; }
+    .tab-section.active { display: block; }
+    .framework-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 3px; padding: 10px 16px; margin-bottom: 52px; font-size: 12px; font-weight: 600; color: var(--accent); }
+
+    /* MOD NAV */
+    .mod-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 48px; font-size: 13px; }
+    .mod-nav a { color: var(--text-dim); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+    .mod-nav a:hover { color: var(--accent); }
+    .mod-nav-mid { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 4px 12px; border-radius: 2px; }
+
+    /* CONSULTING CTA */
+    .consulting-strip { background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 4px; padding: 32px 36px; margin-top: 72px; display: flex; align-items: flex-start; gap: 28px; }
+    .cs-badge { background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .consulting-strip h3 { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--white); margin: 0 0 8px; letter-spacing: -0.01em; }
+    .consulting-strip p { font-size: 15px; color: var(--text-dim); margin-bottom: 12px; }
+    .consulting-strip a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-border); padding-bottom: 2px; }
+
+    /* BOTTOM NAV */
+    .bottom-nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-top: 1px solid var(--border); margin-top: 56px; }
+    .bn-link { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .bn-link:hover { color: var(--accent); }
+    .bn-cta a { font-family: var(--font-head); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--accent); color: var(--black); padding: 10px 20px; border-radius: 3px; text-decoration: none; }
+
+    /* CURRICULUM-SPECIFIC */
+    .audit-pathway { background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 4px; padding: 36px 40px; margin-bottom: 60px; display: flex; align-items: flex-start; gap: 32px; }
+    .audit-pathway-badge { background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .audit-pathway-body h3 { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .audit-pathway-body p { font-size: 15px; color: var(--text-dim); line-height: 1.85; margin-bottom: 16px; }
+    .audit-pathway-body a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-border); padding-bottom: 2px; }
+    .progress-bar { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 20px 28px; display: flex; align-items: center; gap: 20px; margin-bottom: 48px; }
+    .progress-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
     .progress-track { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
     .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; width: 100%; }
     .progress-count { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--accent); white-space: nowrap; }
-
-    /* INTRO BLOCKS */
     .intro-blocks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 56px; }
-    .intro-block { background: var(--surface); padding: 28px 28px; }
-    .intro-block-label { font-size:12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-    .intro-block p { font-size: 13px; color: var(--text-dim); line-height:1.85; }
-
-    /* PHASE HEADER */
-    .phase-header {
-      display: flex; align-items: baseline; gap: 16px;
-      padding: 20px 0; border-bottom: 1px solid var(--border);
-      margin-bottom: 24px; margin-top: 56px;
-    }
+    .intro-block { background: var(--surface); padding: 28px; }
+    .intro-block-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .intro-block p { font-size: 14px; color: var(--text-dim); line-height: 1.85; }
+    .phase-header { display: flex; align-items: baseline; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; margin-top: 56px; }
     .phase-header:first-of-type { margin-top: 0; }
-    .phase-tag { font-family: var(--font-head); font-size:12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); background: var(--accent); padding: 4px 10px; border-radius: 2px; }
+    .phase-tag { font-family: var(--font-head); font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); background: var(--accent); padding: 4px 10px; border-radius: 2px; }
     .phase-name { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: -0.02em; }
     .phase-transfer { font-size: 12px; color: var(--text-dim); margin-left: auto; font-style: italic; }
-
-    /* MODULE GRID */
     .module-grid { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
-    .module-card {
-      background: var(--surface); padding: 28px 32px;
-      display: grid; grid-template-columns: 120px 1fr auto;
-      gap: 28px; align-items: start;
-      transition: background 0.15s;
-    }
+    .module-card { background: var(--surface); padding: 28px 32px; display: grid; grid-template-columns: 120px 1fr auto; gap: 28px; align-items: start; transition: background 0.15s; }
     .module-card:hover { background: var(--ink); }
-    .module-meta {}
-    .module-num { font-size:12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
-    .module-status { font-size:12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 3px 8px; border-radius: 2px; display: inline-block; }
-    .module-body {}
-    .module-title { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; letter-spacing: -0.01em; }
-    .module-desc { font-size: 13px; color: var(--text-dim); line-height: 1.7; margin-bottom: 14px; }
+    .module-num { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
+    .module-status { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 3px 8px; border-radius: 2px; display: inline-block; }
+    .module-title { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .module-desc { font-size: 15px; color: var(--text-dim); line-height: 1.7; margin-bottom: 14px; }
     .module-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag { font-size:12px; font-weight: 500; border: 1px solid var(--border); color: var(--text-dim); padding: 4px 10px; border-radius: 2px; }
-    .tag-accent { border-color: var(--accent-border); color: var(--accent); background: var(--accent-dim); }
-    .module-instructors { font-size:12px; color: var(--text-dim); margin-top: 10px; }
-    .module-link { display: flex; align-items: center; }
-    .module-link a {
-      font-family: var(--font-head); font-size: 12px; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--accent); text-decoration: none;
-      border: 1px solid var(--accent-border); padding: 10px 18px; border-radius: 3px;
-      transition: background 0.15s, color 0.15s; white-space: nowrap;
-    }
+    .module-instructors { font-size: 12px; color: var(--text-dim); margin-top: 10px; }
+    .module-link a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border: 1px solid var(--accent-border); padding: 10px 18px; border-radius: 3px; transition: background 0.15s, color 0.15s; white-space: nowrap; }
     .module-link a:hover { background: var(--accent); color: var(--black); }
-
-    /* METRICS */
-    .metrics-section { margin-top: 72px; }
-    .metrics-label { font-size:12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
-    .metrics-title { font-family: var(--font-head); font-size: 32px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 12px; }
-    .metrics-title em { color: var(--accent); font-style: normal; }
-    .metrics-sub { font-size: 15px; color: var(--text-dim); margin-bottom: 40px; max-width: 520px; line-height: 1.7; }
+    .module-pb { margin-top: 8px; }
+    .module-pb a { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .module-pb a:hover { color: var(--accent); }
+    .module-pb a::before { content: '↳ '; color: var(--accent); }
     .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
     .metric-card { background: var(--surface); padding: 32px 28px; }
-    .metric-type { font-size:12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
-    .metric-name { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em; }
-    .metric-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
-
-    /* FAQ */
-    .faq-section { margin-top: 72px; }
+    .metric-type { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .metric-name { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .metric-desc { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
     .faq-grid { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
     .faq-item { background: var(--surface); padding: 28px 32px; }
-    .faq-q { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em; }
-    .faq-a { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
-
-    /* READINESS */
-    .readiness-section { margin-top: 72px; }
+    .faq-q { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .faq-a { font-size: 15px; color: var(--text-dim); line-height: 1.7; }
     .readiness-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
     .readiness-card { background: var(--surface); padding: 32px 28px; }
-    .readiness-status { font-size:12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; display: inline-block; padding: 4px 10px; border-radius: 2px; }
+    .readiness-status { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; display: inline-block; padding: 4px 10px; border-radius: 2px; }
     .status-complete { color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); }
     .status-progress { color: #60a5fa; background: rgba(96,165,250,0.1); border: 1px solid rgba(96,165,250,0.25); }
     .status-blocking { color: #f87171; background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.25); }
-    .readiness-card h4 { font-family: var(--font-head); font-size:18px; font-weight: 700; color: var(--white); margin-bottom: 8px; letter-spacing: -0.01em; }
-    .readiness-card p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+    .readiness-card h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .readiness-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .metrics-label { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
+    .metrics-title { font-family: var(--font-head); font-size: 32px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 12px; }
+    .metrics-title em { color: var(--accent); font-style: normal; }
+    .metrics-sub { font-size: 15px; color: var(--text-dim); margin-bottom: 40px; max-width: 520px; line-height: 1.7; }
 
     /* FOOTER */
-    .page-footer { border-top: 1px solid var(--border); padding: 40px; max-width: 1100px; margin: 60px auto 0; display: flex; align-items: center; justify-content: space-between; }
+    footer { border-top: 1px solid var(--border); padding: 32px 80px; display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; }
     .footer-brand { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--text-dim); }
     .footer-brand em { color: var(--accent); font-style: normal; }
-    .footer-meta { font-size:12px; color: var(--text-dim); text-align: center; }
     .footer-links { display: flex; gap: 24px; }
     .footer-links a { font-size: 12px; color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--white); }
+    .footer-meta { font-size: 12px; color: var(--text-dim); }
 
     @media (max-width: 900px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .page-header, .main { padding-left: 20px; padding-right: 20px; }
+      .page-header { padding: 48px 20px 36px; }
+      .main { padding: 40px 20px; }
+      .content-layout { grid-template-columns: 1fr; padding: 40px 20px; }
+      .sidebar { display: none; }
+      .page-stats { flex-wrap: wrap; }
+      .what-grid, .cards, .cards3, .card-grid, .card-grid-3, .intro-blocks, .metrics-grid, .readiness-grid, .market-grid, .scenario-row, .founder-grid, .competitive-grid { grid-template-columns: 1fr; }
       .module-card { grid-template-columns: 1fr; gap: 16px; }
-      .module-link { justify-content: flex-start; }
-      .intro-blocks, .metrics-grid, .readiness-grid { grid-template-columns: 1fr; }
-      .audit-pathway { flex-direction: column; }
-      .page-footer { flex-direction: column; gap: 16px; text-align: center; }
+      .consulting-strip, .audit-pathway { flex-direction: column; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
     }
+  
+    /* ============================================
+       SCROLL ENTRY ANIMATIONS
+    ============================================ */
+    .anim-fade {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.58s ease, transform 0.58s ease;
+    }
+    .anim-fade.visible { opacity: 1; transform: translateY(0); }
+
+    .anim-stagger > .anim-child {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.52s ease, transform 0.52s ease;
+    }
+    .anim-stagger.visible > .anim-child { opacity: 1; transform: translateY(0); }
+
+    .anim-slide {
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: opacity 0.48s ease, transform 0.48s ease;
+    }
+    .anim-slide.visible { opacity: 1; transform: translateX(0); }
+
+    /* Nav link underline sweep */
+    .nav-links a { position: relative; }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Button shimmer */
+    .btn-primary, .nav-cta {
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::after, .nav-cta::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+    .btn-primary:hover::after, .nav-cta:hover::after { transform: translateX(100%); }
+
+    @keyframes cHeroUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+    .breadcrumb      { animation: cHeroUp 0.5s ease 0s    both; }
+    .metrics-title   { animation: cHeroUp 0.6s ease 0.1s  both; }
+    .metrics-sub     { animation: cHeroUp 0.6s ease 0.22s both; }
+
+    .module-card {
+      transition: background 0.2s, transform 0.22s;
+      position: relative; overflow: hidden;
+    }
+    .module-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.28s ease;
+    }
+    .module-card:hover::before { transform: scaleX(1); }
+    .module-card:hover { background: #202020; transform: translateY(-3px); }
+
+    .metric-card { transition: background 0.2s, transform 0.2s; }
+    .metric-card:hover { background: #202020; transform: translateY(-3px); }
+
+    .faq-item { transition: background 0.2s; }
+    .faq-item:hover { background: #1e1e1e; }
+
+    .audit-pathway { transition: background 0.2s; }
+    .audit-pathway:hover { background: #1e1e1e; }
+
+    .intro-block { transition: background 0.2s, transform 0.2s; }
+    .intro-block:hover { background: #202020; transform: translateY(-2px); }
+
   </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">The Multiplier Method<em>™</em></a>
   <ul class="nav-links">
     <li><a href="index.html#who">Who It's For</a></li>
-    <li><a href="index.html#program">Program</a></li>
+    <li><a href="index.html#program">The Program</a></li>
     <li><a href="index.html#methodology">Methodology</a></li>
     <li><a href="index.html#pricing">Pricing</a></li>
     <li><a href="index.html#founders">Instructors</a></li>
-    <li><a href="curriculum.html" class="active">Curriculum</a></li>
+    <li><a href="curriculum.html">Curriculum</a></li>
     <li><a href="business_plan.html">Business Plan</a></li>
   </ul>
   <a href="index.html#apply" class="nav-cta">Enroll Now</a>
 </nav>
+
 
 <!-- PAGE HEADER -->
 <div style="border-bottom: 1px solid var(--border);">
@@ -232,28 +363,32 @@
       <span>›</span>
       <span>Curriculum Binder</span>
     </div>
-    <div class="page-eyebrow">Curriculum Binder · The Multiplier Method Channel Edition · March 2026 · All 12 Modules Built</div>
-    <h1 class="page-title">The Multiplier Method<em>™</em></h1>
-    <p class="page-sub">Complete 12-module RELAY-based training program for channel Account Executives. Every module covers a specific The Multiplier Method framework adapted for the indirect channel — built from practitioner IP, not theory.</p>
+    <div class="page-eyebrow">Curriculum Binder · The Multiplier Method Channel Edition · April 2026 · All 12 Modules Built</div>
+    <h1 class="page-title">The only channel AE curriculum <em>built to deploy in 90 days.</em></h1>
+    <p class="page-sub">A complete operating system for your channel team. Twelve modules. Six RELAY frameworks. Built from practitioner IP — not theory, not archived case studies. Hand this to your AEs on Monday. They run it starting that week.</p>
     <div class="page-stats">
-      <div><div class="page-stat-value">12</div><div class="page-stat-label">Modules</div></div>
-      <div><div class="page-stat-value">6</div><div class="page-stat-label">The Multiplier Method Frameworks</div></div>
-      <div><div class="page-stat-value">3</div><div class="page-stat-label">Phases</div></div>
-      <div><div class="page-stat-value">$400</div><div class="page-stat-label">Per Seat / Month</div></div>
-      <div><div class="page-stat-value">20+</div><div class="page-stat-label">Partner Scenarios</div></div>
-      <div><div class="page-stat-value">2</div><div class="page-stat-label">Practitioner Instructors</div></div>
+      <div class="page-stat"><div class="page-stat-value">12</div><div class="page-stat-label">Modules</div></div>
+      <div class="page-stat"><div class="page-stat-value">6</div><div class="page-stat-label">RELAY Frameworks</div></div>
+      <div class="page-stat"><div class="page-stat-value">3</div><div class="page-stat-label">Phases</div></div>
+      <div class="page-stat"><div class="page-stat-value">20+</div><div class="page-stat-label">Partner Scenarios</div></div>
+      <div class="page-stat"><div class="page-stat-value">2</div><div class="page-stat-label">Practitioner Instructors</div></div>
     </div>
   </div>
 </div>
 
 <!-- MAIN -->
-<div class="main">
+
+
+
+
+
 
   <!-- CONSULTING AUDIT PATHWAY -->
-  <div class="audit-pathway">
+  <div style="padding: 60px 40px; max-width:1100px; margin:0 auto;">
+<div class="audit-pathway">
     <div class="audit-pathway-badge">Consulting Pathway</div>
     <div class="audit-pathway-body">
-      <h3>Not ready for the full program? Start with a Channel Readiness Audit.</h3>
+      <h3>Start here: a 2-hour diagnostic that tells you exactly where your channel motion is broken.</h3>
       <p>A 2-hour working session with Carl or Natalie that diagnoses your partner motion and delivers a prioritized written action plan. Flat fee: <strong style="color:var(--white)">$2,500</strong>. The audit is designed to naturally feed into the curriculum for teams that want to go deeper — you'll see exactly which modules address the gaps we surface. Fractional VP of Channel retainers also available for teams not ready to hire full-time.</p>
       <a href="index.html#apply">Request a Channel Strategy Audit →</a>
     </div>
@@ -269,24 +404,40 @@
   <!-- INTRO BLOCKS -->
   <div class="intro-blocks">
     <div class="intro-block">
-      <div class="intro-block-label">How This Is Structured</div>
-      <p>Each module addresses one dimension of The Multiplier Method adapted for the indirect channel. Modules build sequentially — the mindset shift comes first, then the specific frameworks, then the repeatable systems. Click any module to open the full interactive version: tabbed panels, role-play scenarios, RELAY framework stages, partner scripts, and checklists.</p>
+      <div class="intro-block-label">What You're Getting</div>
+      <p><strong style="color:var(--white)">This is what you'd pay a $200K channel consultant to build — except it's already built.</strong> Each module gives your Account Executives one specific RELAY framework they can apply to partner conversations this week. The curriculum runs sequentially: mindset first, then the selling system, then the operational playbooks your team will run on autopilot.</p>
     </div>
     <div class="intro-block">
-      <div class="intro-block-label">The Multiplier Method Channel Principle</div>
-      <p>Every The Multiplier Method framework — Partner Fit Filter, Co-Sell Alignment Agreement, Negative Reverse, DISC, I/R Theory, No-Free-Consulting — applies directly to the indirect channel. The buyer is a partner rep, not an end customer. The consultative posture is the same. The stakes for giving away IP are higher. This program teaches you to treat partner conversations with the same The Multiplier Method discipline as a direct enterprise deal.</p>
+      <div class="intro-block-label">Why This Works</div>
+      <p>Every framework — Partner Fit Filter, Co-Sell Alignment Agreement, Negative Reverse, DISC, I/R Theory, No-Free-Consulting — applies directly to the indirect channel. The buyer is a partner rep, not an end customer. The stakes for giving away IP are higher. The 1:4 Blitz Model in Module 10 alone comes from a real HPE/CDW campaign across 16,000 accounts. Your AEs aren't learning theory — they're running a tested playbook.</p>
     </div>
     <div class="intro-block">
-      <div class="intro-block-label">The Blitz Masters Connection</div>
-      <p>The Multiplier Method students are encouraged to complete or enroll in Blitz Masters first. Blitz Masters builds the outbound muscle — call blitz discipline, prospecting volume, accountability habits — that makes The Multiplier Method land. You cannot run the Partner Fit Filter on a partner you haven't reached. Both programs are offered through Partna Company.</p>
+      <div class="intro-block-label">The ROI Case</div>
+      <p>This program replaces the need to hire a dedicated channel enablement team. Your AEs get the methodology, scripts, frameworks, and operating cadence — without the headcount. <strong style="color:var(--white)">One audit plus this curriculum costs less than one month of a channel consultant's retainer.</strong> Pair them and your team has a 90-day roadmap on day one.</p>
     </div>
   </div>
 
   <!-- PHASE 1 -->
-  <div class="phase-header">
+  <div class="phase-header" id="phase1">
     <span class="phase-tag">Phase 1 · Modules 1–4</span>
     <span class="phase-name">The Multiplier Method Mindset for Channel</span>
-    <span class="phase-transfer">Product-agnostic. Applies across VAR, MSP, ISV, distributor.</span>
+    <span class="phase-transfer">Gives your AEs the posture and qualification filter that stops deal-stage inflation before it starts.</span>
+  </div>
+
+  <!-- PHASE 1 INTRO VIDEO -->
+  <div style="padding:0 0 40px;">
+    <div style="font-size:11px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:16px; color:var(--accent);">Phase 1 · Intro Video</div>
+    <div style="width:100%; aspect-ratio:16/9; position:relative; overflow:hidden; border-radius:4px; background:#0a0a0a;">
+      <iframe
+        src="https://app.heygen.com/embeds/9a5848f19ac54a66a2905f952913d1b4"
+        title="Phase 1 Intro — The Multiplier Method"
+        frameborder="0"
+        allow="encrypted-media; fullscreen;"
+        allowfullscreen
+        style="position:absolute; top:0; left:0; width:100%; height:100%;">
+      </iframe>
+    </div>
+    <p style="margin-top:12px; font-size:14px; color:var(--text-dim); line-height:1.7; max-width:860px;">~90 sec · Carl · Plays before Phase 1 begins in the live bootcamp.</p>
   </div>
 
   <div class="module-grid">
@@ -297,7 +448,7 @@
       </div>
       <div class="module-body">
         <div class="module-title">The Multiplier Method Mindset for Channel</div>
-        <div class="module-desc">Identity vs. Role theory — and why channel AEs who over-invest emotionally give away the most. The emotional investment trap explained. What the The Multiplier Method posture looks like in a partner conversation before you've established a CAA. Includes a self-diagnostic: 10 signs you're consulting for free right now.</div>
+        <div class="module-desc">Identity vs. Role theory — and why channel Account Executives (AEs) who over-invest emotionally give away the most. The emotional investment trap explained. What The Multiplier Method posture looks like in a partner conversation before you've established a Co-Sell Alignment Agreement (CAA). Includes a self-diagnostic: 10 signs you're consulting for free right now.</div>
         <div class="module-tags">
           <span class="tag tag-accent">I/R Theory</span>
           <span class="tag tag-accent">Posture</span>
@@ -306,6 +457,7 @@
         <div class="module-instructors">Carl · Natalie</div>
       </div>
       <div class="module-link"><a href="module_01.html">Open Module →</a></div>
+      <div class="module-pb"><a href="../playbooks/participant/01-mindset/workbook_01_mindset_print.html">Playbook 01: Partner Mindset Reset</a></div>
     </div>
     <div class="module-card">
       <div class="module-meta">
@@ -314,7 +466,7 @@
       </div>
       <div class="module-body">
         <div class="module-title">Partner Qualification — Partner Fit Filter Applied</div>
-        <div class="module-desc">Using the Partner Fit Filter to qualify partners before investing time, resources, or business plans. Must-have vs. nice-to-have partner criteria. The partner onboarding conversation reframed as a The Multiplier Method qualifying call. Includes a disqualification framework so you exit cleanly without burning the relationship.</div>
+        <div class="module-desc">Using the Partner Fit Filter to qualify partners before investing time, resources, or business plans. Must-have vs. nice-to-have partner criteria. The partner onboarding conversation reframed as a RELAY qualifying call. Includes a disqualification framework so you exit cleanly without burning the relationship.</div>
         <div class="module-tags">
           <span class="tag tag-accent">Partner Fit Filter</span>
           <span class="tag tag-accent">Qualification</span>
@@ -323,6 +475,7 @@
         <div class="module-instructors">Carl · Natalie</div>
       </div>
       <div class="module-link"><a href="module_02.html">Open Module →</a></div>
+      <div class="module-pb"><a href="../playbooks/participant/02-discovery/workbook_02_discovery_print.html">Playbook 02: Partner Discovery Call</a></div>
     </div>
     <div class="module-card">
       <div class="module-meta">
@@ -331,15 +484,16 @@
       </div>
       <div class="module-body">
         <div class="module-title">Co-Sell Alignment Agreements with Partners</div>
-        <div class="module-desc">Setting expectations on deals, timelines, roles, and commitments before any work begins. The CAA applied to partner onboarding, QBRs, joint calls, and co-sell commitments. Four complete CAA scripts for the most common partner situations — including the one where the partner wants your business plan before they've committed to anything.</div>
+        <div class="module-desc">Setting expectations on deals, timelines, roles, and commitments before any work begins. The CAA applied to partner onboarding, Quarterly Business Reviews (QBRs), joint calls, and co-sell commitments. Four complete CAA scripts for the most common partner situations — including the one where the partner wants your business plan before they've committed to anything.</div>
         <div class="module-tags">
           <span class="tag tag-accent">Co-Sell Alignment Agreement</span>
           <span class="tag">Partner Onboarding</span>
-          <span class="tag">QBR Setup</span>
+          <span class="tag">Quarterly Business Review (QBR) Setup</span>
         </div>
         <div class="module-instructors">Carl · Natalie</div>
       </div>
       <div class="module-link"><a href="module_03.html">Open Module →</a></div>
+      <div class="module-pb"><a href="../playbooks/participant/03-first-meeting/workbook_03_first_meeting_print.html">Playbook 03: First Partner Meeting</a></div>
     </div>
     <div class="module-card">
       <div class="module-meta">
@@ -353,18 +507,36 @@
           <span class="tag tag-accent">Partner Fit Filter</span>
           <span class="tag tag-accent">Diagnosis</span>
           <span class="tag">Partner Pain vs. Customer Pain</span>
+          <span class="tag tag-accent">Partner Segmentation Model</span>
         </div>
         <div class="module-instructors">Carl · Natalie</div>
       </div>
       <div class="module-link"><a href="module_04.html">Open Module →</a></div>
+      <div class="module-pb"><a href="../playbooks/participant/04-qualification/workbook_04_qualification_print.html">Playbook 04: Partner Qualification</a></div>
     </div>
   </div>
 
   <!-- PHASE 2 -->
-  <div class="phase-header">
+  <div class="phase-header" id="phase2">
     <span class="phase-tag">Phase 2 · Modules 5–8</span>
     <span class="phase-name">The Multiplier Method Selling System in Channel</span>
-    <span class="phase-transfer">Real-world VAR, MSP, ISV, and distributor scenarios included.</span>
+    <span class="phase-transfer">Teaches your team to run every partner conversation — QBRs, joint calls, proposals — with a consistent RELAY framework.</span>
+  </div>
+
+  <!-- PHASE 2 INTRO VIDEO -->
+  <div style="padding:0 0 40px;">
+    <div style="font-size:11px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:16px; color:var(--accent);">Phase 2 · Intro Video</div>
+    <div style="width:100%; aspect-ratio:16/9; position:relative; overflow:hidden; border-radius:4px; background:#0a0a0a;">
+      <iframe
+        src="https://app.heygen.com/embeds/9b9aa420a979480a8945dcdd24d6421d"
+        title="Phase 2 Intro — The Multiplier Method"
+        frameborder="0"
+        allow="encrypted-media; fullscreen;"
+        allowfullscreen
+        style="position:absolute; top:0; left:0; width:100%; height:100%;">
+      </iframe>
+    </div>
+    <p style="margin-top:12px; font-size:14px; color:var(--text-dim); line-height:1.7; max-width:860px;">~90 sec · Natalie · Plays before Phase 2 begins in the live bootcamp.</p>
   </div>
 
   <div class="module-grid">
@@ -384,6 +556,7 @@
         <div class="module-instructors">Carl · Natalie</div>
       </div>
       <div class="module-link"><a href="module_05.html">Open Module →</a></div>
+      <div class="module-pb"><a href="../playbooks/participant/05-disc/workbook_05_disc_print.html">Playbook 05: Reading Your Partner Rep</a></div>
     </div>
     <div class="module-card">
       <div class="module-meta">
@@ -391,16 +564,19 @@
         <div class="module-status">Built</div>
       </div>
       <div class="module-body">
-        <div class="module-title">Negative Reverse Selling in Channel</div>
-        <div class="module-desc">Getting partners to sell themselves on working deals with you — by using NRS when they stall, go dark, or request more resources without commitment. The "maybe we're not the right fit" conversation that surfaces the real objection or disqualifies the partner cleanly. Includes scripts for the three most common stall patterns.</div>
+        <div class="module-title">Anatomy of a Partner Deal</div>
+        <div class="module-desc">Mapping the full channel deal lifecycle with RELAY checkpoints at every stage. Four co-selling motions matched to partner type (Big Box, Advisory, Licensing, Regional). Complete incentive framework reference with dollar ranges per activity. Where channel deals die and exactly why.</div>
         <div class="module-tags">
-          <span class="tag tag-accent">Negative Reverse Selling</span>
-          <span class="tag">Partner Stalls</span>
-          <span class="tag">Go-Dark Recovery</span>
+          <span class="tag tag-accent">Deal Lifecycle</span>
+          <span class="tag tag-accent">The Multiplier Method System</span>
+          <span class="tag">Pipeline Review Framework</span>
+          <span class="tag tag-accent">4 Co-Sell Motions</span>
+          <span class="tag tag-accent">Incentive Framework</span>
         </div>
-        <div class="module-instructors">Carl · Natalie</div>
+        <div class="module-instructors">Natalie · Carl</div>
       </div>
       <div class="module-link"><a href="module_06.html">Open Module →</a></div>
+      <div class="module-pb"><a href="../playbooks/participant/06-deal-lifecycle/workbook_06_deal_lifecycle_print.html">Playbook 06: Deal Registration &amp; Tracking</a></div>
     </div>
     <div class="module-card">
       <div class="module-meta">
@@ -418,6 +594,7 @@
         <div class="module-instructors">Carl · Natalie</div>
       </div>
       <div class="module-link"><a href="module_07.html">Open Module →</a></div>
+      <div class="module-pb"><a href="../playbooks/participant/07-no-free-consulting/workbook_07_no_free_consulting_print.html">Playbook 07: Protecting Your Pre-Sales Time</a></div>
     </div>
     <div class="module-card">
       <div class="module-meta">
@@ -425,24 +602,41 @@
         <div class="module-status">Built</div>
       </div>
       <div class="module-body">
-        <div class="module-title">Anatomy of a Partner Deal</div>
-        <div class="module-desc">Mapping the full channel deal lifecycle from partner interest through close — with The Multiplier Method checkpoints at every stage: qualification, pain, budget, decision, fulfillment. Where channel deals die and exactly why. Includes a deal review framework you can use in your weekly pipeline meeting starting this week.</div>
+        <div class="module-title">Negative Reverse Selling in Channel</div>
+        <div class="module-desc">Getting partners to sell themselves on working deals with you — by using Negative Reverse Selling (NRS) when they stall, go dark, or request more resources without commitment. The "maybe we're not the right fit" conversation that surfaces the real objection or disqualifies the partner cleanly. Includes scripts for the three most common stall patterns.</div>
         <div class="module-tags">
-          <span class="tag tag-accent">Deal Lifecycle</span>
-          <span class="tag tag-accent">The Multiplier Method System</span>
-          <span class="tag">Pipeline Review Framework</span>
+          <span class="tag tag-accent">Negative Reverse Selling</span>
+          <span class="tag">Partner Stalls</span>
+          <span class="tag">Go-Dark Recovery</span>
         </div>
         <div class="module-instructors">Carl · Natalie</div>
       </div>
       <div class="module-link"><a href="module_08.html">Open Module →</a></div>
+      <div class="module-pb"><a href="../playbooks/participant/08-negative-reverse/workbook_08_negative_reverse_print.html">Playbook 08: Re-Engaging a Silent Partner</a></div>
     </div>
   </div>
 
   <!-- PHASE 3 -->
-  <div class="phase-header">
+  <div class="phase-header" id="phase3">
     <span class="phase-tag">Phase 3 · Modules 9–12</span>
     <span class="phase-name">Building the Repeatable Channel Motion</span>
-    <span class="phase-transfer">Systems and habits. The Multiplier Method as your default, not your fallback.</span>
+    <span class="phase-transfer">Installs the operating cadence: weekly pipeline rhythm, partner tiering, QBR structure, and the 120-day ramp model for every new territory.</span>
+  </div>
+
+  <!-- PHASE 3 INTRO VIDEO -->
+  <div style="padding:0 0 40px;">
+    <div style="font-size:11px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:16px; color:var(--accent);">Phase 3 · Intro Video</div>
+    <div style="width:100%; aspect-ratio:16/9; position:relative; overflow:hidden; border-radius:4px; background:#0a0a0a;">
+      <iframe
+        src="https://app.heygen.com/embeds/5b158aca929046eeb119d96a541bd6eb"
+        title="Phase 3 Intro — The Multiplier Method"
+        frameborder="0"
+        allow="encrypted-media; fullscreen;"
+        allowfullscreen
+        style="position:absolute; top:0; left:0; width:100%; height:100%;">
+      </iframe>
+    </div>
+    <p style="margin-top:12px; font-size:14px; color:var(--text-dim); line-height:1.7; max-width:860px;">~90 sec · Carl · Plays before Phase 3 begins in the live bootcamp.</p>
   </div>
 
   <div class="module-grid">
@@ -452,16 +646,17 @@
         <div class="module-status">Built</div>
       </div>
       <div class="module-body">
-        <div class="module-title">Partner Business Review (QBR) — The Multiplier Method Style</div>
-        <div class="module-desc">Running QBRs that create commitment instead of reporting on the past. The Multiplier Method QBR agenda: Co-Sell Alignment Agreement, pain review, pipeline diagnosis, next-quarter commitments established before the meeting ends. What to do when the partner shows up with nothing — and how to run that conversation without losing the relationship.</div>
+        <div class="module-title">Prospecting Through Partners</div>
+        <div class="module-desc">Joint prospecting through partners. The Trust-Building Play — credibility in 30 days, not 6 months. The 1:4 Blitz Model for fast activation at Big Box partners. Swim Lanes — defining ISR/PSR/FSA roles before every joint call. How to get partners to open their accounts to you.</div>
         <div class="module-tags">
-          <span class="tag tag-accent">The Multiplier Method QBR</span>
-          <span class="tag tag-accent">Co-Sell Alignment Agreement</span>
-          <span class="tag">Commitment vs. Reporting</span>
+          <span class="tag tag-accent">Partner Fit Filter</span>
+          <span class="tag tag-accent">Joint Prospecting</span>
+          <span class="tag">Account Access</span>
         </div>
-        <div class="module-instructors">Carl · Natalie</div>
+        <div class="module-instructors">Natalie · Carl</div>
       </div>
       <div class="module-link"><a href="module_09.html">Open Module →</a></div>
+      <div class="module-pb"><a href="../playbooks/participant/09-prospecting/playbook_m09_prospecting_print.html">Playbook 09: Prospecting Through Partners</a></div>
     </div>
     <div class="module-card">
       <div class="module-meta">
@@ -469,16 +664,17 @@
         <div class="module-status">Built</div>
       </div>
       <div class="module-body">
-        <div class="module-title">Prospecting Through Partners</div>
-        <div class="module-desc">How to jointly prospect and source deals through the channel — including the joint prospecting call structure, how to get partners to open their accounts to you, and how to use Partner Fit Filter language in joint prospecting conversations so you're not just tagging along on calls.</div>
+        <div class="module-title">Partner Business Review (QBR) — The Multiplier Method Style</div>
+        <div class="module-desc">Running QBRs that create commitment instead of reporting. Pre-QBR regional heatmap diagnostic (GREEN/YELLOW/RED). The Top 20 framework — identifying the 20 partner reps driving 80% of revenue. QBR opening scripts and agenda templates. What to do when the partner shows up with nothing.</div>
         <div class="module-tags">
-          <span class="tag tag-accent">Partner Fit Filter</span>
-          <span class="tag tag-accent">Joint Prospecting</span>
-          <span class="tag">Account Access</span>
+          <span class="tag tag-accent">The Multiplier Method QBR</span>
+          <span class="tag tag-accent">Co-Sell Alignment Agreement</span>
+          <span class="tag">Commitment vs. Reporting</span>
         </div>
-        <div class="module-instructors">Carl · Natalie</div>
+        <div class="module-instructors">Natalie · Carl</div>
       </div>
       <div class="module-link"><a href="module_10.html">Open Module →</a></div>
+      <div class="module-pb"><a href="../playbooks/participant/10-qbr/workbook_10_qbr_print.html">Playbook 10: Your First QBR</a></div>
     </div>
     <div class="module-card">
       <div class="module-meta">
@@ -487,15 +683,16 @@
       </div>
       <div class="module-body">
         <div class="module-title">Competitive Intelligence in Channel</div>
-        <div class="module-desc">Understanding your channel motion vs. direct vs. competitor motions. How partners actually compare vendors — and what they tell you vs. what they're thinking. The competitive conversation framework using The Multiplier Method posture so you're gathering intelligence without sounding desperate or defensive.</div>
+        <div class="module-desc">Understanding your channel motion vs. competitors. The 3-Tier Talk Track — one competitive insight adapted for partner sellers (30 sec), partner executives (60 sec), and customers (30 sec). Competitive Win/Loss as a QBR input. Gathering intelligence without sounding desperate or defensive.</div>
         <div class="module-tags">
           <span class="tag tag-accent">Competitive Intelligence</span>
           <span class="tag tag-accent">NRS</span>
           <span class="tag">Partner Decision Psychology</span>
         </div>
-        <div class="module-instructors">Carl · Natalie</div>
+        <div class="module-instructors">Natalie · Carl</div>
       </div>
       <div class="module-link"><a href="module_11.html">Open Module →</a></div>
+      <div class="module-pb"><a href="../playbooks/participant/11-competitive-intel/playbook_m11_competitive_intel_print.html">Playbook 11: Competitive Intelligence in Channel</a></div>
     </div>
     <div class="module-card">
       <div class="module-meta">
@@ -504,23 +701,27 @@
       </div>
       <div class="module-body">
         <div class="module-title">Building the Repeatable Channel Motion</div>
-        <div class="module-desc">Systematizing The Multiplier Method habits so they run on autopilot. Weekly, monthly, and quarterly rhythms. Partner tiering through The Multiplier Method qualification criteria. Building the operating system that works without willpower — so the method is your default, not something you reach for when a conversation gets hard. Includes final self-assessment and certification.</div>
+        <div class="module-desc">The complete operator's field manual. The 120-Day Ramp Model for every new partner or territory. Executive Event Playbook (CISO roundtables, leadership dinners). KPI Refinement — replacing vanity metrics with pipeline indicators. Weekly/monthly/quarterly operating rhythms. Partner tiering. Final self-assessment and certification.</div>
         <div class="module-tags">
-          <span class="tag tag-accent">All 6 The Multiplier Method Frameworks</span>
+          <span class="tag tag-accent">All 6 RELAY Frameworks</span>
           <span class="tag">Partner Tiering</span>
+          <span class="tag tag-accent">120-Day Ramp Model</span>
+          <span class="tag tag-accent">Executive Events</span>
+          <span class="tag tag-accent">KPI Refinement</span>
           <span class="tag">Certification</span>
         </div>
-        <div class="module-instructors">Carl · Natalie</div>
+        <div class="module-instructors">Natalie · Carl</div>
       </div>
       <div class="module-link"><a href="module_12.html">Open Module →</a></div>
+      <div class="module-pb"><a href="../playbooks/participant/12-blitz/workbook_12_blitz_print.html">Playbook 12: Blitz Day Playbook</a></div>
     </div>
   </div>
 
   <!-- METRICS -->
-  <div class="metrics-section">
+  <div class="metrics-section" id="metrics">
     <div class="metrics-label">Pilot Outcomes</div>
-    <h2 class="metrics-title">What <em>moves</em> if this works.</h2>
-    <p class="metrics-sub">Behavior change is the leading indicator. Revenue is the lagging one. We measure both — starting from day one of the pilot cohort.</p>
+    <h2 class="metrics-title">What your board sees <em>at 90 days.</em></h2>
+    <p class="metrics-sub">Every metric ties back to pipeline or behavior change — not training completion rates. These are the six numbers you report when channel revenue is due. We track them from day one so you have the data when the conversation comes.</p>
     <div class="metrics-grid">
       <div class="metric-card">
         <div class="metric-type">Behavior</div>
@@ -556,17 +757,17 @@
   </div>
 
   <!-- FAQ -->
-  <div class="faq-section">
+  <div class="faq-section" id="faq">
     <div class="metrics-label">Buyer FAQ</div>
-    <h2 class="metrics-title">Questions a <em>buyer would ask.</em></h2>
+    <h2 class="metrics-title"><em>FAQs</em></h2>
     <div class="faq-grid">
       <div class="faq-item">
-        <div class="faq-q">Is this a Multiplier Method-licensed program?</div>
+        <div class="faq-q">Is this officially licensed by Sandler Training?</div>
         <div class="faq-a">No. We've adapted The Multiplier Method's publicly documented methodology — Partner Fit Filter, CAA, NRS, DISC, I/R Theory, No-Free-Consulting — specifically for the indirect channel. The frameworks are The Multiplier Method's. The channel application, scenarios, and curriculum are ours. Reviewed by legal counsel.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">My partner is Optiv, not CDW. Does this transfer?</div>
-        <div class="faq-a">RELAY framework stages are structurally identical across partner types. Whether you work with VARs, MSPs, distributors, or ISVs — the Partner Fit Filter qualifies the same way, the CAA runs the same way. Scenarios are drawn from multiple partner types, including MSSP, SI, national VAR, and regional reseller.</div>
+        <div class="faq-a">RELAY framework stages are structurally identical across partner types. Whether you work with Value-Added Resellers (VARs), Managed Service Providers (MSPs), distributors, or Independent Software Vendors (ISVs) — the Partner Fit Filter qualifies the same way, the CAA runs the same way. Scenarios are drawn from multiple partner types, including Managed Security Service Provider (MSSP), Systems Integrator (SI), national VAR, and regional reseller.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Do my AEs need The Multiplier Method training first?</div>
@@ -583,54 +784,176 @@
     </div>
   </div>
 
-  <!-- READINESS -->
-  <div class="readiness-section">
-    <div class="metrics-label">Program Status</div>
-    <h2 class="metrics-title">What's built. What's <em>in progress.</em></h2>
-    <div class="readiness-grid">
-      <div class="readiness-card">
-        <div class="readiness-status status-complete">Complete</div>
-        <h4>All 12 Modules Built</h4>
-        <p>Every module complete with tabbed content, scenarios, frameworks, partner scripts, and role-play exercises.</p>
-      </div>
-      <div class="readiness-card">
-        <div class="readiness-status status-complete">Complete</div>
-        <h4>Six The Multiplier Method Frameworks Adapted</h4>
-        <p>I/R Theory, Partner Fit Filter, CAA, NRS, DISC, and No-Free-Consulting — all mapped to the indirect channel and wrapped in The The RELAY Framework™.</p>
-      </div>
-      <div class="readiness-card">
-        <div class="readiness-status status-complete">Complete</div>
-        <h4>Business Plan v1</h4>
-        <p>Revenue model, pricing, risk analysis, and 24-month projections. $400/seat/month. Break-even Month 8 from first sale.</p>
-      </div>
-      <div class="readiness-card">
-        <div class="readiness-status status-progress">In Progress</div>
-        <h4>Blitz Masters Integration</h4>
-        <p>Bundle enrollment pathway and pre-work recommendations. Target: May 2026.</p>
-      </div>
-      <div class="readiness-card">
-        <div class="readiness-status status-blocking">Blocking</div>
-        <h4>Non-Compete Legal Review</h4>
-        <p>Highest priority. No customer contact until legal clears. Must cover both training delivery and consulting engagements. Budget: $1,500–$2,500.</p>
-      </div>
-      <div class="readiness-card">
-        <div class="readiness-status status-blocking">Blocking</div>
-        <h4>LLC Formation</h4>
-        <p>New Illinois LLC under Partna Company. Must be filed before any revenue is collected. Target: April 2026.</p>
-      </div>
-    </div>
+  <!-- FOUNDING STORY -->
+  <hr class="rule" />
+  <div style="max-width: 680px; margin: 0 auto 72px;">
+    <div class="section-eyebrow">Why This Program Exists</div>
+    <h2>This program exists because the two people who built it have sat on <em>opposite sides of every channel deal.</em></h2>
+    <p>Carl spent 15+ years on the vendor side — building partner programs at HPE, LastPass, Mimecast, and Toshiba, running co-sell motions across CDW, SHI, Insight, WWT, and nine other national VARs. Natalie spent her career on the reseller and partner side — at CDW, then across six security and cloud software companies, running the channel programs that vendors were trying to activate.</p>
+    <p>Neither side teaches the other what it's like to be across the table. Vendors don't know why partners deprioritize them. Partners don't know what it takes to make a vendor program worth selling. This curriculum is the first one built from both seats simultaneously — and that's the only reason it covers what other channel training doesn't.</p>
   </div>
 
 </div>
-
 <!-- FOOTER -->
-<footer style="border-top: 1px solid var(--border); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto;">
-  <div style="font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--text-dim);">Channel-<span style="color:var(--accent)">Ready</span> AE · Curriculum Binder · The Multiplier Method Channel Edition · March 2026</div>
-  <div style="display:flex; gap:24px;">
-    <a href="business_plan.html" style="font-size:12px; color: var(--text-dim); text-decoration: none;">View Business Plan →</a>
-    <a href="index.html#apply" style="font-size:12px; color: var(--accent); text-decoration: none;">Enroll Now →</a>
+
+<footer>
+  <div class="footer-brand">The Multiplier Method<em>™</em></div>
+  <div class="footer-links">
+    <a href="curriculum.html">Curriculum</a>
+    <a href="business_plan.html">Business Plan</a>
+    <a href="index.html#apply">Enroll</a>
   </div>
+  <div class="footer-meta">© 2026 Partna Company LLC · Grayslake, IL</div>
 </footer>
+
+
+<!-- LOGIN GATE OVERLAY -->
+<div id="mm-gate" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(10,10,10,0.97); backdrop-filter:blur(8px); display:none; align-items:center; justify-content:center; flex-direction:column; gap:32px;">
+  <div style="text-align:center;">
+    <div style="font-family:'Crimson Pro',serif; font-size:11px; text-transform:uppercase; letter-spacing:0.18em; color:#e8c547; margin-bottom:16px;">Member Access</div>
+    <div style="font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:800; color:#f5f5f5; line-height:1; letter-spacing:-0.03em; margin-bottom:8px;">The Multiplier <em style="color:#e8c547;font-style:normal;">Method</em></div>
+    <div style="font-family:'Crimson Pro',serif; font-size:15px; color:#888; margin-bottom:40px;">Log in to access module content.</div>
+    <div style="display:flex; gap:0; max-width:400px; margin:0 auto;">
+      <input id="mm-gate-input" type="password" placeholder="Enter access code"
+        style="flex:1; background:#1c1c1c; border:1px solid #2a2a2a; border-right:none; color:#f5f5f5; font-family:'Crimson Pro',serif; font-size:16px; padding:14px 20px; border-radius:3px 0 0 3px; outline:none;"
+        onkeydown="if(event.key==='Enter') mmGateSubmit()">
+      <button onclick="mmGateSubmit()"
+        style="background:#e8c547; color:#111; font-family:'Cormorant Garamond',serif; font-size:13px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; padding:14px 24px; border:none; border-radius:0 3px 3px 0; cursor:pointer;">
+        Enter
+      </button>
+    </div>
+    <div id="mm-gate-error" style="font-family:'Crimson Pro',serif; font-size:13px; color:#c0392b; margin-top:12px; min-height:20px;"></div>
+  </div>
+  <button onclick="mmGateClose()" style="background:none; border:none; color:#555; font-family:'Crimson Pro',serif; font-size:13px; cursor:pointer; text-decoration:underline;">Cancel</button>
+</div>
+
+<script>
+(function() {
+  var FADE    = ['.metrics-label', '.metrics-sub', '.metrics-title', '.audit-pathway-badge', '.audit-pathway-body', '.faq-section h2', '.breadcrumb + p'];
+  var STAGGER = ['.module-grid', '.metrics-grid', '.intro-blocks', '.faq-grid'];
+  var SLIDE   = [];
+
+  function q(sel) { return Array.from(document.querySelectorAll(sel)); }
+
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // Fade
+    FADE.forEach(function(sel) {
+      q(sel).forEach(function(el) { el.classList.add('anim-fade'); });
+    });
+
+    // Stagger containers
+    STAGGER.forEach(function(sel) {
+      q(sel).forEach(function(container) {
+        container.classList.add('anim-stagger');
+        Array.from(container.children).forEach(function(child, i) {
+          child.classList.add('anim-child');
+          child.style.transitionDelay = (i * 0.1) + 's';
+        });
+      });
+    });
+
+    // Slide
+    q('.phases').forEach(function(phases) {
+      Array.from(phases.querySelectorAll(SLIDE.join(','))).forEach(function(el, i) {
+        el.classList.add('anim-slide');
+        el.style.transitionDelay = (i * 0.08) + 's';
+      });
+    });
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+    document.querySelectorAll('.anim-fade, .anim-stagger, .anim-slide').forEach(function(el) {
+      observer.observe(el);
+    });
+  });
+})();
+</script>
+
+
+<script>
+// ── Module Login Gate ──────────────────────────────────────────────────
+var MM_PASS = 'channelready';
+var MM_KEY  = 'mm_unlocked';
+var mmPendingHref = null;
+
+function mmIsUnlocked() {
+  try { return localStorage.getItem(MM_KEY) === '1'; } catch(e) { return false; }
+}
+function mmUnlock() {
+  try { localStorage.setItem(MM_KEY, '1'); } catch(e) {}
+}
+function mmLock() {
+  try { localStorage.removeItem(MM_KEY); } catch(e) {}
+}
+
+function mmGateShow(href) {
+  mmPendingHref = href;
+  var gate = document.getElementById('mm-gate');
+  gate.style.display = 'flex';
+  document.getElementById('mm-gate-input').value = '';
+  document.getElementById('mm-gate-error').textContent = '';
+  setTimeout(function() { document.getElementById('mm-gate-input').focus(); }, 50);
+}
+function mmGateClose() {
+  document.getElementById('mm-gate').style.display = 'none';
+  mmPendingHref = null;
+}
+function mmGateSubmit() {
+  var val = document.getElementById('mm-gate-input').value.trim().toLowerCase();
+  if (val === MM_PASS) {
+    mmUnlock();
+    document.getElementById('mm-gate').style.display = 'none';
+    if (mmPendingHref) { window.location.href = mmPendingHref; }
+  } else {
+    document.getElementById('mm-gate-error').textContent = 'Incorrect access code. Try again.';
+    document.getElementById('mm-gate-input').value = '';
+    document.getElementById('mm-gate-input').focus();
+  }
+}
+
+// Intercept all "Open Module →" clicks
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.module-link a, .module-pb a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      if (!mmIsUnlocked()) {
+        e.preventDefault();
+        mmGateShow(link.href);
+      }
+    });
+  });
+
+  // Add a small lock indicator to nav if not unlocked
+  if (!mmIsUnlocked()) {
+    var nav = document.querySelector('nav');
+    if (nav) {
+      var lockBtn = document.createElement('span');
+      lockBtn.id = 'mm-lock-status';
+      lockBtn.style.cssText = 'font-family:"Crimson Pro",serif;font-size:12px;color:#555;letter-spacing:0.06em;cursor:pointer;margin-left:8px;';
+      lockBtn.title = 'Module content is locked. Click a module to log in.';
+      lockBtn.textContent = '🔒 Members only';
+      nav.appendChild(lockBtn);
+    }
+  } else {
+    // Show lock/logout option when unlocked
+    var nav = document.querySelector('nav');
+    if (nav) {
+      var lockBtn = document.createElement('span');
+      lockBtn.style.cssText = 'font-family:"Crimson Pro",serif;font-size:12px;color:#555;letter-spacing:0.06em;cursor:pointer;margin-left:8px;';
+      lockBtn.textContent = '🔓 Logged in · Lock';
+      lockBtn.onclick = function() { mmLock(); location.reload(); };
+      nav.appendChild(lockBtn);
+    }
+  }
+});
+</script>
 
 </body>
 </html>

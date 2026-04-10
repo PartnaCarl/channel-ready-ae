@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Business Plan — The Multiplier Method</title>
-  <meta name="description" content="Business Plan v1.1 — The Multiplier Method. RELAY-based channel sales training program. Revenue model, projections, risk analysis, and 18-month roadmap." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
@@ -15,162 +14,346 @@
       --border: #242424; --muted: #333333;
       --text-dim: #a8a8a8; --text: #d4d4d4; --white: #f5f5f5;
       --accent: #e8c547;
-      --accent-dim: rgba(232,197,71,0.10);
-      --accent-border: rgba(232,197,71,0.28);
-      --blue: #60a5fa; --blue-dim: rgba(96,165,250,0.10); --blue-border: rgba(96,165,250,0.25);
-      --red: #f87171; --red-dim: rgba(248,113,113,0.10); --red-border: rgba(248,113,113,0.25);
-      --green: #4ade80; --green-dim: rgba(74,222,128,0.10); --green-border: rgba(74,222,128,0.25);
-      --font-head: 'Cormorant Garamond', serif; --font-body: 'Crimson Pro', serif;
+      --accent-dim: rgba(232,197,71,0.12);
+      --accent-border: rgba(232,197,71,0.3);
+      --font-head: 'Cormorant Garamond', serif;
+      --font-body: 'Crimson Pro', serif;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--black); color: var(--text); font-family: var(--font-body); font-size:18px; line-height:1.75; -webkit-font-smoothing: antialiased; }
+    body { background: var(--black); color: var(--text); font-family: var(--font-body); font-size: 18px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
 
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(10,10,10,0.92); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 60px;
-    }
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; align-items: center; gap: 32px; height: 60px; }
     .nav-logo { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
     .nav-logo em { color: var(--accent); font-style: normal; }
     .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a { font-size:14px; font-weight: 500; color: var(--text-dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.15s; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.15s; }
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
-    .nav-cta { background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 18px; border-radius: 3px; text-decoration: none; transition: opacity 0.15s; }
+    .nav-cta { margin-left: auto; background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 18px; border-radius: 3px; text-decoration: none; transition: opacity 0.15s; }
     .nav-cta:hover { opacity: 0.85; }
 
     /* PAGE HEADER */
-    .page-header { border-bottom: 1px solid var(--border); padding: 72px 40px 56px; max-width: 1100px; margin: 0 auto; }
-    .breadcrumb { font-size:13px; color: var(--text-dim); margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
+    .page-header { border-bottom: 1px solid var(--border); padding: 72px 80px 56px; max-width: 1400px; margin: 0 auto; }
+    .breadcrumb { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
     .breadcrumb a { color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
     .breadcrumb a:hover { color: var(--accent); }
-    .page-eyebrow { font-size:12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
-    .page-title { font-family: var(--font-head); font-size: clamp(40px, 5vw, 60px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: var(--white); margin-bottom:28px; }
+    .breadcrumb span { color: var(--muted); }
+    .page-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .page-title { font-family: var(--font-head); font-size: clamp(36px, 5vw, 54px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: var(--white); margin-bottom: 28px; }
     .page-title em { color: var(--accent); font-style: normal; }
-    .page-sub { font-size: 17px; color: var(--text-dim); max-width: 640px; line-height:1.9; margin-bottom: 36px; }
-    .kpi-row { display: flex; gap: 40px; flex-wrap: wrap; padding-top: 4px; }
-    .kpi { }
-    .kpi-value { font-family: var(--font-head); font-size: 28px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
-    .kpi-label { font-size: 12px; color: var(--text-dim); letter-spacing: 0.04em; }
-    .kpi-value.accent { color: var(--accent); }
+    .page-sub { font-size: 18px; color: var(--text-dim); max-width: 640px; line-height: 1.8; margin-bottom: 36px; }
+    .page-stats { display: flex; gap: 0; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .page-stat { flex: 1; background: var(--surface); padding: 20px 24px; border-right: 1px solid var(--border); }
+    .page-stat:last-child { border-right: none; }
+    .page-stat-value { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; }
+    .page-stat-label { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); }
 
-    /* NAV SIDEBAR */
-    .content-layout { max-width: 1100px; margin: 0 auto; padding: 60px 40px; display: grid; grid-template-columns: 200px 1fr; gap: 64px; align-items: start; }
+    /* LAYOUT WITH SIDEBAR */
+    .content-layout { max-width: 1400px; margin: 0 auto; padding: 60px 80px; display: grid; grid-template-columns: 200px 1fr; gap: 64px; align-items: start; }
     .sidebar { position: sticky; top: 80px; }
     .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 2px; }
     .sidebar-nav a { font-size: 13px; color: var(--text-dim); text-decoration: none; padding: 8px 12px; border-radius: 3px; display: block; transition: color 0.15s, background 0.15s; border-left: 2px solid transparent; }
-    .sidebar-nav a:hover { color: var(--white); background: var(--surface); border-left-color: var(--border); }
+    .sidebar-nav a:hover { color: var(--white); background: var(--surface); border-left-color: var(--accent); }
 
-    /* CONTENT */
+    /* CONTENT (no sidebar) */
+    .main { max-width: 1400px; margin: 0 auto; padding: 60px 80px; }
     .content { min-width: 0; }
-    .section { margin-bottom: 72px; }
-    .section-eyebrow { font-size:12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
-    .section-title { font-family: var(--font-head); font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--white); margin-bottom:28px; }
-    .section-title em { color: var(--accent); font-style: normal; }
-    .section-body { font-size: 15px; color: var(--text-dim); line-height:1.9; margin-bottom: 32px; max-width: 660px; }
+
+    /* TYPOGRAPHY */
+    h2, .section-title { font-family: var(--font-head); font-size: clamp(22px, 3vw, 32px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--white); margin-bottom: 24px; }
+    h2 em, .section-title em { color: var(--accent); font-style: normal; }
+    h3 { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: var(--white); margin: 44px 0 14px; letter-spacing: -0.02em; }
+    h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin: 28px 0 10px; letter-spacing: -0.01em; }
+    p { font-size: 17px; color: var(--text-dim); line-height: 1.9; margin-bottom: 22px; }
+    p:last-child { margin-bottom: 0; }
+    .section-body { font-size: 16px; color: var(--text-dim); line-height: 1.85; margin-bottom: 32px; max-width: 660px; }
+    .section-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
     hr.rule { border: none; border-top: 1px solid var(--border); margin: 72px 0; }
 
-    /* CALLOUT */
+    /* CALLOUTS */
+    .insight { background: var(--surface); border-left: 3px solid var(--accent); padding: 24px 28px; border-radius: 0 3px 3px 0; margin: 32px 0; }
+    .insight-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .insight p { font-size: 16px; color: var(--text); font-style: italic; line-height: 1.85; margin-bottom: 0; }
     .callout { background: var(--surface); border-left: 3px solid var(--accent); padding: 20px 24px; border-radius: 0 3px 3px 0; margin: 24px 0; }
-    .callout p { font-size:17px; color: var(--text); font-style: italic; line-height: 1.7; }
+    .callout p { font-size: 17px; color: var(--text); font-style: italic; line-height: 1.7; }
+    .script { background: var(--ink); border: 1px solid var(--accent-border); border-radius: 4px; padding: 28px 32px; margin: 32px 0; }
+    .script-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .script p { font-size: 16px; color: var(--text); line-height: 1.85; margin-bottom: 0; font-style: italic; }
+    .warn { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 24px 28px; margin: 32px 0; }
+    .warn-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+    .warn p { font-size: 16px; color: var(--text-dim); margin-bottom: 0; line-height: 1.85; }
 
     /* CARDS */
-    .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
-    .card-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cards, .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 32px 0; }
+    .cards3, .card-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 32px 0; }
     .card { background: var(--surface); padding: 28px; }
-    .card-label { font-size:12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-    .card h4 { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em; }
-    .card p { font-size:15px; color: var(--text-dim); line-height: 1.7; }
+    .card-lbl, .card-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .card h4 { margin: 0 0 8px; font-size: 14px; }
+    .card p { font-size: 15px; margin-bottom: 0; line-height: 1.75; }
     .card-new { border-top: 2px solid var(--accent); }
+    .what-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 24px 0; }
+    .what-card { background: var(--surface); padding: 24px; }
+    .what-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .what-card p { font-size: 14px; color: var(--text-dim); margin-bottom: 0; line-height: 1.6; }
 
-    /* MARKET STATS */
-    .market-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 32px; }
-    .market-card { background: var(--surface); padding: 32px 28px; }
-    .market-number { font-family: var(--font-head); font-size: 36px; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; margin-bottom: 4px; }
-    .market-label { font-size:12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
-    .market-card p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+    /* TAGS */
+    .tag { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; border: 1px solid var(--border); color: var(--text-dim); padding: 5px 12px; border-radius: 2px; }
+    .tag-accent { border-color: var(--accent-border); color: var(--accent); background: var(--accent-dim); }
 
-    /* TABLE */
+    /* TABLES */
     table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
     thead { background: var(--ink); }
-    th { font-family: var(--font-head); font-size:12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
     td { padding: 13px 16px; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; line-height: 1.5; }
     tr:last-child td { border-bottom: none; }
     tr:hover td { background: var(--ink); }
     .td-accent { color: var(--accent); font-family: var(--font-head); font-weight: 700; }
     .td-white { color: var(--white); font-weight: 500; }
-    .td-new { color: var(--blue); font-size:12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--blue-dim); border: 1px solid var(--blue-border); padding: 2px 7px; border-radius: 2px; display: inline-block; vertical-align: middle; margin-left: 8px; }
 
-    /* RISK BADGE */
-    .risk-low { color: var(--green); font-size:12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--green-dim); border: 1px solid var(--green-border); padding: 2px 7px; border-radius: 2px; white-space: nowrap; }
-    .risk-med { color: var(--accent); font-size:12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 2px 7px; border-radius: 2px; white-space: nowrap; }
-    .risk-high { color: var(--red); font-size:12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--red-dim); border: 1px solid var(--red-border); padding: 2px 7px; border-radius: 2px; white-space: nowrap; }
-
-    /* SCENARIO BLOCKS */
-    .scenario-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
-    .scenario { background: var(--surface); padding: 28px 24px; }
-    .scenario-label { font-size:12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
-    .scenario-value { font-family: var(--font-head); font-size: 28px; font-weight: 800; letter-spacing: -0.03em; color: var(--white); margin-bottom: 4px; }
-    .scenario p { font-size: 12px; color: var(--text-dim); line-height: 1.6; }
-
-    /* FOUNDERS */
-    .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-    .founder { background: var(--surface); padding: 36px 32px; }
+    /* MARKET / SCENARIO / ROADMAP / COMPETITIVE */
+    .market-grid, .scenario-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 32px; }
+    .market-card, .scenario { background: var(--surface); padding: 32px 28px; }
+    .market-number, .scenario-value { font-family: var(--font-head); font-size: 36px; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; margin-bottom: 4px; }
+    .market-label, .scenario-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+    .market-card p, .scenario p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .roadmap { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .roadmap-item { background: var(--surface); padding: 24px 28px; display: grid; grid-template-columns: 80px 1fr; gap: 24px; align-items: start; }
+    .roadmap-date { font-family: var(--font-head); font-size: 13px; font-weight: 800; color: var(--accent); }
+    .roadmap-title { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .roadmap-desc { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .competitive-grid, .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+    .comp-card, .founder { background: var(--surface); padding: 28px; }
+    .comp-vs { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #f87171; margin-bottom: 8px; }
+    .comp-card h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .comp-card p { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+    .comp-our { border-top: 2px solid var(--accent); }
+    .comp-our .comp-vs { color: var(--accent); }
     .founder-name { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 4px; }
     .founder-role { font-size: 13px; color: var(--accent); margin-bottom: 20px; }
-    .founder-bio { font-size: 14px; color: var(--text-dim); line-height: 1.7; margin-bottom: 20px; }
+    .founder-bio { font-size: 15px; color: var(--text-dim); line-height: 1.7; margin-bottom: 20px; }
     .founder-list { list-style: none; }
     .founder-list li { font-size: 13px; color: var(--text-dim); padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; gap: 10px; }
     .founder-list li:last-child { border-bottom: none; }
     .founder-list li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
 
-    /* ROADMAP */
-    .roadmap { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-    .roadmap-item { background: var(--surface); padding: 24px 28px; display: grid; grid-template-columns: 80px 1fr; gap: 24px; align-items: start; }
-    .roadmap-date { font-family: var(--font-head); font-size: 13px; font-weight: 800; color: var(--accent); letter-spacing: -0.01em; }
-    .roadmap-title { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; letter-spacing: -0.01em; }
-    .roadmap-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
-    .roadmap-new { border-left: 3px solid var(--blue); }
+    /* RISK BADGES */
+    .risk-low { color: #4ade80; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(74,222,128,0.10); border: 1px solid rgba(74,222,128,0.25); padding: 2px 7px; border-radius: 2px; }
+    .risk-med { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 2px 7px; border-radius: 2px; }
+    .risk-high { color: #f87171; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(248,113,113,0.10); border: 1px solid rgba(248,113,113,0.25); padding: 2px 7px; border-radius: 2px; }
+    .td-new { color: #60a5fa; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(96,165,250,0.10); border: 1px solid rgba(96,165,250,0.25); padding: 2px 7px; border-radius: 2px; display: inline-block; vertical-align: middle; margin-left: 8px; }
+    .roadmap-new { border-left: 3px solid #60a5fa; }
+    .kpi-value { font-family: var(--font-head); font-size: 28px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
+    .kpi-value.accent { color: var(--accent); }
+    .kpi-label { font-size: 12px; color: var(--text-dim); letter-spacing: 0.04em; }
+    .kpi-row { display: flex; gap: 40px; flex-wrap: wrap; padding-top: 4px; }
 
-    /* COMPETITIVE */
-    .competitive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
-    .comp-card { background: var(--surface); padding: 28px; }
-    .comp-vs { font-size:12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
-    .comp-card h4 { font-family: var(--font-head); font-size:18px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
-    .comp-card p { font-size: 13px; color: var(--text-dim); line-height: 1.7; }
-    .comp-our { border-top: 2px solid var(--accent); }
-    .comp-our .comp-vs { color: var(--accent); }
+    /* SECTION */
+    .section { margin-bottom: 72px; }
 
-    footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
+    /* MODULE TABS */
+    .subnav { display: flex; gap: 6px; flex-wrap: wrap; padding: 14px 0; margin-bottom: 36px; border-bottom: 1px solid var(--border); }
+    .subnav a { font-family: var(--font-head); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; padding: 6px 14px; border: 1px solid var(--border); border-radius: 2px; transition: color 0.15s, border-color 0.15s, background 0.15s; white-space: nowrap; }
+    .subnav a:hover, .subnav a.active { color: var(--accent); border-color: var(--accent-border); background: var(--accent-dim); }
+    .tab-section { display: none; }
+    .tab-section.active { display: block; }
+    .framework-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 3px; padding: 10px 16px; margin-bottom: 52px; font-size: 12px; font-weight: 600; color: var(--accent); }
+
+    /* MOD NAV */
+    .mod-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 48px; font-size: 13px; }
+    .mod-nav a { color: var(--text-dim); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+    .mod-nav a:hover { color: var(--accent); }
+    .mod-nav-mid { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 4px 12px; border-radius: 2px; }
+
+    /* CONSULTING CTA */
+    .consulting-strip { background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 4px; padding: 32px 36px; margin-top: 72px; display: flex; align-items: flex-start; gap: 28px; }
+    .cs-badge { background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .consulting-strip h3 { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--white); margin: 0 0 8px; letter-spacing: -0.01em; }
+    .consulting-strip p { font-size: 15px; color: var(--text-dim); margin-bottom: 12px; }
+    .consulting-strip a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-border); padding-bottom: 2px; }
+
+    /* BOTTOM NAV */
+    .bottom-nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-top: 1px solid var(--border); margin-top: 56px; }
+    .bn-link { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .bn-link:hover { color: var(--accent); }
+    .bn-cta a { font-family: var(--font-head); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--accent); color: var(--black); padding: 10px 20px; border-radius: 3px; text-decoration: none; }
+
+    /* CURRICULUM-SPECIFIC */
+    .audit-pathway { background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 4px; padding: 36px 40px; margin-bottom: 60px; display: flex; align-items: flex-start; gap: 32px; }
+    .audit-pathway-badge { background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .audit-pathway-body h3 { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .audit-pathway-body p { font-size: 15px; color: var(--text-dim); line-height: 1.85; margin-bottom: 16px; }
+    .audit-pathway-body a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-border); padding-bottom: 2px; }
+    .progress-bar { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 20px 28px; display: flex; align-items: center; gap: 20px; margin-bottom: 48px; }
+    .progress-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
+    .progress-track { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; width: 100%; }
+    .progress-count { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+    .intro-blocks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 56px; }
+    .intro-block { background: var(--surface); padding: 28px; }
+    .intro-block-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .intro-block p { font-size: 14px; color: var(--text-dim); line-height: 1.85; }
+    .phase-header { display: flex; align-items: baseline; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; margin-top: 56px; }
+    .phase-header:first-of-type { margin-top: 0; }
+    .phase-tag { font-family: var(--font-head); font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); background: var(--accent); padding: 4px 10px; border-radius: 2px; }
+    .phase-name { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: -0.02em; }
+    .phase-transfer { font-size: 12px; color: var(--text-dim); margin-left: auto; font-style: italic; }
+    .module-grid { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
+    .module-card { background: var(--surface); padding: 28px 32px; display: grid; grid-template-columns: 120px 1fr auto; gap: 28px; align-items: start; transition: background 0.15s; }
+    .module-card:hover { background: var(--ink); }
+    .module-num { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
+    .module-status { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 3px 8px; border-radius: 2px; display: inline-block; }
+    .module-title { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .module-desc { font-size: 15px; color: var(--text-dim); line-height: 1.7; margin-bottom: 14px; }
+    .module-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .module-instructors { font-size: 12px; color: var(--text-dim); margin-top: 10px; }
+    .module-link a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border: 1px solid var(--accent-border); padding: 10px 18px; border-radius: 3px; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+    .module-link a:hover { background: var(--accent); color: var(--black); }
+    .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .metric-card { background: var(--surface); padding: 32px 28px; }
+    .metric-type { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .metric-name { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .metric-desc { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .faq-grid { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .faq-item { background: var(--surface); padding: 28px 32px; }
+    .faq-q { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .faq-a { font-size: 15px; color: var(--text-dim); line-height: 1.7; }
+    .readiness-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .readiness-card { background: var(--surface); padding: 32px 28px; }
+    .readiness-status { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; display: inline-block; padding: 4px 10px; border-radius: 2px; }
+    .status-complete { color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); }
+    .status-progress { color: #60a5fa; background: rgba(96,165,250,0.1); border: 1px solid rgba(96,165,250,0.25); }
+    .status-blocking { color: #f87171; background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.25); }
+    .readiness-card h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .readiness-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .metrics-label { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
+    .metrics-title { font-family: var(--font-head); font-size: 32px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 12px; }
+    .metrics-title em { color: var(--accent); font-style: normal; }
+    .metrics-sub { font-size: 15px; color: var(--text-dim); margin-bottom: 40px; max-width: 520px; line-height: 1.7; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 32px 80px; display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; }
     .footer-brand { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--text-dim); }
     .footer-brand em { color: var(--accent); font-style: normal; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-meta { font-size: 12px; color: var(--text-dim); }
 
     @media (max-width: 900px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .page-header { padding-left: 20px; padding-right: 20px; }
+      .page-header { padding: 48px 20px 36px; }
+      .main { padding: 40px 20px; }
       .content-layout { grid-template-columns: 1fr; padding: 40px 20px; }
       .sidebar { display: none; }
-      .card-grid, .card-grid-3, .market-grid, .scenario-row, .founder-grid, .competitive-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 16px; text-align: center; }
+      .page-stats { flex-wrap: wrap; }
+      .what-grid, .cards, .cards3, .card-grid, .card-grid-3, .intro-blocks, .metrics-grid, .readiness-grid, .market-grid, .scenario-row, .founder-grid, .competitive-grid { grid-template-columns: 1fr; }
+      .module-card { grid-template-columns: 1fr; gap: 16px; }
+      .consulting-strip, .audit-pathway { flex-direction: column; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
     }
+  
+    /* ============================================
+       SCROLL ENTRY ANIMATIONS
+    ============================================ */
+    .anim-fade {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.58s ease, transform 0.58s ease;
+    }
+    .anim-fade.visible { opacity: 1; transform: translateY(0); }
+
+    .anim-stagger > .anim-child {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.52s ease, transform 0.52s ease;
+    }
+    .anim-stagger.visible > .anim-child { opacity: 1; transform: translateY(0); }
+
+    .anim-slide {
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: opacity 0.48s ease, transform 0.48s ease;
+    }
+    .anim-slide.visible { opacity: 1; transform: translateX(0); }
+
+    /* Nav link underline sweep */
+    .nav-links a { position: relative; }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Button shimmer */
+    .btn-primary, .nav-cta {
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::after, .nav-cta::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+    .btn-primary:hover::after, .nav-cta:hover::after { transform: translateX(100%); }
+
+    @keyframes bpHeroUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+    .breadcrumb  { animation: bpHeroUp 0.5s ease 0s    both; }
+
+    .card {
+      transition: background 0.2s, transform 0.22s;
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.28s ease;
+    }
+    .card:hover::before { transform: scaleX(1); }
+    .card:hover { background: #202020; transform: translateY(-3px); }
+
+    .market-card { transition: background 0.2s, transform 0.2s; }
+    .market-card:hover { background: #202020; transform: translateY(-3px); }
+
+    .comp-card { transition: background 0.2s, transform 0.2s; }
+    .comp-card:hover { background: #202020; transform: translateY(-3px); }
+
+    .kpi { transition: background 0.2s; }
+    .kpi:hover { background: #1e1e1e; }
+
+    .kpi-row { transition: background 0.2s; }
+    .kpi-row:hover { background: #1e1e1e; }
+
+    .callout { transition: background 0.2s; }
+    .callout:hover { background: #1e1e1e; }
+
+    .founder { transition: background 0.2s; }
+    .founder:hover { background: #1e1e1e; }
+
   </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="nav-logo">The Multiplier Method<em>™</em></a>
   <ul class="nav-links">
     <li><a href="index.html#who">Who It's For</a></li>
-    <li><a href="index.html#program">Program</a></li>
+    <li><a href="index.html#program">The Program</a></li>
     <li><a href="index.html#methodology">Methodology</a></li>
     <li><a href="index.html#pricing">Pricing</a></li>
     <li><a href="index.html#founders">Instructors</a></li>
     <li><a href="curriculum.html">Curriculum</a></li>
-    <li><a href="business_plan.html" class="active">Business Plan</a></li>
+    <li><a href="business_plan.html">Business Plan</a></li>
   </ul>
   <a href="index.html#apply" class="nav-cta">Enroll Now</a>
 </nav>
+
 
 <!-- PAGE HEADER -->
 <div style="border-bottom: 1px solid var(--border);">
@@ -184,13 +367,13 @@
     </div>
     <div class="page-eyebrow">Business Plan · Version 1.1 · April 2026 · Confidential · Partna Company</div>
     <h1 class="page-title">The Multiplier Method for channel. The only <em>program that exists.</em></h1>
-    <p class="page-sub">A practitioner-built The Multiplier Method training program for channel AEs at B2B technology companies. $400/seat/month training revenue plus consulting services. No incumbent in the niche.</p>
+    <p class="page-sub">A practitioner-built The Multiplier Method training program for channel Account Executives at B2B technology companies. Channel Strategy Audits ($2,500), team workshops ($5K–$15K), and a $297 Channel Starter Kit — plus a free Channel Readiness Assessment as top-of-funnel. No incumbent in the niche.</p>
     <div class="kpi-row">
-      <div class="kpi"><div class="kpi-value accent">$400</div><div class="kpi-label">Per Seat / Month</div></div>
-      <div class="kpi"><div class="kpi-value">$155K</div><div class="kpi-label">Year 1 Target (Training + Consulting)</div></div>
-      <div class="kpi"><div class="kpi-value">$319K</div><div class="kpi-label">Year 2 Target</div></div>
+      <div class="kpi"><div class="kpi-value accent">$2,500</div><div class="kpi-label">Audit Entry Point</div></div>
+      <div class="kpi"><div class="kpi-value">$120K</div><div class="kpi-label">Year 1 Target (Audits + Workshops + Kits)</div></div>
+      <div class="kpi"><div class="kpi-value">$250K</div><div class="kpi-label">Year 2 Target</div></div>
       <div class="kpi"><div class="kpi-value">12</div><div class="kpi-label">Modules Built</div></div>
-      <div class="kpi"><div class="kpi-value">88%</div><div class="kpi-label">Gross Margin (Training)</div></div>
+      <div class="kpi"><div class="kpi-value">90%</div><div class="kpi-label">Gross Margin (Services)</div></div>
       <div class="kpi"><div class="kpi-value">Mo. 8</div><div class="kpi-label">Break-Even</div></div>
     </div>
   </div>
@@ -221,25 +404,26 @@
     <div class="section" id="overview">
       <div class="section-eyebrow">Executive Summary</div>
       <h2 class="section-title">The one-page <em>version.</em></h2>
-      <p class="section-body"><strong style="color:var(--white)">The Multiplier Method</strong> is a B2B sales training company that licenses a The Multiplier Method training program specifically adapted for channel Account Executives. The program teaches quota-carrying AEs at technology companies how to apply The Multiplier Method — Partner Fit Filter, Co-Sell Alignment Agreements, Negative Reverse Selling, DISC, Identity/Role Theory, and No-Free-Consulting — to the indirect channel, where the buyer is a partner rep, not an end customer.</p>
-      <p class="section-body">The curriculum is built from practitioner IP: Carl Clendenin's 10+ years running the enterprise VAR ecosystem at Toshiba (CDW, SHI, Insight, WWT, and seven more national VARs), and Natalie Clendenin's channel AE experience at Expel, LastPass (4× CDW revenue growth), Okta, and Varonis. All 12 modules are complete.</p>
-      <p class="section-body">The business has two revenue streams. <strong style="color:var(--white)">Training:</strong> $400/seat/month cohort-based program. <strong style="color:var(--white)">Consulting:</strong> Channel Strategy Audits ($2,500 flat), team workshops ($5K–$15K), and Fractional VP of Channel retainers ($8K–$12K/month). Consulting serves as top-of-funnel entry for training — the audit surfaces the gaps; the curriculum fixes them.</p>
+      <p class="section-body"><strong style="color:var(--white)">The Multiplier Method</strong> is a B2B sales training company offering a RELAY-based training program specifically adapted for channel Account Executives. The program teaches quota-carrying Account Executives at technology companies how to apply The Multiplier Method — Partner Fit Filter, Co-Sell Alignment Agreements, Negative Reverse Selling, DISC, Identity/Role Theory, and No-Free-Consulting — to the indirect channel, where the buyer is a partner rep, not an end customer.</p>
+      <p class="section-body">The curriculum is built from practitioner IP: Carl Clendenin's 10+ years running the enterprise VAR ecosystem at Toshiba (CDW, SHI, Insight, WWT, and seven more national VARs), and Natalie Clendenin's channel AE experience at Expel, LastPass (4× CDW revenue growth), Okta, and Varonis. <strong style="color:var(--white)">All 12 modules are complete and production-ready.</strong> Every module has a participant workbook, a facilitator slide deck with speaker notes, a HeyGen AI avatar intro video script, and full module content on channelreadyae.com. The first cohort can run the day enrollment closes.</p>
+      <p class="section-body">Delivery is a blended model: each session opens with a 2–3 minute HeyGen AI avatar intro video (Carl or Natalie on-screen, no scheduling required), followed by live facilitation using the phase slide deck, and closes with structured workbook time. Participants carry a binder through all three phases. The Scorecard tracks their activity across the entire program. The member portal at channelreadyae.com gives enrolled AEs gated access to all 12 module pages, reference materials, and downloadable frameworks.</p>
+      <p class="section-body">The business has two revenue streams. <strong style="color:var(--white)">Training:</strong> $400/seat/month for the 12-module live cohort program, team licensing at the same per-seat rate. <strong style="color:var(--white)">Consulting:</strong> Channel Strategy Audit ($2,500 flat), Team Workshops ($5K–$15K), Fractional Channel VP retainer ($3K–$8K/month). The audit is the top-of-funnel diagnostic — it maps partner motion gaps directly to curriculum modules and feeds cohort enrollment.</p>
 
       <div class="card-grid card-grid-3">
         <div class="card">
-          <div class="card-label">Training Revenue</div>
-          <h4>$400 / Seat / Month</h4>
-          <p>Core pricing. Team licenses billed per seat at the same rate. Individual and enterprise tiers available.</p>
+          <div class="card-label">Program Status</div>
+          <h4>Production-Ready</h4>
+          <p>All 12 modules built: workbooks, slide decks (3 phases), facilitator guide, video scripts, and member portal. Module 01 intro video is live on HeyGen.</p>
         </div>
         <div class="card">
-          <div class="card-label">Consulting Revenue</div>
-          <h4>$2.5K – $12K/mo</h4>
-          <p>Audits, workshops, and Fractional VP retainers. Top-of-funnel entry point that feeds training enrollment.</p>
+          <div class="card-label">Delivery Model</div>
+          <h4>Blended Live + Async</h4>
+          <p>HeyGen avatar intro video (2–3 min) → live facilitator session with slides → participant workbook time. No recording studio. No scheduling bottleneck.</p>
         </div>
         <div class="card">
           <div class="card-label">Why Now</div>
           <h4>The niche is unoccupied</h4>
-          <p>The Multiplier Method, Challenger, MEDDIC, and SPIN Selling all teach direct sales. Zero programs exist for the indirect channel at the $400/seat price point.</p>
+          <p>Sandler, Challenger, MEDDIC, and SPIN all teach direct sales. Zero programs exist for the indirect channel at the $400/seat price point with this level of production.</p>
         </div>
       </div>
     </div>
@@ -252,12 +436,12 @@
       <h2 class="section-title">The Multiplier Method<em>™</em></h2>
       <p class="section-body">Most sales training assumes you own the relationship. Channel doesn't work that way.</p>
       <p class="section-body">You're influencing without control — selling through someone whose loyalty is split between you, five other vendors, and their own quota. MEDDIC doesn't teach that. Challenger doesn't teach that. Nothing does.</p>
-      <div class="callout" style="margin-bottom:40px"><p><strong style="color:var(--accent)">The Multiplier Method fills that gap.</strong> Built at the intersection of MEDDIC, Sandler, and real-world channel execution — this is the first methodology designed specifically for AEs who sell <em>through</em> partners, not just <em>to</em> them.</p></div>
+      <div class="callout" style="margin-bottom:40px"><p><strong style="color:var(--accent)">The Multiplier Method fills that gap.</strong> Built at the intersection of MEDDIC, Sandler, and real-world channel execution — this is the first methodology designed specifically for Account Executives who sell <em>through</em> partners, not just <em>to</em> them.</p></div>
 
       <!-- RELAY FRAMEWORK -->
       <div style="background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:6px;padding:40px 44px;margin-bottom:48px">
         <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:24px">The RELAY Framework™</div>
-        <h3 style="font-family:var(--font-head);font-size:28px;font-weight:800;color:var(--white);letter-spacing:-0.03em;margin-bottom:12px">Five stages. One channel-capable AE.</h3>
+        <h3 style="font-family:var(--font-head);font-size:28px;font-weight:800;color:var(--white);letter-spacing:-0.03em;margin-bottom:12px">Five stages. One channel-capable Account Executive.</h3>
         <p style="font-size:14px;color:var(--text-dim);max-width:580px;line-height:1.75;margin-bottom:32px">The core of The Multiplier Method is a five-stage operating model called RELAY. Each stage maps the channel sales motion from partner selection to measurable yield.</p>
         <table style="margin-bottom:0">
           <thead>
@@ -299,10 +483,10 @@
 
       <!-- WHY RELAY IS DIFFERENT -->
       <h3 style="font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--white);letter-spacing:-0.02em;margin-bottom:24px">Why <em style="color:var(--accent);font-style:normal">L — Link</em> is the stage nobody teaches</h3>
-      <p class="section-body">Most AEs treat partner reps like customers. They pitch them. They demo to them. They follow up on them.</p>
+      <p class="section-body">Most Account Executives treat partner reps like customers. They pitch them. They demo to them. They follow up on them.</p>
       <p class="section-body" style="margin-bottom:8px">That's wrong.</p>
       <p class="section-body">Partner reps are internal champions. You don't sell <em>to</em> them — you arm them, coach them, and make them look like heroes to their customers. When you get that right, one conversation with one partner rep unlocks deals you'd never find on your own.</p>
-      <div class="callout"><p><strong style="color:var(--white)">That's the multiplier.</strong> One AE. Dozens of partner reps selling on your behalf. Each one armed, coached, and incentivized. That's the math that makes the channel model work — and it's the skill this program is built to teach.</p></div>
+      <div class="callout"><p><strong style="color:var(--white)">That's the multiplier.</strong> One Account Executive. Dozens of partner reps selling on your behalf. Each one armed, coached, and incentivized. That's the math that makes the channel model work — and it's the skill this program is built to teach.</p></div>
 
       <!-- TERMINOLOGY MAPPING TABLE -->
       <h3 style="font-family:var(--font-head);font-size:20px;font-weight:800;color:var(--white);letter-spacing:-0.02em;margin:40px 0 16px">What we replace</h3>
@@ -329,26 +513,26 @@
     <!-- THE PROBLEM -->
     <div class="section" id="problem">
       <div class="section-eyebrow">The Problem</div>
-      <h2 class="section-title">Channel AEs are trained to close direct. <em>The indirect model requires a different system.</em></h2>
-      <p class="section-body">Technology companies at every stage route revenue through partners — VARs, MSPs, distributors, ISVs. The AEs managing those relationships were trained in direct-sales methodology. They pitch. They give away IP. They build business plans for partners who take the analysis to a lower-priced competitor. They run QBRs that report on the past instead of committing the future.</p>
+      <h2 class="section-title">Channel Account Executives are trained to close direct. <em>The indirect model requires a different system.</em></h2>
+      <p class="section-body">Technology companies at every stage route revenue through partners — Value-Added Resellers, Managed Service Providers, distributors, Independent Software Vendors. The Account Executives managing those relationships were trained in direct-sales methodology. They pitch. They give away Intellectual Property. They build business plans for partners who take the analysis to a lower-priced competitor. They run Quarterly Business Reviews that report on the past instead of committing the future.</p>
 
-      <div class="callout"><p>"The channel AE who gives away free consulting is the channel AE who has no pipeline. The Multiplier Method fixes this — but no one has adapted it for the channel. Until now."</p></div>
+      <div class="callout"><p>"The channel Account Executive who gives away free consulting is the channel Account Executive who has no pipeline. The Multiplier Method fixes this — but no one has adapted it for the channel. Until now."</p></div>
 
       <div class="card-grid">
         <div class="card">
           <div class="card-label">The Training Gap</div>
           <h4>Zero programs address the indirect channel</h4>
-          <p>The Multiplier Method, MEDDIC, Challenger, and SPIN Selling all target direct-sales AEs. The indirect channel has a fundamentally different dynamic: the partner is not the buyer, joint sales require different qualification, and IP protection is a survival skill.</p>
+          <p>The Multiplier Method, MEDDIC, Challenger, and SPIN Selling all target direct-sales Account Executives. The indirect channel has a fundamentally different dynamic: the partner is not the buyer, joint sales require different qualification, and Intellectual Property protection is a survival skill.</p>
         </div>
         <div class="card">
           <div class="card-label">The Cost of No-Framework</div>
           <h4>Free consulting bleeds margin to competitors</h4>
-          <p>Channel AEs without a Multiplier Method framework over-invest in unqualified partners, give away technical resources before commitment, and accept non-committal QBRs as normal. Each free consulting engagement is margin bled directly to a competitor.</p>
+          <p>Channel Account Executives without a Multiplier Method framework over-invest in unqualified partners, give away technical resources before commitment, and accept non-committal Quarterly Business Reviews as normal. Each free consulting engagement is margin bled directly to a competitor.</p>
         </div>
         <div class="card">
           <div class="card-label">The Market Tailwind</div>
           <h4>The problem is larger in 2026 than 2022</h4>
-          <p>Post-2022 VC pressure compressed channel teams at nearly every B2B tech company. AEs inherited the partner motion without training. 73% of IT spending flows through partners — and that percentage is growing.</p>
+          <p>Post-2022 VC pressure compressed channel teams at nearly every B2B tech company. Account Executives inherited the partner motion without training. 73% of IT spending flows through partners — and that percentage is growing.</p>
         </div>
         <div class="card">
           <div class="card-label">No Incumbent in the Niche</div>
@@ -363,24 +547,24 @@
     <!-- PRODUCT -->
     <div class="section" id="product">
       <div class="section-eyebrow">The Product</div>
-      <h2 class="section-title">12 modules. Six RELAY stages. <em>One channel-capable AE.</em></h2>
-      <p class="section-body">The curriculum adapts six RELAY stages — wrapped in our proprietary <strong style="color:var(--white)">The RELAY Framework™</strong> — specifically for the indirect channel. Each module focuses on one dimension and applies it to real partner situations: VAR conversations, joint sales calls, QBRs, partner onboarding, and competitive displacement.</p>
+      <h2 class="section-title">12 modules. Six RELAY stages. <em>One channel-capable Account Executive.</em></h2>
+      <p class="section-body">The curriculum adapts six RELAY stages — wrapped in our proprietary <strong style="color:var(--white)">The RELAY Framework™</strong> — specifically for the indirect channel. Each module focuses on one dimension and applies it to real partner situations: Value-Added Reseller conversations, joint sales calls, Quarterly Business Reviews, partner onboarding, and competitive displacement.</p>
 
       <div class="card-grid">
         <div class="card">
           <div class="card-label">Phase 1 · Modules 1–4</div>
           <h4>The Multiplier Method Mindset for Channel</h4>
-          <p>I/R Theory, why channel AEs fail, partner qualification using the Partner Fit Filter, Co-Sell Alignment Agreements, and Partner Fit Filter applied to partner conversations. Product-agnostic. Applies identically across VAR, MSP, ISV, distributor.</p>
+          <p>I/R Theory, why channel Account Executives fail, partner qualification using the Partner Fit Filter, Co-Sell Alignment Agreements, and Partner Fit Filter applied to partner conversations. Product-agnostic. Applies identically across Value-Added Reseller, Managed Service Provider, Independent Software Vendor, distributor.</p>
         </div>
         <div class="card">
           <div class="card-label">Phase 2 · Modules 5–8</div>
           <h4>The Multiplier Method Selling System in Channel</h4>
-          <p>DISC for partner types, Negative Reverse Selling for stalled partners, No-Free-Consulting for IP protection, and the full anatomy of a channel deal with The Multiplier Method checkpoints at every stage.</p>
+          <p>DISC for partner types, Negative Reverse Selling for stalled partners, No-Free-Consulting for Intellectual Property protection, and the full anatomy of a channel deal with The Multiplier Method checkpoints at every stage.</p>
         </div>
         <div class="card">
           <div class="card-label">Phase 3 · Modules 9–12</div>
           <h4>Repeatable Channel Motion</h4>
-          <p>RELAY-based QBRs, joint prospecting through partner ecosystems, competitive intelligence using The Multiplier Method posture, and building the operating system so The Multiplier Method becomes the default, not the exception.</p>
+          <p>RELAY-based Quarterly Business Reviews, joint prospecting through partner ecosystems, competitive intelligence using The Multiplier Method posture, and building the operating system so The Multiplier Method becomes the default, not the exception.</p>
         </div>
         <div class="card">
           <div class="card-label">Consulting Entry Point</div>
@@ -424,14 +608,14 @@
 
       <div class="card-grid">
         <div class="card">
-          <div class="card-label">VP Sales / CRO · $10M–$100M ARR</div>
-          <h4>Has AEs managing partners with no methodology</h4>
-          <p>Partners are going cold. Deal registrations are inconsistent. Competitive losses through channel are increasing. <em style="color:var(--text)">ROI frame: one month of a channel manager hire pays for the entire team program for three months.</em></p>
+          <div class="card-label">VP Sales / CRO · $10M–$100M Annual Recurring Revenue</div>
+          <h4>Has Account Executives managing partners with no methodology</h4>
+          <p>Partners are going cold. Deal registrations are inconsistent. Competitive losses through channel are increasing. <em style="color:var(--text)">Return on Investment frame: one month of a channel manager hire pays for the entire team program for three months.</em></p>
         </div>
         <div class="card">
-          <div class="card-label">Channel AE — Individual Contributor</div>
+          <div class="card-label">Channel Account Executive — Individual Contributor</div>
           <h4>Quota includes partner-sourced revenue, no training</h4>
-          <p>Motivated by certification, career differentiation, and a framework that reduces the feeling of winging it in partner calls. <em style="color:var(--text)">ROI frame: one deal that doesn't get shopped to a cheaper vendor pays for the program.</em></p>
+          <p>Motivated by certification, career differentiation, and a framework that reduces the feeling of winging it in partner calls. <em style="color:var(--text)">Return on Investment frame: one deal that doesn't get shopped to a cheaper vendor pays for the program.</em></p>
         </div>
         <div class="card card-new">
           <div class="card-label">VP / Head of Partnerships or Channel ← New</div>
@@ -439,9 +623,9 @@
           <p>Budget authority. Buys training for the team and consulting for program design. Already knows the problem exists — just needs a productized solution at the right price point. Highest-volume buyer segment.</p>
         </div>
         <div class="card card-new">
-          <div class="card-label">PE Portfolio Companies ← New</div>
+          <div class="card-label">Private Equity Portfolio Companies ← New</div>
           <h4>Board pressure to add channel revenue in 90 days</h4>
-          <p>Capital-constrained. No budget for a $200K consultancy. Starts with the Channel Strategy Audit ($2,500), converts to team license. PE firms running 5–10 portfolio companies are a multiplier distribution channel.</p>
+          <p>Capital-constrained. No budget for a $200K consultancy. Starts with the Channel Strategy Audit ($2,500), converts to team license. Private Equity firms running 5–10 portfolio companies are a multiplier distribution channel.</p>
         </div>
       </div>
     </div>
@@ -474,7 +658,7 @@
           </tr>
           <tr>
             <td class="td-white">Starter Kit</td>
-            <td>Template library — deal reg workflow, partner tiering scorecard, QBR agenda</td>
+            <td>Template library — deal reg workflow, partner tiering scorecard, Quarterly Business Review agenda</td>
             <td class="td-accent">$297</td>
             <td>One-time</td>
             <td>~95%</td>
@@ -487,15 +671,15 @@
             <td>~88%</td>
           </tr>
           <tr>
-            <td class="td-white">Team License (5–10 AEs)</td>
+            <td class="td-white">Team License (5–10 Account Executives)</td>
             <td>All above + dedicated private cohort, custom scenarios, VP Sales check-in</td>
             <td class="td-accent">$400/seat/mo</td>
             <td>3-month min</td>
             <td>~88%</td>
           </tr>
           <tr>
-            <td class="td-white">Enterprise (15+ AEs)</td>
-            <td>Custom curriculum, embedded coaching, live QBR co-facilitation, leadership briefings</td>
+            <td class="td-white">Enterprise (15+ Account Executives)</td>
+            <td>Custom curriculum, embedded coaching, live Quarterly Business Review co-facilitation, leadership briefings</td>
             <td class="td-accent">Custom</td>
             <td>6–12 months</td>
             <td>~80%</td>
@@ -626,22 +810,22 @@
         <div class="comp-card">
           <div class="comp-vs">vs. Hire a VP of Channel</div>
           <h4>$250K+ fully loaded. 6–12 month ramp. One opinion.</h4>
-          <p>A full-time VP of Channel hire is the gold standard — but at $200K+ base plus benefits plus ramp time, it's not accessible until $30M+ ARR. The Multiplier Method delivers a shared The Multiplier Method language for your entire team in 90 days at a fraction of the cost. Our Fractional VP retainer bridges the gap for companies not yet ready to hire.</p>
+          <p>A full-time VP of Channel hire is the gold standard — but at $200K+ base plus benefits plus ramp time, it's not accessible until $30M+ Annual Recurring Revenue. The Multiplier Method delivers a shared The Multiplier Method language for your entire team in 90 days at a fraction of the cost. Our Fractional VP retainer bridges the gap for companies not yet ready to hire.</p>
         </div>
         <div class="comp-card">
           <div class="comp-vs">vs. Big Consultancy (Alexander Group, Spur Reply)</div>
           <h4>$50K–$200K minimum. Built for enterprises. Not you.</h4>
-          <p>Firms like Alexander Group and Spur Reply do excellent work for Fortune 500 channel programs. Their minimum engagements start at $50K. Their IP is generic. Their practitioners are analysts, not working channel AEs. We're built specifically for Series A–C companies with 3–15 AEs who need a methodology now, not a strategy deck in 6 months.</p>
+          <p>Firms like Alexander Group and Spur Reply do excellent work for Fortune 500 channel programs. Their minimum engagements start at $50K. Their Intellectual Property is generic. Their practitioners are analysts, not working channel Account Executives. We're built specifically for Series A–C companies with 3–15 Account Executives who need a methodology now, not a strategy deck in 6 months.</p>
         </div>
         <div class="comp-card">
           <div class="comp-vs">vs. General Training (Chanimal, Channel Institute)</div>
           <h4>General channel management. Not The Multiplier Method. Not your problem.</h4>
-          <p>Chanimal University and Channel Institute teach channel management broadly — partner programs, co-marketing, program structure. They don't teach quota-carrying AEs how to apply The Multiplier Method's selling system to partner conversations. Different problem, different buyer, different outcome. We're the only Multiplier Method for channel program at any price point.</p>
+          <p>Chanimal University and Channel Institute teach channel management broadly — partner programs, co-marketing, program structure. They don't teach quota-carrying Account Executives how to apply The Multiplier Method's selling system to partner conversations. Different problem, different buyer, different outcome. We're the only Multiplier Method for channel program at any price point.</p>
         </div>
         <div class="comp-card comp-our">
           <div class="comp-vs" style="color: var(--accent);">The Multiplier Method</div>
-          <h4>$400/seat/month. RELAY-adapted. Practitioner IP.</h4>
-          <p>The only program teaching The Multiplier Method applied to the indirect channel. Built by two practitioners actively running partner ecosystems right now. Immediately applicable — AEs can run a CAA in their next partner call after Module 3. Includes consulting entry points for teams not ready for full program commitment. No incumbent. First-mover advantage.</p>
+          <h4>$400/seat/month. RELAY-adapted. Practitioner Intellectual Property.</h4>
+          <p>The only program teaching The Multiplier Method applied to the indirect channel. Built by two practitioners actively running partner ecosystems right now. Immediately applicable — Account Executives can run a Co-Sell Alignment Agreement in their next partner call after Module 3. Includes consulting entry points for teams not ready for full program commitment. No incumbent. First-mover advantage.</p>
         </div>
       </div>
     </div>
@@ -671,7 +855,7 @@
             <td>Attorney review must explicitly address consulting engagements (audits, retainers, workshops) — not just curriculum delivery. Separate legal opinion required. Do not launch consulting until confirmed clear.</td>
           </tr>
           <tr>
-            <td class="td-white">The Multiplier Method trademark / IP risk</td>
+            <td class="td-white">The Multiplier Method trademark / Intellectual Property risk</td>
             <td><span class="risk-low">Low</span></td>
             <td><span class="risk-med">Medium</span></td>
             <td>We teach adaptation of publicly documented RELAY framework stages, not Multiplier Method-licensed content. Language carefully avoids The Multiplier Method brand claims (e.g., "RELAY-based" not "Multiplier Method-licensed"). Reviewed by attorney alongside non-compete.</td>
@@ -680,7 +864,7 @@
             <td class="td-white">Audience doesn't self-identify as needing The Multiplier Method for channel</td>
             <td><span class="risk-high">High</span></td>
             <td><span class="risk-med">Medium</span></td>
-            <td>Outbound-first go-to-market. Lead with the problem (free consulting, dead QBRs, partners going dark) — not the product (The Multiplier Method). Buyers must see themselves in the pain before the solution lands. First buyers come from network.</td>
+            <td>Outbound-first go-to-market. Lead with the problem (free consulting, dead Quarterly Business Reviews, partners going dark) — not the product (The Multiplier Method). Buyers must see themselves in the pain before the solution lands. First buyers come from network.</td>
           </tr>
           <tr>
             <td class="td-white">Market awareness — nobody searches for this</td>
@@ -704,7 +888,7 @@
             <td class="td-white">Multiplier Method-licensed competitors enter the channel niche</td>
             <td><span class="risk-low">Low</span></td>
             <td><span class="risk-high">High</span></td>
-            <td>First-mover advantage. Build brand recognition with practitioner credibility before any competitor can replicate curriculum depth. Practitioner IP (Natalie's 4× CDW growth, Carl's 9-VAR ecosystem) cannot be replicated by a licensed trainer without equivalent channel experience.</td>
+            <td>First-mover advantage. Build brand recognition with practitioner credibility before any competitor can replicate curriculum depth. Practitioner Intellectual Property (Natalie's 4× CDW growth, Carl's 9-Value-Added Reseller ecosystem) cannot be replicated by a licensed trainer without equivalent channel experience.</td>
           </tr>
         </tbody>
       </table>
@@ -716,28 +900,28 @@
     <div class="section" id="founders">
       <div class="section-eyebrow">The Founders</div>
       <h2 class="section-title">Practitioners, <em>not consultants.</em></h2>
-      <p class="section-body">Both founders are actively running partner ecosystems while building this program. The IP comes from current experience, not archived case studies. This is the single most defensible element of The Multiplier Method against any future competitor.</p>
+      <p class="section-body">Both founders are actively running partner ecosystems while building this program. The Intellectual Property comes from current experience, not archived case studies. This is the single most defensible element of The Multiplier Method against any future competitor.</p>
 
       <div class="founder-grid">
         <div class="founder">
           <div class="founder-name">Carl Clendenin</div>
           <div class="founder-role">Sr. Channel Sales Executive · Toshiba Global Commerce Solutions</div>
-          <p class="founder-bio">Manages nine of the top ten national VARs for Toshiba — including CDW, SHI, Insight, Connection, Softchoice, Zones, ePlus, Presidio, and WWT. Built deal registration frameworks, QBR structures, partner tiering models, and co-sell motion from scratch. Applied The Multiplier Method to channel sales for 10+ years. The program's VAR ecosystem and enterprise channel IP.</p>
+          <p class="founder-bio">Manages nine of the top ten national Value-Added Resellers for Toshiba — including CDW, SHI, Insight, Connection, Softchoice, Zones, ePlus, Presidio, and WWT. Built deal registration frameworks, Quarterly Business Review structures, partner tiering models, and co-sell motion from scratch. Applied The Multiplier Method to channel sales for 10+ years. The program's Value-Added Reseller ecosystem and enterprise channel Intellectual Property.</p>
           <ul class="founder-list">
             <li>10+ years channel, distribution, and indirect motion</li>
             <li>Built partner programs from zero at multiple companies</li>
-            <li>Multiplier Method-trained, applied to VAR ecosystem management</li>
+            <li>Multiplier Method-trained, applied to Value-Added Reseller ecosystem management</li>
             <li>Grayslake, IL — Lake County</li>
           </ul>
         </div>
         <div class="founder">
           <div class="founder-name">Natalie Clendenin</div>
-          <div class="founder-role">Channel Account Executive · Expel · CRN Women of the Channel 2025</div>
-          <p class="founder-bio">Runs the channel motion at Expel, a managed detection and response company. Brings the quota-carrying AE's perspective: what it actually looks like to manage partners, protect IP, run QBRs, and apply The Multiplier Method simultaneously without a dedicated channel manager. Prior experience at CDW (rep side), LastPass (4× CDW revenue growth), Okta (quarterly alignment frameworks), and Varonis (SPIF design).</p>
+          <div class="founder-role">Director of Channel Partners · Expel · CRN Women of the Channel 2025</div>
+          <p class="founder-bio">Runs the channel motion at Expel, a managed detection and response company. Brings the quota-carrying Account Executive's perspective: what it actually looks like to manage partners, protect Intellectual Property, run Quarterly Business Reviews, and apply The Multiplier Method simultaneously without a dedicated channel manager. Prior experience at CDW (rep side), LastPass (4× CDW revenue growth), Okta (quarterly alignment frameworks), and Varonis (Sales Performance Incentive Fund design).</p>
           <ul class="founder-list">
-            <li>CRN Women of the Channel 2025</li>
+            <li>Channel Reseller News Women of the Channel 2025</li>
             <li>4× CDW revenue growth at LastPass</li>
-            <li>Specialist in MSSP and SI partner motions</li>
+            <li>Specialist in Managed Security Service Provider and Systems Integrator partner motions</li>
             <li>Grayslake, IL — Lake County</li>
           </ul>
         </div>
@@ -763,7 +947,7 @@
           <div class="roadmap-date">May 2026</div>
           <div>
             <div class="roadmap-title">Platform + Pilot Launch + Consulting Waitlist Live</div>
-            <p class="roadmap-desc">Kajabi portal live with Modules 1–4. First pilot cohort enrolled (5–10 AEs at one company). Pilot pricing: $300/seat/month. Channel Strategy Audit waitlist added to website. LinkedIn outreach begins for both founders — weekly content minimum.</p>
+            <p class="roadmap-desc">Kajabi portal live with Modules 1–4. First pilot cohort enrolled (5–10 Account Executives at one company). Pilot pricing: $300/seat/month. Channel Strategy Audit waitlist added to website. LinkedIn outreach begins for both founders — weekly content minimum.</p>
           </div>
         </div>
         <div class="roadmap-item">
@@ -784,28 +968,28 @@
           <div class="roadmap-date">Q3 2026</div>
           <div>
             <div class="roadmap-title">VC Platform Team Partnerships <span style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color: var(--blue); background: var(--blue-dim); border: 1px solid var(--blue-border); padding: 2px 7px; border-radius: 2px; margin-left: 8px;">New</span></div>
-            <p class="roadmap-desc">Target: listed on preferred vendor networks of 3–5 VC/PE funds with B2B SaaS portfolios. Offer to run channel workshops at portfolio summits. This becomes the highest-leverage distribution channel by Year 2.</p>
+            <p class="roadmap-desc">Target: listed on preferred vendor networks of 3–5 VC/Private Equity funds with B2B SaaS portfolios. Offer to run channel workshops at portfolio summits. This becomes the highest-leverage distribution channel by Year 2.</p>
           </div>
         </div>
         <div class="roadmap-item">
           <div class="roadmap-date">Q4 2026</div>
           <div>
             <div class="roadmap-title">Certificate Program + Enterprise Outreach</div>
-            <p class="roadmap-desc">The Multiplier Method certificate formally launched. First enterprise deal targeted. 80–100 active seats target. Competitive positioning content published — battle card, ROI calculator, and case studies live on website.</p>
+            <p class="roadmap-desc">The Multiplier Method certificate formally launched. First enterprise deal targeted. 80–100 active seats target. Competitive positioning content published — battle card, Return on Investment calculator, and case studies live on website.</p>
           </div>
         </div>
         <div class="roadmap-item roadmap-new">
           <div class="roadmap-date">Q4 2026</div>
           <div>
             <div class="roadmap-title">First Conference Speaking Submission <span style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color: var(--blue); background: var(--blue-dim); border: 1px solid var(--blue-border); padding: 2px 7px; border-radius: 2px; margin-left: 8px;">New</span></div>
-            <p class="roadmap-desc">Submit session proposals to Channel Partners Conference & Expo, GTIA ChannelCon, and ASAP Summit NYC. Talk track: "Why Every Channel AE Needs a The Multiplier Method Framework and Zero Programs Teach It." Speaking slot positions the brand with 8,000+ channel professionals.</p>
+            <p class="roadmap-desc">Submit session proposals to Channel Partners Conference & Expo, GTIA ChannelCon, and ASAP Summit NYC. Talk track: "Why Every Channel Account Executive Needs a RELAY Framework and Zero Programs Teach It." Speaking slot positions the brand with 8,000+ channel professionals.</p>
           </div>
         </div>
         <div class="roadmap-item roadmap-new">
           <div class="roadmap-date">Q1 2027</div>
           <div>
             <div class="roadmap-title">Annual Benchmark Report Published <span style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color: var(--blue); background: var(--blue-dim); border: 1px solid var(--blue-border); padding: 2px 7px; border-radius: 2px; margin-left: 8px;">New</span></div>
-            <p class="roadmap-desc">"State of Channel AE Enablement" — survey of 100+ companies on channel AE training gaps, free consulting behavior, and partner-sourced pipeline metrics. Original research becomes the most cited credibility asset and the annual anchor for press and speaking.</p>
+            <p class="roadmap-desc">"State of Channel Account Executive Enablement" — survey of 100+ companies on channel Account Executive training gaps, free consulting behavior, and partner-sourced pipeline metrics. Original research becomes the most cited credibility asset and the annual anchor for press and speaking.</p>
           </div>
         </div>
         <div class="roadmap-item">
@@ -831,10 +1015,67 @@
   </div>
 </div>
 
+
 <footer>
-  <div class="footer-brand">The Multiplier Method<em>™</em> · Business Plan v1.1 · Partna Company LLC</div>
-  <div style="font-size:12px; color: var(--text-dim);">© 2026 Partna Company LLC · Grayslake, IL · carlpartna@gmail.com</div>
+  <div class="footer-brand">The Multiplier Method<em>™</em></div>
+  <div class="footer-links">
+    <a href="curriculum.html">Curriculum</a>
+    <a href="business_plan.html">Business Plan</a>
+    <a href="index.html#apply">Enroll</a>
+  </div>
+  <div class="footer-meta">© 2026 Partna Company LLC · Grayslake, IL</div>
 </footer>
+
+
+<script>
+(function() {
+  var FADE    = ['.section-label', '.callout', '.kpi-row', '.founder'];
+  var STAGGER = ['.card-grid', '.card-grid-3', '.market-grid', '.competitive-grid', '.founder-grid'];
+  var SLIDE   = [];
+
+  function q(sel) { return Array.from(document.querySelectorAll(sel)); }
+
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // Fade
+    FADE.forEach(function(sel) {
+      q(sel).forEach(function(el) { el.classList.add('anim-fade'); });
+    });
+
+    // Stagger containers
+    STAGGER.forEach(function(sel) {
+      q(sel).forEach(function(container) {
+        container.classList.add('anim-stagger');
+        Array.from(container.children).forEach(function(child, i) {
+          child.classList.add('anim-child');
+          child.style.transitionDelay = (i * 0.1) + 's';
+        });
+      });
+    });
+
+    // Slide
+    q('.phases').forEach(function(phases) {
+      Array.from(phases.querySelectorAll(SLIDE.join(','))).forEach(function(el, i) {
+        el.classList.add('anim-slide');
+        el.style.transitionDelay = (i * 0.08) + 's';
+      });
+    });
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+    document.querySelectorAll('.anim-fade, .anim-stagger, .anim-slide').forEach(function(el) {
+      observer.observe(el);
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

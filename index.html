@@ -46,7 +46,7 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 0 40px;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center; gap: 32px;
       height: 60px;
     }
     .nav-logo {
@@ -67,6 +67,7 @@
     }
     .nav-links a:hover { color: var(--white); }
     .nav-cta {
+      margin-left: auto;
       background: var(--accent); color: var(--black);
       font-family: var(--font-head); font-weight: 700;
       font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
@@ -193,7 +194,7 @@
       color: var(--white); line-height: 1.3; margin-bottom: 16px;
       letter-spacing: -0.02em;
     }
-    .who-card p { font-size: 14px; color: var(--text-dim); line-height:1.85; }
+    .who-card p { font-size: 15px; color: var(--text-dim); line-height:1.85; }
     .who-card-new { border-top: 2px solid var(--accent); }
 
     /* PHASES */
@@ -242,7 +243,7 @@
       font-family: var(--font-head); font-size: 16px; font-weight: 700;
       color: var(--white); margin-bottom: 12px; letter-spacing: -0.01em;
     }
-    .method-card p { font-size: 13px; color: var(--text-dim); line-height: 1.7; }
+    .method-card p { font-size: 15px; color: var(--text-dim); line-height: 1.75; }
     .method-banner {
       margin-top: 1px; background: var(--surface);
       border: 1px solid var(--accent-border);
@@ -254,12 +255,12 @@
       letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--accent); white-space: nowrap;
     }
-    .method-banner p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .method-banner p { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
 
     /* PRICING */
     #pricing { background: var(--black); }
     .pricing-grid {
-      display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
       background: var(--border); border: 1px solid var(--border);
       border-radius: 4px; overflow: hidden;
       margin-bottom: 1px;
@@ -343,7 +344,7 @@
     .founder-title {
       font-size: 13px; color: var(--accent); margin-bottom: 24px;
     }
-    .founder-bio { font-size: 15px; color: var(--text-dim); line-height: 1.75; margin-bottom: 28px; }
+    .founder-bio { font-size: 16px; color: var(--text-dim); line-height: 1.75; margin-bottom: 28px; }
     .founder-bullets { list-style: none; }
     .founder-bullets li {
       font-size: 13px; color: var(--text-dim);
@@ -363,10 +364,10 @@
       font-family: var(--font-head); font-size:18px; font-weight: 700;
       color: var(--white); margin-bottom: 12px; letter-spacing: -0.01em;
     }
-    .blitz-col p { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+    .blitz-col p { font-size: 15px; color: var(--text-dim); line-height: 1.7; }
     .blitz-header {
       grid-column: 1 / -1;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center; gap: 32px;
       padding-bottom: 32px; border-bottom: 1px solid var(--border);
       margin-bottom: 8px;
     }
@@ -384,13 +385,13 @@
       background: var(--accent-dim);
       border: 1px solid var(--accent-border);
       border-radius: 4px; padding: 36px 40px;
-      display: flex; align-items: center; justify-content: space-between; gap: 32px;
+      display: flex; align-items: center; gap: 32px; gap: 32px;
     }
     .consulting-strip h3 {
       font-family: var(--font-head); font-size: 20px; font-weight: 800;
       color: var(--white); letter-spacing: -0.02em; margin-bottom: 8px;
     }
-    .consulting-strip p { font-size: 14px; color: var(--text-dim); max-width: 540px; }
+    .consulting-strip p { font-size: 15px; color: var(--text-dim); max-width: 540px; }
     .consulting-strip .btn-ghost { white-space: nowrap; }
 
     /* APPLY */
@@ -437,7 +438,7 @@
     footer {
       border-top: 1px solid var(--border);
       padding: 32px 40px;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center; gap: 32px;
     }
     .footer-brand {
       font-family: var(--font-head); font-size: 13px; font-weight: 700;
@@ -457,7 +458,7 @@
       section { padding: 60px 20px; }
       .who-grid, .method-grid { grid-template-columns: 1fr; }
       .phase { grid-template-columns: 1fr; gap: 20px; }
-      .pricing-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
       .founders-grid { grid-template-columns: 1fr; }
       .blitz-section { grid-template-columns: 1fr; }
       .consulting-strip { flex-direction: column; }
@@ -466,6 +467,298 @@
       .ladder-item:last-child { border-bottom: none; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
     }
+
+    /* INSTRUCTORS SECTION */
+    .instructors-section { background: var(--ink); padding: 80px 40px; }
+    .instructors-section h2 {
+      font-family: var(--font-head); font-size: 42px; font-weight: 800;
+      color: var(--white); letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+    .instructors-intro {
+      font-size: 18px; color: var(--text-dim); max-width: 720px;
+      margin-bottom: 48px; line-height: 1.7;
+    }
+    .instructor-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      margin-bottom: 1px;
+    }
+    .instructor-card {
+      background: var(--surface); padding: 48px 40px;
+    }
+    .instructor-header {
+      display: flex; align-items: center; flex-wrap: wrap;
+      gap: 4px; margin-bottom: 10px;
+    }
+    .instructor-header h3 {
+      font-family: var(--font-head); font-size: 26px; font-weight: 800;
+      color: var(--white); letter-spacing: -0.01em; margin: 0;
+    }
+    .instructor-title {
+      font-size: 13px; color: var(--accent);
+      margin-bottom: 24px; font-weight: 500;
+    }
+    .instructor-card p {
+      font-size: 16px; color: var(--text-dim); line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .instructors-combined {
+      background: var(--surface); padding: 32px 40px;
+    }
+    .instructors-combined p {
+      font-size: 16px; color: var(--text-dim); line-height: 1.75; margin: 0;
+    }
+
+    .tag-vendor {
+      display: inline-block;
+      background-color: var(--color-gold, #C9A84C);
+      color: #000;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .tag-reseller {
+      display: inline-block;
+      background-color: var(--color-accent, #3B82F6);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .vendor-perspective {
+      border-left: 3px solid var(--color-gold, #C9A84C);
+      padding-left: 12px;
+      margin-top: 14px;
+      font-size: 0.92rem;
+    }
+
+    .reseller-perspective {
+      border-left: 3px solid var(--color-accent, #3B82F6);
+      padding-left: 12px;
+      margin-top: 14px;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 768px) {
+      .instructor-cards { grid-template-columns: 1fr; }
+    }
+
+    /* VP CALLOUT — used in Who It's For */
+    .vp-callout {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 3px 3px 0;
+      padding: 20px 28px;
+      margin: 32px 0 56px;
+      max-width: 760px;
+    }
+    .vp-callout-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+    }
+    .vp-callout p {
+      font-size: 16px; color: var(--text-dim); line-height: 1.75; margin-bottom: 0;
+    }
+    /* METHOD CARD VP LINE */
+    .method-vp {
+      font-size: 13px; color: var(--accent); margin-top: 10px;
+      padding-top: 10px; border-top: 1px solid var(--border);
+    }
+
+
+    /* ============================================
+       SCROLL ENTRY ANIMATIONS
+    ============================================ */
+
+    /* Base hidden state — applied via JS before observer fires */
+    .anim-fade { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .anim-fade.visible { opacity: 1; transform: translateY(0); }
+
+    /* Staggered children — each child gets a delay set via inline style by JS */
+    .anim-stagger > .anim-child {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .anim-stagger.visible > .anim-child { opacity: 1; transform: translateY(0); }
+
+    /* Slide in from left — for phase rows */
+    .anim-slide { opacity: 0; transform: translateX(-18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .anim-slide.visible { opacity: 1; transform: translateX(0); }
+
+    /* Hero fires on page load, not scroll */
+    @keyframes heroUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-eyebrow { animation: heroUp 0.6s ease 0.05s both; }
+    .hero h1 { animation: heroUp 0.65s ease 0.18s both; }
+    .hero-sub { animation: heroUp 0.65s ease 0.32s both; }
+    .hero-actions { animation: heroUp 0.65s ease 0.46s both; }
+    .hero-stats { animation: heroUp 0.7s ease 0.28s both; }
+
+    /* ============================================
+       HOVER ENHANCEMENTS
+       (Layered on top — no structural changes)
+    ============================================ */
+
+    /* Hero stats */
+    .hero-stat {
+      transition: background 0.2s;
+    }
+    .hero-stat:hover {
+      background: #222222;
+    }
+
+    /* Who cards */
+    .who-card {
+      transition: background 0.22s, transform 0.22s;
+      position: relative;
+    }
+    .who-card:hover {
+      background: #202020;
+      transform: translateY(-3px);
+    }
+
+    /* Phase rows */
+    .phase {
+      transition: background 0.2s, border-left-color 0.2s;
+      border-left: 3px solid transparent;
+    }
+    .phase:hover {
+      background: #1e1e1e;
+      border-left-color: var(--accent);
+    }
+
+    /* Method cards — accent top bar reveal on hover */
+    .method-card {
+      transition: background 0.22s;
+      position: relative;
+      overflow: hidden;
+    }
+    .method-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.3s ease;
+    }
+    .method-card:hover::before { transform: scaleX(1); }
+    .method-card:hover { background: #202020; }
+
+    /* Pricing cards */
+    .pricing-card {
+      transition: background 0.2s, transform 0.22s;
+    }
+    .pricing-card:hover {
+      background: #1f1f1f;
+      transform: translateY(-3px);
+    }
+    .pricing-card-featured:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Founder / instructor cards */
+    .founder-card,
+    .instructor-card {
+      transition: background 0.2s;
+    }
+    .founder-card:hover,
+    .instructor-card:hover {
+      background: #202020;
+    }
+
+    /* Tags — subtle fill on hover */
+    .tag {
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      cursor: default;
+    }
+    .tag:hover {
+      background: var(--border);
+      color: var(--text);
+    }
+    .tag-accent:hover {
+      background: rgba(232,197,71,0.22);
+    }
+
+    /* VP Callout */
+    .vp-callout {
+      transition: border-left-color 0.2s, background 0.2s;
+    }
+    .vp-callout:hover {
+      background: #1e1e1e;
+    }
+
+    /* Method banner */
+    .method-banner {
+      transition: background 0.2s;
+    }
+    .method-banner:hover {
+      background: #1f1f1f;
+    }
+
+    /* Consulting strip */
+    .consulting-strip {
+      transition: background 0.2s;
+    }
+    .consulting-strip:hover {
+      background: rgba(232,197,71,0.16);
+    }
+
+    /* Blitz section */
+    .blitz-section {
+      transition: background 0.2s;
+    }
+    .blitz-section:hover {
+      background: #1e1e1e;
+    }
+
+    /* Nav links — already have hover, add underline effect */
+    .nav-links a {
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0; width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Pricing CTA buttons — add shimmer on hover */
+    .pricing-cta {
+      position: relative; overflow: hidden;
+    }
+    .pricing-cta::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.07) 50%, transparent 100%);
+      transform: translateX(-100%);
+      transition: transform 0.45s ease;
+    }
+    .pricing-cta:hover::after { transform: translateX(100%); }
+
+    /* btn-primary shimmer */
+    .btn-primary {
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+    .btn-primary:hover::after { transform: translateX(100%); }
+
   </style>
 </head>
 <body>
@@ -489,8 +782,8 @@
 <div class="hero">
   <div>
     <div class="hero-eyebrow">The Multiplier Method · Channel Partner Training · Partna Company</div>
-    <h1>The only The Multiplier Method program built for the <em>indirect channel.</em></h1>
-    <p class="hero-sub">Your AEs were trained to close direct. The indirect model is different — and The Multiplier Method's framework maps to it precisely. No theory. No AI shortcuts. Proven process, practitioner IP.</p>
+    <h1>Stop managing partners. Start <em>selling through them.</em></h1>
+    <p class="hero-sub">You've been asked to stand up a channel program — and your AEs are running a direct-sales playbook through a partner ecosystem. The Multiplier Method is the operating system they need. Twelve modules. Six practitioner frameworks. Built to deploy in 90 days.</p>
     <div class="hero-actions">
       <a href="#apply" class="btn-primary">Enroll in the Next Cohort</a>
       <a href="curriculum.html" class="btn-ghost">See the full curriculum →</a>
@@ -506,12 +799,12 @@
       <div class="hero-stat-label">The Multiplier Method Frameworks</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-value">$400</div>
-      <div class="hero-stat-label">Per Seat / Month</div>
+      <div class="hero-stat-value">3</div>
+      <div class="hero-stat-label">Ways to Engage</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-value">3</div>
-      <div class="hero-stat-label">Learning Phases</div>
+      <div class="hero-stat-value">90</div>
+      <div class="hero-stat-label">Day Deployment</div>
     </div>
   </div>
 </div>
@@ -522,39 +815,29 @@
 <section id="who">
   <div class="section-inner">
     <div class="section-label">Who It's For</div>
-    <h2 class="section-title">Built for the channel AE who keeps <em>giving it away.</em></h2>
-    <p class="section-body">Most channel AEs were trained in direct sales. The indirect model is different — and The Multiplier Method's framework maps to it precisely. This program closes that gap.</p>
+    <h2 class="section-title">Your channel team has no <em>operating system.</em></h2>
+    <p class="section-body">Most channel Account Executives were trained in direct sales. They walk into partner meetings running a direct playbook — building business plans, running joint calls, sending proposals — and nothing closes. Partners take their Intellectual Property and shop it. Your team doesn't have a channel framework. That's the gap this program closes.</p>
 
-    <div class="who-grid">
-      <div class="who-card">
+    <div class="vp-callout">
+      <div class="vp-callout-label">For the VP of Channel</div>
+      <p>If you're standing up a channel program — this is your team's playbook on day one. The curriculum gives your AEs a shared language, a qualifying framework, and an operating cadence. You don't need to build enablement from scratch. You need to hand your team something that works Monday morning. Start with the Channel Strategy Audit: a 2-hour working session that maps your gaps to specific modules and delivers a 90-day action plan.</p>
+    </div>
+
+    <div class="who-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="who-card who-card-new">
         <div class="who-card-tag">The Problem</div>
-        <h3>Channel AEs who consult for free and wonder why partners don't close</h3>
-        <p>You're building partner business plans, running joint calls, sending proposals — and nothing closes. Partners take your IP and shop it to the lowest-price vendor. The Multiplier Method framework stops this pattern permanently.</p>
+        <h3>You've been asked to stand up a channel program in 90 days — with no playbook</h3>
+        <p>Your Account Executives are running a direct-sales playbook through a partner ecosystem. They're over-investing in unqualified partners, giving away resources before commitment, and accepting non-committal Quarterly Business Reviews as normal. You have no shared framework, no operating cadence, and no way to measure whether partner activity is actually producing revenue. You need structure — fast.</p>
       </div>
       <div class="who-card">
-        <div class="who-card-tag">Company Profile</div>
-        <h3>B2B tech companies with $10M–$100M ARR and active partner ecosystems</h3>
-        <p>You have VARs, MSPs, or distributors selling your product — but your AEs were trained in direct-sales methodologies. The channel requires different skills: qualifying partners, protecting your time, and building the The Multiplier Method Co-Sell Alignment Agreement into every relationship.</p>
-      </div>
-      <div class="who-card">
-        <div class="who-card-tag">The AE Profile</div>
+        <div class="who-card-tag">The Account Executive Profile</div>
         <h3>Quota-carrying reps managing 5–15 partner relationships without a framework</h3>
-        <p>You know how to close direct. You don't know how to apply the Partner Fit Filter to a partner conversation, how to use Negative Reverse Selling when a partner stalls, or how to run a QBR that creates urgency instead of validating inaction.</p>
-      </div>
-      <div class="who-card who-card-new">
-        <div class="who-card-tag">VP / Head of Channel</div>
-        <h3>You own the partner ecosystem but your team is running a direct-sales playbook through it</h3>
-        <p>Your AEs are over-investing in unqualified partners, giving away resources before commitment, and accepting non-committal QBRs as normal. The Multiplier Method gives your team a shared The Multiplier Method language for every partner touchpoint.</p>
-      </div>
-      <div class="who-card who-card-new">
-        <div class="who-card-tag">PE Portfolio Companies</div>
-        <h3>You've been asked to stand up a channel motion in 90 days with no playbook</h3>
-        <p>You have growth pressure and no budget for a $200K consultancy. The Multiplier Method is the productized alternative — start with a Channel Strategy Audit, then run your team through the curriculum. Audits available at $2,500.</p>
+        <p>They know how to close direct. They don't know how to apply the Partner Fit Filter to a partner conversation, how to use Negative Reverse Selling when a partner stalls, or how to run a Quarterly Business Review that creates urgency instead of validating inaction. This program gives them the channel-specific methodology they were never trained on.</p>
       </div>
       <div class="who-card">
         <div class="who-card-tag">The Outcome</div>
-        <h3>AEs who run the The Multiplier Method through every partner touchpoint</h3>
-        <p>After completing this program, your AEs establish Co-Sell Alignment Agreements on every partner deal, qualify with the Partner Fit Filter before investing time, and use Negative Reverse Selling to get partners to close themselves. The channel becomes a disciplined sales motion.</p>
+        <h3>Before: 14 partners, 3 producing revenue, zero with a signed Co-Sell Alignment Agreement</h3>
+        <p>After: 8 qualified partners, all with Co-Sell Alignment Agreements, Partner Fit Filter run on every new relationship, free consulting eliminated, partner-sourced pipeline up 40% in 90 days. The channel stops being a cost center and starts being a disciplined revenue motion.</p>
       </div>
     </div>
   </div>
@@ -566,21 +849,21 @@
 <section id="program">
   <div class="section-inner">
     <div class="section-label">The Curriculum</div>
-    <h2 class="section-title">Three phases. One <em>complete The Multiplier Method motion.</em></h2>
-    <p class="section-body">Each phase builds on the last. By the end, your AEs have a RELAY-based partner operating system they can run on any partner, in any deal, without losing margin to free consulting.</p>
+    <h2 class="section-title">Three phases. One <em>complete RELAY motion.</em></h2>
+    <p class="section-body">Each phase builds on the last. By the end, your Account Executives have a RELAY-based partner operating system they can run on any partner, in any deal, without losing margin to free consulting.</p>
 
     <div class="phases">
       <div class="phase">
         <div class="phase-meta">
           <div class="phase-number">Phase 01 · Modules 1–4</div>
           <div class="phase-title">The Multiplier Method Mindset for Channel</div>
-          <div class="phase-modules">Product-agnostic. Transfers across VAR, MSP, ISV, distributor.</div>
+          <div class="phase-modules">Product-agnostic. Transfers across Value-Added Reseller, Managed Service Provider, Independent Software Vendor, distributor.</div>
         </div>
         <div class="phase-body">
-          <p>The mental shift from direct-sales rep to channel operator. Identity/Role theory applied to the partner ecosystem. Why channel AEs fail — and why it always comes down to giving away intellectual property before commitment. Partner qualification using the Partner Fit Filter. Co-Sell Alignment Agreements as a partner management tool.</p>
+          <p>The mental shift from direct-sales rep to channel operator. Identity/Role theory applied to the partner ecosystem. Why channel Account Executives fail — and why it always comes down to giving away intellectual property before commitment. Partner qualification using the Partner Fit Filter. Co-Sell Alignment Agreements as a partner management tool.</p>
           <div class="phase-tags">
             <span class="tag tag-accent">I/R Theory</span>
-            <span class="tag tag-accent">Partner Partner Fit Filter</span>
+            <span class="tag tag-accent">Partner Fit Filter</span>
             <span class="tag tag-accent">Co-Sell Alignment Agreements</span>
             <span class="tag">DISC for Partner Types</span>
           </div>
@@ -590,10 +873,10 @@
         <div class="phase-meta">
           <div class="phase-number">Phase 02 · Modules 5–8</div>
           <div class="phase-title">The Multiplier Method Selling System in Channel</div>
-          <div class="phase-modules">Real-world VAR, MSP, ISV, and distributor scenarios.</div>
+          <div class="phase-modules">Real-world Value-Added Reseller, Managed Service Provider, Independent Software Vendor, and distributor scenarios.</div>
         </div>
         <div class="phase-body">
-          <p>Negative Reverse Selling applied to partner conversations. Protecting your time and IP with the No-Free-Consulting framework. Mapping the full channel deal lifecycle with The Multiplier Method checkpoints at every stage. Reading DISC profiles in partner and end-customer meetings. Live scenario practice with real partner objections.</p>
+          <p>Negative Reverse Selling applied to partner conversations. Protecting your time and Intellectual Property with the No-Free-Consulting framework. Mapping the full channel deal lifecycle with The Multiplier Method checkpoints at every stage. Reading DISC profiles in partner and end-customer meetings. Live scenario practice with real partner objections.</p>
           <div class="phase-tags">
             <span class="tag tag-accent">Negative Reverse Selling</span>
             <span class="tag tag-accent">No-Free-Consulting</span>
@@ -606,12 +889,12 @@
         <div class="phase-meta">
           <div class="phase-number">Phase 03 · Modules 9–12</div>
           <div class="phase-title">Building the Repeatable Channel Motion</div>
-          <div class="phase-modules">Systems and habits. The Multiplier Method method as your default.</div>
+          <div class="phase-modules">Operational playbooks: incentive design, partner ramp models, executive events, and KPI frameworks.</div>
         </div>
         <div class="phase-body">
-          <p>RELAY-based QBR structure that drives commitment instead of reporting. Joint prospecting through partner ecosystems. Competitive channel intelligence. Building habits and systems so the The Multiplier Method becomes the default — not a technique you reach for in difficult conversations.</p>
+          <p>Operational playbooks that make the RELAY motion run without you. RELAY-based Quarterly Business Review structure with regional heatmaps. Four co-selling motions matched to partner type. Incentive framework design. The 120-day ramp model for new partners and territories. Executive event playbooks. KPI refinement that replaces vanity metrics with pipeline indicators.</p>
           <div class="phase-tags">
-            <span class="tag tag-accent">The Multiplier Method QBR Framework</span>
+            <span class="tag tag-accent">The Multiplier Method Quarterly Business Review Framework</span>
             <span class="tag tag-accent">Channel Prospecting</span>
             <span class="tag">Competitive Intelligence</span>
             <span class="tag">Repeatable Channel System</span>
@@ -627,40 +910,46 @@
 <!-- METHODOLOGY -->
 <section id="methodology">
   <div class="section-inner">
-    <div class="section-label">The The RELAY Framework™</div>
+    <div class="section-label">The RELAY Framework™</div>
     <h2 class="section-title">Six frameworks. All adapted for <em>channel.</em></h2>
-    <p class="section-body">The Multiplier Method's core frameworks were built for direct sales. We've adapted each one specifically for the indirect channel — where the buyer is a partner, not an end customer — into a proprietary methodology we call <strong style="color:var(--white)">The The RELAY Framework™</strong>.</p>
+    <p class="section-body">The Multiplier Method's core frameworks were built for direct sales. We've adapted each one specifically for the indirect channel — where the buyer is a partner, not an end customer — into a proprietary methodology we call <strong style="color:var(--white)">The RELAY Framework™</strong> — <strong style="color:var(--white)">R</strong>ecognize, <strong style="color:var(--white)">E</strong>valuate, <strong style="color:var(--white)">L</strong>everage, <strong style="color:var(--white)">A</strong>lign, <strong style="color:var(--white)">Y</strong>ield.</p>
 
     <div class="method-grid">
       <div class="method-card">
         <div class="method-number">Framework 01</div>
-        <h3>Identity / Role Theory</h3>
-        <p>Channel AEs who over-invest emotionally in partner relationships give away the most. I/R Theory separates your identity from your role — so partner rejection doesn't trigger free consulting behavior.</p>
+        <h3>Identity / Role (I/R) Theory</h3>
+        <p>Channel Account Executives who over-invest emotionally in partner relationships give away the most. I/R Theory separates your identity from your role — so partner rejection doesn't trigger free consulting behavior.</p>
+        <p class="method-vp">For VPs: stops the root behavior that inflates pipeline and destroys margin — giving away IP before commitment.</p>
       </div>
       <div class="method-card">
         <div class="method-number">Framework 02</div>
         <h3>Partner Fit Filter</h3>
-        <p>Applied to both partner qualification and end-customer conversations run through partners. Uncovers real pain — not feature interest — before any investment of time, travel, or IP.</p>
+        <p>Applied to both partner qualification and end-customer conversations run through partners. Uncovers real pain — not feature interest — before any investment of time, travel, or Intellectual Property.</p>
+        <p class="method-vp">For VPs: eliminates the hours your AEs spend on unqualified partners who appear in pipeline reviews at Stage 3 with no budget and no champion.</p>
       </div>
       <div class="method-card">
         <div class="method-number">Framework 03</div>
         <h3>Co-Sell Alignment Agreements</h3>
-        <p>Every partner conversation — intro call, QBR, joint sales call — begins with a CAA. Agenda, purpose, outcomes, and next steps agreed before the meeting starts. Every time.</p>
+        <p>Every partner conversation — intro call, Quarterly Business Review, joint sales call — begins with a Co-Sell Alignment Agreement. Agenda, purpose, outcomes, and next steps agreed before the meeting starts. Every time.</p>
+        <p class="method-vp">For VPs: ends the "we're aligned" problem — partner calls that produce no agreed next step, no commitment, and no forward motion.</p>
       </div>
       <div class="method-card">
         <div class="method-number">Framework 04</div>
         <h3>Negative Reverse Selling</h3>
-        <p>Used when partners stall, go quiet, or ask for more resources without commitment. NRS surfaces the real objection — or disqualifies the partner — without breaking the relationship.</p>
+        <p>Used when partners stall, go quiet, or ask for more resources without commitment. Negative Reverse Selling surfaces the real objection — or disqualifies the partner — without breaking the relationship.</p>
+        <p class="method-vp">For VPs: removes the partners inflating your pipeline with 90+ days of "activity" and no qualified deal attached.</p>
       </div>
       <div class="method-card">
         <div class="method-number">Framework 05</div>
         <h3>No-Free-Consulting</h3>
-        <p>The framework for protecting your time, your IP, and your deal margins. Defines exactly what requires partner commitment before you engage — and what happens when they take your work to a competitor.</p>
+        <p>The framework for protecting your time, your Intellectual Property, and your deal margins. Defines exactly what requires partner commitment before you engage — and what happens when they take your work to a competitor.</p>
+        <p class="method-vp">For VPs: directly protects margin. If your AEs are building proposals and architectures for partners who take that work to a cheaper vendor — this framework stops it.</p>
       </div>
       <div class="method-card">
         <div class="method-number">Framework 06</div>
-        <h3>DISC for Channel</h3>
+        <h3>DISC (Dominance, Influence, Steadiness, Conscientiousness) for Channel</h3>
         <p>Reading partner personality types and adapting communication style accordingly. D-types need decisions, not rapport. C-types need data, not enthusiasm. The wrong approach with the right partner is still a lost deal.</p>
+        <p class="method-vp">For VPs: solves the stuck relationship problem — where a key partner hasn't produced in months and nobody can explain why.</p>
       </div>
     </div>
 
@@ -673,151 +962,108 @@
 
 <hr class="divider" />
 
-<!-- CONSULTING STRIP -->
-<section style="padding: 56px 40px;">
-  <div class="section-inner">
-    <div class="consulting-strip">
-      <div>
-        <h3>Not ready for the full program? Start with a Channel Strategy Audit.</h3>
-        <p>A 2-hour working session with Carl or Natalie that diagnoses your partner motion and delivers a prioritized action plan. Flat fee: $2,500. The audit naturally feeds into the curriculum for teams that want to go deeper. Fractional VP of Channel retainers also available.</p>
-      </div>
-      <a href="#apply" class="btn-ghost">Request an Audit →</a>
-    </div>
-  </div>
-</section>
 
-<hr class="divider" />
 
 <!-- PRICING -->
 <section id="pricing">
   <div class="section-inner">
     <div class="section-label">Investment</div>
-    <h2 class="section-title">Straightforward pricing. <em>$400 per seat / month.</em></h2>
-    <p class="section-body">Cohort-based program with live instruction. Individual seats and team licenses available. One price — all 12 modules, all RELAY framework stages, all channel scenarios.</p>
+    <h2 class="section-title">Three ways to <em>get started.</em></h2>
+    <p class="section-body">Most VPs of Channel start with the <strong style="color:var(--white)">Channel Strategy Audit</strong> — a 2-hour working session that maps your team's gaps to specific modules and delivers a 90-day deployment roadmap. From there, bring the full curriculum to your team or run a workshop at your next SKO. Every engagement is built on the same RELAY methodology.</p>
 
-    <!-- VALUE LADDER -->
-    <div class="pricing-ladder" style="margin-bottom: 24px;">
-      <div class="ladder-item">
-        <div class="ladder-price">Free</div>
-        <div class="ladder-label">Channel Readiness<br>Assessment</div>
-      </div>
-      <div class="ladder-item">
-        <div class="ladder-price">$297</div>
-        <div class="ladder-label">Channel Starter Kit<br>Template Library</div>
-      </div>
-      <div class="ladder-item">
-        <div class="ladder-price">$400/mo</div>
-        <div class="ladder-label">Individual Seat<br>12-Module Curriculum</div>
-      </div>
-      <div class="ladder-item">
-        <div class="ladder-price">$2,500</div>
-        <div class="ladder-label">Channel Strategy<br>Audit</div>
-      </div>
-      <div class="ladder-item">
-        <div class="ladder-price">$5K–$15K</div>
-        <div class="ladder-label">Team Workshop<br>Half / Full Day</div>
-      </div>
-      <div class="ladder-item">
-        <div class="ladder-price">$8K–$12K/mo</div>
-        <div class="ladder-label">Fractional VP<br>of Channel</div>
-      </div>
-    </div>
-
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <div class="pricing-tier">Individual Seat</div>
-        <div class="pricing-amount">$400<span>/mo</span></div>
-        <div class="pricing-note">3-month minimum · per AE</div>
-        <ul class="pricing-features">
-          <li>Full 12-module curriculum access</li>
-          <li>All 6 The Multiplier Method channel frameworks</li>
-          <li>Live bi-weekly cohort sessions</li>
-          <li>Scenario library — 20+ partner situations</li>
-          <li>The Multiplier Method certificate</li>
-          <li>Slack community access</li>
-        </ul>
-        <a href="#apply" class="pricing-cta">Enroll — Individual Seat</a>
-      </div>
+    <div class="pricing-grid" style="grid-template-columns: 1fr 1fr 1fr;">
       <div class="pricing-card pricing-card-featured">
-        <div class="pricing-badge">Most Popular</div>
-        <div class="pricing-tier">Team License</div>
-        <div class="pricing-amount">$400<span>/seat/mo</span></div>
-        <div class="pricing-note">5–10 AEs · dedicated cohort</div>
+        <div class="pricing-badge">Start Here — VPs</div>
+        <div class="pricing-tier">Channel Strategy Audit</div>
+        <div class="pricing-amount">$2,500</div>
+        <div class="pricing-note">Flat fee · 2-hour working session</div>
         <ul class="pricing-features">
-          <li>Everything in Individual, plus:</li>
-          <li>Private cohort — your team only</li>
-          <li>Custom scenarios for your partner ecosystem</li>
-          <li>Sessions scheduled around your team</li>
-          <li>VP Sales quarterly check-in call</li>
-          <li>Deal role-play with your actual partners</li>
+          <li>Live diagnostic with Carl or Natalie</li>
+          <li>Full partner motion assessment against RELAY stages</li>
+          <li>Written action plan mapping gaps to specific modules</li>
+          <li>Prioritized 90-day roadmap for your channel team</li>
+          <li>Natural entry point into the full curriculum</li>
+          <li>Ideal for VP/Head of Channel evaluating the program</li>
         </ul>
-        <a href="#apply" class="pricing-cta pricing-cta-accent">Enroll — Team License</a>
+        <a href="#apply" class="pricing-cta pricing-cta-accent">Request an Audit</a>
       </div>
       <div class="pricing-card">
-        <div class="pricing-tier">Enterprise</div>
-        <div class="pricing-amount" style="font-size:28px;">Custom</div>
-        <div class="pricing-note">15+ AEs · custom program build</div>
+        <div class="pricing-tier">Team Workshop</div>
+        <div class="pricing-amount" style="font-size:28px;">$5K–$15K</div>
+        <div class="pricing-note">Half-day or full-day · on-site or virtual</div>
         <ul class="pricing-features">
-          <li>Everything in Team, plus:</li>
-          <li>Custom curriculum for your partner ecosystem</li>
-          <li>Carl co-facilitates key live sessions</li>
-          <li>Live partner QBR co-facilitation</li>
-          <li>Ongoing monthly advisory post-program</li>
-          <li>Leadership briefings on channel health</li>
+          <li>Intensive RELAY framework training for your full team</li>
+          <li>Custom scenarios from your actual partner ecosystem</li>
+          <li>Live role-play with real partner objections</li>
+          <li>Co-Sell Alignment Agreement practice sessions</li>
+          <li>Ideal for sales kickoffs and team offsites</li>
+          <li>Post-workshop summary and action items delivered</li>
         </ul>
-        <a href="#apply" class="pricing-cta">Contact for Enterprise</a>
+        <a href="#apply" class="pricing-cta">Book a Workshop</a>
       </div>
       <div class="pricing-card">
-        <div class="pricing-tier">Fractional VP of Channel</div>
-        <div class="pricing-amount" style="font-size:22px;">$8K–$12K<span>/mo</span></div>
-        <div class="pricing-note">3-month minimum · advisory retainer</div>
+        <div class="pricing-tier">Channel Starter Kit</div>
+        <div class="pricing-amount">$297</div>
+        <div class="pricing-note">One-time purchase · instant access</div>
         <ul class="pricing-features">
-          <li>Not ready to hire a full-time VP of Channel</li>
-          <li>Carl or Natalie runs your channel motion</li>
-          <li>Partner program design and activation</li>
-          <li>VAR/MSP relationship management</li>
-          <li>QBR facilitation and pipeline reviews</li>
-          <li>Transitions to full-time hire when ready</li>
+          <li>Co-Sell Alignment Agreement templates (4 scenarios)</li>
+          <li>Partner Fit Filter scorecard</li>
+          <li>Quarterly Business Review agenda template</li>
+          <li>Partner tiering worksheet</li>
+          <li>No-Free-Consulting boundary scripts</li>
         </ul>
-        <a href="#apply" class="pricing-cta">Inquire About Retainer</a>
+        <a href="#apply" class="pricing-cta">Buy the Starter Kit</a>
       </div>
     </div>
   </div>
 </section>
 
+
 <hr class="divider" />
 
 <!-- INSTRUCTORS -->
-<section id="founders">
+<section class="instructors-section" id="founders">
   <div class="section-inner">
-    <div class="section-label">The Instructors</div>
-    <h2 class="section-title">Taught by practitioners. <em>Not consultants.</em></h2>
-    <p class="section-body">Both instructors are actively running partner ecosystems right now. Every framework in this program comes from what's working in the channel today.</p>
+  <h2>Meet Your Instructors</h2>
+  <p class="instructors-intro">Most channel training gives you one perspective. This program gives you both — the vendor building the program, and the partner deciding whether to care about it.</p>
 
-    <div class="founders-grid">
-      <div class="founder-card">
-        <div class="founder-name">Carl Clendenin</div>
-        <div class="founder-title">Sr. Channel Sales Executive, Toshiba Global Commerce Solutions</div>
-        <p class="founder-bio">Carl manages the enterprise reseller ecosystem at Toshiba — including CDW, SHI, Insight, Connection, Softchoice, Zones, ePlus, Presidio, and WWT. He has applied The Multiplier Method's framework to the channel motion for over a decade, building the Co-Sell Alignment Agreement, Partner Fit Filter, and No-Free-Consulting habit into every partner relationship he manages. He built this program because he wished it existed when he started.</p>
-        <ul class="founder-bullets">
-          <li>Manages 9 of the top 10 national VARs directly</li>
-          <li>10+ years channel sales, distribution, and indirect motion</li>
-          <li>Multiplier Method-trained, adapted for indirect channel</li>
-          <li>Grayslake, IL — Lake County</li>
-        </ul>
+  <div class="instructor-cards">
+
+    <!-- CARL -->
+    <div class="instructor-card">
+      <div class="instructor-header">
+        <h3>Carl Clendenin</h3>
+        <span class="tag-vendor">Vendor-Side Channel</span>
       </div>
-      <div class="founder-card">
-        <div class="founder-name">Natalie Clendenin</div>
-        <div class="founder-title">Channel AE · Expel · CRN Women of the Channel 2025</div>
-        <p class="founder-bio">Natalie runs the channel motion at Expel, a managed detection and response company. She brings the AE's perspective: what it actually looks like to carry quota, manage partner relationships, and apply The Multiplier Method's methodology simultaneously — without a dedicated channel manager or a script for every situation. Prior experience at CDW, LastPass (4× CDW revenue growth), Okta, and Varonis.</p>
-        <ul class="founder-bullets">
-          <li>CRN Women of the Channel 2025</li>
-          <li>4× CDW revenue growth at LastPass</li>
-          <li>Specialist in MSSP and SI partner motions</li>
-          <li>Grayslake, IL — Lake County</li>
-        </ul>
+      <p class="instructor-title">Sr. Channel Sales Executive — Toshiba Global Commerce Solutions</p>
+      <p>Carl has spent 15+ years on the <strong>vendor side of the channel</strong> — building partner programs, enabling VAR field sellers, and driving pipeline through resellers rather than around them. His career spans Juniper Networks, Binary Defense, HPE, LastPass, Mimecast, and Toshiba, with <strong>$570M+ in partner-led growth</strong> across GSIs, VARs, DMRs, and hyperscalers.</p>
+      <p>His primary VAR relationships have included <strong>CDW, SHI, Insight, Zones, WWT, ePlus, and Presidio</strong>. He's built co-sell motions, heatmap-driven territory plans, rep-level enablement programs, and the kind of structured channel architecture that turns a VAR relationship from a logo on a slide into a real pipeline engine.</p>
+      <p>Carl's IP in this curriculum covers: <strong>how to recruit, enable, and co-sell through a partner — from the vendor's seat.</strong></p>
+      <div class="instructor-perspective vendor-perspective">
+        <strong>His perspective:</strong> What it takes to make a reseller care about your product, prioritize your deals, and actually show up for your customers.
       </div>
     </div>
+
+    <!-- NATALIE -->
+    <div class="instructor-card">
+      <div class="instructor-header">
+        <h3>Natalie Visconti-Clendenin</h3>
+        <span class="tag-reseller">Reseller-Side Channel</span>
+      </div>
+      <p class="instructor-title">Director, Channel Partners — PointFive</p>
+      <p>Natalie has spent her career on the <strong>reseller and partner side of the channel</strong> — the side most vendor-facing channel training completely ignores. Her experience spans CDW, LastPass, Expel, Okta, Varonis, and now PointFive, a cloud and AI efficiency platform.</p>
+      <p>She understands how <strong>reseller AEs actually evaluate vendors</strong>, why partner programs succeed or fail at the field level, what vendor behavior builds trust versus destroys it, and how a partner decides what to prioritize when they have 200 vendors competing for their attention.</p>
+      <p>Natalie's IP in this curriculum covers: <strong>what the partner actually experiences — and what that means for how you should design everything.</strong></p>
+      <div class="instructor-perspective reseller-perspective">
+        <strong>Her perspective:</strong> What vendors get wrong about partners, what makes a reseller champion you in a deal, and what gets your program quietly deprioritized.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="instructors-combined">
+    <p><strong>Together:</strong> Carl and Natalie bring a view of the channel that neither side typically gets access to — the full picture of how partner revenue actually gets created, from both ends of the relationship.</p>
+  </div>
   </div>
 </section>
 
@@ -827,7 +1073,7 @@
 <section id="apply">
   <div class="apply-inner">
     <div class="section-label" style="text-align:center;">Next Cohort — Limited Seats</div>
-    <h2 class="section-title" style="text-align:center;">Stop managing partners. Start <em>selling through them.</em></h2>
+    <h2 class="section-title" style="text-align:center;">The only RELAY-based training program for the <em>indirect channel.</em></h2>
     <p>Enrollment takes 5 minutes. We follow up within 24 hours to schedule a 20-minute intro call and confirm fit. Team license cohorts capped at 2 active simultaneously — enroll early.</p>
     <div class="enroll-form">
       <div class="form-grid">
@@ -838,19 +1084,14 @@
           <label>Program Interest</label>
           <select>
             <option value="">Select one...</option>
-            <option>Channel Readiness Assessment (Free)</option>
-            <option>Channel Starter Kit — $297</option>
-            <option>Individual Seat — $400/month</option>
-            <option>Team License — $400/seat/month (5–10 AEs)</option>
-            <option>Enterprise — Custom (15+ AEs)</option>
-            <option>Channel Strategy Audit — $2,500</option>
+                        <option>Channel Starter Kit — $297</option>
+                        <option>Channel Strategy Audit — $2,500</option>
             <option>Team Workshop — $5K–$15K</option>
-            <option>Fractional VP of Channel — $8K–$12K/mo</option>
             <option>Blitz Masters + The Multiplier Method Bundle</option>
             <option>Just want more information</option>
           </select>
         </div>
-        <div class="form-group"><label>Number of AEs</label><input type="text" placeholder="e.g. 8" /></div>
+        <div class="form-group"><label>Number of Account Executives</label><input type="text" placeholder="e.g. 8" /></div>
         <div class="form-group"><label>Your Biggest Channel Challenge</label><input type="text" placeholder="e.g. Partners aren't closing deals" /></div>
       </div>
       <button class="form-submit">Submit Enrollment Request</button>
@@ -867,8 +1108,96 @@
     <a href="business_plan.html">Business Plan</a>
     <a href="#apply">Enroll</a>
   </div>
-  <div class="footer-meta">© 2026 Partna Company LLC · Grayslake, IL · carlpartna@gmail.com</div>
+  <div class="footer-meta">© 2026 Partna Company LLC · Grayslake, IL</div>
 </footer>
 
+<script>
+  // ─── Scroll Entry Animations via IntersectionObserver ───────────────────────
+
+  // Elements to fade up on entry
+  const FADE_SELECTORS = [
+    '.section-label',
+    '.section-title',
+    '.section-body',
+    '.vp-callout',
+    '.consulting-strip',
+    '.method-banner',
+    '.blitz-section',
+    '.pricing-ladder',
+    '.instructors-combined',
+    '.instructors-intro',
+    '.instructors-section h2',
+    '.enroll-form',
+    '.apply-inner > p',
+    '.apply-inner > .section-label',
+  ];
+
+  // Grid containers whose children stagger in
+  const STAGGER_SELECTORS = [
+    '.who-grid',
+    '.method-grid',
+    '.pricing-grid',
+    '.founders-grid',
+    '.instructor-cards',
+  ];
+
+  // Phase rows slide in from the left
+  const SLIDE_SELECTORS = [
+    '.phase',
+  ];
+
+  function applyFade(els) {
+    els.forEach(el => el.classList.add('anim-fade'));
+  }
+
+  function applyStagger(containers) {
+    containers.forEach(container => {
+      container.classList.add('anim-stagger');
+      Array.from(container.children).forEach((child, i) => {
+        child.classList.add('anim-child');
+        child.style.transitionDelay = (i * 0.1) + 's';
+      });
+    });
+  }
+
+  function applySlide(els) {
+    els.forEach((el, i) => {
+      el.classList.add('anim-slide');
+      el.style.transitionDelay = (i * 0.08) + 's';
+    });
+  }
+
+  // Wait for DOM
+  document.addEventListener('DOMContentLoaded', () => {
+
+    // Apply base classes
+    FADE_SELECTORS.forEach(sel => applyFade(document.querySelectorAll(sel)));
+    STAGGER_SELECTORS.forEach(sel => applyStagger(document.querySelectorAll(sel)));
+
+    // Slides — stagger within each section separately so delay resets per section
+    document.querySelectorAll('.phases').forEach(phasesContainer => {
+      applySlide(phasesContainer.querySelectorAll('.phase'));
+    });
+
+    // IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // fire once
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    // Observe all animated elements
+    document.querySelectorAll(
+      '.anim-fade, .anim-stagger, .anim-slide'
+    ).forEach(el => observer.observe(el));
+
+  });
+</script>
 </body>
 </html>

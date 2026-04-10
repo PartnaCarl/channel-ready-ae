@@ -1,102 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Module 04 &mdash; The Partner Fit Filter in Channel Conversations &mdash; The Multiplier Method</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 04 — The Multiplier Method</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--black:#0a0a0a;--ink:#171717;--surface:#1c1c1c;--border:#242424;--muted:#333333;--text-dim:#a8a8a8;--text:#d4d4d4;--white:#f5f5f5;--accent:#e8c547;--accent-dim:rgba(232,197,71,0.10);--accent-border:rgba(232,197,71,0.28);--font-head:'Cormorant Garamond',serif;--font-body:'Crimson Pro',serif}
-    html{scroll-behavior:smooth}body{background:var(--black);color:var(--text);font-family:var(--font-body);font-size:18px;line-height:1.75;-webkit-font-smoothing:antialiased}
-    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px}
-    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-0.02em}.nav-logo em{color:var(--accent);font-style:normal}
-    .nav-links{display:flex;gap:28px;list-style:none}.nav-links a{font-size:14px;font-weight:500;color:var(--text-dim);text-decoration:none;letter-spacing:0.02em;transition:color 0.15s}.nav-links a:hover,.nav-links a.active{color:var(--white)}
-    .nav-cta{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:8px 18px;border-radius:3px;text-decoration:none}
-    .page-wrap{max-width:860px;margin:0 auto;padding:60px 52px 100px;background:#1c1c1c;border-radius:8px;box-shadow:0 0 0 1px var(--border)}
-    .breadcrumb{font-size:13px;color:var(--text-dim);margin-bottom:40px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color 0.15s}.breadcrumb a:hover{color:var(--accent)}.breadcrumb span{color:var(--muted)}
-    .eyebrow{font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-    h1{font-family:var(--font-head);font-size:clamp(36px,5vw,54px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--white);margin-bottom:32px}h1 em{color:var(--accent);font-style:normal}
-    .module-sub{font-size:20px;color:var(--text-dim);max-width:640px;line-height:1.8;margin-bottom:48px}
-    .stats{display:flex;gap:0;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:44px}
-    .stat{flex:1;background:var(--surface);padding:20px 24px;border-right:1px solid var(--border)}.stat:last-child{border-right:none}
-    .stat-val{font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-0.03em;line-height:1;margin-bottom:4px}
-    .stat-lbl{font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
-    .mod-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:4px;margin-bottom:48px;font-size:13px}
-    .mod-nav a{color:var(--text-dim);text-decoration:none;font-weight:500;transition:color 0.15s}.mod-nav a:hover{color:var(--accent)}
-    .mod-nav-mid{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 12px;border-radius:2px}
-    .fw-badge{display:inline-flex;align-items:center;gap:10px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:3px;padding:10px 16px;margin-bottom:64px;font-size:13px;font-weight:600;color:var(--accent)}
-    .section{margin-bottom:72px;padding-bottom:72px;border-bottom:1px solid var(--border)}.section:last-of-type{border-bottom:none;padding-bottom:0}
-    h2{font-family:var(--font-head);font-size:clamp(22px,3vw,32px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:var(--white);margin-bottom:24px}h2 em{color:var(--accent);font-style:normal}
-    h3{font-family:var(--font-head);font-size:24px;font-weight:700;color:var(--white);margin:44px 0 14px;letter-spacing:-0.02em}
-    h4{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--white);margin:28px 0 10px;letter-spacing:-0.01em}
-    p{font-size:17px;color:var(--text-dim);line-height:1.9;margin-bottom:22px}p:last-child{margin-bottom:0}
-    .insight{background:var(--surface);border-left:3px solid var(--accent);padding:24px 28px;border-radius:0 3px 3px 0;margin:32px 0}
-    .insight-lbl{font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-    .insight p{font-size:16px;color:var(--text);font-style:italic;line-height:1.85;margin-bottom:0}
-    .script{background:var(--ink);border:1px solid var(--accent-border);border-radius:4px;padding:28px 32px;margin:32px 0}
-    .script-lbl{font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
-    .script p{font-size:16px;color:var(--text);line-height:1.85;margin-bottom:0;font-style:italic}
-    .warn{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:24px 28px;margin:32px 0}
-    .warn-lbl{font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
-    .warn p{font-size:16px;color:var(--text-dim);margin-bottom:0;line-height:1.85}
-    .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:32px 0}
-    .card{background:var(--surface);padding:28px}.card-lbl{font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-    .card h4{margin:0 0 8px;font-size:14px}.card p{font-size:15px;margin-bottom:0;line-height:1.75}
-    .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:32px 0}
-    .cards3 .card{background:var(--surface);padding:28px}
-    .consulting-strip{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:4px;padding:32px 36px;margin-top:72px;display:flex;align-items:flex-start;gap:28px}
-    .cs-badge{background:var(--accent);color:var(--black);font-family:var(--font-head);font-weight:800;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px}
-    .consulting-strip h3{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--white);margin:0 0 8px;letter-spacing:-0.01em}
-    .consulting-strip p{font-size:13px;color:var(--text-dim);margin-bottom:12px}
-    .consulting-strip a{font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-border);padding-bottom:2px}
-    .bottom-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid var(--border);margin-top:56px}
-    .bn-link{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text-dim);text-decoration:none;transition:color 0.15s}.bn-link:hover{color:var(--accent)}
-    .bn-cta a{font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--accent);color:var(--black);padding:10px 20px;border-radius:3px;text-decoration:none}
-    footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-items:center;justify-content:space-between}
-    footer .brand{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text-dim)}.brand em{color:var(--accent);font-style:normal}
-    footer .meta{font-size:12px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
-    @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.page-wrap{padding:40px 20px 80px}.stats{flex-wrap:wrap}.cards,.cards3{grid-template-columns:1fr}.consulting-strip{flex-direction:column}footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px}}
+<style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a; --ink: #171717; --surface: #1c1c1c;
+      --border: #242424; --muted: #333333;
+      --text-dim: #a8a8a8; --text: #d4d4d4; --white: #f5f5f5;
+      --accent: #e8c547;
+      --accent-dim: rgba(232,197,71,0.12);
+      --accent-border: rgba(232,197,71,0.3);
+      --font-head: 'Cormorant Garamond', serif;
+      --font-body: 'Crimson Pro', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--text); font-family: var(--font-body); font-size: 18px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
 
-    .subnav{display:flex;gap:6px;flex-wrap:wrap;padding:14px 0;margin-bottom:36px;border-bottom:1px solid var(--border)}
-    .subnav a{font-family:var(--font-head);font-size:12px;font-weight:600;letter-spacing:0.04em;color:var(--text-dim);text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:2px;transition:color 0.15s,border-color 0.15s,background 0.15s;white-space:nowrap}
-    .subnav a:hover{color:var(--accent);border-color:var(--accent-border);background:var(--accent-dim)}
-    .section{display:none}
-    .section.active{display:block}
-    .subnav a.active{color:var(--accent);border-color:var(--accent-border);background:var(--accent-dim)}
-</style>
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; align-items: center; gap: 32px; height: 60px; }
+    .nav-logo { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo em { color: var(--accent); font-style: normal; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta { margin-left: auto; background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 18px; border-radius: 3px; text-decoration: none; transition: opacity 0.15s; }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* PAGE HEADER */
+    .page-header { border-bottom: 1px solid var(--border); padding: 72px 80px 56px; max-width: 1400px; margin: 0 auto; }
+    .breadcrumb { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--muted); }
+    .page-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .page-title { font-family: var(--font-head); font-size: clamp(36px, 5vw, 54px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: var(--white); margin-bottom: 28px; }
+    .page-title em { color: var(--accent); font-style: normal; }
+    .page-sub { font-size: 18px; color: var(--text-dim); max-width: 640px; line-height: 1.8; margin-bottom: 36px; }
+    .page-stats { display: flex; gap: 0; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .page-stat { flex: 1; background: var(--surface); padding: 20px 24px; border-right: 1px solid var(--border); }
+    .page-stat:last-child { border-right: none; }
+    .page-stat-value { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; }
+    .page-stat-label { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); }
+
+    /* LAYOUT WITH SIDEBAR */
+    .content-layout { max-width: 1400px; margin: 0 auto; padding: 60px 80px; display: grid; grid-template-columns: 200px 1fr; gap: 64px; align-items: start; }
+    .sidebar { position: sticky; top: 80px; }
+    .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .sidebar-nav a { font-size: 13px; color: var(--text-dim); text-decoration: none; padding: 8px 12px; border-radius: 3px; display: block; transition: color 0.15s, background 0.15s; border-left: 2px solid transparent; }
+    .sidebar-nav a.active { color: var(--accent) !important; border-left-color: var(--accent); background: var(--surface); }
+    .sidebar-nav a:hover { color: var(--white); background: var(--surface); border-left-color: var(--accent); }
+
+    /* CONTENT (no sidebar) */
+    .main { max-width: 1400px; margin: 0 auto; padding: 60px 80px; }
+    .content { min-width: 0; }
+
+    /* TYPOGRAPHY */
+    h2, .section-title { font-family: var(--font-head); font-size: clamp(22px, 3vw, 32px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--white); margin-bottom: 24px; }
+    h2 em, .section-title em { color: var(--accent); font-style: normal; }
+    h3 { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: var(--white); margin: 44px 0 14px; letter-spacing: -0.02em; }
+    h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin: 28px 0 10px; letter-spacing: -0.01em; }
+    p { font-size: 17px; color: var(--text-dim); line-height: 1.9; margin-bottom: 22px; }
+    p:last-child { margin-bottom: 0; }
+    .section-body { font-size: 16px; color: var(--text-dim); line-height: 1.85; margin-bottom: 32px; max-width: 660px; }
+    .section-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+    hr.rule { border: none; border-top: 1px solid var(--border); margin: 72px 0; }
+
+    /* CALLOUTS */
+    .insight { background: var(--surface); border-left: 3px solid var(--accent); padding: 24px 28px; border-radius: 0 3px 3px 0; margin: 32px 0; }
+    .insight-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .insight p { font-size: 16px; color: var(--text); font-style: italic; line-height: 1.85; margin-bottom: 0; }
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); padding: 20px 24px; border-radius: 0 3px 3px 0; margin: 24px 0; }
+    .callout p { font-size: 17px; color: var(--text); font-style: italic; line-height: 1.7; }
+    .script { background: var(--ink); border: 1px solid var(--accent-border); border-radius: 4px; padding: 28px 32px; margin: 32px 0; }
+    .script-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .script p { font-size: 16px; color: var(--text); line-height: 1.85; margin-bottom: 0; font-style: italic; }
+    .warn { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 24px 28px; margin: 32px 0; }
+    .warn-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+    .warn p { font-size: 16px; color: var(--text-dim); margin-bottom: 0; line-height: 1.85; }
+
+    /* CARDS */
+    .cards, .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 32px 0; }
+    .cards3, .card-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 32px 0; }
+    .card { background: var(--surface); padding: 28px; }
+    .card-lbl, .card-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .card h4 { margin: 0 0 8px; font-size: 14px; }
+    .card p { font-size: 15px; margin-bottom: 0; line-height: 1.75; }
+    .card-new { border-top: 2px solid var(--accent); }
+    .what-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 24px 0; }
+    .what-card { background: var(--surface); padding: 24px; }
+    .what-lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .what-card p { font-size: 14px; color: var(--text-dim); margin-bottom: 0; line-height: 1.6; }
+
+    /* TAGS */
+    .tag { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; border: 1px solid var(--border); color: var(--text-dim); padding: 5px 12px; border-radius: 2px; }
+    .tag-accent { border-color: var(--accent-border); color: var(--accent); background: var(--accent-dim); }
+
+    /* TABLES */
+    table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+    thead { background: var(--ink); }
+    th { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    td { padding: 13px 16px; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--ink); }
+    .td-accent { color: var(--accent); font-family: var(--font-head); font-weight: 700; }
+    .td-white { color: var(--white); font-weight: 500; }
+
+    /* MARKET / SCENARIO / ROADMAP / COMPETITIVE */
+    .market-grid, .scenario-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 32px; }
+    .market-card, .scenario { background: var(--surface); padding: 32px 28px; }
+    .market-number, .scenario-value { font-family: var(--font-head); font-size: 36px; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; margin-bottom: 4px; }
+    .market-label, .scenario-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+    .market-card p, .scenario p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .roadmap { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .roadmap-item { background: var(--surface); padding: 24px 28px; display: grid; grid-template-columns: 80px 1fr; gap: 24px; align-items: start; }
+    .roadmap-date { font-family: var(--font-head); font-size: 13px; font-weight: 800; color: var(--accent); }
+    .roadmap-title { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .roadmap-desc { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .competitive-grid, .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+    .comp-card, .founder { background: var(--surface); padding: 28px; }
+    .comp-vs { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #f87171; margin-bottom: 8px; }
+    .comp-card h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .comp-card p { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+    .comp-our { border-top: 2px solid var(--accent); }
+    .comp-our .comp-vs { color: var(--accent); }
+    .founder-name { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 4px; }
+    .founder-role { font-size: 13px; color: var(--accent); margin-bottom: 20px; }
+    .founder-bio { font-size: 15px; color: var(--text-dim); line-height: 1.7; margin-bottom: 20px; }
+    .founder-list { list-style: none; }
+    .founder-list li { font-size: 13px; color: var(--text-dim); padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; gap: 10px; }
+    .founder-list li:last-child { border-bottom: none; }
+    .founder-list li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
+
+    /* RISK BADGES */
+    .risk-low { color: #4ade80; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(74,222,128,0.10); border: 1px solid rgba(74,222,128,0.25); padding: 2px 7px; border-radius: 2px; }
+    .risk-med { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 2px 7px; border-radius: 2px; }
+    .risk-high { color: #f87171; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(248,113,113,0.10); border: 1px solid rgba(248,113,113,0.25); padding: 2px 7px; border-radius: 2px; }
+    .td-new { color: #60a5fa; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(96,165,250,0.10); border: 1px solid rgba(96,165,250,0.25); padding: 2px 7px; border-radius: 2px; display: inline-block; vertical-align: middle; margin-left: 8px; }
+    .roadmap-new { border-left: 3px solid #60a5fa; }
+    .kpi-value { font-family: var(--font-head); font-size: 28px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
+    .kpi-value.accent { color: var(--accent); }
+    .kpi-label { font-size: 12px; color: var(--text-dim); letter-spacing: 0.04em; }
+    .kpi-row { display: flex; gap: 40px; flex-wrap: wrap; padding-top: 4px; }
+
+    /* SECTION */
+    .section { margin-bottom: 72px; }
+
+    /* MODULE TABS */
+    .subnav { display: flex; gap: 6px; flex-wrap: wrap; padding: 14px 0; margin-bottom: 36px; border-bottom: 1px solid var(--border); }
+    .subnav a { font-family: var(--font-head); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; padding: 6px 14px; border: 1px solid var(--border); border-radius: 2px; transition: color 0.15s, border-color 0.15s, background 0.15s; white-space: nowrap; }
+    .subnav a:hover, .subnav a.active { color: var(--accent); border-color: var(--accent-border); background: var(--accent-dim); }
+    .tab-section { display: none; }
+    .tab-section.active { display: block; }
+    .framework-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 3px; padding: 10px 16px; margin-bottom: 52px; font-size: 12px; font-weight: 600; color: var(--accent); }
+
+    /* MOD NAV */
+    .mod-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 48px; font-size: 13px; }
+    .mod-nav a { color: var(--text-dim); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+    .mod-nav a:hover { color: var(--accent); }
+    .mod-nav-mid { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 4px 12px; border-radius: 2px; }
+
+    /* CONSULTING CTA */
+    .consulting-strip { background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 4px; padding: 32px 36px; margin-top: 72px; display: flex; align-items: flex-start; gap: 28px; }
+    .cs-badge { background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .consulting-strip h3 { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--white); margin: 0 0 8px; letter-spacing: -0.01em; }
+    .consulting-strip p { font-size: 15px; color: var(--text-dim); margin-bottom: 12px; }
+    .consulting-strip a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-border); padding-bottom: 2px; }
+
+    /* BOTTOM NAV */
+    .bottom-nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-top: 1px solid var(--border); margin-top: 56px; }
+    .bn-link { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .bn-link:hover { color: var(--accent); }
+    .bn-cta a { font-family: var(--font-head); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--accent); color: var(--black); padding: 10px 20px; border-radius: 3px; text-decoration: none; }
+
+    /* CURRICULUM-SPECIFIC */
+    .audit-pathway { background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 4px; padding: 36px 40px; margin-bottom: 60px; display: flex; align-items: flex-start; gap: 32px; }
+    .audit-pathway-badge { background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .audit-pathway-body h3 { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .audit-pathway-body p { font-size: 15px; color: var(--text-dim); line-height: 1.85; margin-bottom: 16px; }
+    .audit-pathway-body a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-border); padding-bottom: 2px; }
+    .progress-bar { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 20px 28px; display: flex; align-items: center; gap: 20px; margin-bottom: 48px; }
+    .progress-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
+    .progress-track { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; width: 100%; }
+    .progress-count { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+    .intro-blocks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 56px; }
+    .intro-block { background: var(--surface); padding: 28px; }
+    .intro-block-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .intro-block p { font-size: 14px; color: var(--text-dim); line-height: 1.85; }
+    .phase-header { display: flex; align-items: baseline; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; margin-top: 56px; }
+    .phase-header:first-of-type { margin-top: 0; }
+    .phase-tag { font-family: var(--font-head); font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); background: var(--accent); padding: 4px 10px; border-radius: 2px; }
+    .phase-name { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: -0.02em; }
+    .phase-transfer { font-size: 12px; color: var(--text-dim); margin-left: auto; font-style: italic; }
+    .module-grid { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
+    .module-card { background: var(--surface); padding: 28px 32px; display: grid; grid-template-columns: 120px 1fr auto; gap: 28px; align-items: start; transition: background 0.15s; }
+    .module-card:hover { background: var(--ink); }
+    .module-num { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
+    .module-status { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 3px 8px; border-radius: 2px; display: inline-block; }
+    .module-title { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .module-desc { font-size: 15px; color: var(--text-dim); line-height: 1.7; margin-bottom: 14px; }
+    .module-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .module-instructors { font-size: 12px; color: var(--text-dim); margin-top: 10px; }
+    .module-link a { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; border: 1px solid var(--accent-border); padding: 10px 18px; border-radius: 3px; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+    .module-link a:hover { background: var(--accent); color: var(--black); }
+    .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .metric-card { background: var(--surface); padding: 32px 28px; }
+    .metric-type { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .metric-name { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .metric-desc { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .faq-grid { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .faq-item { background: var(--surface); padding: 28px 32px; }
+    .faq-q { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .faq-a { font-size: 15px; color: var(--text-dim); line-height: 1.7; }
+    .readiness-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .readiness-card { background: var(--surface); padding: 32px 28px; }
+    .readiness-status { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; display: inline-block; padding: 4px 10px; border-radius: 2px; }
+    .status-complete { color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); }
+    .status-progress { color: #60a5fa; background: rgba(96,165,250,0.1); border: 1px solid rgba(96,165,250,0.25); }
+    .status-blocking { color: #f87171; background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.25); }
+    .readiness-card h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .readiness-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    .metrics-label { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
+    .metrics-title { font-family: var(--font-head); font-size: 32px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 12px; }
+    .metrics-title em { color: var(--accent); font-style: normal; }
+    .metrics-sub { font-size: 15px; color: var(--text-dim); margin-bottom: 40px; max-width: 520px; line-height: 1.7; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 32px 80px; display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; }
+    .footer-brand { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--text-dim); }
+    .footer-brand em { color: var(--accent); font-style: normal; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-meta { font-size: 12px; color: var(--text-dim); }
+
+    .vp-context { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 3px 3px 0; padding: 18px 24px; margin: 24px 0 0; }
+    .vp-context-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .vp-context p { font-size: 15px; color: var(--text-dim); line-height: 1.75; margin-bottom: 0; }
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-header { padding: 48px 20px 36px; }
+      .main { padding: 40px 20px; }
+      .content-layout { grid-template-columns: 1fr; padding: 40px 20px; }
+      .sidebar { display: none; }
+      .page-stats { flex-wrap: wrap; }
+      .what-grid, .cards, .cards3, .card-grid, .card-grid-3, .intro-blocks, .metrics-grid, .readiness-grid, .market-grid, .scenario-row, .founder-grid, .competitive-grid { grid-template-columns: 1fr; }
+      .module-card { grid-template-columns: 1fr; gap: 16px; }
+      .consulting-strip, .audit-pathway { flex-direction: column; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
+    }
+  
+    /* ============================================
+       SCROLL ENTRY ANIMATIONS
+    ============================================ */
+    .anim-fade {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.58s ease, transform 0.58s ease;
+    }
+    .anim-fade.visible { opacity: 1; transform: translateY(0); }
+
+    .anim-stagger > .anim-child {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.52s ease, transform 0.52s ease;
+    }
+    .anim-stagger.visible > .anim-child { opacity: 1; transform: translateY(0); }
+
+    .anim-slide {
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: opacity 0.48s ease, transform 0.48s ease;
+    }
+    .anim-slide.visible { opacity: 1; transform: translateX(0); }
+
+    /* Nav link underline sweep */
+    .nav-links a { position: relative; }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Button shimmer */
+    .btn-primary, .nav-cta {
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::after, .nav-cta::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+    .btn-primary:hover::after, .nav-cta:hover::after { transform: translateX(100%); }
+
+    /* Page header on-load animation */
+    @keyframes mHeroUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+    .page-eyebrow  { animation: mHeroUp 0.55s ease 0.05s both; }
+    .page-title    { animation: mHeroUp 0.6s  ease 0.15s both; }
+    .page-sub      { animation: mHeroUp 0.6s  ease 0.27s both; }
+    .page-stats    { animation: mHeroUp 0.65s ease 0.22s both; }
+    .breadcrumb    { animation: mHeroUp 0.5s  ease 0s    both; }
+
+    /* Card hover */
+    .card {
+      transition: background 0.2s, transform 0.22s;
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.28s ease;
+    }
+    .card:hover::before { transform: scaleX(1); }
+    .card:hover { background: #202020; transform: translateY(-3px); }
+
+    /* Insight / callout hover */
+    .insight, .callout {
+      transition: background 0.2s;
+    }
+    .insight:hover, .callout:hover { background: #1e1e1e; }
+
+    /* Consulting strip hover */
+    .consulting-strip { transition: background 0.2s; }
+    .consulting-strip:hover { background: rgba(232,197,71,0.16); }
+
+    /* Page stat hover */
+    .page-stat { transition: background 0.2s; }
+    .page-stat:hover { background: #1e1e1e; }
+
+    /* Bottom nav hover */
+    .bn-link { transition: background 0.2s, color 0.2s; }
+    .bn-link:hover { background: #1e1e1e; }
+
+  </style>
 </head>
 <body>
+
 <nav>
   <a href="index.html" class="nav-logo">The Multiplier Method<em>™</em></a>
   <ul class="nav-links">
-    <li><a href="index.html#who">Who It's For</a></li><li><a href="index.html#program">Program</a></li>
-    <li><a href="index.html#methodology">Methodology</a></li><li><a href="index.html#pricing">Pricing</a></li>
-    <li><a href="index.html#founders">Instructors</a></li><li><a href="curriculum.html" class="active">Curriculum</a></li>
+    <li><a href="index.html#who">Who It's For</a></li>
+    <li><a href="index.html#program">The Program</a></li>
+    <li><a href="index.html#methodology">Methodology</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="index.html#founders">Instructors</a></li>
+    <li><a href="curriculum.html">Curriculum</a></li>
     <li><a href="business_plan.html">Business Plan</a></li>
   </ul>
   <a href="index.html#apply" class="nav-cta">Enroll Now</a>
 </nav>
-<div class="page-wrap">
-  <div class="breadcrumb"><a href="index.html">The Multiplier Method</a><span>&rsaquo;</span><a href="curriculum.html">Curriculum Binder</a><span>&rsaquo;</span><span>Module 04</span></div>
-  <div class="eyebrow">The Multiplier Method &middot; Phase 1 &middot; Module 04</div>
-  <h1>The Partner Fit Filter in <em>Channel Conversations.</em></h1>
-  <p class="module-sub">Uncovering real partner pain and end-customer pain — not feature interest. The Partner Fit Filter as a diagnostic tool for partner conversations and joint sales calls. What partners say vs. what they actually mean.</p>
-  <div class="stats"><div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Levels of Pain</div></div><div class="stat"><div class="stat-val">Partner</div><div class="stat-lbl">Pain vs. Customer Pain</div></div><div class="stat"><div class="stat-val">Diagnosis</div><div class="stat-lbl">Not Pitch</div></div><div class="stat"><div class="stat-val">Zero</div><div class="stat-lbl">Feature Demos First</div></div></div>
-  <div class="mod-nav">
-    <a href="module_03.html">&larr; Module 03</a>
-    <span class="mod-nav-mid">Phase 1 &middot; Partner Fit Filter · Diagnosis</span>
-    <a href="module_05.html">Module 05 &rarr;</a>
-  </div>
 
-  <nav class="subnav">
-    <a href="#" data-target="the-pain-funnel-doesn-t-change-in-channe">The Filter in Context</a>
-    <a href="#" data-target="two-pain-funnels-partner-pain-and-custom">Partner vs. Customer Pain</a>
-    <a href="#" data-target="feature-interest-vs-real-pain-the-most-i">Feature Interest vs. Pain</a>
-    <a href="#" data-target="field-notes-the-pain-funnel-in-the-wild">The Filter in the Wild</a>
-  </nav>
+<!-- PAGE HEADER -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="page-header">
+<div class="breadcrumb"><a href="index.html">The Multiplier Method</a><span>&rsaquo;</span><a href="curriculum.html">Curriculum Binder</a><span>&rsaquo;</span><span>Module 04</span></div>
+  <div class="page-eyebrow">The Multiplier Method &middot; Phase 1 &middot; Module 04</div>
+  <h1 class="page-title">The Partner Fit Filter in <em>Channel Conversations.</em></h1>
+  <p class="page-sub">Uncovering real partner pain and end-customer pain — not feature interest. The Partner Fit Filter as a diagnostic tool for partner conversations and joint sales calls. What partners say vs. what they actually mean.</p>
+  <div class="page-stats"><div class="page-stat"><div class="page-stat-value">3</div><div class="page-stat-label">Levels of Pain</div></div><div class="page-stat"><div class="page-stat-value">Partner</div><div class="page-stat-label">Pain vs. Customer Pain</div></div><div class="page-stat"><div class="page-stat-value">Diagnosis</div><div class="page-stat-label">Not Pitch</div></div><div class="page-stat"><div class="page-stat-value">Zero</div><div class="page-stat-label">Feature Demos First</div></div></div>
+  
+
+  
+  <div class="vp-context">
+    <div class="vp-context-label">For the VP of Channel</div>
+    <p>This module teaches your AEs to diagnose pain — in partners and in end customers — before pitching anything. The result: fewer feature demos that go nowhere, more conversations that surface real budget and urgency.</p>
+  </div>
   <div class="fw-badge"><span>&or;</span><span>The RELAY Framework&trade; &mdash; Partner Fit Filter · Diagnosis</span></div>
-<div class="section" id="the-pain-funnel-doesn-t-change-in-channe"><h2>The Partner Fit Filter doesn't change in channel. What changes is <em>who has the pain.</em></h2>
+  </div>
+</div>
+
+<!-- MODULE INTRO VIDEO -->
+<div style="background:#111; border-bottom:1px solid var(--border); padding:48px 80px;">
+  <div style="max-width:860px; margin:0 auto;">
+    <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:12px;">Module 04 · Intro Video</div>
+    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:4px; background:#0a0a0a; border:1px solid var(--border);">
+      <!-- PASTE HEYGEN EMBED CODE HERE when video is recorded -->
+      <!-- Speaker: Carl | Script in: facilitator/video_scripts_intros_c.html | ~2 min 45 sec -->
+      <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;">
+        <div style="font-family:'Crimson Pro',serif; font-size:11px; text-transform:uppercase; letter-spacing:0.16em; color:#444;">Recording in Progress</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:800; color:#333; letter-spacing:-0.02em;">Module 04 · Carl</div>
+        <div style="font-family:'Crimson Pro',serif; font-size:13px; color:#3a3a3a;">Partner Fit Filter · ~2 min 45 sec</div>
+      </div>
+    </div>
+    <p style="font-family:'Crimson Pro',serif; font-size:13px; color:var(--text-dim); margin-top:12px; line-height:1.6;">2–3 minute intro. Delivered by Carl via HeyGen AI avatar. Sets the frame before the live session begins.</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="content-layout">
+<aside class="sidebar">
+  <ul class="sidebar-nav">
+    <li><a href="#" data-sidebar="the-pain-funnel-doesn-t-change-in-channe">The Filter in Context</a></li>
+    <li><a href="#" data-sidebar="two-pain-funnels-partner-pain-and-custom">Partner vs. Customer Pain</a></li>
+    <li><a href="#" data-sidebar="feature-interest-vs-real-pain-the-most-i">Feature Interest vs. Pain</a></li>
+    <li><a href="#" data-sidebar="field-notes-the-pain-funnel-in-the-wild">The Filter in the Wild</a></li>
+    <li style="padding-top:12px; border-top:1px solid var(--border); margin-top:12px;">
+    <a href="module_03.html">← Module 03</a>
+    <a href="curriculum.html">Curriculum →</a>
+    <a href="module_05.html">Module 05 →</a>
+    </li>
+  </ul>
+</aside>
+<div class="content">
+
+<div class="tab-section" id="the-pain-funnel-doesn-t-change-in-channe"><h2>The Partner Fit Filter doesn't change in channel. What changes is <em>who has the pain.</em></h2>
 <p>In direct sales, the Partner Fit Filter uncovers the buyer's pain. In channel sales, there are two pain sources to diagnose: the partner's pain (why they're not selling as much as they should be) and the end-customer's pain (why the customer needs your product). A channel AE who confuses these two types of pain — or who skips pain diagnosis entirely and jumps to a product pitch — produces conversations that partners forget before the call ends.</p>
 <p>The Partner Fit Filter's three levels move from surface-level problem to business impact to real pain. The goal is not to find out what the partner or customer likes about your product. The goal is to find out what it costs them to not have it — in lost revenue, customer churn, operational friction, or competitive disadvantage. That cost is the foundation of every compelling argument for moving forward.</p>
 <div class="insight"><div class="insight-lbl">The Core Insight</div><p><strong>Partners don't buy on features. They sell on customer pain. Your job is to help them articulate that pain before they're in front of the customer — so they're not figuring it out in real time at your expense.</strong></p></div>
@@ -105,16 +427,16 @@
   <div class="card"><div class="card-lbl">What You'll Practice</div><p>Diagnosing partner pain in the onboarding and QBR context. Running a joint customer call where the Partner Fit Filter drives the discovery instead of a feature walkthrough. Recognizing when a partner is describing feature interest, not real pain.</p></div>
   <div class="card"><div class="card-lbl">What Changes After</div><p>Partners come to joint calls prepared to talk about customer pain instead of product specs. Your win rate on co-sell deals improves because discovery happens before the demo, not during it.</p></div>
 </div></div>
-<div class="section" id="two-pain-funnels-partner-pain-and-custom"><h2>Two Partner Fit Filters: <em>Partner pain and customer pain.</em></h2>
+<div class="tab-section" id="two-pain-funnels-partner-pain-and-custom"><h2>Two Partner Fit Filters: <em>Partner pain and customer pain.</em></h2>
 <h3>Diagnosing Partner Pain</h3>
 <p>Partner pain is the friction the partner experiences in their current vendor mix — missed revenue, customer escalations, margin compression, or competitive pressure. It's the reason they'd allocate more time and energy to selling your product over alternatives. If you can't articulate the partner's pain in their own terms, you haven't done the qualification work.</p>
-<div class="script"><div class="script-lbl">Partner Partner Fit Filter — Level 1</div><p>"How are your current vendor relationships working for you in this space?" (Surface problem)</p></div>
-<div class="script"><div class="script-lbl">Partner Partner Fit Filter — Level 2</div><p>"What does that cost you in terms of deals you've lost or margin you've had to give up?" (Business impact)</p></div>
-<div class="script"><div class="script-lbl">Partner Partner Fit Filter — Level 3</div><p>"If this keeps up for another year, what does that mean for your business?" (Real pain — the future cost of inaction)</p></div>
+<div class="script"><div class="script-lbl">Partner Fit Filter — Level 1</div><p>"How are your current vendor relationships working for you in this space?" (Surface problem)</p></div>
+<div class="script"><div class="script-lbl">Partner Fit Filter — Level 2</div><p>"What does that cost you in terms of deals you've lost or margin you've had to give up?" (Business impact)</p></div>
+<div class="script"><div class="script-lbl">Partner Fit Filter — Level 3</div><p>"If this keeps up for another year, what does that mean for your business?" (Real pain — the future cost of inaction)</p></div>
 <h3>Diagnosing Customer Pain in a Joint Call</h3>
 <p>On joint customer calls, the Partner Fit Filter runs through the partner — not around them. The partner has the customer relationship; you have the diagnostic framework. Prepare the partner to ask the Partner Fit Filter questions themselves, with your coaching in advance and your support in the room.</p>
 <div class="script"><div class="script-lbl">Customer Partner Fit Filter — Joint Call Setup (Coach the Partner Before)</div><p>"In this call, let's lead with their environment before we talk about our product. Ask them: what's the current state of [problem area], what's it costing them, and how long it's been an issue. That diagnostic is worth more than any demo we could run."</p></div></div>
-<div class="section" id="feature-interest-vs-real-pain-the-most-i"><h2>Feature interest vs. real pain — <em>the most important distinction in channel.</em></h2>
+<div class="tab-section" id="feature-interest-vs-real-pain-the-most-i"><h2>Feature interest vs. real pain — <em>the most important distinction in channel.</em></h2>
 <p>The most common failure mode in channel co-sell calls: the partner opens with a product pitch instead of a pain diagnosis, the customer asks a few feature questions, the demo runs without any pain established, and the deal stalls at evaluation with no urgency to close.</p>
 <p>Feature interest is "that looks useful." Real pain is "we've lost three customers this year because we couldn't solve this." The closing velocity on a real-pain deal is 3–5x faster than on a feature-interest deal because the customer has a compelling reason to act. Your job in the co-sell motion is to help the partner run the conversation that surfaces real pain — not the conversation that produces a lukewarm demo request.</p>
 <h3>What Partners Say vs. What They Mean</h3>
@@ -123,14 +445,26 @@
   <div class="card"><div class="card-lbl">Partner Says</div><h4>"I have a hot deal for you."</h4><p>What they mean: a customer is interested. Pain may or may not have been diagnosed. Ask: "What pain is driving the urgency? What happens if they don't solve this in the next 90 days?" If they can't answer, it's not as hot as they think.</p></div>
 </div>
 <div class="script"><div class="script-lbl">Redirecting a Feature Pitch Back to Pain</div><p>"Before we walk through the product, help me understand your customer's current situation. What problem are they trying to solve, and what's it costing them today? That's going to make the demo a lot more relevant."</p></div></div>
-<div class="section" id="field-notes-the-pain-funnel-in-the-wild"><h2>Field Notes: The Partner Fit Filter in the wild.</h2>
+<div class="tab-section" id="field-notes-the-pain-funnel-in-the-wild"><h2>Field Notes: The Partner Fit Filter in the wild.</h2>
 <h3>The Partner Who Thinks They Know the Pain</h3>
 <p>Experienced partners often short-circuit the Partner Fit Filter because they believe they already know what their customer needs. Resist the urge to let them. Even accurate assumptions miss nuance that the Partner Fit Filter surfaces — and that nuance is often the difference between a stalled evaluation and a closed deal. Run the Partner Fit Filter even when you think you know the answer.</p>
 <div class="warn"><div class="warn-lbl">The Level 3 Pain Shortcut</div><p>Level 3 pain — the real, emotionally charged pain — often comes out in casual conversation rather than structured discovery. Train yourself to listen for it everywhere: a partner's offhand comment about a customer who threatened to switch vendors, a customer's sigh when you mention a competitor's name, a technical contact's frustration with a process that "we've been trying to fix for two years." These are Level 3 signals. Stop and go deeper.</p></div>
 <h3>Using Partner Fit Filter Findings in QBRs</h3>
 <p>Document the pain you've uncovered in every co-sell engagement and bring it to the QBR. "Last quarter we found three customers in your base with [specific pain]. We helped you close two of them. This quarter, here are four more customers with the same pain signal that we haven't engaged yet." Partner Fit Filter findings become a pipeline generation tool when systematized across the partnership.</p>
 <p class="instructor-line" style="font-size:12px;color:var(--text-dim);margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">&bull; Carl &mdash; Partner Fit Filter in VAR co-sell contexts &middot; &bull; Natalie &mdash; Running Partner Fit Filter diagnostics in MSSP and SI motions &middot; The Multiplier Method Partner Fit Filter methodology</p></div>
-  <div class="consulting-strip">
+  
+<h3>The Partner Segmentation Model — Qualification Differs by Type</h3>
+<p><em>This segmentation is drawn from cybersecurity channel experience (Natalie — Expel, Mimecast, Okta, Varonis) but the partner-type logic transfers to any B2B technology company with a VAR, MSP, or SI ecosystem.</em></p>
+<p>Partner qualification is not one-size-fits-all. Different partner types have different buying motions, different decision criteria, and different reasons for engaging with your product. The Partner Fit Filter must be calibrated to the partner type you're qualifying.</p>
+<div class="cards3">
+  <div class="card"><div class="card-lbl">Type 1</div><h4>Big Box / Transactional</h4><p>CDW, SHI, Zones, Connection. High volume, low touch. They want SKU availability, competitive pricing, and deal registration speed. Qualification focus: do they have active pipeline in your category, or are you just another line card?</p></div>
+  <div class="card"><div class="card-lbl">Type 2</div><h4>Security Advisory / Services-Led</h4><p>Guidepoint, Optiv, Presidio. They sell consulting hours and wrap your product into an engagement. Qualification focus: do they have a practice area that maps to your solution, and will they co-invest in enablement?</p></div>
+  <div class="card"><div class="card-lbl">Type 3</div><h4>M365 Attach / Licensing</h4><p>SoftwareOne, Insight. They lead with Microsoft licensing and attach security or infrastructure products. Qualification focus: is your product positioned as an add-on to their existing motion, or are you asking them to build a new one?</p></div>
+</div>
+<div class="card" style="margin-top:16px"><div class="card-lbl">Type 4</div><h4>Regional / Emerging</h4><p>Smaller, hungrier, more willing to invest time. But they lack the infrastructure to scale. Qualification focus: can they actually close the deal types you need, or will you end up doing the selling for them?</p></div>
+<div class="insight" style="margin-top:24px"><div class="insight-lbl">Qualification Principle</div><p>The same Partner Fit Filter questions apply to every partner type — but the answers you're listening for are completely different. A Big Box partner who says "we need more enablement" means something different than a Regional partner saying the same thing.</p></div>
+
+<div class="consulting-strip">
     <div class="cs-badge">Consulting Pathway</div>
     <div>
       <h3>Are your co-sell deals stalling at evaluation? That's a pain diagnosis problem.</h3>
@@ -143,34 +477,94 @@
     <div class="bn-cta"><a href="index.html#apply">Enroll Now</a></div>
     <a href="module_05.html" class="bn-link">Module 05 &rarr;</a>
   </div>
+
 </div>
+</div>
+
 <footer>
-  <div class="brand">The Multiplier Method<em>™</em> &middot; Module 04 &middot; The Partner Fit Filter in Channel Conversations</div>
-  <div class="meta">Carl &amp; Natalie Clendenin &middot; Partna Company LLC &middot; 2026</div>
+  <div class="footer-brand">The Multiplier Method<em>™</em></div>
+  <div class="footer-links">
+    <a href="curriculum.html">Curriculum</a>
+    <a href="business_plan.html">Business Plan</a>
+    <a href="index.html#apply">Enroll</a>
+  </div>
+  <div class="footer-meta">© 2026 Partna Company LLC · Grayslake, IL</div>
 </footer>
-  <script>
-    const tabs = document.querySelectorAll('.subnav a');
-    const sections = document.querySelectorAll('.section');
+
+<script>
+    const sections = document.querySelectorAll('.tab-section');
+    const sidebarLinks = document.querySelectorAll('.sidebar-nav a[data-sidebar]');
 
     function showSection(id) {
       sections.forEach(s => s.classList.remove('active'));
-      tabs.forEach(t => t.classList.remove('active'));
+      sidebarLinks.forEach(l => l.classList.remove('active'));
       const target = document.getElementById(id);
       if (target) target.classList.add('active');
-      const activeTab = document.querySelector(`.subnav a[data-target="${id}"]`);
-      if (activeTab) activeTab.classList.add('active');
+      const activeLink = document.querySelector(`.sidebar-nav a[data-sidebar="${id}"]`);
+      if (activeLink) activeLink.classList.add('active');
     }
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', e => {
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', e => {
         e.preventDefault();
-        showSection(tab.dataset.target);
+        showSection(link.dataset.sidebar);
       });
     });
 
-    // Show first section on load
-    const firstTab = document.querySelector('.subnav a');
-    if (firstTab) showSection(firstTab.dataset.target);
+    if (sidebarLinks.length > 0) {
+      showSection(sidebarLinks[0].dataset.sidebar);
+    }
   </script>
+
+<script>
+(function() {
+  var FADE    = ['.section-label', '.consulting-strip', '.callout', '.insight', '.instructor-line', '.script', '.bottom-nav'];
+  var STAGGER = ['.cards', '.cards3', '.card-grid', '.card-grid-3', '.page-stats'];
+  var SLIDE   = ['.phase'];
+
+  function q(sel) { return Array.from(document.querySelectorAll(sel)); }
+
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // Fade
+    FADE.forEach(function(sel) {
+      q(sel).forEach(function(el) { el.classList.add('anim-fade'); });
+    });
+
+    // Stagger containers
+    STAGGER.forEach(function(sel) {
+      q(sel).forEach(function(container) {
+        container.classList.add('anim-stagger');
+        Array.from(container.children).forEach(function(child, i) {
+          child.classList.add('anim-child');
+          child.style.transitionDelay = (i * 0.1) + 's';
+        });
+      });
+    });
+
+    // Slide
+    q('.phases').forEach(function(phases) {
+      Array.from(phases.querySelectorAll(SLIDE.join(','))).forEach(function(el, i) {
+        el.classList.add('anim-slide');
+        el.style.transitionDelay = (i * 0.08) + 's';
+      });
+    });
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+    document.querySelectorAll('.anim-fade, .anim-stagger, .anim-slide').forEach(function(el) {
+      observer.observe(el);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
