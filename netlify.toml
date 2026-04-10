@@ -73,3 +73,18 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/channel_readiness"
+  to = "/channel_readiness.html"
+  status = 200
+
+[[redirects]]
+  from = "/assessment"
+  to = "/channel_readiness.html"
+  status = 200
+
+[[redirects]]
+  from = "/checklist"
+  to = "/channel-readiness-checklist.pdf"
+  status = 200
