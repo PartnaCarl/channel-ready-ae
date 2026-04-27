@@ -84,6 +84,41 @@
     }
     .faq-a { font-size: 16px; color: var(--text-dim); line-height: 1.75; }
 
+    .faq-cta {
+      margin-top: 64px;
+      padding: 44px 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+      display: flex; align-items: center; gap: 36px; flex-wrap: wrap;
+    }
+    .faq-cta-body { flex: 1 1 280px; min-width: 0; }
+    .faq-cta-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+    }
+    .faq-cta-h2 {
+      font-family: var(--font-head); font-weight: 700; font-size: 26px;
+      line-height: 1.2; letter-spacing: -0.015em;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .faq-cta-h2 em { color: var(--accent); font-style: normal; }
+    .faq-cta-p {
+      font-size: 15px; color: var(--text-dim); line-height: 1.65;
+      max-width: 54ch;
+    }
+    .faq-cta-btn {
+      background: var(--accent); color: var(--black);
+      font-family: var(--font-head); font-weight: 700;
+      font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 16px 28px; border-radius: 3px;
+      text-decoration: none; white-space: nowrap;
+      transition: opacity 0.15s, transform 0.18s;
+    }
+    .faq-cta-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .faq-cta-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
     footer {
       border-top: 1px solid var(--border); padding: 24px 40px;
       display: flex; align-items: center; justify-content: space-between;
@@ -101,13 +136,16 @@
       .page-title { font-size: 36px; }
       footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px 20px; }
       .footer-links { flex-wrap: wrap; justify-content: center; }
+      .faq-cta { padding: 32px 24px; gap: 24px; }
+      .faq-cta-h2 { font-size: 22px; }
+      .faq-cta-btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">The Multiplier Method<em>™</em></a>
+  <a href="index.html" class="nav-logo" aria-label="Channel Ready AE — home"><svg width="20" height="18" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="vertical-align:-3px;margin-right:10px;flex-shrink:0"><rect x="0" y="16" width="2" height="4" fill="#e8c547"/><rect x="4" y="12" width="2" height="8" fill="#e8c547"/><rect x="8" y="8" width="2" height="12" fill="#e8c547"/><rect x="12" y="4" width="2" height="16" fill="#e8c547"/><rect x="16" y="0" width="2" height="20" fill="#e8c547"/></svg>Channel Ready <em>AE</em><span style="color:#e8c547;font-size:0.55em;vertical-align:0.5em;margin-left:1px;letter-spacing:0">™</span></a>
   <ul class="nav-links">
     <li><a href="curriculum.html">Curriculum</a></li>
     <li><a href="assessment.html">Assessment</a></li>
@@ -152,10 +190,19 @@
       <div class="faq-a">The 12-Week TRACE Cohort is designed for employer-sponsored enrollment — VP of Channel, Head of Sales, CRO, or Channel Chief commits a team and the company funds the seats at $4,997/seat. That is the default path because partner-selling discipline compounds when an entire AE team adopts a shared methodology, manager reinforcement, and a common operating language. Individual AE enrollment may be available case-by-case but is not the primary motion. Workshops, by contrast, can be purchased standalone by leadership without team commitment.</div>
     </div>
   </div>
+
+  <aside class="faq-cta" aria-label="Decision-maker call to action">
+    <div class="faq-cta-body">
+      <div class="faq-cta-eyebrow">For Revenue Leadership</div>
+      <h2 class="faq-cta-h2">Still evaluating? <em>Skip the rest of this page.</em></h2>
+      <p class="faq-cta-p">Five minutes, ten questions, instant scorecard across the five TRACE motions. The detailed PDF report lands in your inbox.</p>
+    </div>
+    <a class="faq-cta-btn" href="assessment.html">Take the Assessment →</a>
+  </aside>
 </main>
 
 <footer>
-  <div class="footer-brand">The Multiplier Method<em>™</em></div>
+  <div class="footer-brand">Channel Ready <em>AE</em><span style="color:#e8c547;font-size:0.55em;vertical-align:0.5em;margin-left:1px;letter-spacing:0">™</span></div>
   <div class="footer-links">
     <a href="curriculum.html">Curriculum</a>
     <a href="assessment.html">Assessment</a>
