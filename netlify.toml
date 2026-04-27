@@ -81,7 +81,12 @@
 
 [[redirects]]
   from = "/assessment"
-  to = "/channel_readiness.html"
+  to = "/assessment.html"
+  status = 200
+
+[[redirects]]
+  from = "/psra"
+  to = "/assessment.html"
   status = 200
 
 [[redirects]]

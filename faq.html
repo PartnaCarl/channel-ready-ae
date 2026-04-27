@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — The Multiplier Method</title>
+  <meta name="description" content="Frequently asked questions about The Multiplier Method — the TRACE-based channel sales training program." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a; --ink: #171717; --surface: #1c1c1c;
+      --border: #242424; --muted: #333333;
+      --text-dim: #a8a8a8; --text: #d4d4d4; --white: #f5f5f5;
+      --accent: #e8c547; --accent-dim: rgba(232,197,71,0.12);
+      --accent-border: rgba(232,197,71,0.3);
+      --font-head: 'Cormorant Garamond', serif;
+      --font-body: 'Crimson Pro', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black); color: var(--text);
+      font-family: var(--font-body); font-size: 18px;
+      line-height: 1.75; -webkit-font-smoothing: antialiased;
+      min-height: 100vh; display: flex; flex-direction: column;
+    }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,10,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px; display: flex; align-items: center; gap: 32px; height: 60px;
+    }
+    .nav-logo {
+      font-family: var(--font-head); font-weight: 800; font-size: 15px;
+      color: var(--white); text-decoration: none; letter-spacing: -0.02em;
+    }
+    .nav-logo em { color: var(--accent); font-style: normal; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--text-dim);
+      text-decoration: none; letter-spacing: 0.02em; transition: color 0.15s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta {
+      margin-left: auto;
+      background: var(--accent); color: var(--black);
+      font-family: var(--font-head); font-weight: 700;
+      font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 8px 18px; border-radius: 3px;
+      text-decoration: none; transition: opacity 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    main { flex: 1; max-width: 760px; margin: 0 auto; padding: 80px 40px; width: 100%; }
+
+    .page-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+    }
+    .page-title {
+      font-family: var(--font-head); font-size: 48px; font-weight: 700;
+      color: var(--white); letter-spacing: -0.02em; line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .page-title em { color: var(--accent); font-style: normal; }
+    .page-sub {
+      font-size: 17px; color: var(--text-dim); line-height: 1.7;
+      margin-bottom: 56px; max-width: 580px;
+    }
+
+    .faq-grid {
+      display: flex; flex-direction: column; gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: 4px; overflow: hidden;
+    }
+    .faq-item { background: var(--surface); padding: 32px 36px; transition: background 0.15s; }
+    .faq-item:hover { background: #202020; }
+    .faq-q {
+      font-family: var(--font-head); font-size: 20px; font-weight: 700;
+      color: var(--white); margin-bottom: 12px; line-height: 1.3;
+    }
+    .faq-a { font-size: 16px; color: var(--text-dim); line-height: 1.75; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 24px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px; color: var(--text-dim);
+    }
+    .footer-brand { font-family: var(--font-head); font-weight: 700; color: var(--white); }
+    .footer-brand em { color: var(--accent); font-style: normal; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--white); }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      main { padding: 56px 24px; }
+      .page-title { font-size: 36px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px 20px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">The Multiplier Method<em>™</em></a>
+  <ul class="nav-links">
+    <li><a href="curriculum.html">Curriculum</a></li>
+    <li><a href="assessment.html">Assessment</a></li>
+    <li><a href="business_plan.html">Business Plan</a></li>
+    <li><a href="faq.html" class="active">FAQ</a></li>
+  </ul>
+  <a href="login.html" class="nav-cta">Member Login</a>
+</nav>
+
+<main>
+  <div class="page-eyebrow">Buyer FAQ</div>
+  <h1 class="page-title">Frequently asked <em>questions.</em></h1>
+  <p class="page-sub">Everything you need to know before enrolling — about the methodology, the program structure, and what your team walks away with.</p>
+
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">Is this licensed from another sales-training company?</div>
+      <div class="faq-a">No. The Multiplier Method is our proprietary methodology, built from Carl and Natalie's combined channel experience at Toshiba, Expel, HPE, and Juniper. The frameworks (Partner Fit Filter, Co-Sell Alignment Agreement, Negative Reverse Selling, DISC-for-Channel, I/R Theory, No-Free-Consulting) are direct-sales discipline rebuilt from first principles for the indirect channel. Reviewed by legal counsel.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">My partner is Optiv, not CDW. Does this transfer?</div>
+      <div class="faq-a">TRACE framework stages are structurally identical across partner types. Whether you work with Value-Added Resellers (VARs), Managed Service Providers (MSPs), distributors, or Independent Software Vendors (ISVs) — the Partner Fit Filter qualifies the same way, the CAA runs the same way. Scenarios are drawn from multiple partner types, including Managed Security Service Provider (MSSP), Systems Integrator (SI), national VAR, and regional reseller.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do my AEs need prior sales-methodology training first?</div>
+      <div class="faq-a">No prior methodology training required. Each TRACE stage is introduced from first principles and applied immediately to partner situations. Direct-sales experience helps but is not a prerequisite. The program is designed to be the first place your AEs encounter a structured channel-selling methodology.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the Partner-Selling Readiness Assessment (PSRA), and how does it connect to the Workshop?</div>
+      <div class="faq-a">The PSRA is the entry point for revenue leadership evaluating Channel Ready AE for their team. Two versions: a free self-serve PSRA that benchmarks your team's partner-selling readiness across the five TRACE stages, and a $1,500 paid PSRA — a working session with Carl or Natalie diagnosing your partner motion and delivering a written readiness report. The $1,500 fee credits 100% toward your Workshop engagement. The Workshop is the front-door delivery; the PSRA is the diagnostic that scopes it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What does the Certificate of Completion mean?</div>
+      <div class="faq-a">AEs who complete all twelve modules of the 12-Week TRACE Cohort receive a Certificate of Completion documenting that they finished the program and exercised every TRACE stage in scenario practice. It is not a formal credential or certification — Channel Ready AE will introduce a credentialed designation only after the program has 50+ alumni and a formal post-program assessment. Today, completion language is honest about what was delivered: the curriculum, applied.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long does the program take?</div>
+      <div class="faq-a">Twelve modules across three phases. Designed to deploy in 90 days with one module per week. Each module is self-paced with video instruction, framework application, and a role-play scenario. Teams running the full cohort model typically complete Phase 1 in the first month.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can individual AEs enroll, or is this employer-sponsored?</div>
+      <div class="faq-a">The 12-Week TRACE Cohort is designed for employer-sponsored enrollment — VP of Channel, Head of Sales, CRO, or Channel Chief commits a team and the company funds the seats at $4,997/seat. That is the default path because partner-selling discipline compounds when an entire AE team adopts a shared methodology, manager reinforcement, and a common operating language. Individual AE enrollment may be available case-by-case but is not the primary motion. Workshops, by contrast, can be purchased standalone by leadership without team commitment.</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-brand">The Multiplier Method<em>™</em></div>
+  <div class="footer-links">
+    <a href="curriculum.html">Curriculum</a>
+    <a href="assessment.html">Assessment</a>
+    <a href="business_plan.html">Business Plan</a>
+    <a href="index.html#apply">Enroll</a>
+  </div>
+  <div>&copy; 2026 Partna Company LLC</div>
+</footer>
+
+</body>
+</html>

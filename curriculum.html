@@ -337,21 +337,33 @@
     .intro-block { transition: background 0.2s, transform 0.2s; }
     .intro-block:hover { background: #202020; transform: translateY(-2px); }
 
+    /* FRAMEWORK TILES */
+    .framework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
+    .framework-card { background: var(--surface); padding: 32px 28px; transition: background 0.22s; position: relative; overflow: hidden; }
+    .framework-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left center; transition: transform 0.3s ease; }
+    .framework-card:hover::before { transform: scaleX(1); }
+    .framework-card:hover { background: #202020; }
+    .framework-num { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .framework-num::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .framework-card h4 { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em; }
+    .framework-card p { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+    .framework-vp { font-size: 13px; color: var(--accent); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+    @media (max-width: 768px) { .framework-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
+<!--ae-banner-marker-->
+<div role="region" aria-label="Audience notice" style="background:#0f0f0f;border-bottom:1px solid #242424;padding:10px 24px;text-align:center;font-family:'Crimson Pro',serif;font-size:12px;color:#a8a8a8;letter-spacing:0.02em;line-height:1.5;">For your AE team. Decision-makers: <a href="assessment.html" style="color:#e8c547;text-decoration:none;font-weight:500;">Take the Readiness Assessment →</a></div>
+<script>if (localStorage.getItem('mm_unlocked') !== '1') { window.location.href = 'login.html'; }</script>
 <nav>
   <a href="index.html" class="nav-logo">The Multiplier Method<em>™</em></a>
   <ul class="nav-links">
-    <li><a href="index.html#who">Who It's For</a></li>
-    <li><a href="index.html#program">The Program</a></li>
-    <li><a href="index.html#methodology">Methodology</a></li>
-    <li><a href="index.html#pricing">Pricing</a></li>
-    <li><a href="index.html#founders">Instructors</a></li>
     <li><a href="curriculum.html">Curriculum</a></li>
+    <li><a href="assessment.html">Assessment</a></li>
     <li><a href="business_plan.html">Business Plan</a></li>
+    <li><a href="faq.html">FAQ</a></li>
   </ul>
-  <a href="index.html#apply" class="nav-cta">Enroll Now</a>
+  <a href="login.html" class="nav-cta">Member Login</a>
 </nav>
 
 
@@ -365,10 +377,10 @@
     </div>
     <div class="page-eyebrow">Curriculum Binder · The Multiplier Method Channel Edition · April 2026 · All 12 Modules Built</div>
     <h1 class="page-title">The only channel AE curriculum <em>built to deploy in 90 days.</em></h1>
-    <p class="page-sub">A complete operating system for your channel team. Twelve modules. Six RELAY frameworks. Built from practitioner IP — not theory, not archived case studies. Hand this to your AEs on Monday. They run it starting that week.</p>
+    <p class="page-sub">A complete operating system for your channel team. Twelve modules. Six TRACE frameworks. Built from practitioner IP — not theory, not archived case studies. Hand this to your AEs on Monday. They run it starting that week.</p>
     <div class="page-stats">
       <div class="page-stat"><div class="page-stat-value">12</div><div class="page-stat-label">Modules</div></div>
-      <div class="page-stat"><div class="page-stat-value">6</div><div class="page-stat-label">RELAY Frameworks</div></div>
+      <div class="page-stat"><div class="page-stat-value">6</div><div class="page-stat-label">TRACE Frameworks</div></div>
       <div class="page-stat"><div class="page-stat-value">3</div><div class="page-stat-label">Phases</div></div>
       <div class="page-stat"><div class="page-stat-value">20+</div><div class="page-stat-label">Partner Scenarios</div></div>
       <div class="page-stat"><div class="page-stat-value">2</div><div class="page-stat-label">Practitioner Instructors</div></div>
@@ -383,38 +395,24 @@
 
 
 
-  <!-- CONSULTING AUDIT PATHWAY -->
   <div style="padding: 60px 40px; max-width:1100px; margin:0 auto;">
-<div class="audit-pathway">
-    <div class="audit-pathway-badge">Consulting Pathway</div>
-    <div class="audit-pathway-body">
-      <h3>Start here: a 2-hour diagnostic that tells you exactly where your channel motion is broken.</h3>
-      <p>A 2-hour working session with Carl or Natalie that diagnoses your partner motion and delivers a prioritized written action plan. Flat fee: <strong style="color:var(--white)">$2,500</strong>. The audit is designed to naturally feed into the curriculum for teams that want to go deeper — you'll see exactly which modules address the gaps we surface. Fractional VP of Channel retainers also available for teams not ready to hire full-time.</p>
-      <a href="index.html#apply">Request a Channel Strategy Audit →</a>
+
+  <!-- PLAYBOOK LINK -->
+  <div style="margin-bottom: 40px; padding: 20px 24px; border: 1px solid var(--accent-border); border-radius: 4px; background: var(--accent-dim); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+    <div>
+      <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;">Before You Begin</div>
+      <div style="font-size: 16px; color: var(--white); font-family: var(--font-head); font-weight: 600;">Read the TRACE Playbook first.</div>
+      <div style="font-size: 14px; color: var(--text-dim); margin-top: 4px;">The full deal walkthrough and all five TRACE stages — in the order you'll use them.</div>
     </div>
+    <a href="trace-playbook.html" style="flex-shrink: 0; background: var(--accent); color: var(--black); font-family: var(--font-head); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 22px; border-radius: 3px; text-decoration: none; white-space: nowrap; transition: opacity 0.15s;">Open the Playbook &rarr;</a>
   </div>
 
-  <!-- PROGRESS -->
-  <div class="progress-bar">
-    <div class="progress-label">All Modules Complete</div>
-    <div class="progress-track"><div class="progress-fill"></div></div>
-    <div class="progress-count">12 / 12</div>
-  </div>
-
-  <!-- INTRO BLOCKS -->
-  <div class="intro-blocks">
-    <div class="intro-block">
-      <div class="intro-block-label">What You're Getting</div>
-      <p><strong style="color:var(--white)">This is what you'd pay a $200K channel consultant to build — except it's already built.</strong> Each module gives your Account Executives one specific RELAY framework they can apply to partner conversations this week. The curriculum runs sequentially: mindset first, then the selling system, then the operational playbooks your team will run on autopilot.</p>
-    </div>
-    <div class="intro-block">
-      <div class="intro-block-label">Why This Works</div>
-      <p>Every framework — Partner Fit Filter, Co-Sell Alignment Agreement, Negative Reverse, DISC, I/R Theory, No-Free-Consulting — applies directly to the indirect channel. The buyer is a partner rep, not an end customer. The stakes for giving away IP are higher. The 1:4 Blitz Model in Module 10 alone comes from a real HPE/CDW campaign across 16,000 accounts. Your AEs aren't learning theory — they're running a tested playbook.</p>
-    </div>
-    <div class="intro-block">
-      <div class="intro-block-label">The ROI Case</div>
-      <p>This program replaces the need to hire a dedicated channel enablement team. Your AEs get the methodology, scripts, frameworks, and operating cadence — without the headcount. <strong style="color:var(--white)">One audit plus this curriculum costs less than one month of a channel consultant's retainer.</strong> Pair them and your team has a 90-day roadmap on day one.</p>
-    </div>
+  <!-- WHY THIS PROGRAM EXISTS -->
+  <div style="max-width: 680px; margin: 0 0 56px;">
+    <div class="section-eyebrow">Why This Program Exists</div>
+    <h2>This program exists because the two people who built it have sat on <em>opposite sides of every channel deal.</em></h2>
+    <p>Carl spent 15+ years on the vendor side — building partner programs at HPE, LastPass, Mimecast, and Toshiba, running co-sell motions across CDW, SHI, Insight, WWT, and nine other national VARs. Natalie spent her career on the reseller and partner side — at CDW, then across six security and cloud software companies, running the channel programs that vendors were trying to activate.</p>
+    <p>Neither side teaches the other what it's like to be across the table. Vendors don't know why partners deprioritize them. Partners don't know what it takes to make a vendor program worth selling. This curriculum is the first one built from both seats simultaneously — and that's the only reason it covers what other channel training doesn't.</p>
   </div>
 
   <!-- PHASE 1 -->
@@ -448,7 +446,7 @@
       </div>
       <div class="module-body">
         <div class="module-title">The Multiplier Method Mindset for Channel</div>
-        <div class="module-desc">Identity vs. Role theory — and why channel Account Executives (AEs) who over-invest emotionally give away the most. The emotional investment trap explained. What The Multiplier Method posture looks like in a partner conversation before you've established a Co-Sell Alignment Agreement (CAA). Includes a self-diagnostic: 10 signs you're consulting for free right now.</div>
+        <div class="module-desc">Identity vs. Role theory — and why channel Account Executives (AEs) who over-invest emotionally give away the most. The emotional investment trap explained. What The TRACE posture looks like in a partner conversation before you've established a Co-Sell Alignment Agreement (CAA). Includes a self-diagnostic: 10 signs you're consulting for free right now.</div>
         <div class="module-tags">
           <span class="tag tag-accent">I/R Theory</span>
           <span class="tag tag-accent">Posture</span>
@@ -466,7 +464,7 @@
       </div>
       <div class="module-body">
         <div class="module-title">Partner Qualification — Partner Fit Filter Applied</div>
-        <div class="module-desc">Using the Partner Fit Filter to qualify partners before investing time, resources, or business plans. Must-have vs. nice-to-have partner criteria. The partner onboarding conversation reframed as a RELAY qualifying call. Includes a disqualification framework so you exit cleanly without burning the relationship.</div>
+        <div class="module-desc">Using the Partner Fit Filter to qualify partners before investing time, resources, or business plans. Must-have vs. nice-to-have partner criteria. The partner onboarding conversation reframed as a TRACE qualifying call. Includes a disqualification framework so you exit cleanly without burning the relationship.</div>
         <div class="module-tags">
           <span class="tag tag-accent">Partner Fit Filter</span>
           <span class="tag tag-accent">Qualification</span>
@@ -520,7 +518,7 @@
   <div class="phase-header" id="phase2">
     <span class="phase-tag">Phase 2 · Modules 5–8</span>
     <span class="phase-name">The Multiplier Method Selling System in Channel</span>
-    <span class="phase-transfer">Teaches your team to run every partner conversation — QBRs, joint calls, proposals — with a consistent RELAY framework.</span>
+    <span class="phase-transfer">Teaches your team to run every partner conversation — QBRs, joint calls, proposals — with a consistent TRACE framework.</span>
   </div>
 
   <!-- PHASE 2 INTRO VIDEO -->
@@ -565,7 +563,7 @@
       </div>
       <div class="module-body">
         <div class="module-title">Anatomy of a Partner Deal</div>
-        <div class="module-desc">Mapping the full channel deal lifecycle with RELAY checkpoints at every stage. Four co-selling motions matched to partner type (Big Box, Advisory, Licensing, Regional). Complete incentive framework reference with dollar ranges per activity. Where channel deals die and exactly why.</div>
+        <div class="module-desc">Mapping the full channel deal lifecycle with TRACE checkpoints at every stage. Four co-selling motions matched to partner type (Big Box, Advisory, Licensing, Regional). Complete incentive framework reference with dollar ranges per activity. Where channel deals die and exactly why.</div>
         <div class="module-tags">
           <span class="tag tag-accent">Deal Lifecycle</span>
           <span class="tag tag-accent">The Multiplier Method System</span>
@@ -585,7 +583,7 @@
       </div>
       <div class="module-body">
         <div class="module-title">No-Free-Consulting in the Channel</div>
-        <div class="module-desc">Protecting your time, intellectual property, and deal margins. Defining exactly what requires partner commitment before you engage — and what happens when a partner takes your business plan to a cheaper vendor. The IP protection conversation, run with The Multiplier Method posture so it strengthens the relationship instead of damaging it.</div>
+        <div class="module-desc">Protecting your time, intellectual property, and deal margins. Defining exactly what requires partner commitment before you engage — and what happens when a partner takes your business plan to a cheaper vendor. The IP protection conversation, run with The TRACE posture so it strengthens the relationship instead of damaging it.</div>
         <div class="module-tags">
           <span class="tag tag-accent">No-Free-Consulting</span>
           <span class="tag">IP Protection</span>
@@ -701,9 +699,9 @@
       </div>
       <div class="module-body">
         <div class="module-title">Building the Repeatable Channel Motion</div>
-        <div class="module-desc">The complete operator's field manual. The 120-Day Ramp Model for every new partner or territory. Executive Event Playbook (CISO roundtables, leadership dinners). KPI Refinement — replacing vanity metrics with pipeline indicators. Weekly/monthly/quarterly operating rhythms. Partner tiering. Final self-assessment and certification.</div>
+        <div class="module-desc">The complete operator's field manual. The 120-Day Ramp Model for every new partner or territory. Executive Event Playbook (CISO roundtables, leadership dinners). KPI Refinement — replacing vanity metrics with pipeline indicators. Weekly/monthly/quarterly operating rhythms. Partner tiering. Final self-assessment and Certificate of Completion.</div>
         <div class="module-tags">
-          <span class="tag tag-accent">All 6 RELAY Frameworks</span>
+          <span class="tag tag-accent">All 5 TRACE Stages</span>
           <span class="tag">Partner Tiering</span>
           <span class="tag tag-accent">120-Day Ramp Model</span>
           <span class="tag tag-accent">Executive Events</span>
@@ -717,81 +715,6 @@
     </div>
   </div>
 
-  <!-- METRICS -->
-  <div class="metrics-section" id="metrics">
-    <div class="metrics-label">Pilot Outcomes</div>
-    <h2 class="metrics-title">What your board sees <em>at 90 days.</em></h2>
-    <p class="metrics-sub">Every metric ties back to pipeline or behavior change — not training completion rates. These are the six numbers you report when channel revenue is due. We track them from day one so you have the data when the conversation comes.</p>
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <div class="metric-type">Behavior</div>
-        <div class="metric-name">Co-Sell Alignment Agreement Usage</div>
-        <div class="metric-desc">% of partner conversations starting with a CAA. Baseline captured before Module 1. Remeasured at 30, 60, and 90 days. Target: 80%+ by day 60.</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-type">Behavior</div>
-        <div class="metric-name">Qualification Rate</div>
-        <div class="metric-desc">Partners disqualified early using Partner Fit Filter vs. time wasted on partners who were never going to close. Tracked against pre-enrollment baseline.</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-type">Behavior</div>
-        <div class="metric-name">No-Free-Consulting Incidents</div>
-        <div class="metric-desc">Reduction in IP given before commitment. Tracked via deal notes and manager review. The single metric that correlates most directly with margin protection.</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-type">Pipeline</div>
-        <div class="metric-name">Partner-Sourced Pipeline Generated</div>
-        <div class="metric-desc">New pipeline sourced through partner conversations at 30, 60, and 90 days. Compared to pre-enrollment baseline. Leading indicator before revenue closes.</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-type">Lagging</div>
-        <div class="metric-name">Partner-Sourced Revenue</div>
-        <div class="metric-desc">Revenue closed through the channel at 6 months vs. pre-enrollment baseline. The ultimate proof metric. Reported in aggregate across the cohort.</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-type">Engagement</div>
-        <div class="metric-name">Completion Rate + The Multiplier Method Posture Score</div>
-        <div class="metric-desc">% completing all 12 modules (target: 70%+). Pre/post self-assessment on The Multiplier Method framework fluency. Expected: 3–4 point increase on posture score.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FAQ -->
-  <div class="faq-section" id="faq">
-    <div class="metrics-label">Buyer FAQ</div>
-    <h2 class="metrics-title"><em>FAQs</em></h2>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <div class="faq-q">Is this officially licensed by Sandler Training?</div>
-        <div class="faq-a">No. We've adapted The Multiplier Method's publicly documented methodology — Partner Fit Filter, CAA, NRS, DISC, I/R Theory, No-Free-Consulting — specifically for the indirect channel. The frameworks are The Multiplier Method's. The channel application, scenarios, and curriculum are ours. Reviewed by legal counsel.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">My partner is Optiv, not CDW. Does this transfer?</div>
-        <div class="faq-a">RELAY framework stages are structurally identical across partner types. Whether you work with Value-Added Resellers (VARs), Managed Service Providers (MSPs), distributors, or Independent Software Vendors (ISVs) — the Partner Fit Filter qualifies the same way, the CAA runs the same way. Scenarios are drawn from multiple partner types, including Managed Security Service Provider (MSSP), Systems Integrator (SI), national VAR, and regional reseller.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Do my AEs need The Multiplier Method training first?</div>
-        <div class="faq-a">No prior The Multiplier Method training required. Each framework is introduced from first principles and applied immediately to partner situations. Direct-sales The Multiplier Method experience is helpful but not a prerequisite. The program is designed to be the first place your AEs encounter The Multiplier Method.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What is the Channel Strategy Audit and how does it connect to the curriculum?</div>
-        <div class="faq-a">The audit is a 2-hour working session ($2,500 flat) where Carl or Natalie diagnoses your partner motion and delivers a written action plan. The action plan maps directly to curriculum modules — so teams that go through an audit know exactly which Phase and Module addresses each gap. It's designed as the top of the funnel, not a standalone product.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What does the certificate mean?</div>
-        <div class="faq-a">The Multiplier Method certificate demonstrates practitioner-level fluency in six RELAY frameworks as applied to the indirect channel. It's a credential that differentiates AEs who can articulate their channel methodology from those who can't — useful in performance reviews, job searches, and conversations with partner leadership about program maturity.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOUNDING STORY -->
-  <hr class="rule" />
-  <div style="max-width: 680px; margin: 0 auto 72px;">
-    <div class="section-eyebrow">Why This Program Exists</div>
-    <h2>This program exists because the two people who built it have sat on <em>opposite sides of every channel deal.</em></h2>
-    <p>Carl spent 15+ years on the vendor side — building partner programs at HPE, LastPass, Mimecast, and Toshiba, running co-sell motions across CDW, SHI, Insight, WWT, and nine other national VARs. Natalie spent her career on the reseller and partner side — at CDW, then across six security and cloud software companies, running the channel programs that vendors were trying to activate.</p>
-    <p>Neither side teaches the other what it's like to be across the table. Vendors don't know why partners deprioritize them. Partners don't know what it takes to make a vendor program worth selling. This curriculum is the first one built from both seats simultaneously — and that's the only reason it covers what other channel training doesn't.</p>
-  </div>
 
 </div>
 <!-- FOOTER -->

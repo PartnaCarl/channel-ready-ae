@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Multiplier Method — RELAY-Based Channel Sales Training</title>
-  <meta name="description" content="The only RELAY-based training program built for the indirect channel. Stop giving away IP. Start running a disciplined partner motion." />
+  <title>Channel Ready AE — TRACE-Based Channel Sales Training</title>
+  <meta name="description" content="Your AEs are expected to co-sell with partners. No one trained them how. Channel Ready AE delivers a TRACE-based program built for the indirect channel — Workshop, 12-Week Cohort, or free PSRA." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
@@ -244,6 +244,36 @@
       color: var(--white); margin-bottom: 12px; letter-spacing: -0.01em;
     }
     .method-card p { font-size: 15px; color: var(--text-dim); line-height: 1.75; }
+    /* ASSESSMENT DIMENSION GRID */
+    .assessment-dims-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: 4px; overflow: hidden;
+      margin-bottom: 32px;
+    }
+    .assessment-dim-card {
+      background: var(--surface); padding: 28px 22px;
+      transition: background 0.2s; position: relative; overflow: hidden;
+    }
+    .assessment-dim-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent); transform: scaleX(0);
+      transform-origin: left center; transition: transform 0.3s ease;
+    }
+    .assessment-dim-card:hover::before { transform: scaleX(1); }
+    .assessment-dim-card:hover { background: #202020; }
+    .assessment-dim-card-num {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-dim); margin-bottom: 10px;
+    }
+    .assessment-dim-card-name {
+      font-family: var(--font-head); font-size: 16px; font-weight: 700;
+      color: var(--white); line-height: 1.2; margin-bottom: 10px;
+    }
+    .assessment-dim-card-module {
+      font-size: 12px; font-weight: 600; color: var(--accent);
+    }
+
     .method-banner {
       margin-top: 1px; background: var(--surface);
       border: 1px solid var(--accent-border);
@@ -256,6 +286,73 @@
       color: var(--accent); white-space: nowrap;
     }
     .method-banner p { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
+
+    /* VIDEO TEASER */
+    .video-teaser-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .video-teaser-card { display: flex; flex-direction: column; gap: 10px; }
+    .video-teaser-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .video-teaser-title {
+      font-family: var(--font-head); font-size: 15px; font-weight: 600;
+      color: var(--white); line-height: 1.3;
+    }
+    .video-teaser-frame {
+      position: relative; width: 100%; aspect-ratio: 16/9;
+      overflow: hidden; border-radius: 4px; background: #0a0a0a;
+    }
+    .video-teaser-frame iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    }
+    .video-teaser-caption {
+      font-size: 13px; color: var(--text-dim);
+    }
+
+    /* PRICING ASSESSMENT BLOCK */
+    .pricing-assessment {
+      display: grid; grid-template-columns: 1fr 220px; gap: 48px;
+      align-items: start;
+      padding: 40px; margin-bottom: 1px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: 6px;
+      margin-bottom: 32px;
+    }
+    .pricing-assessment-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    }
+    .pricing-assessment-heading {
+      font-family: var(--font-head); font-size: 26px; font-weight: 700;
+      color: var(--white); letter-spacing: -0.02em; line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .pricing-assessment-body {
+      font-size: 16px; color: var(--text-dim); line-height: 1.7;
+    }
+    .pricing-assessment-dims {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .pricing-assessment-dims .assessment-dim-card {
+      padding: 14px 16px;
+    }
+    .pricing-assessment-dims .assessment-dim-card-name {
+      font-size: 14px;
+    }
+    .pricing-paid-header {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 24px; padding-top: 8px;
+    }
+    .pricing-paid-label {
+      font-family: var(--font-head); font-size: 18px; font-weight: 600;
+      color: var(--white);
+    }
+    .pricing-paid-sub {
+      font-size: 16px; color: var(--text-dim);
+    }
 
     /* PRICING */
     #pricing { background: var(--black); }
@@ -456,7 +553,7 @@
       .hero { grid-template-columns: 1fr; gap: 48px; padding: 72px 20px 60px; }
       .hero-stats { grid-template-columns: repeat(4, 1fr); }
       section { padding: 60px 20px; }
-      .who-grid, .method-grid { grid-template-columns: 1fr; }
+      .who-grid, .method-grid, .assessment-dims-grid { grid-template-columns: 1fr; }
       .phase { grid-template-columns: 1fr; gap: 20px; }
       .pricing-grid { grid-template-columns: 1fr; }
       .founders-grid { grid-template-columns: 1fr; }
@@ -467,6 +564,16 @@
       .ladder-item:last-child { border-bottom: none; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
     }
+
+    /* PILOT OUTCOMES */
+    .pilot-section { background: var(--black); padding: 80px 40px; }
+    .pilot-section .section-inner { max-width: 1080px; margin: 0 auto; }
+    .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-top: 40px; }
+    .metric-card { background: var(--surface); padding: 32px 28px; }
+    .metric-type { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .metric-name { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .metric-desc { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
+    @media (max-width: 768px) { .metrics-grid { grid-template-columns: 1fr; } }
 
     /* INSTRUCTORS SECTION */
     .instructors-section { background: var(--ink); padding: 80px 40px; }
@@ -767,26 +874,22 @@
 <nav>
   <a href="index.html" class="nav-logo">The Multiplier Method<em>™</em></a>
   <ul class="nav-links">
-    <li><a href="#who">Who It's For</a></li>
-    <li><a href="#program">The Program</a></li>
-    <li><a href="#methodology">Methodology</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#founders">Instructors</a></li>
     <li><a href="curriculum.html">Curriculum</a></li>
+    <li><a href="assessment.html">Assessment</a></li>
     <li><a href="business_plan.html">Business Plan</a></li>
+    <li><a href="faq.html">FAQ</a></li>
   </ul>
-  <a href="#apply" class="nav-cta">Enroll Now</a>
+  <a href="login.html" class="nav-cta">Member Login</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div>
-    <div class="hero-eyebrow">The Multiplier Method · Channel Partner Training · Partna Company</div>
-    <h1>Stop managing partners. Start <em>selling through them.</em></h1>
-    <p class="hero-sub">You've been asked to stand up a channel program — and your AEs are running a direct-sales playbook through a partner ecosystem. The Multiplier Method is the operating system they need. Twelve modules. Six practitioner frameworks. Built to deploy in 90 days.</p>
+    <div class="hero-eyebrow">Channel Ready AE · For Revenue Leadership · Partna Company</div>
+    <h1>Your AEs are expected to <em>co-sell with partners.</em> No one trained them how.</h1>
+    <p class="hero-sub">Channel Ready AE is the operating system your AE team needs to convert partner relationships into partner-sourced pipeline, deal-registration quality, and faster ramp on the partner motions your strategy assumes they can run. Twelve modules. Five TRACE stages. Built to deploy in 90 days. The Multiplier Method, taught by practitioners, applied to the indirect channel.</p>
     <div class="hero-actions">
-      <a href="#apply" class="btn-primary">Enroll in the Next Cohort</a>
-      <a href="curriculum.html" class="btn-ghost">See the full curriculum →</a>
+      <a href="./assessment.html" class="btn-primary">Take the Readiness Assessment →</a>
     </div>
   </div>
   <div class="hero-stats">
@@ -795,11 +898,11 @@
       <div class="hero-stat-label">Core Modules</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-value">6</div>
-      <div class="hero-stat-label">The Multiplier Method Frameworks</div>
+      <div class="hero-stat-value">5</div>
+      <div class="hero-stat-label">TRACE Stages</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-value">3</div>
+      <div class="hero-stat-value">4</div>
       <div class="hero-stat-label">Ways to Engage</div>
     </div>
     <div class="hero-stat">
@@ -817,11 +920,6 @@
     <div class="section-label">Who It's For</div>
     <h2 class="section-title">Your channel team has no <em>operating system.</em></h2>
     <p class="section-body">Most channel Account Executives were trained in direct sales. They walk into partner meetings running a direct playbook — building business plans, running joint calls, sending proposals — and nothing closes. Partners take their Intellectual Property and shop it. Your team doesn't have a channel framework. That's the gap this program closes.</p>
-
-    <div class="vp-callout">
-      <div class="vp-callout-label">For the VP of Channel</div>
-      <p>If you're standing up a channel program — this is your team's playbook on day one. The curriculum gives your AEs a shared language, a qualifying framework, and an operating cadence. You don't need to build enablement from scratch. You need to hand your team something that works Monday morning. Start with the Channel Strategy Audit: a 2-hour working session that maps your gaps to specific modules and delivers a 90-day action plan.</p>
-    </div>
 
     <div class="who-grid" style="grid-template-columns: repeat(3, 1fr);">
       <div class="who-card who-card-new">
@@ -849,11 +947,17 @@
 <section id="program">
   <div class="section-inner">
     <div class="section-label">The Curriculum</div>
-    <h2 class="section-title">Three phases. One <em>complete RELAY motion.</em></h2>
-    <p class="section-body">Each phase builds on the last. By the end, your Account Executives have a RELAY-based partner operating system they can run on any partner, in any deal, without losing margin to free consulting.</p>
+    <h2 class="section-title">Three phases. One <em>complete TRACE motion.</em></h2>
+    <p class="section-body">Each phase builds on the last. By the end, your Account Executives have a TRACE-based partner operating system they can run on any partner, in any deal, without losing margin to free consulting.</p>
 
     <div class="phases">
       <div class="phase">
+        <div style="grid-column:1/-1;padding-bottom:28px;margin-bottom:4px;border-bottom:1px solid var(--border);">
+          <div style="width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:4px;background:#0a0a0a;">
+            <iframe src="https://app.heygen.com/embeds/9a5848f19ac54a66a2905f952913d1b4" title="Phase 1 Intro" frameborder="0" allow="encrypted-media; fullscreen;" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+          </div>
+          <p style="margin-top:8px;font-size:13px;color:var(--text-dim);">Phase 1 intro &middot; ~90 sec &middot; Carl</p>
+        </div>
         <div class="phase-meta">
           <div class="phase-number">Phase 01 · Modules 1–4</div>
           <div class="phase-title">The Multiplier Method Mindset for Channel</div>
@@ -870,13 +974,19 @@
         </div>
       </div>
       <div class="phase">
+        <div style="grid-column:1/-1;padding-bottom:28px;margin-bottom:4px;border-bottom:1px solid var(--border);">
+          <div style="width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:4px;background:#0a0a0a;">
+            <iframe src="https://app.heygen.com/embeds/9b9aa420a979480a8945dcdd24d6421d" title="Phase 2 Intro" frameborder="0" allow="encrypted-media; fullscreen;" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+          </div>
+          <p style="margin-top:8px;font-size:13px;color:var(--text-dim);">Phase 2 intro &middot; ~90 sec &middot; Natalie</p>
+        </div>
         <div class="phase-meta">
           <div class="phase-number">Phase 02 · Modules 5–8</div>
           <div class="phase-title">The Multiplier Method Selling System in Channel</div>
           <div class="phase-modules">Real-world Value-Added Reseller, Managed Service Provider, Independent Software Vendor, and distributor scenarios.</div>
         </div>
         <div class="phase-body">
-          <p>Negative Reverse Selling applied to partner conversations. Protecting your time and Intellectual Property with the No-Free-Consulting framework. Mapping the full channel deal lifecycle with The Multiplier Method checkpoints at every stage. Reading DISC profiles in partner and end-customer meetings. Live scenario practice with real partner objections.</p>
+          <p>Negative Reverse Selling applied to partner conversations. Protecting your time and Intellectual Property with the No-Free-Consulting framework. Mapping the full channel deal lifecycle with TRACE checkpoints at every stage. Reading DISC profiles in partner and end-customer meetings. Live scenario practice with real partner objections.</p>
           <div class="phase-tags">
             <span class="tag tag-accent">Negative Reverse Selling</span>
             <span class="tag tag-accent">No-Free-Consulting</span>
@@ -886,13 +996,19 @@
         </div>
       </div>
       <div class="phase">
+        <div style="grid-column:1/-1;padding-bottom:28px;margin-bottom:4px;border-bottom:1px solid var(--border);">
+          <div style="width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:4px;background:#0a0a0a;">
+            <iframe src="https://app.heygen.com/embeds/5b158aca929046eeb119d96a541bd6eb" title="Phase 3 Intro" frameborder="0" allow="encrypted-media; fullscreen;" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+          </div>
+          <p style="margin-top:8px;font-size:13px;color:var(--text-dim);">Phase 3 intro &middot; ~90 sec &middot; Carl</p>
+        </div>
         <div class="phase-meta">
           <div class="phase-number">Phase 03 · Modules 9–12</div>
           <div class="phase-title">Building the Repeatable Channel Motion</div>
           <div class="phase-modules">Operational playbooks: incentive design, partner ramp models, executive events, and KPI frameworks.</div>
         </div>
         <div class="phase-body">
-          <p>Operational playbooks that make the RELAY motion run without you. RELAY-based Quarterly Business Review structure with regional heatmaps. Four co-selling motions matched to partner type. Incentive framework design. The 120-day ramp model for new partners and territories. Executive event playbooks. KPI refinement that replaces vanity metrics with pipeline indicators.</p>
+          <p>Operational playbooks that make the TRACE motion run without you. TRACE-based Quarterly Business Review structure with regional heatmaps. Four co-selling motions matched to partner type. Incentive framework design. The 120-day ramp model for new partners and territories. Executive event playbooks. KPI refinement that replaces vanity metrics with pipeline indicators.</p>
           <div class="phase-tags">
             <span class="tag tag-accent">The Multiplier Method Quarterly Business Review Framework</span>
             <span class="tag tag-accent">Channel Prospecting</span>
@@ -907,104 +1023,61 @@
 
 <hr class="divider" />
 
-<!-- METHODOLOGY -->
-<section id="methodology">
-  <div class="section-inner">
-    <div class="section-label">The RELAY Framework™</div>
-    <h2 class="section-title">Six frameworks. All adapted for <em>channel.</em></h2>
-    <p class="section-body">The Multiplier Method's core frameworks were built for direct sales. We've adapted each one specifically for the indirect channel — where the buyer is a partner, not an end customer — into a proprietary methodology we call <strong style="color:var(--white)">The RELAY Framework™</strong> — <strong style="color:var(--white)">R</strong>ecognize, <strong style="color:var(--white)">E</strong>valuate, <strong style="color:var(--white)">L</strong>everage, <strong style="color:var(--white)">A</strong>lign, <strong style="color:var(--white)">Y</strong>ield.</p>
-
-    <div class="method-grid">
-      <div class="method-card">
-        <div class="method-number">Framework 01</div>
-        <h3>Identity / Role (I/R) Theory</h3>
-        <p>Channel Account Executives who over-invest emotionally in partner relationships give away the most. I/R Theory separates your identity from your role — so partner rejection doesn't trigger free consulting behavior.</p>
-        <p class="method-vp">For VPs: stops the root behavior that inflates pipeline and destroys margin — giving away IP before commitment.</p>
-      </div>
-      <div class="method-card">
-        <div class="method-number">Framework 02</div>
-        <h3>Partner Fit Filter</h3>
-        <p>Applied to both partner qualification and end-customer conversations run through partners. Uncovers real pain — not feature interest — before any investment of time, travel, or Intellectual Property.</p>
-        <p class="method-vp">For VPs: eliminates the hours your AEs spend on unqualified partners who appear in pipeline reviews at Stage 3 with no budget and no champion.</p>
-      </div>
-      <div class="method-card">
-        <div class="method-number">Framework 03</div>
-        <h3>Co-Sell Alignment Agreements</h3>
-        <p>Every partner conversation — intro call, Quarterly Business Review, joint sales call — begins with a Co-Sell Alignment Agreement. Agenda, purpose, outcomes, and next steps agreed before the meeting starts. Every time.</p>
-        <p class="method-vp">For VPs: ends the "we're aligned" problem — partner calls that produce no agreed next step, no commitment, and no forward motion.</p>
-      </div>
-      <div class="method-card">
-        <div class="method-number">Framework 04</div>
-        <h3>Negative Reverse Selling</h3>
-        <p>Used when partners stall, go quiet, or ask for more resources without commitment. Negative Reverse Selling surfaces the real objection — or disqualifies the partner — without breaking the relationship.</p>
-        <p class="method-vp">For VPs: removes the partners inflating your pipeline with 90+ days of "activity" and no qualified deal attached.</p>
-      </div>
-      <div class="method-card">
-        <div class="method-number">Framework 05</div>
-        <h3>No-Free-Consulting</h3>
-        <p>The framework for protecting your time, your Intellectual Property, and your deal margins. Defines exactly what requires partner commitment before you engage — and what happens when they take your work to a competitor.</p>
-        <p class="method-vp">For VPs: directly protects margin. If your AEs are building proposals and architectures for partners who take that work to a cheaper vendor — this framework stops it.</p>
-      </div>
-      <div class="method-card">
-        <div class="method-number">Framework 06</div>
-        <h3>DISC (Dominance, Influence, Steadiness, Conscientiousness) for Channel</h3>
-        <p>Reading partner personality types and adapting communication style accordingly. D-types need decisions, not rapport. C-types need data, not enthusiasm. The wrong approach with the right partner is still a lost deal.</p>
-        <p class="method-vp">For VPs: solves the stuck relationship problem — where a key partner hasn't produced in months and nobody can explain why.</p>
-      </div>
-    </div>
-
-    <div class="method-banner" style="margin-top: 24px;">
-      <div class="method-banner-label">Pre-Requisite →</div>
-      <p><strong style="color:var(--white)">Blitz Masters</strong> is the recommended pre-work program for The Multiplier Method students. It builds the outbound muscle — call blitz discipline, prospecting volume, accountability habits — that makes The Multiplier Method land. You can't work a Partner Fit Filter with a partner you haven't called. Both programs are offered through Partna Company.</p>
-    </div>
-  </div>
-</section>
-
-<hr class="divider" />
-
-
-
 <!-- PRICING -->
 <section id="pricing">
   <div class="section-inner">
-    <div class="section-label">Investment</div>
-    <h2 class="section-title">Three ways to <em>get started.</em></h2>
-    <p class="section-body">Most VPs of Channel start with the <strong style="color:var(--white)">Channel Strategy Audit</strong> — a 2-hour working session that maps your team's gaps to specific modules and delivers a 90-day deployment roadmap. From there, bring the full curriculum to your team or run a workshop at your next SKO. Every engagement is built on the same RELAY methodology.</p>
+    <div class="section-label">Product Ladder</div>
+    <h2 class="section-title">Four ways to <em>engage.</em> Workshop is the front door.</h2>
+    <p class="section-body">Start with a free PSRA to benchmark your AE team. Engage a paid PSRA when you're ready to scope. The Workshop is the front-door commercial engagement. The 12-Week TRACE Cohort is the deep deployment for teams committed to the full operating system.</p>
 
-    <div class="pricing-grid" style="grid-template-columns: 1fr 1fr 1fr;">
-      <div class="pricing-card pricing-card-featured">
-        <div class="pricing-badge">Start Here — VPs</div>
-        <div class="pricing-tier">Channel Strategy Audit</div>
-        <div class="pricing-amount">$2,500</div>
-        <div class="pricing-note">Flat fee · 2-hour working session</div>
-        <ul class="pricing-features">
-          <li>Live diagnostic with Carl or Natalie</li>
-          <li>Full partner motion assessment against RELAY stages</li>
-          <li>Written action plan mapping gaps to specific modules</li>
-          <li>Prioritized 90-day roadmap for your channel team</li>
-          <li>Natural entry point into the full curriculum</li>
-          <li>Ideal for VP/Head of Channel evaluating the program</li>
-        </ul>
-        <a href="#apply" class="pricing-cta pricing-cta-accent">Request an Audit</a>
-      </div>
+    <div class="pricing-grid" style="grid-template-columns: repeat(4, 1fr);">
       <div class="pricing-card">
-        <div class="pricing-tier">Team Workshop</div>
-        <div class="pricing-amount" style="font-size:28px;">$5K–$15K</div>
-        <div class="pricing-note">Half-day or full-day · on-site or virtual</div>
+        <div class="pricing-badge">Free or $1,500</div>
+        <div class="pricing-tier">Partner-Selling Readiness Assessment (PSRA)</div>
+        <div class="pricing-amount">Free / $1,500</div>
+        <div class="pricing-note">Diagnostic · benchmarks AE team across all five TRACE stages</div>
         <ul class="pricing-features">
-          <li>Intensive RELAY framework training for your full team</li>
-          <li>Custom scenarios from your actual partner ecosystem</li>
-          <li>Live role-play with real partner objections</li>
-          <li>Co-Sell Alignment Agreement practice sessions</li>
-          <li>Ideal for sales kickoffs and team offsites</li>
-          <li>Post-workshop summary and action items delivered</li>
+          <li>Free self-serve PSRA: 12 questions, instant scored results</li>
+          <li>Paid PSRA ($1,500): live working session with Carl or Natalie</li>
+          <li>Paid PSRA delivers a written readiness report mapped to Workshop scope</li>
+          <li><strong>$1,500 fee credits 100% toward your Workshop engagement</strong></li>
+          <li>Designed for VP of Channel / Head of Sales / CRO evaluation</li>
+        </ul>
+        <a href="assessment.html" class="pricing-cta pricing-cta-accent">Take the Free PSRA &rarr;</a>
+      </div>
+      <div class="pricing-card pricing-card-featured">
+        <div class="pricing-badge">★ Front Door</div>
+        <div class="pricing-tier">Channel Ready AE Workshop</div>
+        <div class="pricing-amount" style="font-size:28px;">$2,500&ndash;$25,000</div>
+        <div class="pricing-note">Half-day to multi-day · three tiers · on-site or virtual</div>
+        <ul class="pricing-features">
+          <li><strong>Base ($2,500&ndash;$3,500):</strong> half-day intensive on TRACE applied to your stack</li>
+          <li><strong>Customized ($7,500&ndash;$12,500):</strong> full-day with scenarios pulled from your actual partner ecosystem</li>
+          <li><strong>Deep ($15,000&ndash;$25,000):</strong> multi-day with manager reinforcement plan and post-workshop adoption tracking</li>
+          <li>The primary commercial engagement &mdash; not a tease for the Cohort</li>
+          <li>Post-workshop summary, scenario library, and action items delivered</li>
         </ul>
         <a href="#apply" class="pricing-cta">Book a Workshop</a>
       </div>
       <div class="pricing-card">
+        <div class="pricing-badge">Employer-Sponsored</div>
+        <div class="pricing-tier">12-Week TRACE Cohort</div>
+        <div class="pricing-amount">$4,997<span style="font-size:18px;color:var(--text-dim);">/seat</span></div>
+        <div class="pricing-note">Twelve modules · cohort sessions · Manager Reinforcement Kit included</div>
+        <ul class="pricing-features">
+          <li>All twelve TRACE modules with weekly cohort sessions</li>
+          <li>Live role-play with real partner objections, drawn from your team's deals</li>
+          <li>Manager Reinforcement Kit included for managers leading the cohort</li>
+          <li><strong>Default path: employer-sponsored</strong> &mdash; VP / CRO commits the team, company funds seats</li>
+          <li>Certificate of Completion for AEs who finish all twelve modules</li>
+        </ul>
+        <a href="#apply" class="pricing-cta">Enroll Your Team</a>
+      </div>
+      <div class="pricing-card pricing-card-muted">
+        <div class="pricing-badge pricing-badge-muted">Lead Magnet · Sample</div>
         <div class="pricing-tier">Channel Starter Kit</div>
         <div class="pricing-amount">$297</div>
-        <div class="pricing-note">One-time purchase · instant access</div>
+        <div class="pricing-note">Templates only &middot; not the entry point to a paid engagement</div>
         <ul class="pricing-features">
           <li>Co-Sell Alignment Agreement templates (4 scenarios)</li>
           <li>Partner Fit Filter scorecard</li>
@@ -1069,11 +1142,54 @@
 
 <hr class="divider" />
 
+<!-- PILOT OUTCOMES -->
+<section class="pilot-section">
+  <div class="section-inner">
+    <div class="section-label">Pilot Outcomes</div>
+    <h2 class="section-title">What your board sees <em>at 90 days.</em></h2>
+    <p class="section-body">Every metric ties back to pipeline or behavior change — not training completion rates. These are the six numbers you report when channel revenue is due. We track them from day one so you have the data when the conversation comes.</p>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-type">Behavior</div>
+        <div class="metric-name">Co-Sell Alignment Agreement Usage</div>
+        <div class="metric-desc">% of partner conversations starting with a CAA. Baseline captured before Module 1. Remeasured at 30, 60, and 90 days. Target: 80%+ by day 60.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-type">Behavior</div>
+        <div class="metric-name">Qualification Rate</div>
+        <div class="metric-desc">Partners disqualified early using Partner Fit Filter vs. time wasted on partners who were never going to close. Tracked against pre-enrollment baseline.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-type">Behavior</div>
+        <div class="metric-name">No-Free-Consulting Incidents</div>
+        <div class="metric-desc">Reduction in IP given before commitment. Tracked via deal notes and manager review. The single metric that correlates most directly with margin protection.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-type">Pipeline</div>
+        <div class="metric-name">Partner-Sourced Pipeline Generated</div>
+        <div class="metric-desc">New pipeline sourced through partner conversations at 30, 60, and 90 days. Compared to pre-enrollment baseline. Leading indicator before revenue closes.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-type">Lagging</div>
+        <div class="metric-name">Partner-Sourced Revenue</div>
+        <div class="metric-desc">Revenue closed through the channel at 6 months vs. pre-enrollment baseline. The ultimate proof metric. Reported in aggregate across the cohort.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-type">Engagement</div>
+        <div class="metric-name">Completion Rate + Posture Score</div>
+        <div class="metric-desc">% completing all 12 modules (target: 70%+). Pre/post self-assessment on TRACE framework fluency. Expected: 3–4 point increase on posture score.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
 <!-- APPLY -->
 <section id="apply">
   <div class="apply-inner">
     <div class="section-label" style="text-align:center;">Next Cohort — Limited Seats</div>
-    <h2 class="section-title" style="text-align:center;">The only RELAY-based training program for the <em>indirect channel.</em></h2>
+    <h2 class="section-title" style="text-align:center;">The only TRACE-based training program for the <em>indirect channel.</em></h2>
     <p>Enrollment takes 5 minutes. We follow up within 24 hours to schedule a 20-minute intro call and confirm fit. Team license cohorts capped at 2 active simultaneously — enroll early.</p>
     <div class="enroll-form">
       <div class="form-grid">
@@ -1084,10 +1200,13 @@
           <label>Program Interest</label>
           <select>
             <option value="">Select one...</option>
-                        <option>Channel Starter Kit — $297</option>
-                        <option>Channel Strategy Audit — $2,500</option>
-            <option>Team Workshop — $5K–$15K</option>
-            <option>Blitz Masters + The Multiplier Method Bundle</option>
+            <option>Free PSRA — Self-serve diagnostic</option>
+            <option>Paid PSRA — $1,500 (credits to Workshop)</option>
+            <option>Workshop — Base ($2,500–$3,500)</option>
+            <option>Workshop — Customized ($7,500–$12,500)</option>
+            <option>Workshop — Deep ($15K–$25K)</option>
+            <option>12-Week TRACE Cohort — $4,997/seat (employer-sponsored)</option>
+            <option>Channel Starter Kit — $297 (lead magnet / templates only)</option>
             <option>Just want more information</option>
           </select>
         </div>

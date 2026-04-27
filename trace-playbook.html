@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRACE Playbook — The Multiplier Method</title>
+  <meta name="description" content="The TRACE Reference Guide and Field Playbook for paid students of The Multiplier Method. Five TRACE stages. One complete deal walkthrough." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --ink: #171717;
+      --surface: #1c1c1c;
+      --border: #242424;
+      --muted: #333333;
+      --text-dim: #a8a8a8;
+      --text: #d4d4d4;
+      --white: #f5f5f5;
+      --accent: #e8c547;
+      --accent-dim: rgba(232,197,71,0.12);
+      --accent-border: rgba(232,197,71,0.3);
+      --red: #e05252;
+      --red-dim: rgba(224,82,82,0.10);
+      --red-border: rgba(224,82,82,0.30);
+      --font-head: 'Cormorant Garamond', serif;
+      --font-body: 'Crimson Pro', serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* =====================
+       NAV
+    ===================== */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex; align-items: center; gap: 32px;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo em { color: var(--accent); font-style: normal; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500;
+      color: var(--text-dim); text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.15s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta {
+      margin-left: auto;
+      background: var(--accent); color: var(--black);
+      font-family: var(--font-head); font-weight: 700;
+      font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 8px 18px; border-radius: 3px;
+      text-decoration: none; transition: opacity 0.15s;
+      position: relative; overflow: hidden;
+    }
+    .nav-cta::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+    .nav-cta:hover::after { transform: translateX(100%); }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* =====================
+       PAGE HEADER
+    ===================== */
+    .page-header-wrap { border-bottom: 1px solid var(--border); }
+    .page-header {
+      padding: 72px 80px 56px;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .breadcrumb {
+      font-size: 13px; color: var(--text-dim);
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .breadcrumb a { color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--muted); }
+    .page-eyebrow {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-family: var(--font-head);
+      font-size: clamp(36px, 5vw, 54px);
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -0.03em; color: var(--white);
+      margin-bottom: 28px;
+    }
+    .page-title em { color: var(--accent); font-style: normal; }
+    .page-sub {
+      font-size: 18px; color: var(--text-dim);
+      max-width: 640px; line-height: 1.8;
+      margin-bottom: 36px;
+    }
+    .usage-notes {
+      display: flex; gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px; overflow: hidden;
+      max-width: 540px;
+    }
+    .usage-note {
+      flex: 1;
+      background: var(--surface);
+      padding: 18px 24px;
+    }
+    .usage-note-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .usage-note p {
+      font-size: 14px; color: var(--text-dim);
+      line-height: 1.5; margin-bottom: 0;
+    }
+
+    /* =====================
+       MAIN CONTENT
+    ===================== */
+    .main-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    /* =====================
+       SECTION TYPOGRAPHY
+    ===================== */
+    .section-eyebrow {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.03em; color: var(--white);
+      margin-bottom: 20px;
+    }
+    .section-title em { color: var(--accent); font-style: normal; }
+    .section-body {
+      font-size: 17px; color: var(--text-dim);
+      max-width: 680px; line-height: 1.85;
+      margin-bottom: 40px;
+    }
+    hr.rule {
+      border: none; border-top: 1px solid var(--border);
+      margin: 72px 0;
+    }
+    p { font-size: 17px; color: var(--text-dim); line-height: 1.9; margin-bottom: 22px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* =====================
+       FRAMEWORK CARDS (3×2 grid)
+    ===================== */
+    .framework-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px; overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .framework-card {
+      background: var(--surface);
+      padding: 32px 28px;
+      transition: background 0.22s;
+      position: relative; overflow: hidden;
+    }
+    .framework-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent);
+      transform: scaleX(0); transform-origin: left center;
+      transition: transform 0.3s ease;
+    }
+    .framework-card:hover::before { transform: scaleX(1); }
+    .framework-card:hover { background: #202020; }
+    .framework-num {
+      font-family: var(--font-head); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .framework-num::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .framework-card h3 {
+      font-family: var(--font-head); font-size: 16px; font-weight: 700;
+      color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em;
+    }
+    .framework-card p { font-size: 14px; color: var(--text-dim); line-height: 1.7; margin-bottom: 0; }
+    .framework-vp {
+      font-size: 13px; color: var(--accent);
+      margin-top: 12px; padding-top: 12px;
+      border-top: 1px solid var(--border);
+      line-height: 1.6;
+    }
+    .framework-vp strong { font-weight: 600; }
+
+    /* =====================
+       SCENARIO CALLOUT
+    ===================== */
+    .scenario-box {
+      background: var(--surface);
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 28px 32px;
+      margin: 40px 0;
+    }
+    .scenario-box-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .scenario-box p {
+      font-size: 16px; color: var(--text); line-height: 1.85; margin-bottom: 0;
+    }
+
+    /* =====================
+       TRACE ROADMAP ITEMS
+    ===================== */
+    .relay-roadmap {
+      display: flex; flex-direction: column; gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px; overflow: hidden;
+      margin: 40px 0;
+    }
+    .relay-item {
+      background: var(--surface);
+      padding: 36px 32px;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 36px;
+      align-items: start;
+      transition: background 0.18s;
+      position: relative; overflow: hidden;
+    }
+    .relay-item::before {
+      content: '';
+      position: absolute; top: 0; left: 0; bottom: 0; width: 2px;
+      background: var(--accent);
+      transform: scaleY(0); transform-origin: top center;
+      transition: transform 0.3s ease;
+    }
+    .relay-item:hover::before { transform: scaleY(1); }
+    .relay-item:hover { background: #202020; }
+    .relay-meta {}
+    .relay-framework-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .relay-module-ref {
+      font-size: 12px; color: var(--text-dim); margin-bottom: 14px;
+    }
+    .relay-stage-badge {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      background: var(--muted);
+      border: 1px solid var(--border);
+      padding: 3px 9px; border-radius: 2px;
+      display: inline-block;
+    }
+    .relay-body {}
+    .relay-title {
+      font-family: var(--font-head); font-size: 20px; font-weight: 700;
+      color: var(--white); letter-spacing: -0.02em;
+      margin-bottom: 14px; line-height: 1.25;
+    }
+    .relay-desc {
+      font-size: 16px; color: var(--text-dim); line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    /* Script / dialogue boxes */
+    .script-box {
+      background: var(--ink);
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 22px 26px;
+      margin: 20px 0;
+    }
+    .script-box-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .script-box p {
+      font-size: 15px; color: var(--text); line-height: 1.85;
+      font-style: italic; margin-bottom: 0;
+    }
+    .script-box .script-subject {
+      font-size: 13px; font-style: normal; color: var(--text-dim);
+      margin-bottom: 6px; font-family: var(--font-head);
+      font-weight: 600; letter-spacing: 0.02em;
+    }
+
+    .relay-outcome {
+      font-size: 15px; color: var(--white);
+      line-height: 1.75;
+      border-left: 2px solid var(--accent);
+      padding-left: 16px;
+      margin-top: 16px;
+    }
+
+    /* =====================
+       SUMMARY CALLOUT
+    ===================== */
+    .summary-box {
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 32px 36px;
+      margin: 40px 0;
+    }
+    .summary-box p {
+      font-size: 17px; color: var(--text); line-height: 1.85;
+      margin-bottom: 0;
+    }
+
+    /* =====================
+       WARNING BOX
+    ===================== */
+    .warning-box {
+      background: var(--red-dim);
+      border: 1px solid var(--red-border);
+      border-radius: 4px;
+      padding: 28px 32px;
+      margin: 32px 0;
+    }
+    .warning-box-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 12px;
+    }
+    .warning-box ul {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .warning-box ul li {
+      font-size: 15px; color: var(--text-dim);
+      line-height: 1.75;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .warning-box ul li::before {
+      content: '—';
+      color: var(--red);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* =====================
+       BOTTOM CTA STRIP
+    ===================== */
+    .cta-strip {
+      border-top: 1px solid var(--accent-border);
+      border-bottom: 1px solid var(--accent-border);
+      background: var(--accent-dim);
+      border-radius: 4px;
+      padding: 40px 32px;
+      margin: 60px 0 0;
+      text-align: center;
+    }
+    .cta-strip p {
+      font-family: var(--font-head);
+      font-size: 20px; font-weight: 600;
+      color: var(--white); letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+    .btn-primary {
+      background: var(--accent); color: var(--black);
+      font-family: var(--font-head); font-weight: 700;
+      font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 14px 32px; border-radius: 3px;
+      text-decoration: none; transition: opacity 0.15s;
+      display: inline-block;
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+    .btn-primary:hover::after { transform: translateX(100%); }
+    .btn-primary:hover { opacity: 0.85; }
+
+    /* =====================
+       FOOTER
+    ===================== */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-brand {
+      font-family: var(--font-head); font-size: 13px; font-weight: 700;
+      color: var(--text-dim);
+    }
+    .footer-brand em { color: var(--accent); font-style: normal; }
+    .footer-meta { font-size: 12px; color: var(--text-dim); }
+
+    /* =====================
+       ANIMATIONS
+    ===================== */
+    .anim-fade {
+      opacity: 0; transform: translateY(26px);
+      transition: opacity 0.58s ease, transform 0.58s ease;
+    }
+    .anim-fade.visible { opacity: 1; transform: translateY(0); }
+
+    /* =====================
+       RESPONSIVE
+    ===================== */
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-header { padding: 48px 20px 36px; }
+      .main-content { padding: 40px 20px; }
+      .usage-notes { flex-direction: column; max-width: 100%; }
+      .framework-grid { grid-template-columns: 1fr; }
+      .relay-item { grid-template-columns: 1fr; gap: 20px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 20px; }
+    }
+
+    @media (max-width: 600px) {
+      .page-title { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+<!--ae-banner-marker-->
+<div role="region" aria-label="Audience notice" style="background:#0f0f0f;border-bottom:1px solid #242424;padding:10px 24px;text-align:center;font-family:'Crimson Pro',serif;font-size:12px;color:#a8a8a8;letter-spacing:0.02em;line-height:1.5;">For your AE team. Decision-makers: <a href="assessment.html" style="color:#e8c547;text-decoration:none;font-weight:500;">Take the Readiness Assessment →</a></div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">The Multiplier Method<em>™</em></a>
+  <ul class="nav-links">
+    <li><a href="curriculum.html">Curriculum</a></li>
+    <li><a href="assessment.html">Assessment</a></li>
+    <li><a href="business_plan.html" class="active">Business Plan</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+  <a href="login.html" class="nav-cta">Member Login</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header-wrap">
+  <div class="page-header">
+    <div class="breadcrumb">
+      <a href="index.html">The Multiplier Method</a>
+      <span>›</span>
+      <span>TRACE Playbook</span>
+    </div>
+    <div class="page-eyebrow">Member Resource · The TRACE Reference Guide</div>
+    <h1 class="page-title">The TRACE <em>Playbook</em></h1>
+    <p class="page-sub">Read this before Module 1. Return to it after Module 12. Every framework appears in sequence — as you'd use it in the field.</p>
+    <div class="usage-notes">
+      <div class="usage-note">
+        <div class="usage-note-label">Pre-Reading</div>
+        <p>Read before Module 1</p>
+      </div>
+      <div class="usage-note">
+        <div class="usage-note-label">Reference</div>
+        <p>Return during any module for context</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+  <!-- ============================================
+       SECTION 1: THE 6 FRAMEWORKS
+  ============================================ -->
+  <div class="anim-fade">
+    <div class="section-eyebrow">The TRACE Framework™</div>
+    <h2 class="section-title">Five TRACE stages. All adapted for channel.</h2>
+    <p class="section-body">The Multiplier Method's core frameworks were built from first principles for the indirect channel — where the buyer is a partner, not an end customer. The proprietary five-stage framework: <strong>T</strong>arget, <strong>R</strong>egister, <strong>A</strong>lign, <strong>C</strong>o-sell, <strong>E</strong>xpand. Every module in the curriculum is anchored to one or more TRACE stages.</p>
+  </div>
+
+  <div class="framework-grid anim-fade">
+
+    <div class="framework-card">
+      <div class="framework-num">Framework 01</div>
+      <h3>Identity / Role (I/R) Theory</h3>
+      <p>Channel Account Executives who over-invest emotionally in partner relationships give away the most. I/R Theory separates your identity from your role — so partner rejection doesn't trigger free consulting behavior.</p>
+      <div class="framework-vp"><strong>For VPs:</strong> stops the root behavior that inflates pipeline and destroys margin — giving away IP before commitment.</div>
+    </div>
+
+    <div class="framework-card">
+      <div class="framework-num">Framework 02</div>
+      <h3>Partner Fit Filter</h3>
+      <p>Applied to both partner qualification and end-customer conversations run through partners. Uncovers real pain — not feature interest — before any investment of time, travel, or Intellectual Property.</p>
+      <div class="framework-vp"><strong>For VPs:</strong> eliminates the hours your AEs spend on unqualified partners who appear in pipeline reviews at Stage 3 with no budget and no champion.</div>
+    </div>
+
+    <div class="framework-card">
+      <div class="framework-num">Framework 03</div>
+      <h3>Co-Sell Alignment Agreements</h3>
+      <p>Every partner conversation — intro call, Quarterly Business Review, joint sales call — begins with a Co-Sell Alignment Agreement. Agenda, purpose, outcomes, and next steps agreed before the meeting starts. Every time.</p>
+      <div class="framework-vp"><strong>For VPs:</strong> ends the 'we're aligned' problem — partner calls that produce no agreed next step, no commitment, and no forward motion.</div>
+    </div>
+
+    <div class="framework-card">
+      <div class="framework-num">Framework 04</div>
+      <h3>Negative Reverse Selling</h3>
+      <p>Used when partners stall, go quiet, or ask for more resources without commitment. Negative Reverse Selling surfaces the real objection — or disqualifies the partner — without breaking the relationship.</p>
+      <div class="framework-vp"><strong>For VPs:</strong> removes the partners inflating your pipeline with 90+ days of 'activity' and no qualified deal attached.</div>
+    </div>
+
+    <div class="framework-card">
+      <div class="framework-num">Framework 05</div>
+      <h3>No-Free-Consulting</h3>
+      <p>The framework for protecting your time, your Intellectual Property, and your deal margins. Defines exactly what requires partner commitment before you engage — and what happens when they take your work to a competitor.</p>
+      <div class="framework-vp"><strong>For VPs:</strong> directly protects margin. If your AEs are building proposals and architectures for partners who take that work to a cheaper vendor — this framework stops it.</div>
+    </div>
+
+    <div class="framework-card">
+      <div class="framework-num">Framework 06</div>
+      <h3>DISC for Channel</h3>
+      <p>Reading partner personality types and adapting communication style accordingly. D-types need decisions, not rapport. C-types need data, not enthusiasm. The wrong approach with the right partner is still a lost deal.</p>
+      <div class="framework-vp"><strong>For VPs:</strong> solves the stuck relationship problem — where a key partner hasn't produced in months and nobody can explain why.</div>
+    </div>
+
+  </div><!-- /framework-grid -->
+
+  <hr class="rule" />
+
+  <!-- ============================================
+       SECTION 2: TRACE IN ACTION
+  ============================================ -->
+  <div class="anim-fade">
+    <div class="section-eyebrow">The TRACE Framework™ — One Deal, Start to Finish</div>
+    <h2 class="section-title">What it looks like when the <em>whole system runs.</em></h2>
+    <p class="section-body">Below is a complete deal walkthrough — one channel AE, one regional VAR, one end customer. Every TRACE framework in this curriculum appears in the order you'd use it in the field. Read this before Module 1. Read it again after Module 12.</p>
+  </div>
+
+  <div class="scenario-box anim-fade">
+    <div class="scenario-box-label">The Scenario</div>
+    <p>Sarah is a channel AE at a mid-market cybersecurity vendor. Her partner is Apex Networks — a 12-person regional VAR in Columbus, Ohio, focused on manufacturing and logistics. She has had two intro calls. David is Apex's owner. Marcus is the IT Director at Varris Manufacturing, Apex's customer. The deal below is the first real co-sell opportunity they work together.</p>
+  </div>
+
+  <div class="relay-roadmap anim-fade">
+
+    <!-- Framework 1 -->
+    <div class="relay-item">
+      <div class="relay-meta">
+        <div class="relay-framework-label">Partner Fit Filter</div>
+        <div class="relay-module-ref">Module 02</div>
+        <div class="relay-stage-badge">Stage 1</div>
+      </div>
+      <div class="relay-body">
+        <div class="relay-title">Qualifying Apex before investing anything</div>
+        <p class="relay-desc">Before her third call with David, Sarah runs the four Must-Have criteria: customer fit (yes — manufacturing fits the ICP), motivation to sell (unclear), capacity to execute (unknown), commitment level (untested). She decides the third call is a qualifying call, not a relationship call.</p>
+        <div class="script-box">
+          <div class="script-box-label">What Sarah Said</div>
+          <p>"David, before I invest more time building out what a partnership looks like — I want to make sure we're right for each other. Can I ask you a few direct questions? If the answers tell me this doesn't fit, I'll say so and we can save both of us time. If they do, we'll have a real foundation to work from."</p>
+        </div>
+        <div class="relay-outcome">David named three accounts where customers had expressed interest in better endpoint protection. Motivation and capacity confirmed. Partnership activated.</div>
+      </div>
+    </div>
+
+    <!-- Framework 2 -->
+    <div class="relay-item">
+      <div class="relay-meta">
+        <div class="relay-framework-label">DISC for Channel</div>
+        <div class="relay-module-ref">Module 05</div>
+        <div class="relay-stage-badge">Stage 1–2</div>
+      </div>
+      <div class="relay-body">
+        <div class="relay-title">Reading David as a C-type and adjusting immediately</div>
+        <p class="relay-desc">During the qualifying call, Sarah noticed David had prepared notes, corrected a minor detail in her partner program description, asked about documentation, and went silent when she moved too quickly. Classic C-type signals. She had been showing up with I-type energy — stories, enthusiasm, big-picture vision. David decides on proof, not vision.</p>
+        <div class="script-box">
+          <div class="script-box-label">The Adjustment — Internal</div>
+          <p>"I changed my next email to three bullet points, one data reference, one clear ask. His response time dropped from 48 hours to 4 hours."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Framework 3 -->
+    <div class="relay-item">
+      <div class="relay-meta">
+        <div class="relay-framework-label">Co-Sell Alignment Agreement</div>
+        <div class="relay-module-ref">Module 03</div>
+        <div class="relay-stage-badge">Stage 2</div>
+      </div>
+      <div class="relay-body">
+        <div class="relay-title">Opening every call with structure David could prepare for</div>
+        <p class="relay-desc">Sarah sent the CAA in the calendar invite 48 hours before every call. David — a C-type — responded better to written agendas than to improvised conversation. By the third call, he was sending his own agenda items back. The CAA became their shared working language.</p>
+        <div class="script-box">
+          <div class="script-box-label">CAA for the First Co-Sell Call</div>
+          <p>"Today's purpose: decide if the Varris Manufacturing account is worth pursuing together. Agenda: I'll share three pain signals we see in manufacturing accounts, then you tell me what you're hearing from Marcus. If we agree there's a fit, we set a joint call. If we don't, we move to one of your other accounts. Does that work?"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Framework 4 -->
+    <div class="relay-item">
+      <div class="relay-meta">
+        <div class="relay-framework-label">Partner Fit Filter</div>
+        <div class="relay-module-ref">Module 04</div>
+        <div class="relay-stage-badge">Stage 3</div>
+      </div>
+      <div class="relay-body">
+        <div class="relay-title">Running joint discovery on Marcus at Varris Manufacturing</div>
+        <p class="relay-desc">David opened the joint call. Sarah ran the Partner Fit Filter. Marcus described "some endpoint issues" (Level 1). Sarah pushed to Level 2: "What does that cost Varris operationally?" Marcus named a Q4 audit and a compliance gap with a new customer contract. Sarah pushed to Level 3.</p>
+        <div class="script-box">
+          <div class="script-box-label">The Level 3 Question</div>
+          <p>"Marcus, if we're still having this conversation in February and nothing has changed on the endpoint side — what does that mean for the March contract renewal?"</p>
+        </div>
+        <div class="relay-outcome">Marcus: "It means we probably lose that contract." The deal was real from that moment.</div>
+      </div>
+    </div>
+
+    <!-- Framework 5 -->
+    <div class="relay-item">
+      <div class="relay-meta">
+        <div class="relay-framework-label">No-Free-Consulting</div>
+        <div class="relay-module-ref">Module 07</div>
+        <div class="relay-stage-badge">Stage 4</div>
+      </div>
+      <div class="relay-body">
+        <div class="relay-title">When David asked for a full architecture doc before registering the deal</div>
+        <p class="relay-desc">After the discovery call, David asked for a custom architecture document, a competitive comparison against the incumbent vendor, and a pricing scenario analysis. He had not yet registered the deal. Sarah recognized a Tier 3 request without Tier 3 commitment.</p>
+        <div class="script-box">
+          <div class="script-box-label">What Sarah Said</div>
+          <p>"I can build all three of those — and I will, because I think this deal is real. Before I do, I need one thing from you: a registered deal with Marcus's name and a proposed decision date. That's not bureaucracy — it's how I know the work I'm doing is going toward a real opportunity. Can you get that submitted today?"</p>
+        </div>
+        <div class="relay-outcome">David submitted the deal registration within two hours. Architecture doc delivered the next day.</div>
+      </div>
+    </div>
+
+    <!-- Framework 6 -->
+    <div class="relay-item">
+      <div class="relay-meta">
+        <div class="relay-framework-label">Negative Reverse Selling</div>
+        <div class="relay-module-ref">Module 08</div>
+        <div class="relay-stage-badge">Stage 5</div>
+      </div>
+      <div class="relay-body">
+        <div class="relay-title">Three weeks of silence after the proposal was delivered</div>
+        <p class="relay-desc">David stopped responding. Two follow-ups went unanswered. Sarah recognized Pattern 3 — the go-dark after a strong meeting. She ran NRS instead of sending a third follow-up.</p>
+        <div class="script-box">
+          <div class="script-box-label">The NRS Email</div>
+          <div class="script-subject">Subject: Okay to close this out?</div>
+          <p>"David — I haven't heard back, and I don't want to keep following up if the timing has shifted on Varris. If this isn't moving forward, just say so — I'll close the file and we can revisit if anything changes. If you want to push this to close before March, let me know and I'll pick it back up today."</p>
+        </div>
+        <div class="relay-outcome">David responded in 45 minutes. He had been waiting on Marcus to confirm budget approval. He had it. Close call set for the following week. Deal closed: 3-year agreement signed through Apex Networks.</div>
+      </div>
+    </div>
+
+  </div><!-- /relay-roadmap -->
+
+  <!-- SUMMARY CALLOUT -->
+  <div class="summary-box anim-fade">
+    <p>Total time investment from Sarah's first qualifying call to signed agreement: <strong style="color:var(--accent)">14 hours across 8 weeks</strong>. No free consulting given. No stalls that weren't addressed. No ambiguity about who owned what. That is what the full TRACE system produces — not isolated technique, but a deal that moves in one direction from qualification to close.</p>
+  </div>
+
+  <!-- WARNING BOX -->
+  <div class="warning-box anim-fade">
+    <div class="warning-box-label">What Would Have Happened Without the System</div>
+    <ul>
+      <li><strong style="color:var(--text)">Without Partner Fit Filter:</strong> four weeks of enablement before discovering the accounts weren't a real fit.</li>
+      <li><strong style="color:var(--text)">Without DISC:</strong> I-type energy applied to a C-type owner — David goes cold and Sarah doesn't know why.</li>
+      <li><strong style="color:var(--text)">Without CAA:</strong> the joint discovery call has no structure and no next step.</li>
+      <li><strong style="color:var(--text)">Without No-Free-Consulting:</strong> David takes the architecture doc, the competitive analysis, and the pricing model to Apex's preferred vendor.</li>
+      <li><strong style="color:var(--text)">Without NRS:</strong> the deal dies in the follow-up queue after a third unanswered email.</li>
+    </ul>
+  </div>
+
+  <!-- BOTTOM CTA STRIP -->
+  <div class="cta-strip anim-fade">
+    <p>Ready to apply this system? Start with Module 1.</p>
+    <a href="curriculum.html" class="btn-primary">Go to Curriculum</a>
+  </div>
+
+</div><!-- /main-content -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">© 2026 Partna Group LLC | The Multiplier Method<em>™</em></div>
+  <div class="footer-meta">Member Resource — Not for Distribution</div>
+</footer>
+
+<script>
+  // Scroll-entry animations — no innerHTML usage
+  (function () {
+    var elements = document.querySelectorAll('.anim-fade');
+    if (!window.IntersectionObserver) {
+      elements.forEach(function (el) { el.classList.add('visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    elements.forEach(function (el) { observer.observe(el); });
+  })();
+</script>
+
+</body>
+</html>

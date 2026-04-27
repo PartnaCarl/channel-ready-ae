@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner-Selling Readiness Assessment — Channel Ready AE</title>
+  <meta name="description" content="Diagnose your AE team's readiness across the five TRACE motions in five minutes. Instant scorecard. Optional detailed report." />
+  <meta name="robots" content="index,follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --black:#0a0a0a;--ink:#171717;--surface:#1c1c1c;
+      --border:#242424;--muted:#333333;
+      --text-dim:#a8a8a8;--text:#d4d4d4;--white:#f5f5f5;
+      --accent:#e8c547;--accent-dim:rgba(232,197,71,0.12);
+      --accent-border:rgba(232,197,71,0.3);--accent-rail:rgba(232,197,71,0.07);
+      --font-head:'Cormorant Garamond',serif;
+      --font-body:'Crimson Pro',serif;
+      --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--black);color:var(--text);
+      font-family:var(--font-body);font-size:18px;line-height:1.75;
+      -webkit-font-smoothing:antialiased;
+      min-height:100vh;display:flex;flex-direction:column;
+    }
+
+    .skip-link{
+      position:absolute;left:-9999px;top:0;
+      background:var(--accent);color:var(--black);
+      font-family:var(--font-head);font-weight:700;
+      font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
+      padding:10px 18px;text-decoration:none;border-radius:0 0 3px 0;
+      z-index:200;
+    }
+    .skip-link:focus{left:0}
+
+    nav{
+      position:sticky;top:0;z-index:100;
+      background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+      padding:0 40px;display:flex;align-items:center;gap:32px;height:60px;
+    }
+    .nav-logo{
+      font-family:var(--font-head);font-weight:800;font-size:15px;
+      color:var(--white);text-decoration:none;letter-spacing:-0.02em;
+    }
+    .nav-logo em{color:var(--accent);font-style:normal}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{
+      font-size:14px;font-weight:500;color:var(--text-dim);
+      text-decoration:none;letter-spacing:0.02em;transition:color 0.15s;
+    }
+    .nav-links a:hover,.nav-links a.active{color:var(--white)}
+    .nav-cta{
+      margin-left:auto;background:var(--accent);color:var(--black);
+      font-family:var(--font-head);font-weight:700;
+      font-size:12px;letter-spacing:0.06em;text-transform:uppercase;
+      padding:8px 18px;border-radius:3px;
+      text-decoration:none;transition:opacity 0.15s;
+    }
+    .nav-cta:hover{opacity:0.85}
+
+    main{flex:1;width:100%;padding:88px 40px 96px;display:flex;justify-content:center;align-items:flex-start}
+    .container{width:100%;max-width:880px}
+    .container.narrow{max-width:720px}
+
+    [data-state]{display:none;animation:enter 350ms var(--ease) both}
+    [data-state].active{display:block}
+    @keyframes enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    .eyebrow{
+      font-size:11px;font-weight:600;letter-spacing:0.16em;
+      text-transform:uppercase;color:var(--accent);
+      margin-bottom:24px;display:flex;align-items:center;gap:14px;
+    }
+    .eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--accent)}
+
+    .intro h1{
+      font-family:var(--font-head);
+      font-size:clamp(36px,5.2vw,56px);font-weight:800;
+      line-height:1.05;letter-spacing:-0.025em;
+      color:var(--white);margin-bottom:24px;max-width:14ch;
+    }
+    .intro h1 em{color:var(--accent);font-style:normal}
+    .intro .lede{
+      font-family:var(--font-body);font-style:italic;font-weight:300;
+      font-size:clamp(17px,1.6vw,20px);line-height:1.65;
+      color:var(--text-dim);max-width:54ch;margin-bottom:64px;
+    }
+    .intro-points{list-style:none;border-top:1px solid var(--accent-border);margin-bottom:56px}
+    .intro-point{
+      display:grid;grid-template-columns:64px 1fr;gap:24px;
+      align-items:center;padding:22px 0;
+      border-bottom:1px solid var(--accent-border);
+    }
+    .intro-point .num{
+      font-family:var(--font-head);font-weight:600;font-size:22px;
+      color:var(--accent);letter-spacing:-0.02em;line-height:1;
+    }
+    .intro-point .txt{font-size:16px;color:var(--text);line-height:1.55}
+
+    .btn-primary{
+      background:var(--accent);color:var(--black);
+      font-family:var(--font-head);font-weight:700;
+      font-size:14px;letter-spacing:0.08em;text-transform:uppercase;
+      padding:18px 32px;border-radius:3px;border:none;cursor:pointer;
+      text-decoration:none;display:inline-block;
+      transition:transform 0.18s var(--ease),opacity 0.15s,box-shadow 0.18s;
+    }
+    .btn-primary:hover{opacity:0.92;transform:translateY(-1px);box-shadow:0 8px 24px -8px rgba(232,197,71,0.4)}
+    .btn-primary:active{transform:translateY(0)}
+
+    .progress{display:flex;align-items:center;gap:18px;margin-bottom:48px}
+    .progress-counter{
+      font-family:var(--font-head);font-weight:600;font-size:14px;
+      color:var(--text-dim);letter-spacing:0.08em;
+      font-variant-numeric:tabular-nums;
+    }
+    .progress-counter span{color:var(--white)}
+    .progress-dots{display:flex;gap:5px;flex:1}
+    .progress-dot{
+      flex:1;height:2px;background:var(--border);border-radius:1px;
+      transition:background 0.3s var(--ease),box-shadow 0.3s var(--ease);
+    }
+    .progress-dot.filled{background:var(--accent)}
+    .progress-dot.current{background:var(--accent);box-shadow:0 0 0 2px rgba(232,197,71,0.18)}
+
+    .q-title{
+      font-family:var(--font-head);font-weight:700;
+      font-size:clamp(22px,3vw,30px);
+      line-height:1.25;letter-spacing:-0.015em;
+      color:var(--white);margin-bottom:40px;
+    }
+    .q-title em{color:var(--accent);font-style:normal}
+    .options{
+      display:flex;flex-direction:column;gap:10px;
+      list-style:none;margin-bottom:36px;
+    }
+    .option{
+      display:grid;grid-template-columns:48px 1fr;gap:0;
+      background:var(--surface);border:1px solid var(--border);
+      border-left:2px solid var(--border);
+      border-radius:3px;padding:0;cursor:pointer;text-align:left;
+      width:100%;font-family:var(--font-body);
+      transition:border-color 0.18s,background 0.18s,transform 0.18s var(--ease);
+      color:inherit;
+    }
+    .option:hover{border-color:var(--accent-border);border-left-color:var(--accent);background:#202020}
+    .option:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-left-color:var(--accent)}
+    .option.selected{
+      border-color:var(--accent-border);
+      border-left-color:var(--accent);
+      background:var(--accent-dim);
+    }
+    .option-letter{
+      font-family:var(--font-head);font-weight:600;font-size:14px;
+      color:var(--accent);letter-spacing:0.04em;
+      padding:18px 14px;border-right:1px solid var(--border);
+      display:flex;align-items:flex-start;justify-content:center;
+    }
+    .option-text{
+      padding:18px 22px 18px 18px;font-size:16px;line-height:1.6;
+      color:var(--text);
+    }
+    .q-nav{display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .back-link{
+      background:none;border:none;cursor:pointer;
+      font-family:var(--font-body);font-style:italic;font-size:14px;
+      color:var(--text-dim);text-decoration:none;
+      padding:8px 4px;transition:color 0.15s;
+    }
+    .back-link:hover,.back-link:focus-visible{color:var(--white);outline:none}
+    .back-link[hidden]{display:none}
+    .q-hint{font-size:12px;color:var(--muted);font-style:italic;letter-spacing:0.02em}
+
+    .result h2{
+      font-family:var(--font-head);font-weight:700;
+      font-size:clamp(28px,3.6vw,40px);
+      line-height:1.1;letter-spacing:-0.02em;
+      color:var(--white);margin-bottom:14px;
+    }
+    .result h2 em{color:var(--accent);font-style:normal}
+    .result .result-sub{
+      font-family:var(--font-body);font-style:italic;font-weight:300;
+      font-size:16px;color:var(--text-dim);
+      margin-bottom:56px;max-width:54ch;
+    }
+
+    .scorecard{display:flex;flex-direction:column;gap:0;margin-bottom:48px}
+    .bar-row{
+      display:grid;grid-template-columns:140px 1fr 56px;gap:20px;
+      align-items:center;padding:18px 0;
+      border-top:1px solid var(--border);
+    }
+    .bar-row:last-child{border-bottom:1px solid var(--border)}
+    .bar-label{
+      font-family:var(--font-head);font-weight:600;font-size:18px;
+      color:var(--white);letter-spacing:-0.01em;
+    }
+    .bar-label small{
+      display:block;font-family:var(--font-body);font-style:italic;
+      font-size:11px;font-weight:300;color:var(--text-dim);
+      letter-spacing:0.05em;text-transform:uppercase;margin-top:2px;
+    }
+    .bar-track{
+      position:relative;height:6px;background:var(--accent-rail);
+      border-radius:3px;overflow:hidden;
+    }
+    .bar-fill{
+      position:absolute;top:0;left:0;height:100%;
+      background:var(--accent);border-radius:3px;
+      width:0;transition:width 800ms var(--ease);
+    }
+    .bar-score{
+      font-family:var(--font-head);font-weight:600;font-size:24px;
+      color:var(--white);letter-spacing:-0.02em;text-align:right;
+      font-variant-numeric:tabular-nums;
+    }
+
+    .qualitative{
+      background:var(--surface);border:1px solid var(--border);
+      border-left:2px solid var(--accent);
+      border-radius:0 3px 3px 0;
+      padding:32px 36px;margin-bottom:48px;
+    }
+    .qualitative-lead{
+      font-family:var(--font-head);font-weight:600;
+      font-size:14px;letter-spacing:0.12em;text-transform:uppercase;
+      color:var(--accent);margin-bottom:14px;
+    }
+    .qualitative h3{
+      font-family:var(--font-head);font-weight:700;font-size:22px;
+      color:var(--white);margin-bottom:18px;line-height:1.3;
+      letter-spacing:-0.015em;
+    }
+    .qualitative h3 em{color:var(--accent);font-style:normal}
+    .qualitative p{font-size:15px;line-height:1.75;color:var(--text);margin-bottom:14px}
+    .qualitative p:last-child{margin-bottom:0}
+
+    .soft-cta{
+      font-family:var(--font-head);font-style:italic;font-weight:500;
+      font-size:18px;color:var(--accent);
+      margin-bottom:28px;letter-spacing:-0.005em;
+    }
+
+    .form-wrap{
+      background:var(--surface);border:1px solid var(--border);
+      border-radius:4px;padding:36px 40px;
+    }
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px;margin-bottom:28px}
+    .field{display:flex;flex-direction:column}
+    .field.full{grid-column:1 / -1}
+    .field label{
+      font-size:11px;font-weight:600;letter-spacing:0.12em;
+      text-transform:uppercase;color:var(--text-dim);
+      margin-bottom:8px;
+    }
+    .field input,.field select{
+      background:var(--ink);border:1px solid var(--border);
+      border-radius:3px;color:var(--text);
+      font-family:var(--font-body);font-size:15px;
+      padding:11px 14px;
+      transition:border-color 0.15s,background 0.15s;
+    }
+    .field select{
+      appearance:none;-webkit-appearance:none;
+      background-image:linear-gradient(45deg,transparent 50%,var(--text-dim) 50%),linear-gradient(135deg,var(--text-dim) 50%,transparent 50%);
+      background-position:calc(100% - 18px) center,calc(100% - 13px) center;
+      background-size:5px 5px,5px 5px;background-repeat:no-repeat;
+      padding-right:36px;
+    }
+    .field input:focus,.field select:focus{outline:none;border-color:var(--accent);background:#181818}
+    .form-submit{width:100%;margin-bottom:18px}
+    .fine-print{font-size:13px;color:var(--text-dim);line-height:1.65;font-style:italic}
+    .fine-print strong{color:var(--text);font-style:normal;font-weight:500}
+
+    .thanks{
+      background:var(--surface);border:1px solid var(--accent-border);
+      border-left:2px solid var(--accent);
+      padding:36px 40px;border-radius:0 3px 3px 0;
+    }
+    .thanks h3{
+      font-family:var(--font-head);font-weight:700;font-size:24px;
+      color:var(--white);margin-bottom:12px;letter-spacing:-0.015em;
+    }
+    .thanks p{font-size:15px;line-height:1.7;color:var(--text-dim)}
+
+    footer{
+      border-top:1px solid var(--border);padding:24px 40px;
+      display:flex;align-items:center;justify-content:space-between;
+      font-size:13px;color:var(--text-dim);gap:16px;
+    }
+    .footer-brand{font-family:var(--font-head);font-weight:700;color:var(--white)}
+    .footer-brand em{color:var(--accent);font-style:normal}
+    footer a{color:var(--text-dim);text-decoration:none;transition:color 0.15s}
+    footer a:hover{color:var(--white)}
+
+    button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{
+      outline:2px solid var(--accent);outline-offset:2px;
+    }
+
+    @media (max-width:768px){
+      nav{padding:0 20px;gap:18px}
+      .nav-links{gap:18px}
+      .nav-links a{font-size:13px}
+      main{padding:48px 20px 64px}
+      .intro h1{font-size:32px;line-height:1.1}
+      .intro .lede{font-size:16px;margin-bottom:44px}
+      .intro-points{margin-bottom:44px}
+      .intro-point{grid-template-columns:48px 1fr;gap:14px;padding:18px 0}
+      .intro-point .num{font-size:18px}
+      .intro-point .txt{font-size:14px;line-height:1.5}
+      .btn-primary{padding:16px 28px;font-size:13px;width:100%;text-align:center}
+      .progress{margin-bottom:36px}
+      .q-title{font-size:21px;margin-bottom:32px}
+      .option{grid-template-columns:40px 1fr}
+      .option-letter{padding:14px 8px;font-size:13px}
+      .option-text{padding:14px 14px 14px 14px;font-size:14px;line-height:1.55}
+      .form-wrap{padding:26px 22px}
+      .form-grid{grid-template-columns:1fr;gap:16px}
+      .bar-row{grid-template-columns:1fr 56px;grid-template-rows:auto auto;gap:6px 16px;padding:16px 0}
+      .bar-label{grid-column:1 / -1}
+      .bar-track{grid-column:1 / 2;height:5px}
+      .bar-score{grid-column:2 / 3;grid-row:2 / 3;font-size:20px}
+      .qualitative{padding:24px 22px}
+      .qualitative h3{font-size:18px}
+      footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px}
+    }
+    @media (max-width:375px){
+      .nav-links li:nth-child(n+3){display:none}
+      .intro h1{font-size:28px}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{
+        animation-duration:0.01ms !important;animation-iteration-count:1 !important;
+        transition-duration:0.01ms !important;scroll-behavior:auto !important;
+      }
+      .bar-fill{transition:none}
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav>
+  <a href="index.html" class="nav-logo">The Multiplier Method<em>™</em></a>
+  <ul class="nav-links">
+    <li><a href="curriculum.html">Curriculum</a></li>
+    <li><a href="assessment.html" class="active">Assessment</a></li>
+    <li><a href="business_plan.html">Business Plan</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+  <a href="login.html" class="nav-cta">Member Login</a>
+</nav>
+
+<main id="main">
+  <section class="intro active" data-state="intro" aria-labelledby="intro-h1">
+    <div class="container">
+      <div class="eyebrow">Partner-Selling Readiness Assessment</div>
+      <h1 id="intro-h1">See where your AE team <em>really stands.</em></h1>
+      <p class="lede">Ten questions across five TRACE motions. Five minutes. Instant scorecard for partner-selling readiness.</p>
+      <ul class="intro-points">
+        <li class="intro-point"><span class="num">01</span><span class="txt">Diagnose readiness across Target, Register, Align, Co-sell, Expand</span></li>
+        <li class="intro-point"><span class="num">02</span><span class="txt">Get a per-motion score and your two highest-leverage gaps</span></li>
+        <li class="intro-point"><span class="num">03</span><span class="txt">Optional: receive the detailed PDF report by email</span></li>
+      </ul>
+      <button class="btn-primary" id="begin-btn" type="button">Begin assessment →</button>
+    </div>
+  </section>
+
+  <section class="questions" data-state="questions" aria-labelledby="q-title">
+    <div class="container narrow">
+      <div class="progress" aria-hidden="true">
+        <span class="progress-counter"><span id="q-current">01</span> / 10</span>
+        <div class="progress-dots" id="progress-dots"></div>
+      </div>
+      <h2 class="q-title" id="q-title" aria-live="polite"></h2>
+      <ul class="options" id="options" role="radiogroup" aria-labelledby="q-title"></ul>
+      <div class="q-nav">
+        <button class="back-link" id="back-btn" type="button" hidden>← Back</button>
+        <span class="q-hint" aria-hidden="true">↑ ↓ to navigate · Enter to select</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="result" data-state="result" aria-labelledby="result-h2">
+    <div class="container narrow">
+      <div class="eyebrow">Your Results</div>
+      <h2 id="result-h2">Your team's readiness, <em>by motion.</em></h2>
+      <p class="result-sub">Higher is better. Below 50 means the motion is costing you deals you're already paying for.</p>
+
+      <div class="scorecard" id="scorecard"></div>
+
+      <div class="qualitative" id="qualitative">
+        <div class="qualitative-lead">Where to focus first</div>
+        <h3 id="qual-headline"></h3>
+        <p id="qual-body-a"></p>
+        <p id="qual-body-b"></p>
+      </div>
+
+      <p class="soft-cta">Want the detailed report? Add your email below.</p>
+
+      <form name="psra-results" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form-wrap" id="email-form" action="?submitted=1#main">
+        <input type="hidden" name="form-name" value="psra-results">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <input type="hidden" name="t_score" id="hf-t">
+        <input type="hidden" name="r_score" id="hf-r">
+        <input type="hidden" name="a_score" id="hf-a">
+        <input type="hidden" name="c_score" id="hf-c">
+        <input type="hidden" name="e_score" id="hf-e">
+        <input type="hidden" name="overall_score" id="hf-overall">
+        <input type="hidden" name="lowest_motions" id="hf-lowest">
+        <input type="hidden" name="answers_raw" id="hf-raw">
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="first_name">First name</label>
+            <input type="text" id="first_name" name="first_name" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="last_name">Last name</label>
+            <input type="text" id="last_name" name="last_name" autocomplete="family-name" required>
+          </div>
+          <div class="field full">
+            <label for="work_email">Work email</label>
+            <input type="email" id="work_email" name="work_email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" autocomplete="organization" required>
+          </div>
+          <div class="field">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" autocomplete="organization-title" required>
+          </div>
+          <div class="field full">
+            <label for="team_size">AE team size</label>
+            <select id="team_size" name="team_size" required>
+              <option value="">Select…</option>
+              <option value="1-10">1–10</option>
+              <option value="11-25">11–25</option>
+              <option value="26-50">26–50</option>
+              <option value="51-100">51–100</option>
+              <option value="100+">100+</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-primary form-submit" type="submit">Send the detailed report →</button>
+        <!-- TODO: wire to Make.com webhook for PDF gen -->
+        <p class="fine-print">Want a deeper version? The 90-minute <strong>Partner-Selling Readiness Audit</strong> ($1,500, credits 100% toward Workshop) goes per-AE, per-partner, per-deal. Reply to your report email to start one.</p>
+      </form>
+
+      <div class="thanks" id="thanks" hidden>
+        <h3>Detailed report on the way.</h3>
+        <p>We'll send your full PDF report and per-motion recommendations to your inbox within the next 5 minutes. Replying to that email starts a 90-minute Partner-Selling Readiness Audit.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="footer-brand">Channel Ready AE<em>™</em></span>
+  <a href="index.html">Return home →</a>
+  <span>&copy; 2026 Partna Company LLC</span>
+</footer>
+
+<script>
+(function(){
+  if (localStorage.getItem('mm_unlocked') !== '1') {
+    window.location.replace('login.html');
+    return;
+  }
+
+  var QUESTIONS = [
+    { motion: 'T', text: 'When an AE identifies a target account, how often does the partner team know about it before the AE has built pipeline?',
+      options: [
+        'Almost always — accounts are mapped before AEs prospect',
+        'Often — there’s a process, AEs follow it most of the time',
+        'Sometimes — depends on the AE',
+        'Rarely — partners find out when a deal already exists'
+      ]},
+    { motion: 'T', text: 'How would your top three partners describe the quality of account intel your AEs share with them?',
+      options: [
+        'Specific, current, actionable',
+        'Useful but inconsistent across AEs',
+        'Generic — names without context',
+        'We don’t share intel proactively'
+      ]},
+    { motion: 'R', text: 'What percentage of partner deal registrations from your top partners get approved without revision on the first submission?',
+      options: [
+        '80%+',
+        '60–80%',
+        '40–60%',
+        'Under 40% — or we don’t track this'
+      ]},
+    { motion: 'R', text: 'When two partners register the same opportunity, how is it resolved?',
+      options: [
+        'Documented policy, applied consistently, partners trust the outcome',
+        'Documented policy, applied case-by-case',
+        'Ad hoc, escalates to leadership',
+        'It blows up the deal more often than not'
+      ]},
+    { motion: 'A', text: 'Before a co-sell call with a partner, how prepared are your AEs?',
+      options: [
+        'Joint pre-brief, agreed roles, shared narrative',
+        'Quick sync the day before',
+        'AE shows up cold, partner improvises',
+        'Honestly, it’s a coin flip'
+      ]},
+    { motion: 'A', text: 'How clear is the boundary between what your AE owns in a partner-influenced deal vs. what the partner owns?',
+      options: [
+        'Documented, AEs can articulate it, partners agree',
+        'Mostly clear, some friction',
+        'Negotiated per deal, often messy',
+        'Source of recurring conflict'
+      ]},
+    { motion: 'C', text: 'On joint partner calls, who tends to lead the value conversation?',
+      options: [
+        'Whichever party has the stronger relationship — and they coordinate',
+        'The AE, with partner support',
+        'The partner, AE plays support',
+        'They talk over each other and the customer'
+      ]},
+    { motion: 'C', text: 'How often do partner-attached deals close faster than direct deals of similar size?',
+      options: [
+        'Consistently — partner attachment is a velocity multiplier',
+        'Sometimes — depends on the AE/partner pairing',
+        'About the same as direct',
+        'Slower — partners often slow deals down'
+      ]},
+    { motion: 'E', text: 'After a partner-sourced deal closes, how systematic is the expansion motion with that customer?',
+      options: [
+        'Pre-built playbook, partner co-owns expansion goals',
+        'AE drives expansion, partner kept informed',
+        'Expansion happens but isn’t coordinated',
+        'Closed-won is treated as the finish line'
+      ]},
+    { motion: 'E', text: 'How often do your partners come to you with new expansion opportunities inside their existing accounts?',
+      options: [
+        'Regularly — they bring us their best accounts first',
+        'Occasionally — when they remember',
+        'Rarely — we have to ask',
+        'Almost never — they go to a competitor first'
+      ]}
+  ];
+  var SCORE_MAP = [100, 66, 33, 0];
+  var MOTION_NAMES = { T:'Target', R:'Register', A:'Align', C:'Co-sell', E:'Expand' };
+  var MOTION_TAGS = { T:'01 / Target', R:'02 / Register', A:'03 / Align', C:'04 / Co-sell', E:'05 / Expand' };
+  var SS_KEY = 'psra_state_v1';
+
+  var state = { current: 0, answers: new Array(QUESTIONS.length).fill(null) };
+  try {
+    var saved = sessionStorage.getItem(SS_KEY);
+    if (saved) {
+      var parsed = JSON.parse(saved);
+      if (parsed && Array.isArray(parsed.answers) && parsed.answers.length === QUESTIONS.length) {
+        state = parsed;
+      }
+    }
+  } catch(e){}
+
+  var sections = {
+    intro: document.querySelector('[data-state="intro"]'),
+    questions: document.querySelector('[data-state="questions"]'),
+    result: document.querySelector('[data-state="result"]')
+  };
+  var dotsEl = document.getElementById('progress-dots');
+  var counterEl = document.getElementById('q-current');
+  var qTitleEl = document.getElementById('q-title');
+  var optionsEl = document.getElementById('options');
+  var backBtn = document.getElementById('back-btn');
+  var beginBtn = document.getElementById('begin-btn');
+  var scorecardEl = document.getElementById('scorecard');
+  var qualHeadline = document.getElementById('qual-headline');
+  var qualA = document.getElementById('qual-body-a');
+  var qualB = document.getElementById('qual-body-b');
+  var formEl = document.getElementById('email-form');
+  var thanksEl = document.getElementById('thanks');
+
+  function clearChildren(el){ while (el.firstChild) el.removeChild(el.firstChild); }
+
+  for (var i = 0; i < QUESTIONS.length; i++) {
+    var d = document.createElement('span');
+    d.className = 'progress-dot';
+    d.dataset.idx = i;
+    dotsEl.appendChild(d);
+  }
+
+  function persist(){ try { sessionStorage.setItem(SS_KEY, JSON.stringify(state)); } catch(e){} }
+  function prefersReducedMotion(){ return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+  function pad2(n){ return n < 10 ? '0' + n : '' + n; }
+
+  function show(name) {
+    Object.keys(sections).forEach(function(k){ sections[k].classList.remove('active'); });
+    sections[name].classList.add('active');
+    if (name !== 'intro') {
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+    }
+  }
+
+  function renderQuestion() {
+    var idx = state.current;
+    var q = QUESTIONS[idx];
+    counterEl.textContent = pad2(idx + 1);
+    qTitleEl.textContent = q.text;
+
+    var dotEls = dotsEl.querySelectorAll('.progress-dot');
+    for (var i = 0; i < dotEls.length; i++) {
+      dotEls[i].classList.remove('filled', 'current');
+      if (state.answers[i] !== null) dotEls[i].classList.add('filled');
+      if (i === idx) dotEls[i].classList.add('current');
+    }
+
+    clearChildren(optionsEl);
+    var letters = ['a','b','c','d'];
+    for (var j = 0; j < q.options.length; j++) {
+      var li = document.createElement('li');
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'option' + (state.answers[idx] === j ? ' selected' : '');
+      btn.setAttribute('role', 'radio');
+      btn.setAttribute('aria-checked', state.answers[idx] === j ? 'true' : 'false');
+      btn.dataset.idx = j;
+      var letterEl = document.createElement('span');
+      letterEl.className = 'option-letter';
+      letterEl.textContent = letters[j];
+      var textEl = document.createElement('span');
+      textEl.className = 'option-text';
+      textEl.textContent = q.options[j];
+      btn.appendChild(letterEl);
+      btn.appendChild(textEl);
+      btn.addEventListener('click', onSelect);
+      li.appendChild(btn);
+      optionsEl.appendChild(li);
+    }
+
+    backBtn.hidden = idx === 0;
+
+    var selectedBtn = optionsEl.querySelector('.option.selected') || optionsEl.querySelector('.option');
+    if (selectedBtn) {
+      setTimeout(function(){ selectedBtn.focus({ preventScroll: true }); }, prefersReducedMotion() ? 0 : 360);
+    }
+  }
+
+  function onSelect(e) {
+    var btn = e.currentTarget;
+    var optIdx = parseInt(btn.dataset.idx, 10);
+    state.answers[state.current] = optIdx;
+    persist();
+
+    var allOpts = optionsEl.querySelectorAll('.option');
+    for (var k = 0; k < allOpts.length; k++) {
+      allOpts[k].classList.remove('selected');
+      allOpts[k].setAttribute('aria-checked', 'false');
+    }
+    btn.classList.add('selected');
+    btn.setAttribute('aria-checked', 'true');
+
+    var delay = prefersReducedMotion() ? 0 : 220;
+    setTimeout(advance, delay);
+  }
+
+  function advance() {
+    if (state.current < QUESTIONS.length - 1) {
+      state.current++;
+      persist();
+      renderQuestionWithFade();
+    } else {
+      finish();
+    }
+  }
+
+  function renderQuestionWithFade() {
+    if (prefersReducedMotion()) {
+      renderQuestion();
+      return;
+    }
+    var wrap = sections.questions.querySelector('.container');
+    wrap.style.transition = 'opacity 220ms ease, transform 220ms ease';
+    wrap.style.opacity = '0';
+    wrap.style.transform = 'translateY(8px)';
+    setTimeout(function(){
+      renderQuestion();
+      requestAnimationFrame(function(){
+        wrap.style.opacity = '1';
+        wrap.style.transform = 'translateY(0)';
+      });
+    }, 230);
+  }
+
+  document.addEventListener('keydown', function(e){
+    if (!sections.questions.classList.contains('active')) return;
+    var current = document.activeElement;
+    if (current && (current.tagName === 'INPUT' || current.tagName === 'SELECT' || current.tagName === 'TEXTAREA')) return;
+    var opts = optionsEl.querySelectorAll('.option');
+    if (!opts.length) return;
+    var idx = -1;
+    for (var i = 0; i < opts.length; i++) if (opts[i] === current) idx = i;
+
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      var next = idx < 0 ? 0 : (idx + 1) % opts.length;
+      opts[next].focus();
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      var prev = idx <= 0 ? opts.length - 1 : idx - 1;
+      opts[prev].focus();
+    } else if (e.key === 'Backspace' && state.current > 0) {
+      e.preventDefault();
+      goBack();
+    } else if (/^[1-4]$/.test(e.key)) {
+      e.preventDefault();
+      var n = parseInt(e.key, 10) - 1;
+      if (opts[n]) opts[n].click();
+    } else if (/^[a-d]$/i.test(e.key)) {
+      e.preventDefault();
+      var letterIdx = e.key.toLowerCase().charCodeAt(0) - 97;
+      if (opts[letterIdx]) opts[letterIdx].click();
+    }
+  });
+
+  function goBack() {
+    if (state.current > 0) {
+      state.current--;
+      persist();
+      renderQuestionWithFade();
+    }
+  }
+  backBtn.addEventListener('click', goBack);
+
+  beginBtn.addEventListener('click', function(){
+    var hasAny = state.answers.some(function(a){ return a !== null; });
+    var firstUnanswered = state.answers.indexOf(null);
+    if (hasAny && firstUnanswered !== -1) {
+      state.current = firstUnanswered;
+    } else if (hasAny && firstUnanswered === -1) {
+      state.current = 0;
+      state.answers = new Array(QUESTIONS.length).fill(null);
+    } else {
+      state.current = 0;
+    }
+    persist();
+    show('questions');
+    renderQuestion();
+  });
+
+  function computeMotionScores() {
+    var sums = { T:[], R:[], A:[], C:[], E:[] };
+    for (var i = 0; i < QUESTIONS.length; i++) {
+      var ans = state.answers[i];
+      if (ans === null) continue;
+      sums[QUESTIONS[i].motion].push(SCORE_MAP[ans]);
+    }
+    var motions = {};
+    Object.keys(sums).forEach(function(m){
+      var arr = sums[m];
+      var avg = arr.length ? arr.reduce(function(a,b){return a+b;},0) / arr.length : 0;
+      motions[m] = Math.round(avg);
+    });
+    return motions;
+  }
+
+  function qualitativeFor(motion, score) {
+    var name = MOTION_NAMES[motion];
+    if (score <= 33) {
+      return name + ' is currently a deal liability. Partners are noticing. This is where Workshop attention will move the needle fastest.';
+    } else if (score <= 66) {
+      return name + ' is functional but inconsistent. The variance between AEs is what’s costing you forecasted ARR.';
+    } else {
+      return name + ' is a strength. Protect it by codifying what your top AEs do differently.';
+    }
+  }
+
+  function renderResult() {
+    var scores = computeMotionScores();
+    var overall = Math.round((scores.T + scores.R + scores.A + scores.C + scores.E) / 5);
+
+    clearChildren(scorecardEl);
+    var order = ['T','R','A','C','E'];
+    order.forEach(function(m, i){
+      var row = document.createElement('div');
+      row.className = 'bar-row';
+      var label = document.createElement('div');
+      label.className = 'bar-label';
+      label.appendChild(document.createTextNode(MOTION_NAMES[m]));
+      var small = document.createElement('small');
+      small.textContent = MOTION_TAGS[m];
+      label.appendChild(small);
+      var track = document.createElement('div');
+      track.className = 'bar-track';
+      var fill = document.createElement('div');
+      fill.className = 'bar-fill';
+      fill.dataset.idx = i;
+      track.appendChild(fill);
+      var score = document.createElement('div');
+      score.className = 'bar-score';
+      score.textContent = scores[m];
+      row.appendChild(label);
+      row.appendChild(track);
+      row.appendChild(score);
+      scorecardEl.appendChild(row);
+    });
+
+    setTimeout(function(){
+      var fills = scorecardEl.querySelectorAll('.bar-fill');
+      fills.forEach(function(f, i){
+        var m = order[i];
+        var w = scores[m];
+        if (prefersReducedMotion()) {
+          f.style.width = w + '%';
+        } else {
+          setTimeout(function(){ f.style.width = w + '%'; }, i * 80);
+        }
+      });
+    }, 100);
+
+    var sortedMotions = order.slice().sort(function(a,b){ return scores[a] - scores[b]; });
+    var lowA = sortedMotions[0];
+    var lowB = sortedMotions[1];
+
+    clearChildren(qualHeadline);
+    qualHeadline.appendChild(document.createTextNode('Your two highest-leverage gaps are '));
+    var emA = document.createElement('em');
+    emA.textContent = MOTION_NAMES[lowA];
+    qualHeadline.appendChild(emA);
+    qualHeadline.appendChild(document.createTextNode(' and '));
+    var emB = document.createElement('em');
+    emB.textContent = MOTION_NAMES[lowB];
+    qualHeadline.appendChild(emB);
+    qualHeadline.appendChild(document.createTextNode('.'));
+
+    qualA.textContent = qualitativeFor(lowA, scores[lowA]);
+    qualB.textContent = qualitativeFor(lowB, scores[lowB]);
+
+    document.getElementById('hf-t').value = scores.T;
+    document.getElementById('hf-r').value = scores.R;
+    document.getElementById('hf-a').value = scores.A;
+    document.getElementById('hf-c').value = scores.C;
+    document.getElementById('hf-e').value = scores.E;
+    document.getElementById('hf-overall').value = overall;
+    document.getElementById('hf-lowest').value = lowA + ',' + lowB;
+    document.getElementById('hf-raw').value = state.answers.join(',');
+  }
+
+  function finish() {
+    persist();
+    show('result');
+    renderResult();
+  }
+
+  if (window.location.search.indexOf('submitted=1') !== -1) {
+    show('result');
+    renderResult();
+    formEl.hidden = true;
+    thanksEl.hidden = false;
+    setTimeout(function(){
+      thanksEl.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'center' });
+    }, 200);
+  }
+})();
+</script>
+</body>
+</html>
